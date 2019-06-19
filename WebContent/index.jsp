@@ -92,11 +92,11 @@
           <div class="header_info">
             <div class="header_widgets">
               <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
-              <p class="uppercase_text">For Support Mail us : </p>
+              <p class="uppercase_text">邮件：</p>
               <a href="mailto:info@example.com">info@example.com</a> </div>
             <div class="header_widgets">
               <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
-              <p class="uppercase_text">Service Helpline Call Us: </p>
+              <p class="uppercase_text">联系电话： </p>
               <a href="">+61-1234-5678-9</a> </div>
             <div class="social-follow">
               <ul>
@@ -107,7 +107,7 @@
                 <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
               </ul>
             </div>
-            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login / Register</a> </div>
+            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">登录 / 注册</a> </div>
           </div>
         </div>
       </div>
@@ -123,12 +123,12 @@
       <div class="header_wrap">
         <div class="user_login">
           <ul>
-            <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> Jhon Anderson <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> 未登录 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="profile-settings.jsp">Profile Settings</a></li>
-                <li><a href="my-vehicles.jsp">My Vehicles</a></li>
-                <li><a href="post-vehicle.jsp">Post a Vehicle</a></li>
-                <li><a href="#">Sign Out</a></li>
+                <li><a href="profile-settings.jsp">个人信息</a></li>
+                <li><a href="my-vehicles.jsp">我的车辆</a></li>
+                <li><a href="post-vehicle.jsp">我要卖车</a></li>
+                <li><a href="#">切换账号</a></li>
               </ul>
             </li>
           </ul>
@@ -136,21 +136,18 @@
         <div class="header_search">
           <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
           <form action="#" method="get" id="header-search-form">
-            <input type="text" placeholder="Search..." class="form-control">
+            <input type="text" placeholder="搜索..." class="form-control">
             <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
           </form>
         </div>
       </div>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
-          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
-          	 <ul class="dropdown-menu">
-              <li><a href="index.jsp">Home Page 1</a></li>
-              <li><a href="index-2.jsp">Home Page 2</a></li>
-            </ul>
+          <li>
+          	<a href="index.jsp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">主页</a>
           </li>
-          <li><a href="about-us.jsp">About Us</a></li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inventory</a>
+          <li><a href="about-us.jsp">关于我们</a></li>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">库存</a>
             <ul class="dropdown-menu">
               <li><a href="listing-grid.jsp">Grid Style</a></li>
               <li><a href="listing-classic.jsp">Classic Style</a></li>
@@ -158,13 +155,13 @@
               <li><a href="listing-detail-2.jsp">Detail Page Style 2</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dealers</a>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">经销商</a>
             <ul class="dropdown-menu">
               <li><a href="dealers-list.jsp">List View</a></li>
               <li><a href="dealers-profile.jsp">Detail Page</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">网页</a>
             <ul class="dropdown-menu">
               <li><a href="services.jsp">Services</a></li>
               <li><a href="contact-us.jsp">Contact Us</a></li>
@@ -174,7 +171,7 @@
               <li><a href="coming-soon.jsp">Coming Soon</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博客</a>
             <ul class="dropdown-menu">
               <li><a href="blog-left-sidebar.jsp">Blog Left Sidebar</a></li>
               <li><a href="blog-right-sidebar.jsp">Blog Right Sidebar</a></li>
@@ -210,13 +207,13 @@
 <!-- Filter-Form -->
 <section id="filter_form" class="gray-bg">
   <div class="container">
-    <h3>Find Your Dream Car <span>(Easy search from here)</span></h3>
+    <h3>寻找你的梦之车 <span>(从这里轻松搜索)</span></h3>
     <div class="row">
       <form action="#" method="get">
         <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
             <select class="form-control">
-              <option value="">Select Location </option>
+              <option value="">选择您的位置 </option>
               <option value="">Location 1 </option>
               <option value="">Location 1 </option>
             </select>
@@ -225,7 +222,7 @@
         <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
             <select class="form-control">
-              <option>Select Brand</option>
+              <option>选择品牌</option>
               <option>Audi</option>
               <option>BMW</option>
               <option>Nissan</option>
@@ -236,7 +233,7 @@
         <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
             <select class="form-control">
-              <option>Select Model</option>
+              <option>选择车型</option>
               <option>Series 1</option>
               <option>Series 2</option>
               <option>Series 3</option>
@@ -254,20 +251,20 @@
           </div>
         </div>
         <div class="form-group col-md-6 col-sm-6 black_input">
-          <label class="form-label">Price Range ($)</label>
+          <label class="form-label">价格区间 ($)</label>
           <input id="price_range" type="text" class="span2" value="" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]"/>
         </div>
         <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
             <select class="form-control">
-              <option>Type of Car </option>
-              <option>New Car</option>
-              <option>Used Car</option>
+              <option>汽车类型</option>
+              <option>新车</option>
+              <option>二手车</option>
             </select>
           </div>
         </div>
         <div class="form-group col-md-3 col-sm-6">
-          <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> Search Car </button>
+          <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> 搜索车辆 </button>
         </div>
       </form>
     </div>
@@ -923,33 +920,33 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-6">
-          <h6>Top Categores</h6>
+          <h6>热门分类</h6>
           <ul>
             <li><a href="#">Crossovers</a></li>
             <li><a href="#">Hybrids</a></li>
-            <li><a href="#">Hybrid Cars</a></li>
-            <li><a href="#">Hybrid SUVs</a></li>
-            <li><a href="#">Concept Vehicles</a></li>
+            <li><a href="#">混合动力汽车</a></li>
+            <li><a href="#">混合动力SUV</a></li>
+            <li><a href="#">概念车辆</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6">
-          <h6>About Us</h6>
+          <h6>关于我们</h6>
           <ul>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Hybrid Cars</a></li>
+            <li><a href="#">隐私</a></li>
+            <li><a href="#">混合动力汽车</a></li>
             <li><a href="#">Cookies</a></li>
-            <li><a href="#">Trademarks</a></li>
-            <li><a href="#">Terms of use</a></li>
+            <li><a href="#">商标</a></li>
+            <li><a href="#">使用条款</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6">
-          <h6>Useful Links</h6>
+          <h6>链接</h6>
           <ul>
-            <li><a href="#">Our Partners</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Sitemap</a></li>
-            <li><a href="#">Investors</a></li>
-            <li><a href="#">Request a Quote</a></li>
+            <li><a href="#">合作伙伴</a></li>
+            <li><a href="#">招标</a></li>
+            <li><a href="#">网站地图</a></li>
+            <li><a href="#">投资者</a></li>
+            <li><a href="#">请求报价</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6">
