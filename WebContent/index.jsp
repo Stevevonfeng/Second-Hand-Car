@@ -1,3 +1,4 @@
+<%@page import="com.sun.org.glassfish.gmbal.IncludeSubclass"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -81,110 +82,7 @@
 <!-- /Switcher -->  
         
 <!--Header-->
-<header>
-  <div class="default-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-3 col-md-2">
-          <div class="logo"> <a href="index.jsp"><img src="assets/images/logo.png" alt="image"/></a> </div>
-        </div>
-        <div class="col-sm-9 col-md-10">
-          <div class="header_info">
-            <div class="header_widgets">
-              <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
-              <p class="uppercase_text">邮件：</p>
-              <a href="mailto:info@example.com">info@example.com</a> </div>
-            <div class="header_widgets">
-              <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
-              <p class="uppercase_text">联系电话： </p>
-              <a href="">+61-1234-5678-9</a> </div>
-            <div class="social-follow">
-              <ul>
-                <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-              </ul>
-            </div>
-            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">登录 / 注册</a> </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Navigation -->
-  <nav id="navigation_bar" class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      </div>
-      <div class="header_wrap">
-        <div class="user_login">
-          <ul>
-            <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> 未登录 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-              <ul class="dropdown-menu">
-                <li><a href="profile-settings.jsp">个人信息</a></li>
-                <li><a href="my-vehicles.jsp">我的车辆</a></li>
-                <li><a href="post-vehicle.jsp">我要卖车</a></li>
-                <li><a href="#">切换账号</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div class="header_search">
-          <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
-          <form action="#" method="get" id="header-search-form">
-            <input type="text" placeholder="搜索..." class="form-control">
-            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </form>
-        </div>
-      </div>
-      <div class="collapse navbar-collapse" id="navigation">
-        <ul class="nav navbar-nav">
-          <li>
-          	<a href="index.jsp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">主页</a>
-          </li>
-          <li><a href="about-us.jsp">关于我们</a></li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">库存</a>
-            <ul class="dropdown-menu">
-              <li><a href="listing-grid.jsp">Grid Style</a></li>
-              <li><a href="listing-classic.jsp">Classic Style</a></li>
-              <li><a href="listing-detail.jsp">Detail Page Style 1</a></li>
-              <li><a href="listing-detail-2.jsp">Detail Page Style 2</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">经销商</a>
-            <ul class="dropdown-menu">
-              <li><a href="dealers-list.jsp">List View</a></li>
-              <li><a href="dealers-profile.jsp">Detail Page</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">网页</a>
-            <ul class="dropdown-menu">
-              <li><a href="services.jsp">Services</a></li>
-              <li><a href="contact-us.jsp">Contact Us</a></li>
-              <li><a href="compare.jsp">Compare Vehicles</a></li>
-              <li><a href="faq.jsp">FAQ</a></li>
-              <li><a href="404.jsp">404 Error</a></li>
-              <li><a href="coming-soon.jsp">Coming Soon</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博客</a>
-            <ul class="dropdown-menu">
-              <li><a href="blog-left-sidebar.jsp">Blog Left Sidebar</a></li>
-              <li><a href="blog-right-sidebar.jsp">Blog Right Sidebar</a></li>
-              <li><a href="blog-detail.jsp">Blog Detail</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- Navigation end --> 
-  
-</header>
+<%@ include file="head.jsp" %>
 <!-- /Header --> 
 
 <!-- Banners -->
@@ -896,103 +794,11 @@
 <!-- /Blog--> 
 
 <!--Brands-->
-<section class="brand-section gray-bg">
-  <div class="container">
-    <div class="brand-hadding">
-      <h5>Popular Brands</h5>
-    </div>
-    <div class="brand-logo-list">
-      <div id="popular_brands">
-        <div><a href="#"><img src="assets/images/brand-logo-1.png" class="img-responsive" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/brand-logo-2.png" class="img-responsive" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/brand-logo-3.png" class="img-responsive" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/brand-logo-4.png" class="img-responsive" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/brand-logo-5.png" class="img-responsive" alt="image"></a></div>
-      </div>
-    </div>
-  </div>
-</section>
+<%@ include file="popularbrands.jsp" %>
 <!-- /Brands--> 
 
 <!--Footer -->
-<footer>
-  <div class="footer-top">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <h6>热门分类</h6>
-          <ul>
-            <li><a href="#">Crossovers</a></li>
-            <li><a href="#">Hybrids</a></li>
-            <li><a href="#">混合动力汽车</a></li>
-            <li><a href="#">混合动力SUV</a></li>
-            <li><a href="#">概念车辆</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <h6>关于我们</h6>
-          <ul>
-            <li><a href="#">隐私</a></li>
-            <li><a href="#">混合动力汽车</a></li>
-            <li><a href="#">Cookies</a></li>
-            <li><a href="#">商标</a></li>
-            <li><a href="#">使用条款</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <h6>链接</h6>
-          <ul>
-            <li><a href="#">合作伙伴</a></li>
-            <li><a href="#">招标</a></li>
-            <li><a href="#">网站地图</a></li>
-            <li><a href="#">投资者</a></li>
-            <li><a href="#">请求报价</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <h6>Subscribe Newsletter</h6>
-          <div class="newsletter-form">
-            <form action="#">
-              <div class="form-group">
-                <input type="email" class="form-control newsletter-input" required placeholder="Enter Email Address" />
-              </div>
-              <button type="submit" class="btn btn-block">Subscribe <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
-            </form>
-            <p class="subscribed-text">*We send great deals and latest auto news to our subscribed users very week.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-push-6 text-right">
-          <div class="footer_widget">
-            <p>Download Our APP:</p>
-            <ul>
-              <li><a href="#"><i class="fa fa-android" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-          <div class="footer_widget">
-            <p>Connect with Us:</p>
-            <ul>
-              <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6 col-md-pull-6">
-          <p class="copy-right" style="font-family:'Microsoft Yahei';">&copy; 2018 XX公司&nbsp;&nbsp;ICP备XXXXXXXX号&nbsp;&nbsp;技术支持：<a href="http://www.jsdaima.com/" title="js代码" target="_blank">js代码</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+<%@ include file="foot.jsp" %>
 <!-- /Footer--> 
 
 <!--Back to top-->
