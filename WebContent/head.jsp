@@ -113,9 +113,7 @@
       </div>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
-          <li>
-          	<a href="index.jsp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">主页</a>
-          </li>
+          <li><a href="index.jsp">主页</a></li>
           <li><a href="about-us.jsp">关于我们</a></li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">库存</a>
             <ul class="dropdown-menu">

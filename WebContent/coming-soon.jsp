@@ -79,24 +79,9 @@
 </div>
 <!-- /Switcher -->  
 
-  <!--Header-->
-  <header class="navbar-fixed-top">
-    <div class="default-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-3 col-md-2">
-            <div class="logo"> <a href="index.jsp"><img src="assets/images/logo.png" alt="image"/></a> </div>
-          </div>
-          <div class="col-sm-9 col-md-10">
-            <div class="send_msg">
-              <button type="button" class="btn" data-toggle="modal" data-target="#contact_form_popup"> Send Message <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!--/Header-->
+<!--Header-->
+<%@ include file="head.jsp" %>
+<!-- /Header --> 
   
   <section class="coming_soon_content">
     <div class="container">
