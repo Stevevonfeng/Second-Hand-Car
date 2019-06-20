@@ -137,7 +137,7 @@
             <div class="form-group">
               <label class="control-label">Select Make</label>
               <div class="select">
-                <select class="form-control white_bg">
+                <select class="form-control white_bg" id="brand">
                   <option>Select Brand</option>
                   <option>Audi</option>
                   <option>BMW</option>
@@ -149,7 +149,7 @@
             <div class="form-group">
               <label class="control-label">Model</label>
               <div class="select">
-                <select class="form-control white_bg">
+                <select class="form-control white_bg" id="model">
                   <option>Select Model</option>
                   <option>Model 2</option>
                   <option>Model 3</option>
@@ -160,7 +160,7 @@
             <div class="form-group">
               <label class="control-label">Vehicles Version</label>
               <div class="select">
-                <select class="form-control white_bg">
+                <select class="form-control white_bg" id="version">
                   <option>Version</option>
                   <option>Version 1.1</option>
                   <option>Version 1.2</option>
@@ -169,7 +169,7 @@
             </div>
             <div class="form-group">
               <label class="control-label">Vehicle Overview  Description</label>
-              <textarea class="form-control white_bg" rows="4"></textarea>
+              <textarea class="form-control white_bg" rows="4" id="vod"></textarea>
             </div>
             <div class="form-group">
               <label class="control-label">Price ($)</label>
