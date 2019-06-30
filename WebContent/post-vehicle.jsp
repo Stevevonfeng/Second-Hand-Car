@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title></title>
@@ -129,60 +129,62 @@
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
           <h5 class="uppercase underline">Post a New Vehicle</h5>
-          <form action="#" method="get">
+          
+          
+          
+          <form action="PostCarServlet" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label class="control-label">Vehicles Title</label>
-              <input class="form-control white_bg" id="VehiclesTitle" type="text">
+              <input class="form-control white_bg" name="vehiclestitle" id="VehiclesTitle" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">Select Make</label>
               <div class="select">
-                <select class="form-control white_bg" id="brand">
-                  <option>Select Brand</option>
-                  <option>Audi</option>
-                  <option>BMW</option>
-                  <option>Nissan</option>
-                  <option>Toyota</option>
+                <select class="form-control white_bg" name="brand" id="brand">
+                  <option value="Select Brand">Select Brand</option>
+                  <option value="Audi">Audi</option>
+                  <option value="BMW">BMW</option>
+                  <option value="Nissan">Nissan</option>
+                  <option value="Toyota">Toyota</option>
                 </select>
               </div>
             </div>
             <div class="form-group">
               <label class="control-label">Model</label>
               <div class="select">
-                <select class="form-control white_bg" id="model">
-                  <option>Select Model</option>
-                  <option>Model 2</option>
-                  <option>Model 3</option>
-                  <option>Model 4</option>
+                <select class="form-control white_bg" name="model" id="model">
+                  <option value="Select Model">Select Model</option>
+                  <option value="Model 2">Model 2</option>
+                  <option value="Model 3">Model 3</option>
+                  <option value="Model 4">Model 4</option>
                 </select>
               </div>
             </div>
             <div class="form-group">
               <label class="control-label">Vehicles Version</label>
               <div class="select">
-                <select class="form-control white_bg" id="version">
-                  <option>Version</option>
-                  <option>Version 1.1</option>
-                  <option>Version 1.2</option>
+                <select class="form-control white_bg" name="version" id="version">
+                  <option value="">Version</option>
+                  <option value="Version 1.1">Version 1.1</option>
+                  <option value="Version 1.2">Version 1.2</option>
                 </select>
               </div>
             </div>
             <div class="form-group">
               <label class="control-label">Vehicle Overview  Description</label>
-              <textarea class="form-control white_bg" rows="4" id="vod"></textarea>
+              <textarea class="form-control white_bg" rows="4" name="vod" id="vod"></textarea>
             </div>
             <div class="form-group">
               <label class="control-label">Price ($)</label>
-              <input class="form-control white_bg" id="Price" type="text">
+              <input class="form-control white_bg" name="price" id="Price" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">Upload Images  ( size = 900 x 560 )</label>
               <div class="vehicle_images">
-                <div><img src="assets/images/featured-img-1.jpg" alt="image"></div>
-                <div><img src="assets/images/featured-img-2.jpg" alt="image"></div>
-                <div class="upload_more_img">
+              
+                <!-- <div class="upload_more_img"> -->
                   <input name="upload" type="file">
-                </div>
+                <!-- </div> -->
               </div>
             </div>
             <div class="gray-bg field-title">
@@ -190,123 +192,123 @@
             </div>
             <div class="form-group">
               <label class="control-label">Model Year</label>
-              <input class="form-control white_bg" id="year" type="text">
+              <input class="form-control white_bg" name="year" id="year" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">No. of Owners</label>
-              <input class="form-control white_bg" id="owners" type="text">
+              <input class="form-control white_bg" id="owners" name="owners" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">KMs Driven</label>
-              <input class="form-control white_bg" id="kws" type="text">
+              <input class="form-control white_bg" id="kws" name="kms" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">Fuel Type</label>
-              <input class="form-control white_bg" id="fuel" type="text">
+              <input class="form-control white_bg" id="fuel" name="fuel" type="text">
             </div>
             <div class="gray-bg field-title">
               <h6>Technical Specification</h6>
             </div>
             <div class="form-group">
               <label class="control-label">Engine Type</label>
-              <input class="form-control white_bg" id="engien" type="text">
+              <input class="form-control white_bg" id="engien" name="engien" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">Engine Description</label>
-              <input class="form-control white_bg" id="engien-description" type="text">
+              <input class="form-control white_bg" id="engien-description" name="engiendescription" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">No. of Cylinders</label>
-              <input class="form-control white_bg" id="cylinders" type="text">
+              <input class="form-control white_bg" id="cylinders" name="cylinders" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">Mileage-City</label>
-              <input class="form-control white_bg" id="mileage" type="text">
+              <input class="form-control white_bg" id="mileage" name="mileage" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">Mileage-Highway</label>
-              <input class="form-control white_bg" id="mileage-h" type="text">
+              <input class="form-control white_bg" id="mileage-h" name="mileage_h" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">Fuel Tank Capacity</label>
-              <input class="form-control white_bg" id="capacity" type="text">
+              <input class="form-control white_bg" id="capacity" name="capacity" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">Seating Capacity</label>
-              <input class="form-control white_bg" id="s-capacity" type="text">
+              <input class="form-control white_bg" id="s-capacity" name="s_capacity" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">Transmission Type</label>
-              <input class="form-control white_bg" id="Transmission" type="text">
+              <input class="form-control white_bg" id="Transmission" name="transmission" type="text">
             </div>
             <div class="gray-bg field-title">
               <h6>Accessories</h6>
             </div>
             <div class="vehicle_accessories">
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="air_conditioner" type="checkbox">
+                <input id="air_conditioner" name="accessories" value="air_conditioner" type="checkbox">
                 <label for="air_conditioner">Air Conditioner</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="door" type="checkbox">
+                <input id="door" name="accessories" value="door" type="checkbox">
                 <label for="door">Power Door Locks</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="antiLock" type="checkbox">
+                <input id="antiLock" name="accessories" value="antilock" type="checkbox">
                 <label for="antiLock">AntiLock Braking System</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="brake" type="checkbox">
+                <input id="brake" name="accessories" value="brake" type="checkbox">
                 <label for="brake">Brake Assist</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="steering" type="checkbox">
+                <input id="steering" name="accessories" value="steering" type="checkbox">
                 <label for="steering">Power Steering</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="airbag" type="checkbox">
+                <input id="airbag" name="accessories" value="airbag" type="checkbox">
                 <label for="airbag">Driver Airbag</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="windows" type="checkbox">
+                <input id="windows" name="accessories" value="windows" type="checkbox">
                 <label for="windows">Power Windows</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="passenger_airbag" type="checkbox">
+                <input id="passenger_airbag" name="accessories" value="passenger_airbag" type="checkbox">
                 <label for="passenger_airbag">Passenger Airbag</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="player" type="checkbox">
+                <input id="player" name="accessories" value="player" type="checkbox">
                 <label for="player">CD Player</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="sensor" type="checkbox">
+                <input id="sensor" name="accessories" value="sensor" type="checkbox">
                 <label for="sensor">Crash Sensor</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="seats" type="checkbox">
+                <input id="seats" name="accessories" value="seats" type="checkbox">
                 <label for="seats">Leather Seats</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="engine_warning" type="checkbox">
+                <input id="engine_warning" name="accessories" value="engine_warning" type="checkbox">
                 <label for="engine_warning">Engine Check Warning</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="locking" type="checkbox">
+                <input id="locking" name="accessories" value="locking" type="checkbox">
                 <label for="locking">Central Locking</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
-                <input id="headlamps" type="checkbox">
+                <input id="headlamps" name="accessories" value="headlamps" type="checkbox">
                 <label for="headlamps">Automatic Headlamps</label>
               </div>
             </div>
             <div class="vehicle_type">
               <div class="form-group radio col-md-6 accessories_list">
-                <input type="radio" name="vehicle_type" value="radio" id="newcar">
+                <input type="radio" name="vehicle_type" value="newcar" id="newcar">
                 <label for="newcar">New Car</label>
               </div>
               <div class="form-group radio col-md-6 accessories_list">
-                <input type="radio" name="vehicle_type" value="radio" id="usedcar">
+                <input type="radio" name="vehicle_type" value="usedcar" id="usedcar">
                 <label for="usedcar">Used Car</label>
               </div>
             </div>
