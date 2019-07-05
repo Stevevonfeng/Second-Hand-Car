@@ -11,7 +11,7 @@ public class CarModel {
 	String upload;
 	String userid;
 	public CarModel(long vid, String vehiclestitle, String brand, String model, String version, String vod,
-			String price, String upload) {
+			String price, String upload, String userid) {
 		super();
 		this.vid = vid;
 		this.vehiclestitle = vehiclestitle;
@@ -23,7 +23,7 @@ public class CarModel {
 		this.upload = upload;
 		this.userid = userid;
 	}
-	
+
 	public CarModel() {
 		super();
 	}

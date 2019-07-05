@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import com.model.CarAccessories;
 import com.model.CarEngin;
 import com.model.CarInfo;
@@ -10,4 +12,5 @@ public interface ICarService {
 	void addCarInfo(CarInfo ci);
 	void addCarEngin(CarEngin ce);
 	void addCarAccessories(CarAccessories ca);
+	List<CarModel> findCarById(String userid);
 }

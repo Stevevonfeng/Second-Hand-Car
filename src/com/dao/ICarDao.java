@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import com.model.CarAccessories;
 import com.model.CarEngin;
 import com.model.CarInfo;
@@ -10,4 +12,5 @@ public interface ICarDao {
 	void insertCarAccessories(CarAccessories ca);
 	void insertCarModel(CarModel cm);
 	void insertCarInfo(CarInfo ci);
+	List<CarModel> searchById(String userid);
 }

@@ -22,7 +22,7 @@ import com.model.CarModel;
 
 public class Util {
 	
-	public CarModel reqToCarModel(List<FileItem> list,Long vid) throws UnsupportedEncodingException{
+	public CarModel reqToCarModel(List<FileItem> list,Long vid,String id) throws UnsupportedEncodingException{
 		String vehiclestitle =null;
 		String brand = null;
 		String model = null;
@@ -83,7 +83,7 @@ public class Util {
 			e.printStackTrace();
 		}
 		
-		CarModel cm = new CarModel(vid, vehiclestitle, brand, model, version, vod, price, upload);
+		CarModel cm = new CarModel(vid, vehiclestitle, brand, model, version, vod, price, upload,id);
 		
 		return cm;
 	}

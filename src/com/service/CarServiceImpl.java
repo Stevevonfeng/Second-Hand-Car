@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import com.dao.CarDaoImpl;
 import com.dao.ICarDao;
 import com.model.CarAccessories;
@@ -33,5 +35,13 @@ public class CarServiceImpl implements ICarService{
 		ICarDao icd = new CarDaoImpl();
 		icd.insertCarAccessories(ca);
 	}
+
+	@Override
+	public List<CarModel> findCarById(String userid) {
+		ICarDao ic = new CarDaoImpl();
+		List<CarModel> cars = ic.searchById(userid);
+		return cars;
+	}
+
 	
 }

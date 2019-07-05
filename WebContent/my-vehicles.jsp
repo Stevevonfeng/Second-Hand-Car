@@ -7,6 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title></title>
+<script src="assets/js/jquery.min.js"></script>
 <meta name="keywords" content="" />
 <meta name="description" content="" /> 
 <meta name="author" content="js代码(www.jsdaima.com)" />
@@ -105,18 +106,7 @@
 <!--my-vehicles-->
 <section class="user_profile inner_pages">
   <div class="container">
-    <div class="user_profile_info gray-bg padding_4x4_40">
-      <div class="upload_user_logo"> <img src="assets/images/dealer-logo.jpg" alt="image">
-        <div class="upload_newlogo">
-          <input name="upload" type="file">
-        </div>
-      </div>
-      <div class="dealer_info">
-        <h5>Autospot Used Cars Center </h5>
-        <p>P.1225 N Broadway Ave <br>
-          Oklahoma City, OK  1234-5678-090</p>
-      </div>
-    </div>
+    
     <div class="row">
       <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
@@ -130,10 +120,13 @@
       </div>
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
-          <h5 class="uppercase underline">My Vehicles <span>(20 Cars)</span></h5>
+          <h5 class="uppercase underline">My Vehicles <span id="carnum"></span></h5>
+          
+          
+          
           <div class="my_vehicles_list">
-            <ul class="vehicle_listing">
-              <li>
+            <ul class="vehicle_listing" id="cars">
+              <!-- <li>
                 <div class="vehicle_img"> <a href="#"><img src="assets/images/recent-car-1.jpg" alt="image"></a> </div>
                 <div class="vehicle_title">
                   <h6><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h6>
@@ -141,60 +134,15 @@
                 <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
                   <div class="clearfix"></div>
                   <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li class="deactive_vehicle">
-                <div class="vehicle_img"> <a href="#"><img src="assets/images/recent-car-2.jpg" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs">Deactive</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="assets/images/recent-car-3.jpg" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Ford Mustang 2.3 Ecoboost Premium </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="assets/images/recent-car-4.jpg" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="assets/images/recent-car-5.jpg" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
-              <li>
-                <div class="vehicle_img"> <a href="#"><img src="assets/images/recent-car-3.jpg" alt="image"></a> </div>
-                <div class="vehicle_title">
-                  <h6><a href="#">Ford Mustang 2.3 Ecoboost Premium </a></h6>
-                </div>
-                <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Active</a>
-                  <div class="clearfix"></div>
-                  <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-              </li>
+              </li> -->
+              
             </ul>
+            
+            
+            
             <div class="pagination">
-              <ul>
-                <li class="current">1</li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
+              <ul id="pageno">
+
               </ul>
             </div>
           </div>
@@ -220,5 +168,37 @@
 <%@ include file="loginAndRegister.jsp" %>
 
 </body>
+<script>
+$(function(){                
+	$.ajax({
+		type:"get",
+		url:"MyCarServlet",
+		dataType:"json",
+		success:function(rs){
+			var carsnum = rs.length;
+			/* var pagecoun = 0;
+			if(carsnum%3==0){
+				pagecoun = carsnum/3;
+			}else{
+				pagecoun = carsnum/3+1;
+			} */
+			$("#carnum").html("("+carsnum+" Cars)"); 
+			$.each(rs, function(index,item) {
+				/* if(index<3){ */
+					$("#cars").append("<li><div class='vehicle_img'> <a href='#'><img src='dbimgs/"+item.upload+"' alt='image'></a> </div>"+
+			                  "<div class='vehicle_title'><h6><a href='#'>"+item.brand+" "+item.model+" "+item.version+", "+item.vod+", "+item.price+", "+item.vehiclestitle+" </a></h6></div>"+
+			                "<div class='vehicle_status'> <a href='#' class='btn outline btn-xs active-btn'>Active</a><div class='clearfix'></div>"+
+			                "<a href='#'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>"+
+			                "<a href='#'><i class='fa fa-trash' aria-hidden='true'></i></a>"+
+			                 "</div></li>");
+				/* } */
+			});
+			/* for(var i=1;i<=pagecoun;i++){
+				$("#pageno").append("<li><a href='#'>"+i+"</a></li>");
+			} */
+		}
+	});	
+})
+	</script>
 </html>
 

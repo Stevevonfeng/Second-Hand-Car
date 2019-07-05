@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.model.CarAccessories;
 import com.model.CarEngin;
@@ -28,7 +31,7 @@ public class CarDaoImpl implements ICarDao{
 	@Override
 	public void insertCarModel(CarModel cm) {
 		try {
-			String sql = "insert into car_model(vid,vehiclestitle,brand,model,version,vod,price,upload) values(?,?,?,?,?,?,?,?)";
+			String sql = "insert into car_model(vid,vehiclestitle,brand,model,version,vod,price,upload,userid) values(?,?,?,?,?,?,?,?,?)";
 			PreparedStatement p = c.prepareStatement(sql);
 			p.setLong(1, cm.getVid());
 			p.setString(2, cm.getVehiclestitle());
@@ -38,6 +41,7 @@ public class CarDaoImpl implements ICarDao{
 			p.setString(6, cm.getVod());
 			p.setString(7, cm.getPrice());
 			p.setString(8, cm.getUpload());
+			p.setString(9, cm.getUserid());
 			p.execute();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -114,6 +118,33 @@ public class CarDaoImpl implements ICarDao{
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public List<CarModel> searchById(String userid) {
+		List<CarModel> cars = new ArrayList<CarModel>();
+		try {
+			String sql = "select * from car_model where userid=?";
+			PreparedStatement p = c.prepareStatement(sql);
+			p.setString(1, userid);
+			ResultSet rs = p.executeQuery();
+			while(rs.next()) {
+				long vid = rs.getLong(1);
+				String vehiclestitle = rs.getString(2);
+				String brand = rs.getString(3);
+				String model = rs.getString(4);
+				String version = rs.getString(5);
+				String vod = rs.getString(6);
+				String price = rs.getString(7);
+				String upload = rs.getString(8);
+				CarModel car = new CarModel(vid, vehiclestitle, brand, model, version, vod, price, upload, userid);
+				cars.add(car );
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cars;
 	}
 
 	
