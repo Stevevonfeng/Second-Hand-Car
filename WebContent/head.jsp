@@ -98,7 +98,7 @@
                 <li><a href="profile-settings.jsp">个人信息</a></li>
                 <li><a href="my-vehicles.jsp">我的车辆</a></li>
                 <li><a href="post-vehicle.jsp">我要卖车</a></li>
-                <li><a href="#">切换账号</a></li>
+                <li><a href="#loginform" data-toggle="modal" data-dismiss="modal">切换账号</a></li>
               </ul>
             </li>
           </ul>
