@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -123,11 +124,8 @@
               <li><a href="listing-detail-2.jsp">Detail Page Style 2</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">经销商</a>
-            <ul class="dropdown-menu">
-              <li><a href="dealers-list.jsp">List View</a></li>
-              <li><a href="dealers-profile.jsp">Detail Page</a></li>
-            </ul>
+          <li>
+          <a href="dealers?act=displaydealers">经销商</a>
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">网页</a>
             <ul class="dropdown-menu">
