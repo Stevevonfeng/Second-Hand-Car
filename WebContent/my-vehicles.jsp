@@ -188,8 +188,8 @@ $(function(){
 					$("#cars").append("<li><div class='vehicle_img'> <a href='#'><img src='dbimgs/"+item.upload+"' alt='image'></a> </div>"+
 			                  "<div class='vehicle_title'><h6><a href='#'>"+item.brand+" "+item.model+" "+item.version+", "+item.vod+", "+item.price+", "+item.vehiclestitle+" </a></h6></div>"+
 			                "<div class='vehicle_status'> <a href='#' class='btn outline btn-xs active-btn'>Active</a><div class='clearfix'></div>"+
-			                "<a href='#'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>"+
-			                "<a href='#'><i class='fa fa-trash' aria-hidden='true'></i></a>"+
+			                "<a href='update-car.jsp?vid="+item.vid+"&filename="+item.upload+"'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>"+
+			                "<a href='DeleteServlet?vid="+item.vid+"&filename="+item.upload+"'><i class='fa fa-trash' aria-hidden='true'></i></a>"+
 			                 "</div></li>");
 				/* } */
 			});

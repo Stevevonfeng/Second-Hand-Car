@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -9,9 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.model.CarAccessories;
-import com.model.CarEngin;
-import com.model.CarInfo;
 import com.model.CarModel;
 
 public class CarDaoImpl implements ICarDao{
@@ -28,123 +27,182 @@ public class CarDaoImpl implements ICarDao{
 			e.printStackTrace();
 		}
 	}
+	
 	@Override
-	public void insertCarModel(CarModel cm) {
+	public <E> ArrayList<E> searchObject(Class cls,long vid) {
+		String sqlTable = cls.getSimpleName();
+		String sql = "select * from "+sqlTable+" where vid="+vid;
+		Field[] fields = cls.getDeclaredFields();
+		PreparedStatement p = null;
+		ResultSet rs = null;
+		ArrayList<E> arr = new ArrayList<E>();
 		try {
-			String sql = "insert into car_model(vid,vehiclestitle,brand,model,version,vod,price,upload,userid) values(?,?,?,?,?,?,?,?,?)";
-			PreparedStatement p = c.prepareStatement(sql);
-			p.setLong(1, cm.getVid());
-			p.setString(2, cm.getVehiclestitle());
-			p.setString(3, cm.getBrand());
-			p.setString(4, cm.getModel());
-			p.setString(5, cm.getVersion());
-			p.setString(6, cm.getVod());
-			p.setString(7, cm.getPrice());
-			p.setString(8, cm.getUpload());
-			p.setString(9, cm.getUserid());
-			p.execute();
-		} catch (Exception e) {
+			p = c.prepareStatement(sql);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			rs = p.executeQuery();
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	public void insertCarInfo(CarInfo ci) {
 		try {
-			String sql = "insert into car_info(vid,year,owners,kms,fuel) values(?,?,?,?,?)";
-			PreparedStatement p = c.prepareStatement(sql);
-			p.setLong(1, ci.getVid());
-			p.setDate(2, new Date(ci.getYear().getTime()));
-			p.setString(3, ci.getOwners());
-			p.setString(4, ci.getKms());
-			p.setString(5, ci.getFuel());
-			p.execute();
-		} catch (Exception e) {
+			while(rs.next()) {
+				Object obj = null;
+				try {
+					obj = cls.newInstance();
+				} catch (InstantiationException | IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				for(int i=1;i<=fields.length;i++) {
+					fields[i-1].setAccessible(true);
+					try {
+						if(fields[i-1].getType().equals(int.class)) {
+							fields[i-1].set(obj, rs.getInt(i));
+						}else if(fields[i-1].getType().equals(long.class)){
+							fields[i-1].set(obj,rs.getLong(i));
+						}else {
+							fields[i-1].set(obj, rs.getObject(i));
+						}
+						
+					} catch (IllegalArgumentException | IllegalAccessException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				arr.add((E) obj);
+			}
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return arr;
 	}
-
-	@Override
-	public void insertCarEngin(CarEngin ce) {
-		try {
-			String sql = "insert into car_engin(vid,engien,engiendescription,cylinders,mileage,mileage_h,"
-					+ "capacity,s_capacity,transmission) values(?,?,?,?,?,?,?,?,?)";
-			PreparedStatement p = c.prepareStatement(sql);
-			p.setLong(1, ce.getVid());
-			p.setString(2,ce.getEngien());
-			p.setString(3,ce.getEngiendescription());
-			p.setInt(4, ce.getCylinders());
-			p.setInt(5, ce.getMileage());
-			p.setInt(6, ce.getMileage_h());
-			p.setInt(7, ce.getCapacity());
-			p.setInt(8, ce.getS_capacity());
-			p.setString(9, ce.getTransmission());
-			p.execute();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public void insertCarAccessories(CarAccessories ca) {
-		try {
-			String sql = "insert into car_accessories(vid,air_conditioner,door,antilock,brake,"
-					+ "steering,airbag,windows,passenger_airbag,player,sensor,seats,engine_warning,"
-					+ "locking,headlamps,newcar,usedcar) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			PreparedStatement p = c.prepareStatement(sql);
-			p.setLong(1, ca.getVid());
-			p.setString(2, ca.getAir_conditioner());
-			p.setString(3, ca.getDoor());
-			p.setString(4, ca.getAntilock());
-			p.setString(5, ca.getBrake());
-			p.setString(6,ca.getSteering());
-			p.setString(7,ca.getAirbag());
-			p.setString(8, ca.getWindows());
-			p.setString(9, ca.getPassenger_airbag());
-			p.setString(10, ca.getPlayer());
-			p.setString(11, ca.getSensor());
-			p.setString(12, ca.getSeats());
-			p.setString(13, ca.getEngine_warning());
-			p.setString(14, ca.getLocking());
-			p.setString(15, ca.getHeadlamps());
-			p.setString(16, ca.getNewcar());
-			p.setString(17, ca.getUsedcar());
-			p.execute();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
+	
 
 	@Override
 	public List<CarModel> searchById(String userid) {
 		List<CarModel> cars = new ArrayList<CarModel>();
 		try {
-			String sql = "select * from car_model where userid=?";
+			String sql = "select * from car2 where userid=?";
 			PreparedStatement p = c.prepareStatement(sql);
 			p.setString(1, userid);
 			ResultSet rs = p.executeQuery();
 			while(rs.next()) {
-				long vid = rs.getLong(1);
-				String vehiclestitle = rs.getString(2);
-				String brand = rs.getString(3);
-				String model = rs.getString(4);
-				String version = rs.getString(5);
-				String vod = rs.getString(6);
-				String price = rs.getString(7);
-				String upload = rs.getString(8);
+				long vid = rs.getLong("vid");
+				String vehiclestitle = rs.getString("vehiclestitle");
+				String brand = rs.getString("brand");
+				String model = rs.getString("model");
+				String version = rs.getString("version");
+				String vod = rs.getString("vod");
+				String price = rs.getString("price");
+				String upload = rs.getString("upload");
 				CarModel car = new CarModel(vid, vehiclestitle, brand, model, version, vod, price, upload, userid);
-				cars.add(car );
+				cars.add(car);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return cars;
+	}
+
+
+	@Override
+	public void inseartObject(Object obj) {
+		Class cls = obj.getClass();
+		String tableName = cls.getSimpleName();
+		String tableFields = "";
+		String size = "";
+		Field[] fields = cls.getDeclaredFields();
+		for(Field field :fields) {
+			tableFields = tableFields+field.getName()+",";
+			size = size+"?,";
+		}
+		tableFields = tableFields.substring(0, tableFields.length()-1);
+		size = size.substring(0, size.length()-1);
+		String sql = "insert into "+tableName+"("+tableFields+") values("+size+")";
+		System.out.println(sql);
+		PreparedStatement p = null;
+		try {
+			p = c.prepareStatement(sql);
+			Class pre = PreparedStatement.class;
+			for(int i=1;i<=fields.length;i++) {
+				fields[i-1].setAccessible(true);
+				if(fields[i-1].getType().equals(java.util.Date.class)) {
+					java.util.Date date = (java.util.Date) fields[i-1].get(obj);
+					Date sqlDate = new Date(date.getTime());
+					Method setLong = pre.getDeclaredMethod("setObject", new Class[] {int.class,Object.class});
+					setLong.invoke(p, new Object[] {i,sqlDate});
+				}else {
+					System.out.println(fields[i-1].get(obj));
+					Method setObject = pre.getDeclaredMethod("setObject", new Class[] {int.class,Object.class});
+					setObject.invoke(p, new Object[] {i,fields[i-1].get(obj)});	
+				}
+				
+			}
+			p.execute();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+	@Override
+	public void updateObject(Object obj,long vid) {
+		Class cls = obj.getClass();
+		Field[] fields = cls.getDeclaredFields();
+		String tableName = cls.getSimpleName(); 
+		String fieldEqu = "";
+		String condition = "where vid="+vid;
+		for(Field field:fields) {
+			field.setAccessible(true);
+			String fieldName = field.getName();
+			fieldEqu = fieldEqu+fieldName+"=?,";
+		}
+		fieldEqu = fieldEqu.substring(0, fieldEqu.length()-1);
+		String sql = "update "+tableName+" set "+fieldEqu+" "+condition;
+		//System.out.println(sql);
+		try {
+			PreparedStatement p = c.prepareStatement(sql);
+			Class pre = PreparedStatement.class;
+			for(int i=1;i<=fields.length;i++) {
+				fields[i-1].setAccessible(true);
+				if(fields[i-1].getType().equals(java.util.Date.class)) {
+					java.util.Date date = (java.util.Date) fields[i-1].get(obj);
+					Date sqlDate = new Date(date.getTime());
+					Method setLong = pre.getDeclaredMethod("setObject", new Class[] {int.class,Object.class});
+					setLong.invoke(p, new Object[] {i,sqlDate});
+				}else {
+					System.out.println(fields[i-1].get(obj));
+					Method setObject = pre.getDeclaredMethod("setObject", new Class[] {int.class,Object.class});
+					setObject.setAccessible(true);
+					setObject.invoke(p, new Object[] {i,fields[i-1].get(obj)});	
+				}
+				
+			}
+			p.execute();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}		
+	}
+
+
+	@Override
+	public void dalete(long vid) {
+		String sql = "delete from car2 where vid=?";
+		try {
+			PreparedStatement p = c.prepareStatement(sql);
+			p.setObject(1, vid);
+			p.execute();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	
