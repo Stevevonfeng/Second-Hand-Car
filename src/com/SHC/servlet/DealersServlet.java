@@ -60,7 +60,7 @@ public class DealersServlet extends BaseServlet {
 			}
 			
 			//计算总记录数
-			sql="select count(*) from emp";
+			sql="select count(*) from dealers";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			int count=0;

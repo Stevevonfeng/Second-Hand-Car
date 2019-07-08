@@ -153,7 +153,7 @@
 			<!-- 以下为经销商展示   -->
 
 			<c:forEach items="${dealers}" var="dealer">
-			
+
 				<div class="dealers_list_wrap">
 					<div class="dealers_listing">
 						<div class="row">
@@ -169,7 +169,8 @@
 										<a href="#">${dealer.name } </a>
 									</h5>
 									<p>
-										${dealer.adress }<br> ${dealer.city }, tel: ${dealer.telephone }
+										${dealer.adress }<br> ${dealer.city }, tel:
+										${dealer.telephone }
 									</p>
 								</div>
 							</div>
@@ -182,21 +183,32 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</c:forEach>
 
 
 
 			<!-- 以下为页码   -->
-			<div class="pagination">
-				<ul>
-					<li class="current">1</li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-				</ul>
-			</div>
+
+			<c:if test="${cp!=null }">
+				<div class="pagination">
+					<ul>
+						<li <c:if test="${cp==1}"> class="disabled" </c:if>>
+						<a href="dealers?act=displaydealers&cp=${cp-1<=0? 1:cp-1}">&laquo;</a></li>
+						
+						<c:forEach begin="1" end="${totalPage}" var="item">
+							<li <c:if test="${item==cp }"> class="current" </c:if>><a
+								href="dealers?act=displaydealers&cp=${item}">${item}</a></li>
+						</c:forEach>
+						
+						<li <c:if test="${cp==totalPage}"> class="disabled" </c:if>>
+							<a href="dealers?act=displaydealers&cp=${cp+1>totalPage? totalPage:cp+1}">&raquo;</a>
+						</li>
+					</ul>
+				</div>
+			</c:if>
+
+
 		</div>
 	</section>
 	<!--/Dealers-list-->
