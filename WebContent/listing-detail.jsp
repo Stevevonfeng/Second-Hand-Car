@@ -480,7 +480,7 @@
 							</div>
 						</div>
 
-						<!--Comment-Form-->
+						<!--Comment-Form  评论-->
 							<%@ include file="comment.jsp" %>
 						<!--/Comment-Form-->
 
