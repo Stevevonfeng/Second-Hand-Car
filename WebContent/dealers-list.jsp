@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -129,6 +130,7 @@
 	<!--Dealers-list-->
 	<section class="inner_pages">
 		<div class="container">
+
 			<div class="result-sorting-wrapper">
 				<div class="sorting-count">
 					<p>
@@ -147,34 +149,45 @@
 					</form>
 				</div>
 			</div>
-			<div class="dealers_list_wrap">
-				<div class="dealers_listing">
-					<div class="row">
-						<div class="col-sm-3 col-xs-4">
-							<div class="dealer_logo">
-								<a href="#"><img src="assets/images/dealer-logo.jpg"
-									alt="image"></a>
+
+			<!-- 以下为经销商展示   -->
+
+			<c:forEach items="${dealers}" var="dealer">
+			
+				<div class="dealers_list_wrap">
+					<div class="dealers_listing">
+						<div class="row">
+							<div class="col-sm-3 col-xs-4">
+								<div class="dealer_logo">
+									<a href="#"><img src="assets/images/dealer-logo.jpg"
+										alt="image"></a>
+								</div>
 							</div>
-						</div>
-						<div class="col-sm-6 col-xs-8">
-							<div class="dealer_info">
-								<h5>
-									<a href="#">Autospot Used Cars Center </a>
-								</h5>
-								<p>
-									P.1225 N Broadway Ave<br> Oklahoma City, OK 1234-5678-090
-								</p>
+							<div class="col-sm-6 col-xs-8">
+								<div class="dealer_info">
+									<h5>
+										<a href="#">${dealer.name } </a>
+									</h5>
+									<p>
+										${dealer.adress }<br> ${dealer.city }, tel: ${dealer.telephone }
+									</p>
+								</div>
 							</div>
-						</div>
-						<div class="col-sm-3 col-xs-12">
-							<div class="view_profile">
-								<a href="#" class="btn btn-xs outline">查看资料</a>
-								<p>(25 Cars)</p>
+							<div class="col-sm-3 col-xs-12">
+								<div class="view_profile">
+									<a href="#" class="btn btn-xs outline">查看资料</a>
+									<p>(${dealer.carsnum })</p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+				
+			</c:forEach>
+
+
+
+			<!-- 以下为页码   -->
 			<div class="pagination">
 				<ul>
 					<li class="current">1</li>
