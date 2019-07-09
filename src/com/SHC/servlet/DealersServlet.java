@@ -1,6 +1,5 @@
 package com.SHC.servlet;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -44,18 +43,20 @@ public class DealersServlet extends BaseServlet {
 			while(rs.next()){
 				int id = rs.getInt(1);
 				String name = rs.getString(2);
-				String adress = rs.getString(3);
+				String address = rs.getString(3);
 				String city = rs.getString(4);
 				String telephone = rs.getString(5);
 				int carsnum = rs.getInt(6);
+				String url = "id="+id+"&name="+name+"&address="+address+"&city="+city+"&telephone="+telephone+"&carsnum="+carsnum;
 				
 				Dealers dealer = new Dealers();
 				dealer.setId(id);
 				dealer.setName(name);
-				dealer.setAdress(adress);
+				dealer.setAddress(address);
 				dealer.setCity(city);
 				dealer.setTelephone(telephone);
 				dealer.setCarsnum(carsnum);
+				dealer.setUrl(url);
 				dealers.add(dealer);
 			}
 			
@@ -82,6 +83,42 @@ public class DealersServlet extends BaseServlet {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void dealersprofile(HttpServletRequest request, HttpServletResponse response){
+		try {
+			/*String name = request.getParameter("name");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/orcl", "scott", "admin");
+			String sql = "select * from dealers where name =" +"'name'"+"";
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			ResultSet rs = psmt.executeQuery();
+			Dealers dealer = new Dealers();
+			
+			if(rs.next()){
+				int id = rs.getInt(1);
+				name = rs.getString(2);
+				String address = rs.getString(3);
+				String city = rs.getString(4);
+				String telephone = rs.getString(5);
+				int carsnum = rs.getInt(6);
+				
+				
+				dealer.setId(id);
+				dealer.setName(name);
+				dealer.setAddress(address);
+				dealer.setCity(city);
+				dealer.setTelephone(telephone);
+				dealer.setCarsnum(carsnum);
+			}
+			request.setAttribute("dealer", dealer);*/
+			request.getRequestDispatcher("dealers-profile.jsp").forward(request, response);
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
