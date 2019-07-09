@@ -51,6 +51,7 @@ public class PostCarServlet extends HttpServlet {
 		String userid = "0001";
 		ICarService ics = new CarServiceImpl();
 		
+		
 		DiskFileItemFactory fa = new DiskFileItemFactory();
 		ServletFileUpload up = new ServletFileUpload(fa);
 		up.setHeaderEncoding("UTF-8");

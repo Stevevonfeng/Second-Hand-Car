@@ -134,6 +134,9 @@ public class CarDaoImpl implements ICarDao{
 				fields[i-1].setAccessible(true);
 				if(fields[i-1].getType().equals(java.util.Date.class)) {
 					java.util.Date date = (java.util.Date) fields[i-1].get(obj);
+					if(date==null) {
+						continue;
+					}
 					Date sqlDate = new Date(date.getTime());
 					Method setLong = pre.getDeclaredMethod("setObject", new Class[] {int.class,Object.class});
 					setLong.invoke(p, new Object[] {i,sqlDate});

@@ -150,7 +150,7 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 					Field uploadF = cls.getDeclaredField("upload");
 					uploadF.setAccessible(true);
 					uploadF.set(obj,upload);
-					File file = new File("C:\\Users\\Administrator\\git\\SecondHandCar\\WebContent\\dbimgs\\"+upload);
+					File file = new File("C:\\dbimgs\\"+upload);
 					if(!file.exists()) {
 						file.createNewFile();
 					}
@@ -164,7 +164,7 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 					}
 					
 					if(!isInseart) {
-						File oldFile = new File("C:\\Users\\Administrator\\git\\SecondHandCar\\WebContent\\dbimgs\\"+filename);
+						File oldFile = new File("C:\\dbimgs\\"+filename);
 						System.out.println(oldFile.getAbsoluteFile());
 						oldFile.delete();
 					}
@@ -214,7 +214,7 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 	}
 	
 	public static void deleteImg(String path) {
-		File oldFile = new File("C:\\Users\\Administrator\\git\\SecondHandCar\\WebContent\\dbimgs\\"+path);
+		File oldFile = new File("C:\\dbimgs\\"+path);
 		oldFile.delete();
 	}
 }
