@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="com.model.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 	
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -120,56 +121,62 @@
       <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
           <ul>
-            <li class="active"><a href="profile-settings.jsp">Profile Settings</a></li>
+          <%Users user = (Users)request.getSession().getAttribute("user");%>
+          <li class="active"><a href="User?act=ToUpdate&username=${user.getUsername()}">资料设置</a></li>
             <li><a href="my-vehicles.jsp">My Vehicles</a></li>
             <li><a href="post-vehicle.jsp">Post a Vehicles</a></li>
-            <li><a href="#">Sign Out</a></li>
+          	<li><a href="User?act=SignOut&username=${user.getUsername()}">退出登录</a></li>
           </ul>
         </div>
       </div>
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
-          <h5 class="uppercase underline">Genral Settings</h5>
+          <h5 class="uppercase underline">基础资料</h5>
           <form action="#" method="get">
             <div class="form-group">
-              <label class="control-label">Full Name</label>
+              <label class="control-label">用户名</label>
               <input class="form-control white_bg" id="fullname" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">Email Address</label>
+              <label class="control-label">邮箱地址</label>
               <input class="form-control white_bg" id="email" type="email">
             </div>
             <div class="form-group">
-              <label class="control-label">Phone Number</label>
+              <label class="control-label">手机号码</label>
               <input class="form-control white_bg" id="phone-number" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">Date of Birth</label>
+              <label class="control-label">出生日期</label>
               <input class="form-control white_bg" id="birth-date" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">Your Address</label>
+              <label class="control-label">居住地址</label>
               <textarea class="form-control white_bg" rows="4"></textarea>
             </div>
             <div class="form-group">
-              <label class="control-label">Country</label>
+              <label class="control-label">国家</label>
               <input class="form-control white_bg" id="country" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">City</label>
+              <label class="control-label">省份</label>
               <input class="form-control white_bg" id="city" type="text">
             </div>
             <div class="gray-bg field-title">
-              <h6>Update password</h6>
+              <h6>密码更新</h6>
             </div>
             <div class="form-group">
-              <label class="control-label">Password</label>
-              <input class="form-control white_bg" id="password" type="password">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Confirm Password</label>
-              <input class="form-control white_bg" id="c-password" type="password">
-            </div>
+				<label class="control-label">旧密码</label> <input
+					class="form-control white_bg" name="userpassword"
+					type="password">
+			</div>
+			<div class="form-group">
+				<label class="control-label">新密码</label> <input
+					class="form-control white_bg" name="n-password" type="password">
+			</div>
+			<div class="form-group">
+				<label class="control-label">重复密码</label> <input
+					class="form-control white_bg" name="c-password" type="password">
+			</div>
             <div class="gray-bg field-title">
               <h6>Social Links</h6>
             </div>

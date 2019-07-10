@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -8,6 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title></title>
+<script type="text/javascript" src="js/jquery-2.2.3.min.js" ></script>
 <meta name="keywords" content="" />
 <meta name="description" content="" /> 
 <meta name="author" content="js代码(www.jsdaima.com)" />
@@ -78,7 +78,7 @@
                 <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
               </ul>
             </div>
-            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">登录 / 注册</a> </div>
+            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">登录 /注册</a> </div>
           </div>
         </div>
       </div>
@@ -94,7 +94,8 @@
       <div class="header_wrap">
         <div class="user_login">
           <ul>
-            <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> 未登录 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+          
+            <li class="dropdown" > <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i><span id="IsLogin">未登录</span><i class="fa fa-angle-down" aria-hidden="true"></i></a>
               <ul class="dropdown-menu">
                 <li><a href="profile-settings.jsp">个人信息</a></li>
                 <li><a href="my-vehicles.jsp">我的车辆</a></li>
@@ -116,11 +117,19 @@
         <ul class="nav navbar-nav">
           <li><a href="index.jsp">主页</a></li>
           <li><a href="about-us.jsp">关于我们</a></li>
-           <li ><a href="list?act=ListShow">库存</a>
-           		
-           </li>
-          <li>
-          <a href="dealers?act=displaydealers">经销商</a>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">库存</a>
+            <ul class="dropdown-menu">
+              <li><a href="listing-grid.jsp">Grid Style</a></li>
+              <li><a href="listing-classic.jsp">Classic Style</a></li>
+              <li><a href="listing-detail.jsp">Detail Page Style 1</a></li>
+              <li><a href="listing-detail-2.jsp">Detail Page Style 2</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">经销商</a>
+            <ul class="dropdown-menu">
+              <li><a href="dealers-list.jsp">List View</a></li>
+              <li><a href="dealers-profile.jsp">Detail Page</a></li>
+            </ul>
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">网页</a>
             <ul class="dropdown-menu">
@@ -147,4 +156,19 @@
   
 </header>
 </body>
+<script type="text/javascript">
+	$(function(){
+		$.ajax({
+			type:"get",
+			url:"LoginStatus",
+			dataType:"text",
+			success:function(rs){ 
+				if(rs=="true"){
+					
+					$("#IsLogin").html("已登录");
+				}
+			}
+		});
+	})
+</script>
 </html>

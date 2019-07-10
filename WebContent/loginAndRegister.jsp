@@ -63,12 +63,14 @@
         <div class="row">
           <div class="login_wrap">
             <div class="col-md-6 col-sm-6">
-              <form action="#" method="get">
+              <form action="User" method="get">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username or Email address*">
+                   <input type="hidden" name="act" value="searchuser" />
+                  <input type="text" class="form-control" placeholder="Username or Email address*" name="loginname">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password*">
+                  <input type="hidden" name="act" value="searchuser" />
+                  <input type="password" class="form-control" placeholder="Password*" name="loginpassword">
                 </div>
                 <div class="form-group checkbox">
                   <input type="checkbox" id="remember">
@@ -107,25 +109,30 @@
         <div class="row">
           <div class="signup_wrap">
             <div class="col-md-6 col-sm-6">
-              <form action="#" method="get">
+              <form action="User" method="get">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Full Name">
+                  <input type="hidden" name="act" value="adduser" />
+                  <input type="text" class="form-control" placeholder="Full Name" name="username">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email Address">
+                  <input type="hidden" name="act" value="adduser" />
+                  <input type="email" class="form-control" placeholder="Email Address" name="email">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password">
+                   <input type="hidden" name="act" value="adduser" />
+                  <input type="password" class="form-control" placeholder="Password" name="userpassword">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password">
+                   <input type="hidden" name="act" value="adduser" />
+                  <input type="password" class="form-control" placeholder="Confirm Password" name="repassword">
+                  
                 </div>
                 <div class="form-group checkbox">
                   <input type="checkbox" id="terms_agree">
                   <label for="terms_agree">I Agree with <a href="#">Terms and Conditions</a></label>
                 </div>
                 <div class="form-group">
-                  <input type="submit" value="Sign Up" class="btn btn-block">
+                  <input type="submit" value="Sign Up" class="btn btn-block" >
                 </div>
               </form>
             </div>
@@ -157,14 +164,20 @@
         <div class="row">
           <div class="forgotpassword_wrap">
             <div class="col-md-12">
-              <form action="#" method="get">
+            
+              <form action="User" method="get">
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Your Email address*">
+                 <input type="hidden" name="act" value="PasswordRecover" />
+                  <input type="email" class="form-control" name="useremail" placeholder="Your Email address">
+                  
+                   <input type="hidden" name="act" value="PasswordRecover" />
+                   <input type="text" class="form-control" name="npassword" placeholder="Your New password">
                 </div>
                 <div class="form-group">
                   <input type="submit" value="Reset My Password" class="btn btn-block">
                 </div>
               </form>
+              
               <div class="text-center">
                 <p class="gray_text">For security reasons we don't store your password. Your password will be reset and a new one will be send.</p>
                 <p><a href="#loginform" data-toggle="modal" data-dismiss="modal"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Login</a></p>
@@ -176,8 +189,6 @@
     </div>
   </div>
 </div>
-<!--/Forgot-password-Form --> 
-
 <!-- Scripts --> 
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script> 
