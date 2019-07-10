@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title></title>
+<title>汽车商城主页</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" /> 
 <meta name="author" content="js代码(www.jsdaima.com)" />
@@ -109,26 +109,26 @@
 <section class="about-us-section section-padding">
   <div class="container">
     <div class="section-header text-center">
-      <h2>Welcome <span>to CarDealer</span></h2>
-      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+      <h2>欢迎来到 <span>汽车商城</span></h2>
+      <p>我们专业从事城市运力规划、服务运营、汽车贸易、平行进口汽车销售、汽车金融、网约车运营、新能源汽车、商用物流汽车、商用汽车租赁、新能源汽车充电站建设运营的全汽车产业链、城市运力运营商。全新商业模式加互联网平台运用、汽车、金融、商用汽车、新能源平台整合。致力于服务政府交通运输平台、零售客户、专业机构、为其提供优质的服务及整合方案、提升客户效能、效率、及运营收益实现共赢。我们的使命是：专业、高效、资源整合、创造新动能！ </p>
     </div>
     <div class="row">
       <div class="col-lg-6 col-sm-6">
         <div class="looking-car">
           <div class="looking-cat-image"> <img src="assets/images/looking-used-car.png" alt="Image" /> </div>
           <div class="looking-car-content">
-            <h3>Looking <span>Used Car?</span></h3>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
-            <a href="" class="btn">View Listing<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+            <h3>寻找 <span>二手车?</span></h3>
+            <p>从海量好车中精选最优质车源，在线上线下集中展示售卖，打造线上线下一体的二手车交易闭环,为用户打造“闭着眼买好车”的二手车新零售体验。</p>
+            <a href="" class="btn">查看列表<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
         </div>
       </div>
       <div class="col-lg-6 col-sm-6">
         <div class="looking-car">
           <div class="looking-cat-image"> <img src="assets/images/looking-new-car.png" alt="Image" /> </div>
           <div class="looking-car-content">
-            <h3>Looking <span>New Car?</span></h3>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
-            <a href="" class="btn">View Listing<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+            <h3>寻找 <span>新车?</span></h3>
+            <p>品牌4S店驻店，销售打折特卖车型，客户直接跟4S店进行价格交互。各地的服务中心，在线下为客户提供异地运输、分期付款、汽车保险、上牌等一站式服务。</p>
+            <a href="" class="btn">查看列表<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
         </div>
       </div>
     </div>
@@ -140,8 +140,8 @@
 <section class="section-padding gray-bg">
   <div class="container">
     <div class="section-header text-center">
-      <h2>Find the Best <span>Deals For You</span></h2>
-      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+      <h2><span>为您找到</span>最优惠的价格</h2>
+      <p>为您提供全国汽车降价信息,包括各种品牌、车型及各地的汽车报价排行榜、汽车4S店降价信息,是您买到您心动的汽车首选网站。</p>
     </div>
     <div class="row"> 
       
@@ -414,7 +414,7 @@
         <div class="fun-facts-m">
           <div class="cell">
             <h2><i class="fa fa-calendar" aria-hidden="true"></i>40+</h2>
-            <p>Years In Business</p>
+            <p>年的商业经验</p>
           </div>
         </div>
       </div>
@@ -422,7 +422,7 @@
         <div class="fun-facts-m">
           <div class="cell">
             <h2><i class="fa fa-car" aria-hidden="true"></i>1200+</h2>
-            <p>New Cars For Sale</p>
+            <p>新车供您选择</p>
           </div>
         </div>
       </div>
@@ -430,15 +430,15 @@
         <div class="fun-facts-m">
           <div class="cell">
             <h2><i class="fa fa-car" aria-hidden="true"></i>1000+</h2>
-            <p>Used Cars For Sale</p>
+            <p>二手车等你来拿</p>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-xs-6 col-sm-3">
         <div class="fun-facts-m">
           <div class="cell">
-            <h2><i class="fa fa-user-circle-o" aria-hidden="true"></i>600+</h2>
-            <p>Satisfied Customers</p>
+            <h2><i class="fa fa-user-circle-o" aria-hidden="true"></i>600K+</h2>
+            <p>满意客户</p>
           </div>
         </div>
       </div>
@@ -453,8 +453,8 @@
 <section class="section-padding">
   <div class="container">
     <div class="section-header text-center">
-      <h2>Featured  Cars <span>Special Offers</span></h2>
-      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
+      <h2>特色汽车 <span>特别优惠</span></h2>
+      <p>爱看不看，爱买不买；好（豪）车霸气，错过难开! </p>
     </div>
     <div class="row">
       <div class="col-list-3">
@@ -550,7 +550,7 @@
 <section class="section-padding gray-bg">
   <div class="container">
     <div class="section-header text-center">
-      <h2>Trending <span>Cars of the Year</span></h2>
+      <h2>趋势 <span>年度最佳汽车</span></h2>
       <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
     </div>
     <div class="row">
@@ -603,7 +603,7 @@
 <section class="section-padding testimonial-section parallex-bg">
   <div class="container div_zindex">
     <div class="section-header white-text text-center">
-      <h2>Our Satisfied <span>Customers</span></h2>
+      <h2>我们的满意<span>客户</span></h2>
       <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
     </div>
     <div class="row">
@@ -674,7 +674,7 @@
 <section class="section-padding">
   <div class="container">
     <div class="section-header text-center">
-      <h2>Latest Updates In<span> Automobile Industry</span></h2>
+      <h2><span>汽车行业</span>最新动态</h2>
       <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
     </div>
     <div class="row">

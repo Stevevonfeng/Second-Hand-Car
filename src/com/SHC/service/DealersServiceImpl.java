@@ -1,19 +1,41 @@
 package com.SHC.service;
 
+import java.util.List;
+
 import com.SHC.dao.DealersDaoImpl;
 import com.SHC.dao.IDealersDao;
+import com.SHC.model.CarBill;
 import com.SHC.model.Dealers;
 
 public class DealersServiceImpl implements IDealersService {
-	
-	private IDealersDao dealersDao = new DealersDaoImpl();
 
 	@Override
-	public void addDealers(Dealers dealers) {
-		
-		dealersDao.addDealers(dealers);
-		
+	public List<Dealers> displayDealers(int currentPage) {
+		IDealersDao idd = new DealersDaoImpl();
+		return idd.displayDealers(currentPage);
 	}
+
+	@Override
+	public int dealersNum() {
+		IDealersDao idd = new DealersDaoImpl();
+		return idd.dealersNum();
+	}
+
+	@Override
+	public Dealers dealersprofile(int id) {
+		IDealersDao idd = new DealersDaoImpl();
+		return idd.dealersprofile(id);
+	}
+
+	@Override
+	public CarBill carOffer(long vid) {
+		IDealersDao idd = new DealersDaoImpl();
+		return idd.carOffer(vid);
+	}
+
+
+
+
 	
 	
 

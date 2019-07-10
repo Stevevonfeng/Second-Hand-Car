@@ -1,5 +1,7 @@
 package com.SHC.model;
 
+import java.util.Date;
+
 public class CarBill {
 	
 	private String billnum;
@@ -7,6 +9,7 @@ public class CarBill {
 	private String brand;
 	private String model;
 	private String version;
+	private String year;
 	private String fuel;
 	private String carNO;//车的新旧
 	private String price;
@@ -57,6 +60,12 @@ public class CarBill {
 	}
 	public void setPrice(String price) {
 		this.price = price;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
 	}
 	
 	
