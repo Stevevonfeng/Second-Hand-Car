@@ -116,14 +116,9 @@
         <ul class="nav navbar-nav">
           <li><a href="index.jsp">主页</a></li>
           <li><a href="about-us.jsp">关于我们</a></li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">库存</a>
-            <ul class="dropdown-menu">
-              <li><a href="listing-grid.jsp">Grid Style</a></li>
-              <li><a href="listing-classic.jsp">Classic Style</a></li>
-              <li><a href="listing-detail.jsp">Detail Page Style 1</a></li>
-              <li><a href="listing-detail-2.jsp">Detail Page Style 2</a></li>
-            </ul>
-          </li>
+           <li ><a href="list?act=ListShow">库存</a>
+           		
+           </li>
           <li>
           <a href="dealers?act=displaydealers">经销商</a>
           </li>

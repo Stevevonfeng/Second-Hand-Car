@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -137,7 +138,7 @@
 				</div>
 				<div class="col-md-3">
 					<div class="price_info">
-						<p>$90,000</p>
+						<p>${car.price }</p>
 						<p class="old_price">$95,000</p>
 					</div>
 				</div>
@@ -250,566 +251,357 @@
 
 	<!--Listing-detail-->
 	<section class="listing-detail">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-9">
-					<div class="listing_images">
-						<div class="listing_images_slider">
-							<div>
-								<img src="assets/images/listing_img3.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img4.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img5.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img2.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img1.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img3.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img5.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img2.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img1.jpg" alt="image">
-							</div>
-						</div>
-						<div class="listing_images_slider_nav">
-							<div>
-								<img src="assets/images/listing_img3.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img4.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img5.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img2.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img1.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img3.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img5.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img2.jpg" alt="image">
-							</div>
-							<div>
-								<img src="assets/images/listing_img1.jpg" alt="image">
-							</div>
-						</div>
-					</div>
-					<div class="main_features">
-						<ul>
-							<li><i class="fa fa-tachometer" aria-hidden="true"></i>
-								<h5>13,000</h5>
-								<p>Total Kilometres</p></li>
-							<li><i class="fa fa-calendar" aria-hidden="true"></i>
-								<h5>2010</h5>
-								<p>Reg.Year</p></li>
-							<li><i class="fa fa-cogs" aria-hidden="true"></i>
-								<h5>Diesel</h5>
-								<p>Fuel Type</p></li>
-							<li><i class="fa fa-power-off" aria-hidden="true"></i>
-								<h5>Automatic</h5>
-								<p>Transmission</p></li>
-							<li><i class="fa fa-superpowers" aria-hidden="true"></i>
-								<h5>153KW</h5>
-								<p>Engine</p></li>
-							<li><i class="fa fa-user-plus" aria-hidden="true"></i>
-								<h5>5</h5>
-								<p>Seats</p></li>
-						</ul>
-					</div>
-					<div class="listing_more_info">
-						<div class="listing_detail_wrap">
-							<!-- Nav tabs -->
-							<ul class="nav nav-tabs gray-bg" role="tablist">
-								<li role="presentation" class="active"><a
-									href="#vehicle-overview " aria-controls="vehicle-overview"
-									role="tab" data-toggle="tab">Vehicle Overview </a></li>
-								<li role="presentation"><a href="#specification"
-									aria-controls="specification" role="tab" data-toggle="tab">Technical
-										Specification</a></li>
-								<li role="presentation"><a href="#accessories"
-									aria-controls="accessories" role="tab" data-toggle="tab">Accessories</a></li>
-							</ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="listing_images">
+          <div class="listing_images_slider">
+            <div><img src="assets/images/listing_img3.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img4.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img5.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img2.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img1.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img3.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img5.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img2.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img1.jpg" alt="image"></div>
+          </div>
+          <div class="listing_images_slider_nav">
+            <div><img src="assets/images/listing_img3.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img4.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img5.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img2.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img1.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img3.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img5.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img2.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img1.jpg" alt="image"></div>
+          </div>
+        </div>
 
-							<!-- Tab panes -->
-							<div class="tab-content">
-								<!-- vehicle-overview -->
-								<div role="tabpanel" class="tab-pane active"
-									id="vehicle-overview">
-									<h4>What is Lorem Ipsum?</h4>
-									<p>There are many variations of passages of Lorem Ipsum
-										available, but the majority have suffered alteration in some
-										form, by injected humour, or randomised words which don't look
-										even slightly believable. If you are going to use a passage of
-										Lorem Ipsum, you need to be sure there isn't anything
-										embarrassing hidden in the middle of text. All the Lorem Ipsum
-										generators on the Internet tend to repeat predefined chunks as
-										necessary, making this the first true generator on the
-										Internet. It uses a dictionary of over 200 Latin words,
-										combined with a handful of model sentence structures, to
-										generate Lorem Ipsum which looks reasonable.</p>
-									<p>Lorem Ipsum is simply dummy text of the printing and
-										typesetting industry. Lorem Ipsum has been the industry's
-										standard dummy text ever since the 1500s, when an unknown
-										printer took a galley of type and scrambled it to make a type
-										specimen book. It has survived not only five centuries, but
-										also the leap into electronic typesetting, remaining
-										essentially unchanged.</p>
-									<h4>What is Lorem Ipsum?</h4>
-									<p>There are many variations of passages of Lorem Ipsum
-										available, but the majority have suffered alteration in some
-										form, by injected humour, or randomised words which don't look
-										even slightly believable. If you are going to use a passage of
-										Lorem Ipsum, you need to be sure there isn't anything
-										embarrassing hidden in the middle of text. All the Lorem Ipsum
-										generators on the Internet tend to repeat predefined chunks as
-										necessary, making this the first true generator on the
-										Internet. It uses a dictionary of over 200 Latin words,
-										combined with a handful of model sentence structures, to
-										generate Lorem Ipsum which looks reasonable.</p>
-								</div>
 
-								<!-- Technical-Specification -->
-								<div role="tabpanel" class="tab-pane" id="specification">
-									<div class="table-responsive">
-										<!--Basic-Info-Table-->
-										<table>
-											<thead>
-												<tr>
-													<th colspan="2">BASIC INFO</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Model Year</td>
-													<td>2010</td>
-												</tr>
-												<tr>
-													<td>No. of Owners</td>
-													<td>4</td>
-												</tr>
-												<tr>
-													<td>KMs Driven</td>
-													<td>30,000</td>
-												</tr>
-												<tr>
-													<td>Fuel Type</td>
-													<td>Diesel</td>
-												</tr>
-											</tbody>
-										</table>
+		<!--大致信息部分-->
+        <div class="main_features">
+          <ul>
+            <li> <i class="fa fa-tachometer" aria-hidden="true"></i>
+              <h5>${car.kms }</h5>
+              <p>总公里数</p>
+            </li>
+            <li> <i class="fa fa-calendar" aria-hidden="true"></i>
+              <h5>2010</h5>
+              <p>登记日期</p>
+            </li>
+            <li> <i class="fa fa-cogs" aria-hidden="true"></i>
+              <h5>柴油机</h5>
+              <p>汽油种类</p>
+            </li>
+            <li> <i class="fa fa-power-off" aria-hidden="true"></i>
+              <h5>自动</h5>
+              <p>传输</p>
+            </li>
+            <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
+              <h5>153KW</h5>
+              <p>发动机功率</p>
+            </li>
+            <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+              <h5>5</h5>
+              <p>座位</p>
+            </li>
+          </ul>
+        </div>
 
-										<!--Technical-Specification-Table-->
-										<table>
-											<thead>
-												<tr>
-													<th colspan="2">Technical Specification</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Engine Type</td>
-													<td>TDCI Diesel Engine</td>
-												</tr>
-												<tr>
-													<td>Engine Description</td>
-													<td>1.5KW</td>
-												</tr>
-												<tr>
-													<td>No. of Cylinders</td>
-													<td>4</td>
-												</tr>
-												<tr>
-													<td>Mileage-City</td>
-													<td>22.4kmpl</td>
-												</tr>
-												<tr>
-													<td>Mileage-Highway</td>
-													<td>25.83kmpl</td>
-												</tr>
-												<tr>
-													<td>Fuel Tank Capacity</td>
-													<td>40 (Liters)</td>
-												</tr>
-												<tr>
-													<td>Seating Capacity</td>
-													<td>5</td>
-												</tr>
-												<tr>
-													<td>Transmission Type</td>
-													<td>Manual</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
 
-								<!-- Accessories -->
-								<div role="tabpanel" class="tab-pane" id="accessories">
-									<!--Accessories-->
-									<table>
-										<thead>
-											<tr>
-												<th colspan="2">Accessories</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Air Conditioner</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>AntiLock Braking System</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>Power Steering</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>Power Windows</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>CD Player</td>
-												<td><i class="fa fa-close" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>Leather Seats</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>Central Locking</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>Power Door Locks</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>Brake Assist</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>Driver Airbag</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>Passenger Airbag</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>Crash Sensor</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>Engine Check Warning</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-											<tr>
-												<td>Automatic Headlamps</td>
-												<td><i class="fa fa-check" aria-hidden="true"></i></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-
-						<!--Vehicle-Video-->
-						<div class="video_wrap">
-							<h6>Watch Video</h6>
-							<div class="video-box">
-								<iframe class="mfp-iframe"
-									src="https://www.youtube.com/embed/rqSoXtKMU3Q" allowfullscreen></iframe>
-							</div>
-						</div>
-
-						<!--Comment-Form-->
-						<div class="comment_form">
-							<h6>Leave a Comment</h6>
-							<form action="#">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Full Name">
-								</div>
-								<div class="form-group">
-									<input type="email" class="form-control"
-										placeholder="Email Address">
-								</div>
-								<div class="form-group">
-									<textarea rows="5" class="form-control" placeholder="Comments"></textarea>
-								</div>
-								<div class="form-group">
-									<input type="submit" class="btn" value="Submit Comment">
-								</div>
-							</form>
-						</div>
-						<!--/Comment-Form-->
-
-					</div>
-				</div>
-
-				<!--Side-Bar-->
-				<aside class="col-md-3">
-					<div class="sidebar_widget">
-						<div class="widget_heading">
-							<h5>
-								<i class="fa fa-calculator" aria-hidden="true"></i> Financing
-								Calculator
-							</h5>
-						</div>
-						<div class="financing_calculatoe">
-							<form action="#" method="get">
-								<div class="form-group">
-									<label class="form-label">Vehicle Price ($)</label> <input
-										class="form-control" type="text">
-								</div>
-								<div class="form-group">
-									<label class="form-label">Down Price ($)</label> <input
-										class="form-control" type="text">
-								</div>
-								<div class="form-group">
-									<label class="form-label">Interest Rate</label>
-									<div class="select">
-										<select class="form-control select">
-											<option>12%</option>
-											<option>13%</option>
-											<option>14%</option>
-											<option>15%</option>
-											<option>16%</option>
-											<option>17%</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="form-label">Period in Years</label>
-									<div class="select">
-										<select class="form-control">
-											<option>3 Year</option>
-											<option>4 Year</option>
-											<option>5 Year</option>
-											<option>6 Year</option>
-											<option>7 Year</option>
-											<option>8 Year</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<button type="submit" class="btn btn-block">Calcuate</button>
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class="sidebar_widget">
-						<div class="widget_heading">
-							<h5>
-								<i class="fa fa-address-card-o" aria-hidden="true"></i> Dealer
-								Contact
-							</h5>
-						</div>
-						<div class="dealer_detail">
-							<img src="assets/images/dealer_img.jpg" alt="image">
-							<p>
-								<span>Name:</span> Dealer Name
-							</p>
-							<p>
-								<span>Email:</span> contact@example.com
-							</p>
-							<p>
-								<span>Phone:</span> +61-1234-5678-09
-							</p>
-							<a href="#" class="btn btn-xs">View Profile</a>
-						</div>
-					</div>
-					<div class="sidebar_widget">
-						<div class="widget_heading">
-							<h5>
-								<i class="fa fa-envelope" aria-hidden="true"></i> Message to
-								Dealer
-							</h5>
-						</div>
-						<form action="#">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Name">
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Email">
-							</div>
-							<div class="form-group">
-								<textarea rows="4" class="form-control" placeholder="Message"></textarea>
-							</div>
-							<div class="form-group">
-								<input type="submit" value="Send Message" class="btn btn-block">
-							</div>
-						</form>
-					</div>
-				</aside>
-				<!--/Side-Bar-->
-
-			</div>
-			<div class="space-20"></div>
-			<div class="divider"></div>
-
-			<!--Similar-Cars-->
-			<div class="similar_cars">
-				<h3>Similar Cars</h3>
-				<div class="row">
-					<div class="col-md-3 grid_listing">
-						<div class="product-listing-m gray-bg">
-							<div class="product-listing-img">
-								<a href="#"><img src="assets/images/featured-img-3.jpg"
-									class="img-responsive" alt="image" /> </a>
-								<div class="label_icon">New</div>
-								<div class="compare_item">
-									<div class="checkbox">
-										<input type="checkbox" value="" id="compare13"> <label
-											for="compare13">Compare</label>
-									</div>
-								</div>
-							</div>
-							<div class="product-listing-content">
-								<h5>
-									<a href="#">Maserati QUATTROPORTE 1,6</a>
-								</h5>
-								<p class="list-price">$89,000</p>
-								<div class="car-location">
-									<span><i class="fa fa-map-marker" aria-hidden="true"></i>
-										Colorado, USA</span>
-								</div>
-								<ul class="features_list">
-									<li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-									<li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000
-										miles</li>
-									<li><i class="fa fa-calendar" aria-hidden="true"></i>2005
-										model</li>
-									<li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 grid_listing">
-						<div class="product-listing-m gray-bg">
-							<div class="product-listing-img">
-								<a href="#"><img src="assets/images/featured-img-1.jpg"
-									class="img-responsive" alt="image" /> </a>
-								<div class="label_icon">New</div>
-								<div class="compare_item">
-									<div class="checkbox">
-										<input type="checkbox" value="" id="compare20"> <label
-											for="compare20">Compare</label>
-									</div>
-								</div>
-							</div>
-							<div class="product-listing-content">
-								<h5>
-									<a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a>
-								</h5>
-								<p class="list-price">$89,000</p>
-								<div class="car-location">
-									<span><i class="fa fa-map-marker" aria-hidden="true"></i>
-										Colorado, USA</span>
-								</div>
-								<ul class="features_list">
-									<li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-									<li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000
-										miles</li>
-									<li><i class="fa fa-calendar" aria-hidden="true"></i>2005
-										model</li>
-									<li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 grid_listing">
-						<div class="product-listing-m gray-bg">
-							<div class="product-listing-img">
-								<a href="#"><img src="assets/images/featured-img-2.jpg"
-									class="img-responsive" alt="image" /> </a>
-								<div class="label_icon">Used</div>
-								<div class="compare_item">
-									<div class="checkbox">
-										<input type="checkbox" value="" id="compare15"> <label
-											for="compare15">Compare</label>
-									</div>
-								</div>
-							</div>
-							<div class="product-listing-content">
-								<h5>
-									<a href="#">Maserati QUATTROPORTE 1,6</a>
-								</h5>
-								<p class="list-price">$89,000</p>
-								<div class="car-location">
-									<span><i class="fa fa-map-marker" aria-hidden="true"></i>
-										Colorado, USA</span>
-								</div>
-								<ul class="features_list">
-									<li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-									<li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000
-										miles</li>
-									<li><i class="fa fa-calendar" aria-hidden="true"></i>2005
-										model</li>
-									<li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 grid_listing">
-						<div class="product-listing-m gray-bg">
-							<div class="product-listing-img">
-								<a href="#"><img src="assets/images/featured-img-1.jpg"
-									class="img-responsive" alt="image" /> </a>
-								<div class="label_icon">Used</div>
-								<div class="compare_item">
-									<div class="checkbox">
-										<input type="checkbox" value="" id="compare16"> <label
-											for="compare16">Compare</label>
-									</div>
-								</div>
-							</div>
-							<div class="product-listing-content">
-								<h5>
-									<a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a>
-								</h5>
-								<p class="list-price">$89,000</p>
-								<div class="car-location">
-									<span><i class="fa fa-map-marker" aria-hidden="true"></i>
-										Colorado, USA</span>
-								</div>
-								<ul class="features_list">
-									<li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-									<li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000
-										miles</li>
-									<li><i class="fa fa-calendar" aria-hidden="true"></i>2005
-										model</li>
-									<li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--/Similar-Cars-->
-
-		</div>
-	</section>
+		<!--具体信息部分-->
+        <div class="listing_more_info">
+          <div class="listing_detail_wrap"> 
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs gray-bg" role="tablist">
+              <li role="presentation" class="active"><a href="#vehicle-overview " aria-controls="vehicle-overview" role="tab" data-toggle="tab">车辆基本信息</a></li>
+              <li role="presentation"><a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">车辆总体规格</a></li>
+              <li role="presentation"><a href="#accessories" aria-controls="accessories" role="tab" data-toggle="tab">车辆内饰</a></li>
+            </ul>
+            
+            <!-- Tab panes -->
+            <div class="tab-content"> 
+              <!-- vehicle-overview -->
+              <div role="tabpanel" class="tab-pane active" id="vehicle-overview">
+                <h4>What is Lorem Ipsum?</h4>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                <h4>What is Lorem Ipsum?</h4>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
+              </div>
+              
+              <!-- Technical-Specification -->
+              <div role="tabpanel" class="tab-pane" id="specification">
+                <div class="table-responsive"> 
+                  <!--Basic-Info-Table-->
+                  <table>
+                    <thead>
+                      <tr>
+                        <th colspan="2">基本信息</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>登记时间</td>
+                        <td>${car.year }</td>
+                      </tr>
+                      <tr>
+                        <td>卖家姓名</td>
+                        <td>姓名</td>
+                      </tr>
+                      <tr>
+                        <td>行驶总里程(km)</td>
+                        <td>30,000</td>
+                      </tr>
+                      <tr>
+                        <td>汽油种类</td>
+                        <td>柴油机</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+                  <!--Technical-Specification-Table-->
+                  <table>
+                    <thead>
+                      <tr>
+                        <th colspan="2">技术规格</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>引擎类型</td>
+                        <td>TDCI 柴油发动机</td>
+                      </tr>
+                      <tr>
+                        <td>引擎说明</td>
+                        <td>1.5KW</td>
+                      </tr>
+                      <tr>
+                        <td>气缸数量</td>
+                        <td>4</td>
+                      </tr>
+                      <tr>
+                        <td>Mileage-City</td>
+                        <td>22.4kmpl</td>
+                      </tr>
+                      <tr>
+                        <td>Mileage-Highway</td>
+                        <td>25.83kmpl</td>
+                      </tr>
+                      <tr>
+                        <td>油箱容量（升）</td>
+                        <td>40 </td>
+                      </tr>
+                      <tr>
+                        <td>座位</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>传输类型</td>
+                        <td>手动</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+              <!-- Accessories -->
+              <div role="tabpanel" class="tab-pane" id="accessories"> 
+                <!--Accessories-->
+                <table>
+                  <thead>
+                    <tr>
+                      <th colspan="2">内饰</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>冷气机</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>防锁刹车系统</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>动力转向</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>电动窗</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>激光唱机</td>
+                      <td><i class="fa fa-close" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>皮革座椅</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>中央锁定</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>电动门锁</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>制动辅助</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>驾驶员安全气囊</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>乘客安全气囊</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>碰撞传感器</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>发动机检查警告</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                      <td>自动大灯</td>
+                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+          
+          
+        </div>
+      </div>
+      
+      <!--Side-Bar-->
+      <aside class="col-md-3">
+        <div class="sidebar_widget">
+          <div class="widget_heading">
+            <h5><i class="fa fa-calculator" aria-hidden="true"></i> Financing Calculator </h5>
+          </div>
+          <div class="financing_calculatoe">
+            <form action="#" method="get">
+              <div class="form-group">
+                <label class="form-label">车辆价格（￥/万元）</label>
+                <input class="form-control" type="text">
+              </div>
+              <div class="form-group">
+                <label class="form-label">降价（￥）</label>
+                <input class="form-control" type="text">
+              </div>
+              <div class="form-group">
+                <label class="form-label">利率</label>
+                <div class="select">
+                  <select class="form-control select">
+                    <option>12%</option>
+                    <option>13%</option>
+                    <option>14%</option>
+                    <option>15%</option>
+                    <option>16%</option>
+                    <option>17%</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">年数</label>
+                <div class="select">
+                  <select class="form-control">
+                    <option>3 </option>
+                    <option>4 </option>
+                    <option>5 </option>
+                    <option>6 </option>
+                    <option>7 </option>
+                    <option>8 </option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-block">计算</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="sidebar_widget">
+          <div class="widget_heading">
+            <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> 卖家信息 </h5>
+          </div>
+          <div class="dealer_detail"> <img src="assets/images/dealer_img.jpg" alt="image">
+            <p><span>姓名:</span> 卖家姓名</p>
+            <p><span>邮箱:</span> contact@example.com</p>
+            <p><span>电话:</span> +61-1234-5678-09</p>
+            <a href="#" class="btn btn-xs">查看详细资料</a> </div>
+        </div>
+        <div class="sidebar_widget">
+          <div class="widget_heading">
+            <h5><i class="fa fa-envelope" aria-hidden="true"></i> 给卖家留言</h5>
+          </div>
+          <form action="#">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="姓名">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="邮箱">
+            </div>
+            <div class="form-group">
+              <textarea rows="4" class="form-control" placeholder="留言文字"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="发送留言" class="btn btn-block">
+            </div>
+          </form>
+        </div>
+      </aside>
+      <!--/Side-Bar--> 
+      
+    </div>
+    <div class="space-20"></div>
+    <div class="divider"></div>
+    
+    <!--Similar-Cars-->
+    <div class="similar_cars">
+      <h3>类似汽车</h3>
+      <div class="row">
+        <div class="col-md-3 grid_listing">
+          <div class="product-listing-m gray-bg">
+            <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-3.jpg" class="img-responsive" alt="image" /> </a>
+              <div class="label_icon">新</div>
+              <div class="compare_item">
+                <div class="checkbox">
+                  <input type="checkbox" value="" id="compare13">
+                  <label for="compare13">相比</label>
+                </div>
+              </div>
+            </div>
+            <div class="product-listing-content">
+              <h5><a href="#">Maserati QUATTROPORTE 1,6</a></h5>
+              <p class="list-price">￥ 万元</p>
+              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> 本地/外地</span></div>
+              <ul class="features_list">
+                <li><i class="fa fa-road" aria-hidden="true"></i>35,000 公里</li>
+                <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 英里</li>
+                <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 年型号</li>
+                <li><i class="fa fa-car" aria-hidden="true"></i>柴油机</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/Similar-Cars--> 
+    
+  </div>
+</section>
 	<!--/Listing-detail-->
 
 	<!--Brands-->
