@@ -12,6 +12,7 @@ import java.util.List;
 
 import com.SHC.model.CarBill;
 import com.SHC.model.Dealers;
+import com.model.Car2;
 
 public class DealersDaoImpl implements IDealersDao{
 	static String url = "jdbc:oracle:thin:@localhost:1521:orcl";
@@ -161,6 +162,29 @@ public class DealersDaoImpl implements IDealersDao{
 			e.printStackTrace();
 		}
 		return carbill;
+	}
+
+
+	@Override
+	public Car2 searchCarType(String carType,int currentPage) {
+		int pz = 3;//每页显示数
+		int cp = currentPage;//当前页面
+		List<Dealers> dealers = null;
+
+			try {
+				String sql = "select * from (select t1.*,rownum num from "
+						+ "(select * from dealers order by id desc) t1 where rownum<="+pz*cp+") t2 "
+						+ "where t2.num>"+(cp-1)*pz+"";
+				
+				PreparedStatement psmt = conn.prepareStatement(sql);
+				
+				ResultSet rs = psmt.executeQuery();
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return null;
 	}
 
 

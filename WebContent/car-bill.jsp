@@ -45,7 +45,7 @@ Page Header
 						</div>
 						<div class="form-group">
 							<label class="control-label">车辆名称</label> 
-							<input class="form-control white_bg" id="vehiclestitle" type="email">
+							<input class="form-control white_bg" id="vehiclestitle" type="email" value="${car.name }">
 						</div>
 						<div class="form-group">
 							<label class="control-label">品牌</label> 
