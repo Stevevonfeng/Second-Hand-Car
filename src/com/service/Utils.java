@@ -20,6 +20,9 @@ import com.model.CarInfo;
 import com.model.CarModel;
 
 public class Utils {
+	static long vid;
+	
+	
 	public static <E> void objectsToCar(Car2 car,ArrayList<E> arr) {
 		Object obj = arr.get(0);
 		Class carCls = car.getClass();
@@ -51,8 +54,10 @@ public class Utils {
 public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 		long time = new Date().getTime();
 		String filename = "";
-		long vid = 0;
+		long oldVid = 0;
+		vid = time;
 		boolean isInseart = true;
+		String upload = "";
 		try {
 			obj = cls.newInstance();
 			
@@ -72,7 +77,7 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 				}
 				if(item.getFieldName().equals("vid")) {
 					isInseart = false;
-					vid = Long.parseLong(item.getString());
+					oldVid = Long.parseLong(item.getString());
 				}
 				if(item.getFieldName().equals("filename")) {
 					filename = item.getString();
@@ -82,10 +87,10 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 						try {
 							if(isInseart) {
 								field.setAccessible(true);
-								field.set(obj, time);
+								field.set(obj, vid);
 							}else {
 								field.setAccessible(true);
-								field.set(obj, vid);
+								field.set(obj, oldVid);
 							}
 							continue;
 						} catch (IllegalArgumentException | IllegalAccessException e) {
@@ -119,7 +124,7 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 								if(item.getString().equals("")) {
 									continue;
 								}
-								SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
+								SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 								Date date = null;
 								try {
 									date = sdf.parse(item.getString());
@@ -142,18 +147,33 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 					if(fileName==null||fileName.equals("")) {
 						Field uploadF = cls.getDeclaredField("upload");
 						uploadF.setAccessible(true);
-						uploadF.set(obj,filename);
+						uploadF.set(obj,upload);
 						continue;
 					}
 					String subfix = fileName.substring(fileName.indexOf("."));
-					String upload =  time+subfix;
+					upload =  new Date().getTime()/fileName.hashCode()+subfix;
+					System.out.println(upload);
 					Field uploadF = cls.getDeclaredField("upload");
 					uploadF.setAccessible(true);
+					
 					uploadF.set(obj,upload);
-					File file = new File("C:\\dbimgs\\"+upload);
-					if(!file.exists()) {
-						file.createNewFile();
+					File file = null;
+					if(isInseart) {
+						File dir = new File("C:\\dbimgs\\"+vid);
+						dir.mkdirs();
+						file = new File("C:\\dbimgs\\"+vid+"\\"+upload);
+						if(!file.exists()) {
+							file.createNewFile();
+						}
+					}else{
+						File dir = new File("C:\\dbimgs\\"+oldVid);
+						dir.mkdirs();
+						file = new File("C:\\dbimgs\\"+oldVid+"\\"+upload);
+						if(!file.exists()) {
+							file.createNewFile();
+						}
 					}
+					
 					FileOutputStream out = new FileOutputStream(file);
 					
 					byte[] b = new byte[1024];
@@ -164,8 +184,8 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 					}
 					
 					if(!isInseart) {
-						File oldFile = new File("C:\\dbimgs\\"+filename);
-						System.out.println(oldFile.getAbsoluteFile());
+						System.out.println("not inseart!!!");
+						File oldFile = new File("C:\\dbimgs\\"+vid+File.separator+filename);
 						oldFile.delete();
 					}
 					
@@ -210,11 +230,53 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 					"				$('#"+field.getName()+"').attr(\"checked\",\"checked\");\r\n" + 
 					"			}";
 		}
-		//System.out.println(ajaxText);
+		System.out.println(ajaxText);
 	}
 	
-	public static void deleteImg(String path) {
-		File oldFile = new File("C:\\dbimgs\\"+path);
-		oldFile.delete();
+	public static void deleteImg(long vid) {
+		//File oldFile = new File("C:\\dbimgs\\"+vid+File.separator+path);
+		delFolder("C:\\dbimgs\\"+vid+File.separator);
 	}
+	
+	public static void delFolder(String folderPath) {
+	     try {
+	        delAllFile(folderPath); //删除完里面所有内容
+	        String filePath = folderPath;
+	        filePath = filePath.toString();
+	        java.io.File myFilePath = new java.io.File(filePath);
+	        myFilePath.delete(); //删除空文件夹
+	     } catch (Exception e) {
+	       e.printStackTrace(); 
+	     }
+	}
+	
+	 public static boolean delAllFile(String path) {
+	       boolean flag = false;
+	       File file = new File(path);
+	       if (!file.exists()) {
+	         return flag;
+	       }
+	       if (!file.isDirectory()) {
+	         return flag;
+	       }
+	       String[] tempList = file.list();
+	       File temp = null;
+	       for (int i = 0; i < tempList.length; i++) {
+	          if (path.endsWith(File.separator)) {
+	             temp = new File(path + tempList[i]);
+	          } else {
+	              temp = new File(path + File.separator + tempList[i]);
+	          }
+	          if (temp.isFile()) {
+	             temp.delete();
+	          }
+	          if (temp.isDirectory()) {
+	             delAllFile(path + "/" + tempList[i]);//先删除文件夹里面的文件
+	             delFolder(path + "/" + tempList[i]);//再删除空文件夹
+	             flag = true;
+	          }
+	       }
+	       return flag;
+	     }
+	
 }

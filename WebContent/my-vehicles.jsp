@@ -176,26 +176,26 @@ $(function(){
 		dataType:"json",
 		success:function(rs){
 			var carsnum = rs.length;
-			/* var pagecoun = 0;
-			if(carsnum%3==0){
-				pagecoun = carsnum/3;
-			}else{
-				pagecoun = carsnum/3+1;
-			} */
 			$("#carnum").html("("+carsnum+" Cars)"); 
 			$.each(rs, function(index,item) {
-				/* if(index<3){ */
-					$("#cars").append("<li><div class='vehicle_img'> <a href='#'><img src='/imgs/"+item.upload+"' alt='image'></a> </div>"+
-			                  "<div class='vehicle_title'><h6><a href='#'>"+item.brand+" "+item.model+" "+item.version+", "+item.vod+", "+item.price+", "+item.vehiclestitle+" </a></h6></div>"+
-			                "<div class='vehicle_status'> <a href='#' class='btn outline btn-xs active-btn'>Active</a><div class='clearfix'></div>"+
-			                "<a href='update-car.jsp?vid="+item.vid+"&filename="+item.upload+"'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>"+
-			                "<a href='DeleteServlet?vid="+item.vid+"&filename="+item.upload+"'><i class='fa fa-trash' aria-hidden='true'></i></a>"+
-			                 "</div></li>");
-				/* } */
+					var active = item.active;
+					if(active=='active'){
+						$("#cars").append("<li><div class='vehicle_img'> <a href='#'><img src='/imgs/"+item.vid+"/"+item.upload+"' alt='image'></a> </div>"+
+				                  "<div class='vehicle_title'><h6><a href='#'>"+item.brand+" "+item.model+" "+item.version+", "+item.vod+", "+item.price+", "+item.vehiclestitle+" </a></h6></div>"+
+				                "<div class='vehicle_status'> <a href='ChangeActiveServlet?active="+active+"&vid="+item.vid+"' class='btn outline btn-xs active-btn'>Active</a><div class='clearfix'></div>"+
+				                "<a href='update-car.jsp?vid="+item.vid+"&filename="+item.upload+"'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>"+
+				                "<a href='DeleteServlet?vid="+item.vid+"&filename="+item.upload+"'><i class='fa fa-trash' aria-hidden='true'></i></a>"+
+				                 "</div></li>");
+					}else{
+						$("#cars").append("<li class='deactive_vehicle'><div class='vehicle_img'> <a href='#'><img src='/imgs/"+item.vid+"/"+item.upload+"' alt='image'></a> </div>"+
+				                  "<div class='vehicle_title'><h6><a href='#'>"+item.brand+" "+item.model+" "+item.version+", "+item.vod+", "+item.price+", "+item.vehiclestitle+" </a></h6></div>"+
+				                "<div class='vehicle_status'> <a href='ChangeActiveServlet?active="+active+"&vid="+item.vid+"' class='btn outline btn-xs'>Dective</a><div class='clearfix'></div>"+
+				                "<a href='update-car.jsp?vid="+item.vid+"&filename="+item.upload+"'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>"+
+				                "<a href='DeleteServlet?vid="+item.vid+"&filename="+item.upload+"'><i class='fa fa-trash' aria-hidden='true'></i></a>"+
+				                 "</div></li>");
+					}
+					
 			});
-			/* for(var i=1;i<=pagecoun;i++){
-				$("#pageno").append("<li><a href='#'>"+i+"</a></li>");
-			} */
 		}
 	});	
 })

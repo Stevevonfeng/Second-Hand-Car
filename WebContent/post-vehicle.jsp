@@ -141,11 +141,7 @@
               <label class="control-label">Select Make</label>
               <div class="select">
                 <select class="form-control white_bg" name="brand" id="brand">
-                  <option value="Select Brand">Select Brand</option>
-                  <option value="Audi">Audi</option>
-                  <option value="BMW">BMW</option>
-                  <option value="Nissan">Nissan</option>
-                  <option value="Toyota">Toyota</option>
+                 
                 </select>
               </div>
             </div>
@@ -153,10 +149,7 @@
               <label class="control-label">Model</label>
               <div class="select">
                 <select class="form-control white_bg" name="model" id="model">
-                  <option value="Select Model">Select Model</option>
-                  <option value="Model 2">Model 2</option>
-                  <option value="Model 3">Model 3</option>
-                  <option value="Model 4">Model 4</option>
+                  
                 </select>
               </div>
             </div>
@@ -164,9 +157,7 @@
               <label class="control-label">Vehicles Version</label>
               <div class="select">
                 <select class="form-control white_bg" name="version" id="version">
-                  <option value="">Version</option>
-                  <option value="Version 1.1">Version 1.1</option>
-                  <option value="Version 1.2">Version 1.2</option>
+                  
                 </select>
               </div>
             </div>
@@ -180,11 +171,23 @@
             </div>
             <div class="form-group">
               <label class="control-label">Upload Images  ( size = 900 x 560 )</label>
-              <div class="vehicle_images">
-              
-                <!-- <div class="upload_more_img"> -->
-                  <input name="upload" type="file">
-                <!-- </div> -->
+              <div class="vehicle_images" id="im">
+                
+                <div class="upload_more_img" >
+                  <input type="file" name="upload" id="zx_img0">
+                </div>
+                <div class="upload_more_img" style="opacity:0;width:0px;">
+                  <input type="file" name="upload" id="zx_img1">
+                </div>
+                <div class="upload_more_img" style="opacity:0;width:0px;">
+                  <input type="file" name="upload" id="zx_img2">
+                </div>
+                <div class="upload_more_img" style="opacity:0;width:0px;">
+                  <input type="file" name="upload" id="zx_img3">
+                </div>
+                 <div class="upload_more_img" style="opacity:0;width:0px;">
+                  <input type="file" name="upload" id="zx_img4">
+                </div>
               </div>
             </div>
             <div class="gray-bg field-title">
@@ -235,7 +238,7 @@
             </div>
             <div class="form-group">
               <label class="control-label">Seating Capacity</label>
-              <input class="form-control white_bg" id="s-capacity" name="s_capacity" type="text">
+              <input class="form-control white_bg" id="s-capacity" name="seats" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">Transmission Type</label>
@@ -338,4 +341,131 @@
 <%@ include file="loginAndRegister.jsp" %>
 
 </body>
+<script type="text/javascript">
+	var i = 0;
+	$(function(){
+		$.ajax({
+			type:"get",
+			url:"SelectCarServlet",
+			data:{restype:'brand'},
+			dataType:"json",
+			success:function(rs){
+				$("#brand").html("");
+				$("#brand").append("<option></option>");
+				$.each(rs,function(index,item){
+					$("#brand").append("<option value='"+item+"'>"+item+"</option>");
+				});
+			}
+		});
+		
+		$("#brand").change(function(){
+			var brand = $("#brand").val();
+			$.ajax({
+				type:"get",
+				url:"SelectCarServlet",
+				data:{restype:'model',brand:brand},
+				dataType:"json",
+				success:function(rs){
+					$("#model").html("");
+					$("#model").append("<option></option>");
+					$.each(rs,function(index,item){
+						$("#model").append("<option value='"+item+"'>"+item+"</option>");
+					});
+				}
+			});
+		});
+		
+		$("#model").change(function(){
+			var model = $("#model").val();
+			$.ajax({
+				type:"get",
+				url:"SelectCarServlet",
+				data:{restype:'version',model:model},
+				dataType:"json",
+				success:function(rs){
+					$("#version").html("");
+					$.each(rs,function(index,item){
+						$("#version").append("<option value='"+item+"'>"+item+"</option>");
+					});
+				}
+			});
+		});
+	})
+	
+	 $("#zx_img0").change(function (e) {
+		        var file = e.target.files || e.dataTransfer.files;  //获取目标文件
+		        $("#zx_img0").parent().css({"opacity":"0","width":"0px"});
+		        i++;
+		        console.log(file[0])
+		        if (file) {   
+		            var reader = new FileReader();   
+		            reader.onload = function () {
+		            	$("#im").append("<div><img src='' alt='image' id='img_preview"+i+"' style='width:160px;height:100px'></div>");		            	
+		                $("#img_preview"+i+"").attr("src", this.result);
+		                $("#zx_img1").parent().css({"opacity":"1","width":"160px"});
+		            };
+		            reader.readAsDataURL(file[0]);  
+		        }
+		  });
+	$("#zx_img1").change(function (e) {
+        var file = e.target.files || e.dataTransfer.files;  //获取目标文件
+        $("#zx_img1").parent().css({"opacity":"0","width":"0px"});
+        i++;
+        console.log(file[0])
+        if (file) {   
+            var reader = new FileReader();   
+            reader.onload = function () {
+            	$("#im").append("<div><img src='' alt='image' id='img_preview"+i+"' style='width:160px;height:100px'></div>");		            	
+                $("#img_preview"+i+"").attr("src", this.result);
+                $("#zx_img2").parent().css({"opacity":"1","width":"160px"});
+            };
+            reader.readAsDataURL(file[0]);  
+        }
+  });
+	$("#zx_img2").change(function (e) {
+        var file = e.target.files || e.dataTransfer.files;  //获取目标文件
+        $("#zx_img2").parent().css({"opacity":"0","width":"0px"});
+        i++;
+        console.log(file[0])
+        if (file) {   
+            var reader = new FileReader();   
+            reader.onload = function () {
+            	$("#im").append("<div><img src='' alt='image' id='img_preview"+i+"' style='width:160px;height:100px'></div>");		            	
+                $("#img_preview"+i+"").attr("src", this.result);
+                $("#zx_img3").parent().css({"opacity":"1","width":"160px"});
+            };
+            reader.readAsDataURL(file[0]);  
+        }
+  });
+	$("#zx_img3").change(function (e) {
+        var file = e.target.files || e.dataTransfer.files;  //获取目标文件
+        $("#zx_img3").parent().css({"opacity":"0","width":"0px"});
+        i++;
+        console.log(file[0])
+        if (file) {   
+            var reader = new FileReader();   
+            reader.onload = function () {
+            	$("#im").append("<div><img src='' alt='image' id='img_preview"+i+"' style='width:160px;height:100px'></div>");		            	
+                $("#img_preview"+i+"").attr("src", this.result);
+                $("#zx_img4").parent().css({"opacity":"1","width":"160px"});
+            };
+            reader.readAsDataURL(file[0]);  
+        }
+  });
+	$("#zx_img4").change(function (e) {
+        var file = e.target.files || e.dataTransfer.files;  //获取目标文件
+        $("#zx_img4").parent().css({"opacity":"0","width":"0px"});
+        i++;
+        console.log(file[0])
+        if (file) {   
+            var reader = new FileReader();   
+            reader.onload = function () {
+            	$("#im").append("<div><img src='' alt='image' id='img_preview"+i+"' style='width:160px;height:100px'></div>");		            	
+                $("#img_preview"+i+"").attr("src", this.result);
+                $("#zx_img5").parent().css({"opacity":"1","width":"160px"});
+            };
+            reader.readAsDataURL(file[0]);  
+        }
+  });
+</script>
 </html>

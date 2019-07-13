@@ -34,7 +34,7 @@ public class DeleteServlet extends HttpServlet {
 		String filename = request.getParameter("filename");
 		ICarService ics = new CarServiceImpl();
 		ics.removeCar(vid);
-		Utils.deleteImg(filename);
+		Utils.deleteImg(vid);
 		response.sendRedirect("my-vehicles.jsp");
 	}
 

@@ -9,9 +9,11 @@ public class CarModel {
 	String vod;                
 	String Price;            
 	String upload;
+	String active;
 	String userid;
+	
 	public CarModel(long vid, String vehiclestitle, String brand, String model, String version, String vod,
-			String price, String upload, String userid) {
+			String price, String upload, String active, String userid) {
 		super();
 		this.vid = vid;
 		this.vehiclestitle = vehiclestitle;
@@ -21,6 +23,7 @@ public class CarModel {
 		this.vod = vod;
 		Price = price;
 		this.upload = upload;
+		this.active = active;
 		this.userid = userid;
 	}
 
@@ -99,5 +102,14 @@ public class CarModel {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
+
+	public String getActive() {
+		return active;
+	}
+
+	public void setActive(String active) {
+		this.active = active;
+	}
+	
 	
 }

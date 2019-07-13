@@ -1,12 +1,9 @@
 package com.dao;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.model.CarAccessories;
-import com.model.CarEngin;
-import com.model.CarInfo;
+import com.model.Car;
 import com.model.CarModel;
 
 public interface ICarDao {
@@ -14,5 +11,6 @@ public interface ICarDao {
 	void updateObject(Object obj,long vid);
 	void dalete(long vid);
 	List<CarModel> searchById(String userid);
+	List<Car> searchAllCar();
 	<E> ArrayList<E> searchObject(Class cls,long vid);
 }

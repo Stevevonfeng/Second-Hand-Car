@@ -40,50 +40,13 @@ public class Car2 {
 	String headlamps;
 	String newcar;
 	String usedcar;
-	public Car2(long vid, String vehiclestitle, String brand, String model, String version, String vod, String price,
-			String upload, String userid, Date year, String owners, String kms, String fuel, String engien,
-			String engiendescription, int cylinders, int mileage, int mileage_h, int capacity, int s_capacity,
-			String transmission, String air_conditioner, String door, String antilock, String brake, String steering,
-			String airbag, String windows, String passenger_airbag, String player, String sensor, String seats,
-			String engine_warning, String locking, String headlamps, String newcar, String usedcar) {
-		super();
-		this.vid = vid;
-		this.vehiclestitle = vehiclestitle;
-		this.brand = brand;
-		this.model = model;
-		this.version = version;
-		this.vod = vod;
-		this.price = price;
-		this.upload = upload;
-		this.userid = userid;
-		this.year = year;
-		this.owners = owners;
-		this.kms = kms;
-		this.fuel = fuel;
-		this.engien = engien;
-		this.engiendescription = engiendescription;
-		this.cylinders = cylinders;
-		this.mileage = mileage;
-		this.mileage_h = mileage_h;
-		this.capacity = capacity;
-		this.s_capacity = s_capacity;
-		this.transmission = transmission;
-		this.air_conditioner = air_conditioner;
-		this.door = door;
-		this.antilock = antilock;
-		this.brake = brake;
-		this.steering = steering;
-		this.airbag = airbag;
-		this.windows = windows;
-		this.passenger_airbag = passenger_airbag;
-		this.player = player;
-		this.sensor = sensor;
-		this.seats = seats;
-		this.engine_warning = engine_warning;
-		this.locking = locking;
-		this.headlamps = headlamps;
-		this.newcar = newcar;
-		this.usedcar = usedcar;
+	String active;
+	
+	public String getActive() {
+		return active;
+	}
+	public void setActive(String active) {
+		this.active = active;
 	}
 	public Car2() {
 		super();
@@ -310,20 +273,4 @@ public class Car2 {
 	public void setUsedcar(String usedcar) {
 		this.usedcar = usedcar;
 	}
-	@Override
-	public String toString() {
-		return "Car2 [vid=" + vid + ", vehiclestitle=" + vehiclestitle + ", brand=" + brand + ", model=" + model
-				+ ", version=" + version + ", vod=" + vod + ", price=" + price + ", upload=" + upload + ", userid="
-				+ userid + ", year=" + year + ", owners=" + owners + ", kms=" + kms + ", fuel=" + fuel + ", engien="
-				+ engien + ", engiendescription=" + engiendescription + ", cylinders=" + cylinders + ", mileage="
-				+ mileage + ", mileage_h=" + mileage_h + ", capacity=" + capacity + ", s_capacity=" + s_capacity
-				+ ", transmission=" + transmission + ", air_conditioner=" + air_conditioner + ", door=" + door
-				+ ", antilock=" + antilock + ", brake=" + brake + ", steering=" + steering + ", airbag=" + airbag
-				+ ", windows=" + windows + ", passenger_airbag=" + passenger_airbag + ", player=" + player + ", sensor="
-				+ sensor + ", seats=" + seats + ", engine_warning=" + engine_warning + ", locking=" + locking
-				+ ", headlamps=" + headlamps + ", newcar=" + newcar + ", usedcar=" + usedcar + "]";
-	}
-	
-	
-	
 }
