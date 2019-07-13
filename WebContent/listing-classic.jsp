@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -89,12 +90,8 @@
   <div class="container">
     <div class="page-header_wrap">
       <div class="page-heading">
-        <h1>Car Listing</h1>
+        <h1>汽车库存</h1>
       </div>
-      <ul class="coustom-breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li>Car Listing</li>
-      </ul>
     </div>
   </div>
   <!-- Dark Overlay-->
@@ -106,186 +103,75 @@
 <section class="listing-page">
   <div class="container">
     <div class="row">
-      <div class="col-md-9 col-md-push-3">
-        <div class="result-sorting-wrapper">
-          <div class="sorting-count">
-            <p>1 - 8 <span>of 50 Listings</span></p>
-          </div>
-          <div class="result-sorting-by">
-            <p>Sort by:</p>
-            <form action="#" method="post">
-              <div class="form-group select sorting-select">
-                <select class="form-control ">
-                  <option>Price (low to high)</option>
-                  <option>$100 to $500</option>
-                  <option>$500 to $1000</option>
-                  <option>$1000 to $1500</option>
-                  <option>$1500 to $2000</option>
-                </select>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-2.jpg" class="img-responsive" alt="Image" /> </a>
-            <div class="label_icon">New</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare22">
-                <label for="compare22">Compare</label>
-              </div>
-            </div>
-          </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof</a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-            <a href="#" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-          </div>
-        </div>
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-3.jpg" class="img-responsive" alt="Image" /> </a>
-            <div class="label_icon">New</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare23">
-                <label for="compare23">Compare</label>
-              </div>
-            </div>
-          </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Ford Shelby GT350 </a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-            <a href="#" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-          </div>
-        </div>
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-1.jpg" class="img-responsive" alt="Image" /> </a>
-            <div class="label_icon">Used</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare24">
-                <label for="compare24">Compare</label>
-              </div>
-            </div>
-          </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Maserati QUATTROPORTE 1,6</a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-            <a href="#" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-          </div>
-        </div>
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-2.jpg" class="img-responsive" alt="Image" /> </a>
-            <div class="label_icon">New</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare25">
-                <label for="compare25">Compare</label>
-              </div>
-            </div>
-          </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof</a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-            <a href="#" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-          </div>
-        </div>
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-3.jpg" class="img-responsive" alt="Image" /> </a>
-            <div class="label_icon">New</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare26">
-                <label for="compare26">Compare</label>
-              </div>
-            </div>
-          </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Ford Shelby GT350 </a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-            <a href="#" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-          </div>
-        </div>
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-1.jpg" class="img-responsive" alt="Image" /> </a>
-            <div class="label_icon">New</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare27">
-                <label for="compare27">Compare</label>
-              </div>
-            </div>
-          </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Maserati QUATTROPORTE 1,6</a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-            <a href="#" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-            <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-          </div>
-        </div>
-        <div class="pagination">
-          <ul>
-            <li class="current">1</li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-          </ul>
-        </div>
-      </div>
+    
+    	<div class="col-md-9 col-md-push-3">
+	  <div class="result-sorting-wrapper">
+	    <div class="result-sorting-by">
+	      <p>排序方式：</p>
+	      <form action="#" method="post">
+	        <div class="form-group select sorting-select">
+	          <select class="form-control ">
+	            <option>价格（从低到高）</option>
+	            <option>价格（从高到低）</option>
+	          </select>
+	        </div>
+	      </form>
+	    </div>
+	  </div>
+	  
+	  
+	  <c:forEach items="${cars }" var="car">
+	  
+	  
+	  <div class="product-listing-m gray-bg">
+	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }"><img src="/imgs/${car.upload }" class="img-responsive" alt="Image" /> </a>
+	      <div class="label_icon">${car.usedcar }${car.newcar }</div>
+	      <div class="compare_item">
+	        <div class="checkbox">
+	          <input type="checkbox" value="" id="compare22">
+	          <label for="compare22">Compare</label>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="product-listing-content">
+	      <h5><a href="listing-detail-2.jsp">Mazda CX-5 SX, V6, ABS, Sunroof</a></h5>
+	      <p class="list-price">${car.price }</p>
+	      <ul>
+	        <li><i class="fa fa-road" aria-hidden="true"></i>${car.kms }km</li>
+	        <li><i class="fa fa-tachometer" aria-hidden="true"></i>${car.mileage }miles</li>
+	        <li><i class="fa fa-user" aria-hidden="true"></i>${car.seats }seats</li>
+	        <li><i class="fa fa-calendar" aria-hidden="true"></i>${car.model }model</li>
+	        <li><i class="fa fa-car" aria-hidden="true"></i>${car.fuel }</li>
+	        <li><i class="fa fa-superpowers" aria-hidden="true"></i>${car.brand }kW</li>
+	      </ul>
+	      <a href="listing-detail-2.jsp" class="btn">查看详情 <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+	      <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i>${car.upload }</span></div>
+	    </div>
+	   
+	  </div>
+	  </c:forEach>
+	  
+	  <div class="pagination">
+	  
+		<c:if test="${cp!=null }">			
+	    <ul>
+	      <li <c:if test="${cp==1}"> class="disabled" </c:if> >
+	      <a href="list?act=ListShow&cp=${cp-1<=0? 1:cp-1}">&laquo;</a>
+	      </li>
+	      
+	      <c:forEach begin="1" end="${totalPage}" var="item">
+			<li <c:if test="${item==cp }"> class="active" </c:if> >
+				<a href="list?act=ListShow&cp=${item}">${item}</a>
+			</li>
+			</c:forEach>
+	     <li <c:if test="${cp==totalPage}"> class="disabled" </c:if>>
+			<a href="list?act=ListShow&cp=${cp+1>totalPage? totalPage:cp+1}">&raquo;</a>
+		</li>
+	    </ul>
+	    </c:if>
+	  </div>
+	</div>
+     
       
       <!--Side-Bar-->
       <aside class="col-md-3 col-md-pull-9">

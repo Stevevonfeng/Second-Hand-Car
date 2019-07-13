@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -79,23 +80,18 @@
 					<h3 class="modal-title">我要购买</h3>
 				</div>
 				<div class="modal-body">
-					<form action="#" method="get">
+					<form action="dealers?act=carOffer&vid=${car.vid }" method="get">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="您的名字">
+							<input type="text" class="form-control" placeholder="您的名字" id="name">
 						</div>
 						<div class="form-group">
-							<input type="email" class="form-control"
-								placeholder="邮件地址">
+							<input type="email" class="form-control" placeholder="邮件地址" id="mail">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control"
-								placeholder="电话号码">
+							<input type="text" class="form-control" placeholder="电话号码" id="tele">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="开价">
-						</div>
-						<div class="form-group">
-							<textarea class="form-control" placeholder="备注"></textarea>
+							<input type="text" class="form-control" placeholder="开价" id="price">
 						</div>
 						<div class="form-group">
 							<input type="submit" value="确认购买" class="btn btn-block">

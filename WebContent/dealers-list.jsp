@@ -176,7 +176,7 @@
 							</div>
 							<div class="col-sm-3 col-xs-12">
 								<div class="view_profile">
-									<a href="dealers?act=dealersprofile&${dealer.url }" class="btn btn-xs outline">查看资料</a>
+									<a href="dealers?act=dealersprofile&id=${dealer.id }" class="btn btn-xs outline">查看资料</a>
 									<p>(${dealer.carsnum })</p>
 								</div>
 							</div>
