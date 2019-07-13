@@ -108,7 +108,7 @@
       <div class="col-md-3">
         <div class="price_info">
           <p>$${car.price }</p>
-          <p class="old_price">$</p>
+          
         </div>
       </div>
     </div>
@@ -256,7 +256,7 @@
               <p>传输</p>
             </li>
             <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
-              <h5>${car.engine }</h5>
+              <h5>${car.engien }</h5>
               <p>发动机功率/kw</p>
             </li>
             <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
@@ -328,11 +328,11 @@
                     <tbody>
                       <tr>
                         <td>引擎类型</td>
-                        <td>${car.engine }</td>
+                        <td>${car.engien }</td>
                       </tr>
                       <tr>
                         <td>引擎说明</td>
-                        <td>${car.enginedescription }</td>
+                        <td>${car.engiendescription }</td>
                       </tr>
                       <tr>
                         <td>气缸数量</td>
@@ -374,159 +374,159 @@
                   </thead>
                   <tbody>
                     <tr>
-												<td>空调</td>
-												<td>
-												<c:if test="${car.air_conditioner!=null }">
-												<i class="fa fa-check"aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.air_conditioner eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>防锁刹车系统</td>
-												<td>
-												<c:if test="${car.antilock ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.antilock eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>动力转向</td>
-												<td>
-												<c:if test="${car.steering ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.steering eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>电动窗</td>
-												<td>
-												<c:if test="${car.windows ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.windows eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>激光唱片机</td>
-												<td>
-												<c:if test="${car.player ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.player eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>皮革座椅</td>
-												<td>
-												<c:if test="${car.seats ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.seats eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>中央锁定</td>
-												<td>
-												<c:if test="${car.locking ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.locking eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>电动门锁</td>
-												<td>
-												<c:if test="${car.antilock ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.antilock eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>制动辅助</td>
-												<td>
-												<c:if test="${car.brake ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.brake eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>驾驶员安全气囊</td>
-												<td>
-												<c:if test="${car.airbag ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.airbag eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>乘客安全气囊</td>
-												<td>
-												<c:if test="${car.passenger_airbag ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.passenger_airbag eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>碰撞传感器</td>
-												<td>
-												<c:if test="${car.sensor ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.sensor eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>发动机检查警告</td>
-												<td>
-												<c:if test="${car.engine_warning ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.engine_warning eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
-											<tr>
-												<td>自动大灯</td>
-												<td>
-												<c:if test="${car.headlamps ne null }">
-												<i class="fa fa-check" aria-hidden="true"></i>
-												</c:if>
-												<c:if test="${car.headlamps eq null }">
-												<i class="fa fa-close"aria-hidden="true"></i>
-												</c:if>
-												</td>
-											</tr>
+						<td>空调</td>
+						<td>
+						<c:if test="${car.air_conditioner!=null }">
+						<i class="fa fa-check"aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.air_conditioner eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>防锁刹车系统</td>
+						<td>
+						<c:if test="${car.antilock ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.antilock eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>动力转向</td>
+						<td>
+						<c:if test="${car.steering ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.steering eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>电动窗</td>
+						<td>
+						<c:if test="${car.windows ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.windows eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>激光唱片机</td>
+						<td>
+						<c:if test="${car.player ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.player eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>皮革座椅</td>
+						<td>
+						<c:if test="${car.seats ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.seats eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>中央锁定</td>
+						<td>
+						<c:if test="${car.locking ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.locking eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>电动门锁</td>
+						<td>
+						<c:if test="${car.antilock ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.antilock eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>制动辅助</td>
+						<td>
+						<c:if test="${car.brake ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.brake eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>驾驶员安全气囊</td>
+						<td>
+						<c:if test="${car.airbag ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.airbag eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>乘客安全气囊</td>
+						<td>
+						<c:if test="${car.passenger_airbag ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.passenger_airbag eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>碰撞传感器</td>
+						<td>
+						<c:if test="${car.sensor ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.sensor eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>发动机检查警告</td>
+						<td>
+						<c:if test="${car.engine_warning ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.engine_warning eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td>自动大灯</td>
+						<td>
+						<c:if test="${car.headlamps ne null }">
+						<i class="fa fa-check" aria-hidden="true"></i>
+						</c:if>
+						<c:if test="${car.headlamps eq null }">
+						<i class="fa fa-close"aria-hidden="true"></i>
+						</c:if>
+						</td>
+					</tr>
 
                   </tbody>
                 </table>
@@ -626,11 +626,13 @@
     <!--Similar-Cars-->
     <div class="similar_cars">
       <h3>类似汽车</h3>
+      
       <div class="row">
+      <c:forEach items="${cars }" var="car">
         <div class="col-md-3 grid_listing">
           <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-3.jpg" class="img-responsive" alt="image" /> </a>
-              <div class="label_icon">新</div>
+            <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}"><img src="/imgs/${car.upload }" class="img-responsive" alt="image" /> </a>
+              <div class="label_icon">${car.usedcar }${car.newcar }</div>
               <div class="compare_item">
                 <div class="checkbox">
                   <input type="checkbox" value="" id="compare13">
@@ -639,18 +641,19 @@
               </div>
             </div>
             <div class="product-listing-content">
-              <h5><a href="#">Maserati QUATTROPORTE 1,6</a></h5>
-              <p class="list-price">￥ 万元</p>
+              <h5><a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}">Maserati QUATTROPORTE 1,6</a></h5>
+              <p class="list-price">$${car.price }</p>
               <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> 本地/外地</span></div>
               <ul class="features_list">
-                <li><i class="fa fa-road" aria-hidden="true"></i>35,000 公里</li>
-                <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 英里</li>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 年型号</li>
-                <li><i class="fa fa-car" aria-hidden="true"></i>柴油机</li>
+                <li><i class="fa fa-road" aria-hidden="true"></i>${car.kms }km</li>
+                <li><i class="fa fa-tachometer" aria-hidden="true"></i>${car.mileage }miles</li>
+                <li><i class="fa fa-calendar" aria-hidden="true"></i>${car.seats }seats</li>
+                <li><i class="fa fa-car" aria-hidden="true"></i>${car.fuel }</li>
               </ul>
             </div>
           </div>
         </div>
+        </c:forEach>
       </div>
     </div>
     <!--/Similar-Cars--> 
