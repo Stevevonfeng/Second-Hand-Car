@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -9,19 +9,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title></title>
 <meta name="keywords" content="" />
-<meta name="description" content="" />
+<meta name="description" content="" /> 
 <meta name="author" content="js代码(www.jsdaima.com)" />
 <meta name="copyright" content="js代码(www.jsdaima.com)" />
 <!--Bootstrap -->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css"
-	type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
 <!--Custome Style -->
 <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 <!--OWL Carousel slider-->
-<link rel="stylesheet" href="assets/css/owl.carousel.css"
-	type="text/css">
-<link rel="stylesheet" href="assets/css/owl.transitions.css"
-	type="text/css">
+<link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
+<link rel="stylesheet" href="assets/css/owl.transitions.css" type="text/css">
 <!--slick-slider -->
 <link href="assets/css/slick.css" rel="stylesheet">
 <!--bootstrap-slider -->
@@ -30,227 +27,186 @@
 <link href="assets/css/font-awesome.min.css" rel="stylesheet">
 
 <!-- SWITCHER -->
-<link rel="stylesheet" id="switcher-css" type="text/css"
-	href="assets/switcher/css/switcher.css" media="all" />
-<link rel="alternate stylesheet" type="text/css"
-	href="assets/switcher/css/red.css" title="red" media="all"
-	data-default-color="true" />
-<link rel="alternate stylesheet" type="text/css"
-	href="assets/switcher/css/orange.css" title="orange" media="all" />
-<link rel="alternate stylesheet" type="text/css"
-	href="assets/switcher/css/blue.css" title="blue" media="all" />
-<link rel="alternate stylesheet" type="text/css"
-	href="assets/switcher/css/pink.css" title="pink" media="all" />
-<link rel="alternate stylesheet" type="text/css"
-	href="assets/switcher/css/green.css" title="green" media="all" />
-<link rel="alternate stylesheet" type="text/css"
-	href="assets/switcher/css/purple.css" title="purple" media="all" />
-
+		<link rel="stylesheet" id="switcher-css" type="text/css" href="assets/switcher/css/switcher.css" media="all" />
+		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all" data-default-color="true" />
+		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/orange.css" title="orange" media="all" />
+		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/blue.css" title="blue" media="all" />
+		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/pink.css" title="pink" media="all" />
+		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/green.css" title="green" media="all" />
+		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/purple.css" title="purple" media="all" />
+        
 <!-- Fav and touch icons -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed"
-	href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png">
 <link rel="shortcut icon" href="assets/images/favicon-icon/favicon.png">
 <!-- Google-Font-->
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
         <script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+<![endif]-->  
 </head>
 <body>
 
+     
+
+
+<!-- Start Switcher -->
+<div class="switcher-wrapper">	
+    <div class="demo_changer">
+        <div class="demo-icon customBgColor"><i class="fa fa-cog fa-spin fa-2x"></i></div>
+        <div class="form_holder">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="predefined_styles">
+                        <div class="skin-theme-switcher">
+                            <h4>Color</h4>
+                            <a href="#" data-switchcolor="red" class="styleswitch" style="background-color:#de302f;"> </a>
+                            <a href="#" data-switchcolor="orange" class="styleswitch" style="background-color:#f76d2b;"> </a>
+                            <a href="#" data-switchcolor="blue" class="styleswitch" style="background-color:#228dcb;"> </a>
+                            <a href="#" data-switchcolor="pink" class="styleswitch" style="background-color:#FF2761;"> </a>
+                            <a href="#" data-switchcolor="green" class="styleswitch" style="background-color:#2dcc70;"> </a>
+                            <a href="#" data-switchcolor="purple" class="styleswitch" style="background-color:#6054c2;"> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Switcher -->  
+
+<!--Header-->
+<%@ include file="head.jsp"%>
 
 
 
-	<!-- Start Switcher -->
-	<div class="switcher-wrapper">
-		<div class="demo_changer">
-			<div class="demo-icon customBgColor">
-				<i class="fa fa-cog fa-spin fa-2x"></i>
-			</div>
-			<div class="form_holder">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="predefined_styles">
-							<div class="skin-theme-switcher">
-								<h4>Color</h4>
-								<a href="#" data-switchcolor="red" class="styleswitch"
-									style="background-color: #de302f;"> </a> <a href="#"
-									data-switchcolor="orange" class="styleswitch"
-									style="background-color: #f76d2b;"> </a> <a href="#"
-									data-switchcolor="blue" class="styleswitch"
-									style="background-color: #228dcb;"> </a> <a href="#"
-									data-switchcolor="pink" class="styleswitch"
-									style="background-color: #FF2761;"> </a> <a href="#"
-									data-switchcolor="green" class="styleswitch"
-									style="background-color: #2dcc70;"> </a> <a href="#"
-									data-switchcolor="purple" class="styleswitch"
-									style="background-color: #6054c2;"> </a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /Switcher -->
+<!-- /Header --> 
+<!-- Listing-detail-header -->
 
-	<!--Header-->
-	<%@ include file="head.jsp"%>
-	<!-- /Header -->
+<!--第一部分-->
+<section class="listing_detail_header">
+  <div class="container">
+    <div class="listing_detail_head white-text div_zindex row">
+      <div class="col-md-9">
+        <h2>BMW 535i, Navi, Leather, ABS</h2>
+        <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> 12250 F Garvey Ave South West Covina, CA 91791</span></div>
+        <div class="add_compare">
+          <div class="checkbox">
+            <input value="" id="compare14" type="checkbox">
+            <label for="compare14">Add to Compare</label>
+          </div>
+          <div class="share_vehicle">
+            <p>Share: <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a> </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="price_info">
+          <p>$${car.price }</p>
+          <p class="old_price">$</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-overlay"></div>
+</section>
+<!-- /Listing-detail-header -->
 
-	<!-- Listing-detail-header -->
-	<section class="listing_detail_header">
-		<div class="container">
-			<div class="listing_detail_head white-text div_zindex row">
-				<div class="col-md-9">
-					<h2>BMW 535i, Navi, Leather, ABS</h2>
-					<div class="car-location">
-						<span><i class="fa fa-map-marker" aria-hidden="true"></i>
-							12250 F Garvey Ave South West Covina, CA 91791</span>
-					</div>
-					<div class="add_compare">
-						<div class="checkbox">
-							<input value="" id="compare14" type="checkbox"> <label
-								for="compare14">Add to Compare</label>
-						</div>
-						<div class="share_vehicle">
-							<p>
-								Share: <a href="#"><i class="fa fa-facebook-square"
-									aria-hidden="true"></i></a> <a href="#"><i
-									class="fa fa-twitter-square" aria-hidden="true"></i></a> <a
-									href="#"><i class="fa fa-linkedin-square"
-									aria-hidden="true"></i></a> <a href="#"><i
-									class="fa fa-google-plus-square" aria-hidden="true"></i></a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="price_info">
-						<p>${car.price }</p>
-						<p class="old_price">$95,000</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="dark-overlay"></div>
-	</section>
-	<!-- /Listing-detail-header -->
 
-	<section class="listing_other_info secondary-bg">
-		<div class="container">
-			<div id="filter_toggle" class="search_other">
-				<i class="fa fa-filter" aria-hidden="true"></i> Search Car
-			</div>
-			<div id="other_info">
-				<i class="fa fa-info-circle" aria-hidden="true"></i>
-			</div>
-			<div id="info_toggle">
-				<button type="button" data-toggle="modal" data-target="#schedule">
-					<i class="fa fa-car" aria-hidden="true"></i> Schedule Test Drive
-				</button>
-				<button type="button" data-toggle="modal" data-target="#make_offer">
-					<i class="fa fa-money" aria-hidden="true"></i> 我要购买
-				</button>
-				<button type="button" data-toggle="modal"
-					data-target="#email_friend">
-					<i class="fa fa-envelope" aria-hidden="true"></i> Email to a Friend
-				</button>
-				<button type="button" data-toggle="modal" data-target="#more_info">
-					<i class="fa fa-file-text-o" aria-hidden="true"></i> Request More
-					Info
-				</button>
-			</div>
-		</div>
-	</section>
+<section class="listing_other_info secondary-bg">
+  <div class="container">
+    <div id="filter_toggle" class="search_other"> <i class="fa fa-filter" aria-hidden="true"></i> 搜索汽车 </div>
+    <div id="other_info"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
+    <div id="info_toggle">
+      <button type="button" data-toggle="modal" data-target="#schedule"> <i class="fa fa-car" aria-hidden="true"></i> 安排试驾</button>
+      <button type="button" data-toggle="modal" data-target="#make_offer"> <i class="fa fa-money" aria-hidden="true"></i> 开价 </button>
+      <button type="button" data-toggle="modal" data-target="#email_friend"> <i class="fa fa-envelope" aria-hidden="true"></i> 发邮件给卖家</button>
+      <button type="button" data-toggle="modal" data-target="#more_info"> <i class="fa fa-file-text-o" aria-hidden="true"></i> 查询更多信息 </button>
+    </div>
+  </div>
+</section>
 
-	<!-- Filter-Form -->
-	<section id="filter_form" class="inner-filter gray-bg">
-		<div class="container">
-			<h3>
-				Find Your Dream Car <span>(Easy search from here)</span>
-			</h3>
-			<div class="row">
-				<form action="#" method="get">
-					<div class="form-group col-md-3 col-sm-6 black_input">
-						<div class="select">
-							<select class="form-control">
-								<option value="">Select Location</option>
-								<option value="">Location 1</option>
-								<option value="">Location 1</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group col-md-3 col-sm-6 black_input">
-						<div class="select">
-							<select class="form-control">
-								<option>Select Brand</option>
-								<option>Audi</option>
-								<option>BMW</option>
-								<option>Nissan</option>
-								<option>Toyota</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group col-md-3 col-sm-6 black_input">
-						<div class="select">
-							<select class="form-control">
-								<option>Select Model</option>
-								<option>Series 1</option>
-								<option>Series 2</option>
-								<option>Series 3</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group col-md-3 col-sm-6 black_input">
-						<div class="select">
-							<select class="form-control">
-								<option>Year of Model</option>
-								<option>2016</option>
-								<option>2015</option>
-								<option>2014</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group col-md-6 col-sm-6 black_input">
-						<label class="form-label">Price Range ($)</label> <input
-							id="price_range" type="text" class="span2" value=""
-							data-slider-min="50" data-slider-max="6000" data-slider-step="5"
-							data-slider-value="[1000,5000]" />
-					</div>
-					<div class="form-group col-md-3 col-sm-6 black_input">
-						<div class="select">
-							<select class="form-control">
-								<option>Type of Car</option>
-								<option>New Car</option>
-								<option>Used Car</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group col-md-3 col-sm-6">
-						<button type="submit" class="btn btn-block">
-							<i class="fa fa-search" aria-hidden="true"></i> Search Car
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</section>
-	<!-- /Filter-Form -->
 
-	<!--Listing-detail-->
-	<section class="listing-detail">
+
+<!--搜索汽车部分-->
+<!-- Filter-Form -->
+<section id="filter_form" class="inner-filter gray-bg">
+  <div class="container">
+    <h3>找到你的梦想之车（从这里轻松搜索）</span></h3>
+    <div class="row">
+      <form action="#" method="get">
+        <div class="form-group col-md-3 col-sm-6 black_input">
+          <div class="select">
+            <select class="form-control">
+              <option value="">选择位置 </option>
+              <option value="">本地 </option>
+              <option value="">外地</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6 black_input">
+          <div class="select">
+            <select class="form-control">
+              <option>选择品牌</option>
+              <option>Audi</option>
+              <option>BMW</option>
+              <option>Nissan</option>
+              <option>Toyota</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6 black_input">
+          <div class="select">
+            <select class="form-control">
+              <option>选择型号</option>
+              <option>Series 1</option>
+              <option>Series 2</option>
+              <option>Series 3</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6 black_input">
+          <div class="select">
+            <select class="form-control">
+              <option>出厂日期 </option>
+              <option>2016</option>
+              <option>2015</option>
+              <option>2014</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-md-6 col-sm-6 black_input">
+          <label class="form-label">价格范围 ($/美元)</label>
+          <input id="price_range" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="5" data-slider-value="[20,50]"/>
+        </div>
+        <div class="form-group col-md-3 col-sm-6 black_input">
+          <div class="select">
+            <select class="form-control">
+              <option>汽车类型 </option>
+              <option>新车</option>
+              <option>二手车</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6">
+          <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> 搜索汽车 </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- /Filter-Form --> 
+
+
+<!-- 汽车介绍部分--> 
+ 
+<!--图片部分-->
+<section class="listing-detail">
   <div class="container">
     <div class="row">
       <div class="col-md-9">
@@ -285,26 +241,26 @@
           <ul>
             <li> <i class="fa fa-tachometer" aria-hidden="true"></i>
               <h5>${car.kms }</h5>
-              <p>总公里数</p>
+              <p>总公里数/km</p>
             </li>
             <li> <i class="fa fa-calendar" aria-hidden="true"></i>
-              <h5>2010</h5>
+              <h5>${car.year }</h5>
               <p>登记日期</p>
             </li>
             <li> <i class="fa fa-cogs" aria-hidden="true"></i>
-              <h5>柴油机</h5>
+              <h5>${car.fuel }</h5>
               <p>汽油种类</p>
             </li>
             <li> <i class="fa fa-power-off" aria-hidden="true"></i>
-              <h5>自动</h5>
+              <h5>${car.transmission }</h5>
               <p>传输</p>
             </li>
             <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
-              <h5>153KW</h5>
-              <p>发动机功率</p>
+              <h5>${car.engine }</h5>
+              <p>发动机功率/kw</p>
             </li>
             <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
-              <h5>5</h5>
+              <h5>${car.seats }</h5>
               <p>座位</p>
             </li>
           </ul>
@@ -345,19 +301,19 @@
                     <tbody>
                       <tr>
                         <td>登记时间</td>
-                        <td>${car.year }</td>
+                        <td>${car.model }</td>
                       </tr>
                       <tr>
                         <td>卖家姓名</td>
-                        <td>姓名</td>
+                        <td>${car.owners }</td>
                       </tr>
                       <tr>
                         <td>行驶总里程(km)</td>
-                        <td>30,000</td>
+                        <td>${car.kms }</td>
                       </tr>
                       <tr>
                         <td>汽油种类</td>
-                        <td>柴油机</td>
+                        <td>${car.fuel }</td>
                       </tr>
                     </tbody>
                   </table>
@@ -372,35 +328,35 @@
                     <tbody>
                       <tr>
                         <td>引擎类型</td>
-                        <td>TDCI 柴油发动机</td>
+                        <td>${car.engine }</td>
                       </tr>
                       <tr>
                         <td>引擎说明</td>
-                        <td>1.5KW</td>
+                        <td>${car.enginedescription }</td>
                       </tr>
                       <tr>
                         <td>气缸数量</td>
-                        <td>4</td>
+                        <td>${car.cylinders }</td>
                       </tr>
                       <tr>
                         <td>Mileage-City</td>
-                        <td>22.4kmpl</td>
+                        <td>${car.mileage }</td>
                       </tr>
                       <tr>
-                        <td>Mileage-Highway</td>
-                        <td>25.83kmpl</td>
+                        <td>公路里程</td>
+                        <td>${car.mileage_h }</td>
                       </tr>
                       <tr>
                         <td>油箱容量（升）</td>
-                        <td>40 </td>
+                        <td>${car.capacity } </td>
                       </tr>
                       <tr>
                         <td>座位</td>
-                        <td>5</td>
+                        <td>${car.seats }</td>
                       </tr>
                       <tr>
                         <td>传输类型</td>
-                        <td>手动</td>
+                        <td>${car.transmission }</td>
                       </tr>
                     </tbody>
                   </table>
@@ -418,61 +374,160 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>冷气机</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>防锁刹车系统</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>动力转向</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>电动窗</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>激光唱机</td>
-                      <td><i class="fa fa-close" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>皮革座椅</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>中央锁定</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>电动门锁</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>制动辅助</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>驾驶员安全气囊</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>乘客安全气囊</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>碰撞传感器</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>发动机检查警告</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                      <td>自动大灯</td>
-                      <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                    </tr>
+												<td>空调</td>
+												<td>
+												<c:if test="${car.air_conditioner!=null }">
+												<i class="fa fa-check"aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.air_conditioner eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>防锁刹车系统</td>
+												<td>
+												<c:if test="${car.antilock ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.antilock eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>动力转向</td>
+												<td>
+												<c:if test="${car.steering ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.steering eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>电动窗</td>
+												<td>
+												<c:if test="${car.windows ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.windows eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>激光唱片机</td>
+												<td>
+												<c:if test="${car.player ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.player eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>皮革座椅</td>
+												<td>
+												<c:if test="${car.seats ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.seats eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>中央锁定</td>
+												<td>
+												<c:if test="${car.locking ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.locking eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>电动门锁</td>
+												<td>
+												<c:if test="${car.antilock ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.antilock eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>制动辅助</td>
+												<td>
+												<c:if test="${car.brake ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.brake eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>驾驶员安全气囊</td>
+												<td>
+												<c:if test="${car.airbag ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.airbag eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>乘客安全气囊</td>
+												<td>
+												<c:if test="${car.passenger_airbag ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.passenger_airbag eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>碰撞传感器</td>
+												<td>
+												<c:if test="${car.sensor ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.sensor eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>发动机检查警告</td>
+												<td>
+												<c:if test="${car.engine_warning ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.engine_warning eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+											<tr>
+												<td>自动大灯</td>
+												<td>
+												<c:if test="${car.headlamps ne null }">
+												<i class="fa fa-check" aria-hidden="true"></i>
+												</c:if>
+												<c:if test="${car.headlamps eq null }">
+												<i class="fa fa-close"aria-hidden="true"></i>
+												</c:if>
+												</td>
+											</tr>
+
                   </tbody>
                 </table>
               </div>
@@ -602,147 +657,263 @@
     
   </div>
 </section>
-	<!--/Listing-detail-->
+<!--/Listing-detail--> 
 
-	<!--Brands-->
+<!--Brands-->
 	<%@ include file="popularbrands.jsp"%>
-	<!-- /Brands-->
-
-	<!--Footer -->
-	<%@ include file="foot.jsp"%>
-	<!-- /Footer-->
-
-	<!--Back to top-->
-	<div id="back-top" class="back-top">
-		<a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a>
-	</div>
-	<!--/Back to top-->
-
-	<%@ include file="loginAndRegister.jsp"%>
+<!-- /Brands--> 
 
 
-	<!--Schedule-Test-Drive -->
-	<div class="modal fade" id="schedule">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title">Schedule Test Drive</h3>
-				</div>
-				<div class="modal-body">
-					<form action="#" method="get">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Full Name">
-						</div>
-						<div class="form-group">
-							<input type="email" class="form-control"
-								placeholder="Email Address">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control"
-								placeholder="Phone Number">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control"
-								placeholder="Best Time (00:00am)">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control"
-								placeholder="Best Date (dd/mm/yyyy)">
-						</div>
-						<div class="form-group">
-							<textarea rows="4" class="form-control" placeholder="Message"></textarea>
-						</div>
-						<div class="form-group">
-							<input type="submit" value="Submit Query" class="btn btn-block">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--/Schedule-Test-Drive -->
+<!--Footer -->
+<%@ include file="foot.jsp"%>
+<!-- /Footer--> 
 
-	<!--Make-Offer -->
-	<%@ include file = "offer.jsp" %>
-	<!--/Make-Offer -->
+<!--Back to top-->
+<div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
+<!--/Back to top--> 
+<!--Schedule-Test-Drive -->
+<div class="modal fade" id="schedule">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Schedule Test Drive</h3>
+      </div>
+      <div class="modal-body">
+        <form action="#" method="get">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Full Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Best Time (00:00am)">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Best Date (dd/mm/yyyy)">
+          </div>
+          <div class="form-group">
+            <textarea rows="4" class="form-control" placeholder="Message"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Submit Query" class="btn btn-block">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Schedule-Test-Drive --> 
 
-	<!--Email-to-Friend -->
-	<div class="modal fade" id="email_friend">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title">Email to a Friend</h3>
-				</div>
-				<div class="modal-body">
-					<form action="#" method="get">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Your Name">
-						</div>
-						<div class="form-group">
-							<input type="email" class="form-control"
-								placeholder="Your Email Address">
-						</div>
-						<div class="form-group">
-							<input type="email" class="form-control"
-								placeholder="Friend Email Address">
-						</div>
-						<div class="form-group">
-							<textarea rows="4" class="form-control" placeholder="Message"></textarea>
-						</div>
-						<div class="form-group">
-							<input type="submit" value="Submit Query" class="btn btn-block">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--/Email-to-Friend -->
+<!--Make-Offer -->
+<%@ include file = "offer.jsp" %>
+<!--/Make-Offer --> 
 
-	<!--Request-More-Info -->
-	<div class="modal fade" id="more_info">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title">Request More Info</h3>
-				</div>
-				<div class="modal-body">
-					<form action="#" method="get">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Full Name">
-						</div>
-						<div class="form-group">
-							<input type="email" class="form-control"
-								placeholder="Email Address">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control"
-								placeholder="Phone Number">
-						</div>
-						<div class="form-group">
-							<textarea rows="4" class="form-control" placeholder="Message"></textarea>
-						</div>
-						<div class="form-group">
-							<input type="submit" value="Submit Query" class="btn btn-block">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--/Request-More-Info -->
+<!--Email-to-Friend -->
+<div class="modal fade" id="email_friend">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Email to a Friend</h3>
+      </div>
+      <div class="modal-body">
+        <form action="#" method="get">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Your Email Address">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Friend Email Address">
+          </div>
+          <div class="form-group">
+            <textarea rows="4" class="form-control" placeholder="Message"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Submit Query" class="btn btn-block">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Email-to-Friend --> 
+
+<!--Request-More-Info -->
+<div class="modal fade" id="more_info">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Request More Info</h3>
+      </div>
+      <div class="modal-body">
+        <form action="#" method="get">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Full Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <textarea rows="4" class="form-control" placeholder="Message"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Submit Query" class="btn btn-block">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Request-More-Info --> 
+
+<!--Login-Form -->
+<div class="modal fade" id="loginform">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Login</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="login_wrap">
+            <div class="col-md-6 col-sm-6">
+              <form action="#" method="get">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Username or Email address*">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password*">
+                </div>
+                <div class="form-group checkbox">
+                  <input type="checkbox" id="remember">
+                  <label for="remember">Remember Me</label>
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Login" class="btn btn-block">
+                </div>
+              </form>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <h6 class="gray_text">Login the Quick Way</h6>
+              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a> </div>
+            <div class="mid_divider"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer text-center">
+        <p>Don't have an account? <a href="#signupform" data-toggle="modal" data-dismiss="modal">Signup Here</a></p>
+        <p><a href="#forgotpassword" data-toggle="modal" data-dismiss="modal">Forgot Password ?</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Login-Form --> 
+
+<!--Register-Form -->
+<div class="modal fade" id="signupform">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Sign Up</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="signup_wrap">
+            <div class="col-md-6 col-sm-6">
+              <form action="#" method="get">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Confirm Password">
+                </div>
+                <div class="form-group checkbox">
+                  <input type="checkbox" id="terms_agree">
+                  <label for="terms_agree">I Agree with <a href="#">Terms and Conditions</a></label>
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Sign Up" class="btn btn-block">
+                </div>
+              </form>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <h6 class="gray_text">Login the Quick Way</h6>
+              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a> </div>
+            <div class="mid_divider"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer text-center">
+        <p>Already got an account? <a href="#loginform" data-toggle="modal" data-dismiss="modal">Login Here</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Register-Form --> 
+
+<!--Forgot-password-Form -->
+<div class="modal fade" id="forgotpassword">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Password Recovery</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="forgotpassword_wrap">
+            <div class="col-md-12">
+              <form action="#" method="get">
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Your Email address*">
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Reset My Password" class="btn btn-block">
+                </div>
+              </form>
+              <div class="text-center">
+                <p class="gray_text">For security reasons we don't store your password. Your password will be reset and a new one will be send.</p>
+                <p><a href="#loginform" data-toggle="modal" data-dismiss="modal"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Login</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Forgot-password-Form --> 
+
+<!-- Scripts --> 
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script> 
+<script src="assets/js/interface.js"></script> 
+<!--Switcher-->
+<script src="assets/switcher/js/switcher.js"></script>
+<!--bootstrap-slider-JS--> 
+<script src="assets/js/bootstrap-slider.min.js"></script> 
+<!--Slider-JS--> 
+<script src="assets/js/slick.min.js"></script> 
+<script src="assets/js/owl.carousel.min.js"></script>
 
 </body>
 </html>
