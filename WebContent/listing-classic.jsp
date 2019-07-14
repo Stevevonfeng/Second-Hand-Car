@@ -124,11 +124,9 @@
 	  
 	  
 	  <div class="product-listing-m gray-bg">
-<<<<<<< HEAD
-	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }"><img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" /> </a>
-=======
-	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}"><img src="/imgs/${car.upload }" class="img-responsive" alt="Image" /> </a>
->>>>>>> branch 'master' of https://github.com/Stevevonfeng/SecondHandCar.git
+
+	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}"><img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" /> </a>
+
 	      <div class="label_icon">${car.usedcar }${car.newcar }</div>
 	      <div class="compare_item">
 	        <div class="checkbox">
