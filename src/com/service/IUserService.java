@@ -5,7 +5,7 @@ import java.util.List;
 import com.model.Users;
 
 public interface IUserService {
-	public boolean addUser(Users user);
+	public void addUser(Users user);
 	
 	public Users searchUser(String loginname);
 	

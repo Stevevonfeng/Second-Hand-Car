@@ -7,21 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dao.IUserDao;
-import com.dao.UserDaoImpl;
-import com.model.Users;
-
 /**
- * Servlet implementation class GetImgServlet
+ * Servlet implementation class JumpUpdate
  */
-@WebServlet("/GetImgServlet")
-public class GetImgServlet extends HttpServlet {
+@WebServlet("/Jump-update")
+public class JumpUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetImgServlet() {
+    public JumpUpdate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,14 +26,7 @@ public class GetImgServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userName = request.getParameter("username");
-		 
-		IUserDao iud = new UserDaoImpl();
-		if(!userName.equals("")){
-			Users user = iud.findUser(userName);
-			String img = user.getImage();
-			response.getWriter().print(img);
-		}
+		request.getRequestDispatcher("Update-profile-settings.jsp").forward(request, response);	
 	}
 
 	/**

@@ -98,7 +98,7 @@
           
             <li class="dropdown" > <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i><span id="IsLogin">未登录</span><i class="fa fa-angle-down" aria-hidden="true"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="profile-settings.jsp">个人信息</a></li>
+                <li><a href="PIM-information.jsp">个人信息</a></li>
                 <li><a href="my-vehicles.jsp">我的车辆</a></li>
                 <li><a href="post-vehicle.jsp">我要卖车</a></li>
                 <li><a href="#loginform" data-toggle="modal" data-dismiss="modal">切换账号</a></li>
@@ -116,7 +116,7 @@
       </div>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
-          <li><a href="Index.jsp">主页</a></li>
+          <li><a href="profile-settings.jsp">主页</a></li>
           <li><a href="about-us.jsp">关于我们</a></li>
           <li >
           <a href="list?act=ListShow">库存</a>

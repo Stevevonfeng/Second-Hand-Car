@@ -11,7 +11,7 @@ public class UserDaoImpl implements  IUserDao{
 	JdbcUtil jdbc = new JdbcUtil();
 	
 	@Override
-	public boolean addUser(Users user){
+	public void addUser(Users user){
 		
  String sql = "insert into tb_user(userid,username, email, userpassword,status) "
 					+ "values(userse_seq.nextval,?,?,?,'online')";
@@ -22,8 +22,7 @@ public class UserDaoImpl implements  IUserDao{
 		params.add(user.getEmail());
 		params.add(user.getUserpassword());
 		
-		boolean aa = jdbc .updatePreparedStatement(sql, params);
-		return aa;
+		 jdbc .updatePreparedStatement(sql, params);
 		
 	}
 	
@@ -86,7 +85,9 @@ public class UserDaoImpl implements  IUserDao{
 		 String sql = "select image from tb_user where username='"+userName+"'";
 			
 			List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
-
+			if(list==null){
+				return null;
+			}
 			 Users user = list.get(0);
 			 
 			 return user;
@@ -94,9 +95,10 @@ public class UserDaoImpl implements  IUserDao{
 
 	
 	public List  findUserName(){
-		 String sql = "select username from tb_user";
-		 List listname = jdbc.queryPreparedStatement(sql, null, List.class); 
-		 return listname;
+		
+		 String sql = "select * from tb_user";
+		 List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
+		 return list;
 		 
 	}
 	

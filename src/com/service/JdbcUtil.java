@@ -53,8 +53,10 @@ public class JdbcUtil {
 			
 			return pstm.execute();
 		} catch (SQLException e) {
-			return false;
+			e.printStackTrace();
 		}
+		return false;
+		
 	}
 	
 	//≤È—Ø

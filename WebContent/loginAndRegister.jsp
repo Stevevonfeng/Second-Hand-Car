@@ -203,13 +203,5 @@
 <script src="assets/js/owl.carousel.min.js"></script>
 
 </body>
-<script>
-$(function(){
-
-	if(${AA}==false){
-		alert("用户名已存在！请重新注册。");
-	}
-	
-})
-</script>
+ 
 </html>
