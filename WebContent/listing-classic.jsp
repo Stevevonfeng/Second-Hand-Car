@@ -124,12 +124,31 @@
 	  
 	  
 	  <div class="product-listing-m gray-bg">
-	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }"><img src="/imgs/${car.upload }" class="img-responsive" alt="Image" /> </a>
+	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }"><img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" /> </a>
 	      <div class="label_icon">${car.usedcar }${car.newcar }</div>
 	      <div class="compare_item">
 	        <div class="checkbox">
-	          <input type="checkbox" value="" id="compare22">
-	          <label for="compare22">Compare</label>
+	          <input type="checkbox" id="${car.vid }" value="${car.vid }" <c:if test="${car.compare eq '1'}"> checked='checked' </c:if>  >
+	          <label for="${car.vid }">Compare</label>
+	          <script>
+	          	$("#${car.vid }").change(function(){
+	          		var id = "${car.vid }";
+	          		var val = $("#"+id+"").is(":checked");
+	          		if(val==true){
+	          			$.ajax({
+	          				type:"get",
+	          				url:"ComparedServlet",
+	          				data:{vid:id,compare:'1'}
+	          			});
+	          		}else{
+	          			$.ajax({
+	          				type:"get",
+	          				url:"ComparedServlet",
+	          				data:{vid:id,compare:'0'}
+	          			});
+	          		}
+	          	});
+	          </script>
 	        </div>
 	      </div>
 	    </div>
@@ -239,4 +258,9 @@
 <%@ include file="loginAndRegister.jsp" %>
 
 </body>
+<script>
+	function click(a){
+		alert(a);
+	}
+</script>
 </html>

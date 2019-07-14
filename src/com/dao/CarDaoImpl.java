@@ -83,6 +83,60 @@ public class CarDaoImpl implements ICarDao{
 		return arr;
 	}
 	
+	@Override
+	public <E> ArrayList<E> searchObject(Class cls, String userid) {
+		String sqlTable = cls.getSimpleName();
+		String sql = "select * from "+sqlTable+" where userid="+userid;
+		Field[] fields = cls.getDeclaredFields();
+		PreparedStatement p = null;
+		ResultSet rs = null;
+		ArrayList<E> arr = new ArrayList<E>();
+		try {
+			p = c.prepareStatement(sql);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			rs = p.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			while(rs.next()) {
+				Object obj = null;
+				try {
+					obj = cls.newInstance();
+				} catch (InstantiationException | IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				for(int i=1;i<=fields.length;i++) {
+					fields[i-1].setAccessible(true);
+					try {
+						if(fields[i-1].getType().equals(int.class)) {
+							fields[i-1].set(obj, rs.getInt(i));
+						}else if(fields[i-1].getType().equals(long.class)){
+							fields[i-1].set(obj,rs.getLong(i));
+						}else {
+							fields[i-1].set(obj, rs.getObject(i));
+						}
+						
+					} catch (IllegalArgumentException | IllegalAccessException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				arr.add((E) obj);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return arr;
+	}
+	
 
 	@Override
 	public List<CarModel> searchById(String userid) {
@@ -102,7 +156,6 @@ public class CarDaoImpl implements ICarDao{
 				String price = rs.getString("price");
 				String upload = rs.getString("upload");
 				String active = rs.getString("active");
-				
 				CarModel car = new CarModel(vid, vehiclestitle, brand, model, version, vod, price, upload,active, userid);
 				cars.add(car);
 			}
@@ -228,5 +281,8 @@ public class CarDaoImpl implements ICarDao{
 		
 		return list;
 	}
+
+
+	
 	
 }

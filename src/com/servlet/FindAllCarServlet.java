@@ -2,6 +2,7 @@ package com.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.Car2;
+import com.service.CarServiceImpl;
+import com.service.ICarService;
 import com.service.JsonUtils;
-import com.service.Utils;
 
 /**
- * Servlet implementation class FindServlet
+ * Servlet implementation class FindAllCarServlet
  */
-@WebServlet("/FindServlet")
-public class FindServlet extends HttpServlet {
+@WebServlet("/FindAllCarServlet")
+public class FindAllCarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindServlet() {
+    public FindAllCarServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,14 +36,22 @@ public class FindServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		long vid = Long.parseLong(request.getParameter("vid"));
-		ArrayList<Car2> arrCar2 = Utils.setCar(Car2.class, vid);
-		
-		Car2 car = arrCar2.get(0);
-		//Utils.objectToAjaxText(car);
-		
-		String json = JsonUtils.objectToJson(car);
-		System.out.println("FindServlet:"+json);
+		List<Car2> comparCars = new ArrayList<Car2>();
+		String userid = "0001";
+		ICarService ics = new CarServiceImpl();
+		ArrayList<Car2> list = ics.findObject(Car2.class, userid);
+		System.out.println(list.size());
+		for(Car2 car2:list) {
+			String compare = car2.getCompare();
+			if(compare==null) {
+				continue;
+			}
+			if(car2.getCompare().equals("1")) {
+				comparCars.add(car2);
+			}	
+		}
+		String json = JsonUtils.objectToJson(comparCars);
+		System.out.println(json);
 		response.getWriter().print(json);
 	}
 

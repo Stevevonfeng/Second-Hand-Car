@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.Car2;
-import com.service.JsonUtils;
-import com.service.Utils;
+import com.service.CarServiceImpl;
+import com.service.ICarService;
 
 /**
- * Servlet implementation class FindServlet
+ * Servlet implementation class ComparedServlet
  */
-@WebServlet("/FindServlet")
-public class FindServlet extends HttpServlet {
+@WebServlet("/ComparedServlet")
+public class ComparedServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindServlet() {
+    public ComparedServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,17 +32,14 @@ public class FindServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
+		//String userid = request.getParameter("userid");
 		long vid = Long.parseLong(request.getParameter("vid"));
-		ArrayList<Car2> arrCar2 = Utils.setCar(Car2.class, vid);
-		
-		Car2 car = arrCar2.get(0);
-		//Utils.objectToAjaxText(car);
-		
-		String json = JsonUtils.objectToJson(car);
-		System.out.println("FindServlet:"+json);
-		response.getWriter().print(json);
+		String compare = request.getParameter("compare");
+		ICarService ics = new CarServiceImpl();
+		ArrayList<Car2> list =  ics.findObject(Car2.class, vid);
+		Car2 car2 = list.get(0);
+		car2.setCompare(compare);
+		ics.upCar(car2, vid);
 	}
 
 	/**

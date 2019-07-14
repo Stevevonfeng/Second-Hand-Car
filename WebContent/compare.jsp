@@ -176,14 +176,25 @@
     <div class="compare_info">
       <h4>Compare Hyundai Elantra 1.6 SX and Ford Figo 1.5D Base MT and Hyundai Elantra 2.0 SX</h4>
       <div class="compare_product_img">
+            
+      
+      
+      <!--imgs-->
+      
         <div class="inventory_info_list">
-          <ul>
+       <ul id="imgs">
             <li id="filter_toggle" class="search_other_inventory"><i class="fa fa-search" aria-hidden="true"></i> Search Other Inventory</li>
-            <li><a href="#"><img src="assets/images/recent-car-2.jpg" alt="image"></a></li>
-            <li><a href="#"><img src="assets/images/recent-car-3.jpg" alt="image"></a></li>
-            <li><a href="#"><img src="assets/images/recent-car-4.jpg" alt="image"></a></li>
+            
+            <!-- <li><a href="#"><img src="assets/images/recent-car-4.jpg" alt="image"></a></li> -->
           </ul>
         </div>
+        
+        
+        
+        
+        
+        
+        
         <table>
           <tr>
             <td></td>
@@ -194,21 +205,29 @@
         </table>
       </div>
       <div class="compare_product_title gray-bg">
+       
+       
+       
+       
+       
+       
+       
+  		<!--info -->    
         <div class="inventory_info_list">
-          <ul>
+          <ul id="info">
             <li class="listing_heading">Compare <br>
               Inventorys <span class="td_divider"></span></li>
-            <li><a href="#">Hyundai Elantra 1.6 SX</a>
-              <p class="price">$90,000</p>
-              <span class="vs">V/s</span></li>
-            <li><a href="#">Ford Figo 1.5D Base MT</a>
-              <p class="price">$85,000</p>
-              <span class="vs">V/s</span></li>
-            <li><a href="#">Hyundai Elantra 2.0 SX</a>
-              <p class="price">$75,000</p>
-            </li>
+            
+            <!-- <li><a href="#">Hyundai Elantra 2.0 SX</a><p class="price">$75,000</p></li> -->
           </ul>
         </div>
+        
+        
+        
+        
+        
+        
+        
       </div>
       <div class="compare_product_info"> 
         <!--Basic-Info-Table-->
@@ -219,32 +238,25 @@
             <div>&nbsp;</div>
             <div>&nbsp;</div>
           </div>
-          <ul>
+          
+          
+          
+      <!--basic-->    
+          <ul id="basic">
             <li class="info_heading">
               <div>Model Year</div>
               <div>No. of Owners</div>
               <div>KMs Driven</div>
               <div>Fuel Type</div>
             </li>
-            <li>
-              <div>2010</div>
-              <div>4</div>
-              <div>30,000</div>
-              <div>Diesel</div>
-            </li>
-            <li>
-              <div>2005</div>
-              <div>2</div>
-              <div>55,000</div>
-              <div>Diesel</div>
-            </li>
-            <li>
-              <div>2010</div>
-              <div>1</div>
-              <div>95,000</div>
-              <div>Diesel</div>
-            </li>
+           
+            <!-- <li><div>2010</div><div>1</div><div>95,000</div><div>Diesel</div></li> -->
           </ul>
+          
+          
+          
+          
+          
         </div>
         
         <!--Technical-Specification-Table-->
@@ -255,7 +267,12 @@
             <div>&nbsp;</div>
             <div>&nbsp;</div>
           </div>
-          <ul>
+          
+          
+          
+          
+          <!--tech-->
+          <ul id="tech">
             <li class="info_heading">
               <div>Engine Type</div>
               <div>Engine Description</div>
@@ -266,37 +283,17 @@
               <div>Seating Capacity</div>
               <div>Transmission Type</div>
             </li>
-            <li>
-              <div>TDCI Diesel Engine</div>
-              <div>1.5KW</div>
-              <div>4</div>
-              <div>22.4kmpl</div>
-              <div>25.83kmpl</div>
-              <div>40 (Liters)</div>
-              <div>5</div>
-              <div>Manual</div>
-            </li>
-            <li>
-              <div>TDCI Diesel Engine</div>
-              <div>1.9KW</div>
-              <div>5</div>
-              <div>32.4kmpl</div>
-              <div>48.83kmpl</div>
-              <div>60 (Liters)</div>
-              <div>5</div>
-              <div>Automatic</div>
-            </li>
-            <li>
-              <div>TDCI Diesel Engine</div>
-              <div>1.6KW</div>
-              <div>6</div>
-              <div>21.4kmpl</div>
-              <div>28.83kmpl</div>
-              <div>42 (Liters)</div>
-              <div>6</div>
-              <div>Manual</div>
-            </li>
+            
+            <!-- <li><div>TDCI Diesel Engine</div><div>1.6KW</div><div>6</div><div>21.4kmpl</div><div>28.83kmpl</div><div>42 (Liters)</div><div>6</div><div>Manual</div></li> -->
           </ul>
+          
+          
+          
+          
+          
+          
+          
+          
         </div>
         
         <!--Accessories-->
@@ -307,7 +304,14 @@
             <div>&nbsp;</div>
             <div>&nbsp;</div>
           </div>
-          <ul>
+          
+          
+          
+          
+          
+          
+          <!--acc-->
+          <ul id="acc">
             <li class="info_heading">
               <div>Air Conditioner</div>
               <div>AntiLock Braking System</div>
@@ -324,39 +328,8 @@
               <div>Engine Check Warning</div>
               <div>Automatic Headlamps</div>
             </li>
-            <li>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-            </li>
-            <li>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-close" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-              <div><i class="fa fa-check" aria-hidden="true"></i></div>
-            </li>
-            <li>
+            
+            <!-- <li>
               <div><i class="fa fa-check" aria-hidden="true"></i></div>
               <div><i class="fa fa-check" aria-hidden="true"></i></div>
               <div><i class="fa fa-check" aria-hidden="true"></i></div>
@@ -371,8 +344,13 @@
               <div><i class="fa fa-close" aria-hidden="true"></i></div>
               <div><i class="fa fa-check" aria-hidden="true"></i></div>
               <div><i class="fa fa-check" aria-hidden="true"></i></div>
-            </li>
+            </li> -->
           </ul>
+          
+          
+          
+          
+          
         </div>
         <div class="inventory_info_list text-center">
           <ul>
@@ -403,4 +381,92 @@
 <%@ include file="loginAndRegister.jsp" %>
 
 </body>
+<script type="text/javascript">
+	$(function(){
+		$.ajax({
+			url:"FindAllCarServlet",
+			type:"get",
+			dataType:"json",
+			success:function(rs){
+				$.each(rs,function(index,item){
+					$("#imgs").append("<li><a href='#'><img src='/imgs/"+item.vid+"/"+item.upload+"' alt='image'></a></li>");
+					$("#info").append("<li><a href='#'>"+item.brand+" "+item.model+" "+item.version+"</a><p class='price'>$"+item.price+"</p></li>");
+					$("#basic").append("<li><div>"+item.year+"</div><div>"+item.owners+"</div><div>"+item.kms+"</div><div>"+item.fuel+"</div></li>");
+					$("#tech").append("<li><div>"+item.engien+"</div><div>"+item.engiendescription+"</div><div>"+item.cylinders+"</div><div>"+item.mileage+"</div><div>"+item.mileage_h+"</div><div>"+item.capacity+"</div><div>"+item.s_capacity+"</div><div>"+item.transmission+"</div></li>");
+					$("#acc").last().append("<li></li>")
+              		if(item.air_conditioner!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.door!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.antilock!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.brake!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.steering!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.airbag!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.windows!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.passenger_airbag!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.player!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.sensor!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.seats!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.engine_warning!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.locking!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+					if(item.headlamps!=null){
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-check' aria-hidden='true'></i></div>");
+					}else{
+					$("#acc").children("li:last-child").append("<div><i class='fa fa-close' aria-hidden='true'></i></div>");
+					}
+				});
+			}
+		});
+	});
+</script>
 </html>

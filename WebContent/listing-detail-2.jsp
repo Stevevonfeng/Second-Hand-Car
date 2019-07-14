@@ -256,7 +256,7 @@
               <p>传输</p>
             </li>
             <li> <i class="fa fa-superpowers" aria-hidden="true"></i>
-              <h5>${car.engine }</h5>
+              <h5>${car.engien }</h5>
               <p>发动机功率/kw</p>
             </li>
             <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
@@ -328,11 +328,11 @@
                     <tbody>
                       <tr>
                         <td>引擎类型</td>
-                        <td>${car.engine }</td>
+                        <td>${car.engien }</td>
                       </tr>
                       <tr>
                         <td>引擎说明</td>
-                        <td>${car.enginedescription }</td>
+                        <td>${car.engiendescription }</td>
                       </tr>
                       <tr>
                         <td>气缸数量</td>

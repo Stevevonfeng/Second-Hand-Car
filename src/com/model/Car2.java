@@ -41,6 +41,7 @@ public class Car2 {
 	String newcar;
 	String usedcar;
 	String active;
+	String compare;
 	
 	public String getActive() {
 		return active;
@@ -273,4 +274,25 @@ public class Car2 {
 	public void setUsedcar(String usedcar) {
 		this.usedcar = usedcar;
 	}
+	public String getCompare() {
+		return compare;
+	}
+	public void setCompare(String compare) {
+		this.compare = compare;
+	}
+	@Override
+	public String toString() {
+		return "Car2 [vid=" + vid + ", vehiclestitle=" + vehiclestitle + ", brand=" + brand + ", model=" + model
+				+ ", version=" + version + ", vod=" + vod + ", price=" + price + ", upload=" + upload + ", userid="
+				+ userid + ", year=" + year + ", owners=" + owners + ", kms=" + kms + ", fuel=" + fuel + ", engien="
+				+ engien + ", engiendescription=" + engiendescription + ", cylinders=" + cylinders + ", mileage="
+				+ mileage + ", mileage_h=" + mileage_h + ", capacity=" + capacity + ", s_capacity=" + s_capacity
+				+ ", transmission=" + transmission + ", air_conditioner=" + air_conditioner + ", door=" + door
+				+ ", antilock=" + antilock + ", brake=" + brake + ", steering=" + steering + ", airbag=" + airbag
+				+ ", windows=" + windows + ", passenger_airbag=" + passenger_airbag + ", player=" + player + ", sensor="
+				+ sensor + ", seats=" + seats + ", engine_warning=" + engine_warning + ", locking=" + locking
+				+ ", headlamps=" + headlamps + ", newcar=" + newcar + ", usedcar=" + usedcar + ", active=" + active
+				+ ", compare=" + compare + "]";
+	}
+	
 }

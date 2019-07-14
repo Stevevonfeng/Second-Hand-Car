@@ -14,4 +14,5 @@ public interface ICarService {
 	List<CarModel> findCarById(String userid);
 	List<Car> findAllCar();
 	<E> ArrayList<E> findObject(Class cls,long vid);
+	<E> ArrayList<E> findObject(Class cls,String userid);
 }

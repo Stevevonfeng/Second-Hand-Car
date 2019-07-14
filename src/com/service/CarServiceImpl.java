@@ -27,6 +27,13 @@ public class CarServiceImpl implements ICarService{
 		ArrayList<E> arr = icd.searchObject(cls,vid);
 		return arr;
 	}
+	
+	@Override
+	public <E> ArrayList<E> findObject(Class cls, String userid) {
+		ICarDao icd = new CarDaoImpl();
+		ArrayList<E> list = icd.searchObject(cls, userid);
+		return list;
+	}
 
 	@Override
 	public void addCar(Car2 car) {
@@ -50,7 +57,5 @@ public class CarServiceImpl implements ICarService{
 	public List<Car> findAllCar() {
 		ICarDao icd = new CarDaoImpl();
 		return icd.searchAllCar();
-	}
-
-	
+	}	
 }

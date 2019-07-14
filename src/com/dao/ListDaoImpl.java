@@ -81,6 +81,7 @@ public class ListDaoImpl implements IListDao{
 					String headlamps = rs.getString(35);
 					String newcar = rs.getString(36);
 					String usedcar = rs.getString(37);
+					String compare = rs.getString("compare");
 					
 					Car2 car = new Car2();
 					car.setVid(vid);
@@ -121,6 +122,7 @@ public class ListDaoImpl implements IListDao{
 					car.setHeadlamps(headlamps);
 					car.setNewcar(newcar);
 					car.setUsedcar(usedcar);
+					car.setCompare(compare);
 					
 					cars.add(car);
 					
@@ -197,6 +199,7 @@ public class ListDaoImpl implements IListDao{
 				String headlamps = rs.getString(35);
 				String newcar = rs.getString(36);
 				String usedcar = rs.getString(37);
+				String compare = rs.getString("compare");
 
 				car.setVid(vid);
 				car.setVehiclestitle(vehiclestitle);
@@ -236,6 +239,7 @@ public class ListDaoImpl implements IListDao{
 				car.setHeadlamps(headlamps);
 				car.setNewcar(newcar);
 				car.setUsedcar(usedcar);
+				car.setCompare(compare);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -59,7 +59,6 @@ public class PostCarServlet extends HttpServlet {
 		List<FileItem> list = null;
 		try {
 			list = up.parseRequest(request);
-		
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
