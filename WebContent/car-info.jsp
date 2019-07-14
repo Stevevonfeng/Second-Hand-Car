@@ -39,7 +39,7 @@ Page Header
 			<div class="col-md-6 col-sm-8">
 				<div class="profile_wrap">
 					<h5 class="uppercase underline">订单信息</h5>
-					<form action="" method="get">
+					<form action="index.jsp" method="get">
 						<div class="form-group">
 							<label class="control-label">车辆ID</label> 
 							<input class="form-control white_bg" id="vid" type="text" value="${param.vid}">

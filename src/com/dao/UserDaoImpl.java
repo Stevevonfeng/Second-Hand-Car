@@ -11,7 +11,7 @@ public class UserDaoImpl implements  IUserDao{
 	JdbcUtil jdbc = new JdbcUtil();
 	
 	@Override
-	public void addUser(Users user){
+	public boolean addUser(Users user){
 		
  String sql = "insert into tb_user(userid,username, email, userpassword,status) "
 					+ "values(userse_seq.nextval,?,?,?,'online')";
@@ -22,7 +22,8 @@ public class UserDaoImpl implements  IUserDao{
 		params.add(user.getEmail());
 		params.add(user.getUserpassword());
 		
-		jdbc .updatePreparedStatement(sql, params);	
+		boolean aa = jdbc .updatePreparedStatement(sql, params);
+		return aa;
 		
 	}
 	
@@ -80,8 +81,36 @@ public class UserDaoImpl implements  IUserDao{
 		 jdbc.updatePreparedStatement(sql, null);
 	 }
 
+<<<<<<< HEAD
 	@Override
 	public String searchUserIdByName(String name) {
 		return null;
 	}
+=======
+
+	public Users findUser(String userName) {
+		 String sql = "select image from tb_user where username='"+userName+"'";
+			
+			List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
+
+			 Users user = list.get(0);
+			 
+			 return user;
+	}
+
+	
+	public List  findUserName(){
+		 String sql = "select username from tb_user";
+		 List listname = jdbc.queryPreparedStatement(sql, null, List.class); 
+		 return listname;
+		 
+	}
+	
+	public void upUserIMg(String userName, String path) {
+		String sql = "update tb_user set image='"+path+"' where userName='"+userName+"'";
+		jdbc.updatePreparedStatement(sql, null);
+	}
+	
+	
+>>>>>>> branch 'master' of https://github.com/Stevevonfeng/SecondHandCar.git
 }

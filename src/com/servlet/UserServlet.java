@@ -29,10 +29,14 @@ public class UserServlet extends BaseServlet {
 		 
 		 Conversion.req_obj(user, request);
  
-		 userService.addUser(user);
+		 boolean aa = userService.addUser(user);
+		 System.out.println(aa);
+		 request.setAttribute("AA", aa);
 		 
+		   String signname = user.getUsername();	 
 		   String userpassword = user.getUserpassword();
 		   String repassword = request.getParameter("repassword");
+
 
 			
 				  if(repassword.equals(userpassword)){
@@ -40,6 +44,27 @@ public class UserServlet extends BaseServlet {
 						  request.getSession().setAttribute("user", user);
 				request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
 				  }
+
+		   
+            List listname = userService.findUserName();
+        
+            for(int i=0;i<listname.size();i++){
+            	String existname = (String) listname.get(i);
+            	if(signname.equals(existname)){
+            		
+            		 request.getSession().removeAttribute("user");	
+            	}else{
+            		
+            		 if(repassword.equals(userpassword)){
+         				 //servlet�в���ֱ����session��Ҫ��request�ķ�����ȡsession 
+         				  request.getSession().setAttribute("user", user);
+         		      }
+            	}
+     
+            }
+            request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
+          	 
+
 			
 		
 	}

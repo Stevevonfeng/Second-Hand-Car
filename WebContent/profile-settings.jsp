@@ -111,17 +111,23 @@
           <input name="upload" type="file">
         </div>
       </div>
-      <div class="dealer_info">
-        <h5>Autospot Used Cars Center </h5>
-        <p>P.1225 N Broadway Ave <br>
-          Oklahoma City, OK  1234-5678-090</p>
+      <div class="dealer_info">          
+        <h5>
+        <c:if test="${user==null }">用户名</c:if>${user.getUsername()}
+        </h5>
+		<p>
+		<c:if test="${user.getAdress()==null}">居住地址 </c:if> ${user.getAdress()}
+	    <br>
+		<c:if test="${user.getProvince()==null}">省份 </c:if> ${user.getProvince()}
+		<c:if test="${user.getPhone()==null}">,联系方式 </c:if>${user.getPhone()}
+		</p>
+		
       </div>
     </div>
     <div class="row">
       <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
           <ul>
-          <%Users user = (Users)request.getSession().getAttribute("user");%>
           <li class="active"><a href="User?act=ToUpdate&username=${user.getUsername()}">资料设置</a></li>
             <li><a href="my-vehicles.jsp">My Vehicles</a></li>
             <li><a href="post-vehicle.jsp">Post a Vehicles</a></li>
