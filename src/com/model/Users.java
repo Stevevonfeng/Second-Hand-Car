@@ -1,7 +1,7 @@
 package com.model;
 
 public class Users {
-
+private String userid;
 private String username;
 private String email;
 private String userpassword;
@@ -106,6 +106,17 @@ public void setUserpassword(String userpassword) {
 public Users() {
 	super();
 }
+
+
+public String getUserid() {
+	return userid;
+}
+
+
+public void setUserid(String userid) {
+	this.userid = userid;
+}
+
 
 
 }

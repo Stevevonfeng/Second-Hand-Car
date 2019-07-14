@@ -15,4 +15,6 @@ public interface IUserDao {
 	public void SignOut(String username);
 	 
 	public void PasswordRecover(String useremail,String npassword);
+	
+	String searchUserIdByName(String name);
 }

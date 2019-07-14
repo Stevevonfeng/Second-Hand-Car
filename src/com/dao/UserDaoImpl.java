@@ -28,7 +28,7 @@ public class UserDaoImpl implements  IUserDao{
 	
 	 public Users searchUser(String loginname){
 	    	
-		 String sql = "select username,email,userpassword,phone,birth,adress,country,"
+		 String sql = "select userid,username,email,userpassword,phone,birth,adress,country,"
 					+ "province from tb_user where username='" + loginname + "'or email='"+ loginname+"'";
 							
 							List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
@@ -79,4 +79,9 @@ public class UserDaoImpl implements  IUserDao{
 		 String sql = "update tb_user set userpassword='"+npassword+"' where email='"+useremail+"'";
 		 jdbc.updatePreparedStatement(sql, null);
 	 }
+
+	@Override
+	public String searchUserIdByName(String name) {
+		return null;
+	}
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.model.CarModel;
+import com.model.Users;
 import com.service.CarServiceImpl;
 import com.service.ICarService;
 import com.service.JsonUtils;
@@ -34,10 +35,10 @@ public class MyCarServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
-		String userid = (String) session.getAttribute("userid");*/
+		HttpSession session = request.getSession();
+		Users user = (Users) session.getAttribute("user");
 		response.setCharacterEncoding("UTF-8");
-		String userid = "0001";
+		String userid = user.getUserid();
 		ICarService cs = new CarServiceImpl();
 		List<CarModel> cars = cs.findCarById(userid);
 		String json = JsonUtils.objectToJson(cars);
