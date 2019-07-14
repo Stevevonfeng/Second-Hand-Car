@@ -29,7 +29,9 @@ public class UserServlet extends BaseServlet {
 		 
 		 Conversion.req_obj(user, request);
  
-		 userService.addUser(user);
+		 boolean aa = userService.addUser(user);
+		 System.out.println(aa);
+		 request.setAttribute("AA", aa);
 		 
 		   String signname = user.getUsername();	 
 		   String userpassword = user.getUserpassword();

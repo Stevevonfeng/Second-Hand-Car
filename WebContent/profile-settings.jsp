@@ -128,7 +128,6 @@
       <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
           <ul>
-       <!--  <%Users user = (Users)request.getSession().getAttribute("user");%> -->  
           <li class="active"><a href="User?act=ToUpdate&username=${user.getUsername()}">资料设置</a></li>
             <li><a href="my-vehicles.jsp">My Vehicles</a></li>
             <li><a href="post-vehicle.jsp">Post a Vehicles</a></li>

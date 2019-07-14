@@ -5,7 +5,7 @@ import java.util.List;
 import com.model.Users;
 
 public interface IUserDao {
-	public void addUser(Users user);
+	public boolean addUser(Users user);
 	
 	public Users searchUser(String loginname);
 	public Users findUser(String userName);

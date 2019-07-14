@@ -40,7 +40,7 @@ public class JdbcUtil {
 	}
 	
 	//ÔöÉ¾¸Ä
-	public void updatePreparedStatement(String sql,List<Object> params){
+	public boolean updatePreparedStatement(String sql,List<Object> params){
 		getConn();
 		try {
 			pstm = conn.prepareStatement(sql);
@@ -51,10 +51,9 @@ public class JdbcUtil {
 				}
 			}
 			
-			pstm.execute();
+			return pstm.execute();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return false;
 		}
 	}
 	
