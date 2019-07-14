@@ -1,11 +1,9 @@
 package com.SHC.model;
 
-import java.util.Date;
-
 public class CarBill {
 	
-	private String billnum;
-	private String vehiclestitle;
+	private long billnum;
+	private long vid;
 	private String brand;
 	private String model;
 	private String version;
@@ -13,18 +11,13 @@ public class CarBill {
 	private String fuel;
 	private String carNO;//车的新旧
 	private String price;
-	public String getBillnum() {
+	public long getBillnum() {
 		return billnum;
 	}
-	public void setBillnum(String billnum) {
+	public void setBillnum(long billnum) {
 		this.billnum = billnum;
 	}
-	public String getVehiclestitle() {
-		return vehiclestitle;
-	}
-	public void setVehiclestitle(String vehiclestitle) {
-		this.vehiclestitle = vehiclestitle;
-	}
+
 	public String getBrand() {
 		return brand;
 	}
@@ -66,6 +59,12 @@ public class CarBill {
 	}
 	public void setYear(String year) {
 		this.year = year;
+	}
+	public long getVid() {
+		return vid;
+	}
+	public void setVid(long vid) {
+		this.vid = vid;
 	}
 	
 	

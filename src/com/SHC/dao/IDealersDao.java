@@ -16,6 +16,10 @@ public interface IDealersDao {
 	public Dealers dealersprofile(int id);
 	//按类别搜索汽车
 	public Car2 searchCarType(String carType,int currentPage); 
+	//搜索car订单信息
+	public Car2 searchCarInfo(long vid);
+	//生成订单
+	public void createOrder(CarBill cb,long vid);
 	//支付btn
 	public CarBill carOffer(long vid);
 	

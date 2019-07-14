@@ -6,6 +6,7 @@ import com.SHC.dao.DealersDaoImpl;
 import com.SHC.dao.IDealersDao;
 import com.SHC.model.CarBill;
 import com.SHC.model.Dealers;
+import com.model.Car2;
 
 public class DealersServiceImpl implements IDealersService {
 
@@ -31,6 +32,18 @@ public class DealersServiceImpl implements IDealersService {
 	public CarBill carOffer(long vid) {
 		IDealersDao idd = new DealersDaoImpl();
 		return idd.carOffer(vid);
+	}
+
+	@Override
+	public void createOrder(CarBill cb,long vid) {
+		IDealersDao idd = new DealersDaoImpl();
+		idd.createOrder(cb,vid);
+	}
+
+	@Override
+	public Car2 searchCarInfo(long vid) {
+		IDealersDao idd = new DealersDaoImpl();
+		return idd.searchCarInfo(vid);
 	}
 
 
