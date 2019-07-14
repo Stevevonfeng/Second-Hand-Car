@@ -32,14 +32,16 @@ public class FindServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		long vid = Long.parseLong(request.getParameter("vid"));
 		ArrayList<Car2> arrCar2 = Utils.setCar(Car2.class, vid);
 		
 		Car2 car = arrCar2.get(0);
-		Utils.objectToAjaxText(car);
+		//Utils.objectToAjaxText(car);
 		
 		String json = JsonUtils.objectToJson(car);
-		System.out.println(json);	
+		System.out.println(json);
 		response.getWriter().print(json);
 	}
 

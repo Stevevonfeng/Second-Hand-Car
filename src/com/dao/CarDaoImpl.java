@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.model.Car;
 import com.model.CarModel;
 
 public class CarDaoImpl implements ICarDao{
@@ -100,7 +101,9 @@ public class CarDaoImpl implements ICarDao{
 				String vod = rs.getString("vod");
 				String price = rs.getString("price");
 				String upload = rs.getString("upload");
-				CarModel car = new CarModel(vid, vehiclestitle, brand, model, version, vod, price, upload, userid);
+				String active = rs.getString("active");
+				
+				CarModel car = new CarModel(vid, vehiclestitle, brand, model, version, vod, price, upload,active, userid);
 				cars.add(car);
 			}
 		} catch (Exception e) {
@@ -125,7 +128,6 @@ public class CarDaoImpl implements ICarDao{
 		tableFields = tableFields.substring(0, tableFields.length()-1);
 		size = size.substring(0, size.length()-1);
 		String sql = "insert into "+tableName+"("+tableFields+") values("+size+")";
-		System.out.println(sql);
 		PreparedStatement p = null;
 		try {
 			p = c.prepareStatement(sql);
@@ -141,7 +143,6 @@ public class CarDaoImpl implements ICarDao{
 					Method setLong = pre.getDeclaredMethod("setObject", new Class[] {int.class,Object.class});
 					setLong.invoke(p, new Object[] {i,sqlDate});
 				}else {
-					System.out.println(fields[i-1].get(obj));
 					Method setObject = pre.getDeclaredMethod("setObject", new Class[] {int.class,Object.class});
 					setObject.invoke(p, new Object[] {i,fields[i-1].get(obj)});	
 				}
@@ -169,7 +170,6 @@ public class CarDaoImpl implements ICarDao{
 		}
 		fieldEqu = fieldEqu.substring(0, fieldEqu.length()-1);
 		String sql = "update "+tableName+" set "+fieldEqu+" "+condition;
-		//System.out.println(sql);
 		try {
 			PreparedStatement p = c.prepareStatement(sql);
 			Class pre = PreparedStatement.class;
@@ -181,7 +181,6 @@ public class CarDaoImpl implements ICarDao{
 					Method setLong = pre.getDeclaredMethod("setObject", new Class[] {int.class,Object.class});
 					setLong.invoke(p, new Object[] {i,sqlDate});
 				}else {
-					System.out.println(fields[i-1].get(obj));
 					Method setObject = pre.getDeclaredMethod("setObject", new Class[] {int.class,Object.class});
 					setObject.setAccessible(true);
 					setObject.invoke(p, new Object[] {i,fields[i-1].get(obj)});	
@@ -205,8 +204,29 @@ public class CarDaoImpl implements ICarDao{
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 
+
+	@Override
+	public List<Car> searchAllCar() {
+		List<Car> list = new ArrayList<Car>();
+		String sql = "select cid,brand,model,version from car";
+		try {
+			PreparedStatement p = c.prepareStatement(sql );
+			ResultSet rs = p.executeQuery();
+			while(rs.next()) {
+				Car car = new Car();
+				car.setCid(rs.getInt("cid"));
+				car.setBrand(rs.getString("brand"));
+				car.setModel(rs.getString("model"));
+				car.setVersion(rs.getString("version"));
+				list.add(car);
+			}
+		}catch (Exception e ) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
 	
 }

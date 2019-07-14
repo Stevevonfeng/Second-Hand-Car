@@ -1,31 +1,29 @@
 package com.servlet;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.model.CarModel;
+import com.model.Car2;
 import com.service.CarServiceImpl;
 import com.service.ICarService;
-import com.service.JsonUtils;
 
 /**
- * Servlet implementation class MyCarServlet
+ * Servlet implementation class ChangeActiveServlet
  */
-@WebServlet("/MyCarServlet")
-public class MyCarServlet extends HttpServlet {
+@WebServlet("/ChangeActiveServlet")
+public class ChangeActiveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MyCarServlet() {
+    public ChangeActiveServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,14 +32,20 @@ public class MyCarServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
-		String userid = (String) session.getAttribute("userid");*/
-		response.setCharacterEncoding("UTF-8");
-		String userid = "0001";
-		ICarService cs = new CarServiceImpl();
-		List<CarModel> cars = cs.findCarById(userid);
-		String json = JsonUtils.objectToJson(cars);
-		response.getWriter().print(json);
+		String active = request.getParameter("active");
+		long vid = Long.parseLong(request.getParameter("vid"));
+		
+		ICarService ics = new CarServiceImpl();
+		ArrayList<Car2> list = ics.findObject(Car2.class, vid);
+		Car2 car2 = list.get(0);
+		if(active.equals("active")) {
+			car2.setActive("deactive");
+		}else {
+			car2.setActive("active");
+		}
+		
+		ics.upCar(car2, vid);
+		response.sendRedirect("my-vehicles.jsp");
 	}
 
 	/**

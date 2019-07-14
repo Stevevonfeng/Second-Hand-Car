@@ -13,7 +13,7 @@ public class ListServiceImpl implements IListService{
 		IListDao ild = new ListDaoImpl();
 		return ild.ListShow(currentPage);
 	}
-
+	
 	@Override
 	public int carsNum() {
 		IListDao ild = new ListDaoImpl();
@@ -24,6 +24,11 @@ public class ListServiceImpl implements IListService{
 	public Car2 CarShow(long vid) {
 		IListDao ild = new ListDaoImpl();
 		return ild.CarShow(vid);
+	}
+	@Override
+	public List<Car2> SimilarCar(String brand,long vid) {
+		IListDao ild = new ListDaoImpl();
+		return ild.SimilarCar(brand,vid);
 	}
 	
 	

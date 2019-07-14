@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.dao.CarDaoImpl;
 import com.dao.ICarDao;
+import com.model.Car;
 import com.model.Car2;
 import com.model.CarAccessories;
 import com.model.CarEngin;
@@ -43,6 +44,12 @@ public class CarServiceImpl implements ICarService{
 	public void removeCar(long vid) {
 		ICarDao icd = new CarDaoImpl();
 		icd.dalete(vid);
+	}
+
+	@Override
+	public List<Car> findAllCar() {
+		ICarDao icd = new CarDaoImpl();
+		return icd.searchAllCar();
 	}
 
 	

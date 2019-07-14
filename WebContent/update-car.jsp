@@ -70,11 +70,7 @@
               <label class="control-label">Select Make</label>
               <div class="select">
                 <select class="form-control white_bg" name="brand" id="brand">
-                  <option value="Select Brand">Select Brand</option>
-                  <option value="Audi">Audi</option>
-                  <option value="BMW">BMW</option>
-                  <option value="Nissan">Nissan</option>
-                  <option value="Toyota">Toyota</option>
+                  
                 </select>
               </div>
             </div>
@@ -82,10 +78,7 @@
               <label class="control-label">Model</label>
               <div class="select">
                 <select class="form-control white_bg" name="model" id="model">
-                  <option value="Select Model">Select Model</option>
-                  <option value="Model 2">Model 2</option>
-                  <option value="Model 3">Model 3</option>
-                  <option value="Model 4">Model 4</option>
+                  
                 </select>
               </div>
             </div>
@@ -93,9 +86,7 @@
               <label class="control-label">Vehicles Version</label>
               <div class="select">
                 <select class="form-control white_bg" name="version" id="version">
-                  <option value="">Version</option>
-                  <option value="Version 1.1">Version 1.1</option>
-                  <option value="Version 1.2">Version 1.2</option>
+                  
                 </select>
               </div>
             </div>
@@ -264,9 +255,9 @@ $(function(){
 		success:function(rs){
 			$('#vid').val(rs.vid);
 			$('#vehiclestitle').val(rs.vehiclestitle);
-			$('#brand').val(rs.brand);
-			$('#model').val(rs.model);
-			$('#version').val(rs.version);
+			$('#brand').append("<option value='"+rs.brand+"'>"+rs.brand+"<option>");
+			$('#model').append("<option value='"+rs.model+"'>"+rs.model+"<option>");
+			$('#version').append("<option value='"+rs.version+"'>"+rs.version+"<option>");
 			$('#vod').val(rs.vod);
 			$('#price').val(rs.price);
 			//$('#carimg').append("<img src='dbimgs/"+rs.upload+"'>");

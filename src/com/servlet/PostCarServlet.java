@@ -66,8 +66,7 @@ public class PostCarServlet extends HttpServlet {
 		
 		car = (Car2)Utils.reqToObject(car, Car2.class, list);
 		car.setUserid(userid);
-		
-		System.out.println(car);
+		car.setActive("active");
 		ics.addCar(car);
 		
 		response.sendRedirect("post-vehicle.jsp");
