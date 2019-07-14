@@ -38,39 +38,35 @@ Page Header
 		<div class="row">
 			<div class="col-md-6 col-sm-8">
 				<div class="profile_wrap">
-					<h5 class="uppercase underline">账单</h5>
-					<form action="#" method="get">
-						<div class="form-group">
-							<label class="control-label">账单号</label> 
-							<input class="form-control white_bg" id="billnum" type="text" value="${carbill.billnum}">
-						</div>
+					<h5 class="uppercase underline">订单信息</h5>
+					<form action="" method="get">
 						<div class="form-group">
 							<label class="control-label">车辆ID</label> 
-							<input class="form-control white_bg" id="vid" type="text" value="${carbill.vid}">
+							<input class="form-control white_bg" id="vid" type="text" value="${param.vid}">
 						</div>
 						<div class="form-group">
 							<label class="control-label">品牌</label> 
-							<input class="form-control white_bg" id="brand" type="text" value="${carbill.brand}">
+							<input class="form-control white_bg" id="brand" type="text" value="${car.brand}">
 						</div>
 						<div class="form-group">
 							<label class="control-label">车型</label> 
-							<input class="form-control white_bg" id="model" type="text" value="${carbill.model}">
+							<input class="form-control white_bg" id="model" type="text" value="${car.model}">
 						</div>
 						<div class="form-group">
 							<label class="control-label">生产年日</label> 
-							<input class="form-control white_bg" id="year" type="text">
+							<input class="form-control white_bg" id="year" type="text" value="${car.year}">
 						</div>
 						<div class="form-group">
 							<label class="control-label">用油类型</label> 
-							<input class="form-control white_bg" id="fuel" type="text">
+							<input class="form-control white_bg" id="fuel" type="text" value="${car.fuel}">
 						</div>
 						<div class="form-group">
 							<label class="control-label">新/旧车</label>
-							<input class="form-control white_bg" id="carNO" type="text">
+							<input class="form-control white_bg" id="carNO" type="text" value="${car.newcar}${car.usedcar}">
 						</div>
 						<div class="form-group">
 							<label class="control-label">价格</label> 
-							<input class="form-control white_bg" id="price" type="text">
+							<input class="form-control white_bg" id="price" type="text" value="${car.price}">
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn">确认支付 

@@ -2,6 +2,8 @@ package com.SHC.servlet;
 
 
 
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,6 +15,7 @@ import com.SHC.model.CarBill;
 import com.SHC.model.Dealers;
 import com.SHC.service.DealersServiceImpl;
 import com.SHC.service.IDealersService;
+import com.model.Car2;
 
 /**
  * Servlet implementation class DealersServlet
@@ -69,6 +72,63 @@ public class DealersServlet extends BaseServlet {
 		}
 	}
 	
+	//搜索car订单信息
+	public void searchCarInfo(HttpServletRequest request, HttpServletResponse response){
+		long vid = Long.parseLong(request.getParameter("vid"));
+		
+		IDealersService ids = new DealersServiceImpl();
+		
+		Car2 car = ids.searchCarInfo(vid);
+		
+		request.setAttribute("car", car);
+		try {
+			request.getRequestDispatcher("car-info.jsp").forward(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+	}
+	
+	//生成订单
+	public void createOrder(HttpServletRequest request, HttpServletResponse response){
+		try {
+			
+			Date date = new Date();  
+			long billnum = date.getTime();
+			String vid = request.getParameter("vid");
+			String brand = request.getParameter("brand");
+			String model = request.getParameter("model");
+			String version = request.getParameter("version");
+			String year = request.getParameter("year");
+			String fuel = request.getParameter("fuel");
+			String carno = request.getParameter("carno");
+			String price = request.getParameter("price");
+			
+			CarBill carbill = new CarBill();
+			carbill.setBillnum(billnum);
+			carbill.setVid(Long.parseLong(vid));
+			carbill.setBrand(brand);
+			carbill.setModel(model);
+			carbill.setVersion(version);
+			carbill.setYear(year);
+			carbill.setFuel(fuel);
+			carbill.setFuel(fuel);
+			carbill.setCarNO(carno);
+			carbill.setPrice(price);
+			
+			IDealersService ids = new DealersServiceImpl();
+			
+			ids.createOrder(carbill, Long.parseLong(vid));
+			
+			response.sendRedirect("dealers?act=carOffer&vid="+vid);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	//结算
 	public void carOffer(HttpServletRequest request, HttpServletResponse response){
 		try {
@@ -80,8 +140,13 @@ public class DealersServlet extends BaseServlet {
 			
 			CarBill carbill = ids.carOffer(vid);
 			
+			//String jsoncarbill = JsonUtils.objectToJson(carbill);
+			
+			//response.getWriter().print(jsoncarbill);
+			//response.sendRedirect("dealers?act=carOffer");
 			request.setAttribute("carbill", carbill);
 			request.getRequestDispatcher("car-bill.jsp").forward(request, response);
+			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

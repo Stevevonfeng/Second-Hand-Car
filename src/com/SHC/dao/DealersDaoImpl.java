@@ -130,22 +130,24 @@ public class DealersDaoImpl implements IDealersDao{
 	public CarBill carOffer(long vid) {
 		CarBill carbill = new CarBill();
 		try {
-			String sql = "select vehiclestitle,brand,model,version,year,fuel,newcar,usedcar,price from car2 where vid="+vid+"";
+			String sql = "select vehiclestitle,brand,model,version,year,fuel,newcar,usedcar,price from carorder where vid="+vid+"";
 			PreparedStatement psmt = conn.prepareStatement(sql);
 			ResultSet rs = psmt.executeQuery();
 			
 			if(rs.next()){
-				String vehiclestitle = rs.getString(1);
-				String brand = rs.getString(2);
-				String model = rs.getString(3);
-				String version = rs.getString(4);
-				String year = rs.getString(5);
-				String fuel = rs.getString(6);
-				String newcar = rs.getString(7);
-				String usedcar = rs.getString(8);
-				String price = rs.getString(9);
+				long billnum = rs.getLong(1);
+				vid  = rs.getLong(2);
+				String brand = rs.getString(3);
+				String model = rs.getString(4);
+				String version = rs.getString(5);
+				String year = rs.getString(6);
+				String fuel = rs.getString(7);
+				String newcar = rs.getString(8);
+				String usedcar = rs.getString(9);
+				String price = rs.getString(10);
 				
-				carbill.setVehiclestitle(vehiclestitle);
+				carbill.setBillnum(billnum);
+				carbill.getVid();
 				carbill.setBrand(brand);
 				carbill.setModel(model);
 				carbill.setVersion(version);
@@ -185,6 +187,68 @@ public class DealersDaoImpl implements IDealersDao{
 				e.printStackTrace();
 			}
 		return null;
+	}
+
+
+	@Override
+	public void createOrder(CarBill cb,long vid) {
+		try {
+			String sql="insert into carorder(billnum, vid, brand, model, version, year, fuel, carno, price) "
+					+ "values(?, ?, ?, ?, ?, ?, ?, ?,?) where vid="+vid+"";
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setObject(1, cb.getBillnum());
+			psmt.setObject(2, cb.getVid());
+			psmt.setObject(3, cb.getBrand());
+			psmt.setObject(4, cb.getModel());
+			psmt.setObject(5, cb.getVersion());
+			psmt.setObject(6, cb.getYear());
+			psmt.setObject(7, cb.getFuel());
+			psmt.setObject(8, cb.getCarNO());
+			psmt.setObject(9, cb.getPrice());
+			psmt.execute();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+	@Override
+	public Car2 searchCarInfo(long vid) {
+		Car2 car = new Car2();
+		
+		try {
+			String sql="select vid, brand, model, version, year, fuel, newcar, usedcar, price from car2 where vid = "+vid;
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			ResultSet rs = psmt.executeQuery();
+			
+			if(rs.next()){
+				vid = rs.getLong(1);
+				String brand = rs.getString(2);
+				String model = rs.getString(3);
+				String version = rs.getString(4);
+				Date year = rs.getDate(5);
+				String fuel = rs.getString(6);
+				String newcar = rs.getString(7);
+				String usedcar = rs.getString(8);
+				String price = rs.getString(9);
+				
+				car.getVid();
+				car.setBrand(brand);
+				car.setModel(model);
+				car.setVersion(version);
+				car.setYear(year);
+				car.setFuel(fuel);
+				car.setNewcar(newcar);
+				car.setUsedcar(usedcar);
+				car.setPrice(price);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return car;
 	}
 
 

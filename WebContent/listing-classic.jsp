@@ -124,7 +124,11 @@
 	  
 	  
 	  <div class="product-listing-m gray-bg">
+<<<<<<< HEAD
 	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }"><img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" /> </a>
+=======
+	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}"><img src="/imgs/${car.upload }" class="img-responsive" alt="Image" /> </a>
+>>>>>>> branch 'master' of https://github.com/Stevevonfeng/SecondHandCar.git
 	      <div class="label_icon">${car.usedcar }${car.newcar }</div>
 	      <div class="compare_item">
 	        <div class="checkbox">
@@ -153,8 +157,8 @@
 	      </div>
 	    </div>
 	    <div class="product-listing-content">
-	      <h5><a href="listing-detail-2.jsp">Mazda CX-5 SX, V6, ABS, Sunroof</a></h5>
-	      <p class="list-price">${car.price }</p>
+	      <h5><a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}">Mazda CX-5 SX, V6, ABS, Sunroof</a></h5>
+	      <p class="list-price">$${car.price }</p>
 	      <ul>
 	        <li><i class="fa fa-road" aria-hidden="true"></i>${car.kms }km</li>
 	        <li><i class="fa fa-tachometer" aria-hidden="true"></i>${car.mileage }miles</li>
@@ -163,7 +167,7 @@
 	        <li><i class="fa fa-car" aria-hidden="true"></i>${car.fuel }</li>
 	        <li><i class="fa fa-superpowers" aria-hidden="true"></i>${car.brand }kW</li>
 	      </ul>
-	      <a href="listing-detail-2.jsp" class="btn">查看详情 <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+	      <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}" class="btn">查看详情 <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
 	      <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i>${car.upload }</span></div>
 	    </div>
 	   
