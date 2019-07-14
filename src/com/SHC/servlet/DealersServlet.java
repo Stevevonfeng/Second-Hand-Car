@@ -145,7 +145,7 @@ public class DealersServlet extends BaseServlet {
 			//response.getWriter().print(jsoncarbill);
 			//response.sendRedirect("dealers?act=carOffer");
 			request.setAttribute("carbill", carbill);
-			request.getRequestDispatcher("car-bill.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 			
 		} catch (Exception e) {
