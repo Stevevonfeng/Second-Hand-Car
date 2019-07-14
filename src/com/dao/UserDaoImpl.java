@@ -28,7 +28,7 @@ public class UserDaoImpl implements  IUserDao{
 	
 	 public Users searchUser(String loginname){
 	    	
-		 String sql = "select username,email,userpassword,phone,birth,adress,country,"
+		 String sql = "select userid,username,email,userpassword,phone,birth,adress,country,"
 					+ "province from tb_user where username='" + loginname + "'or email='"+ loginname+"'";
 							
 							List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
@@ -81,6 +81,12 @@ public class UserDaoImpl implements  IUserDao{
 	 }
 
 
+	@Override
+	public String searchUserIdByName(String name) {
+		return null;
+	}
+
+
 	public Users findUser(String userName) {
 		 String sql = "select image from tb_user where username='"+userName+"'";
 			
@@ -108,4 +114,5 @@ public class UserDaoImpl implements  IUserDao{
 	}
 	
 	
+
 }

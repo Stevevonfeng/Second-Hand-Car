@@ -36,7 +36,17 @@ public class UserServlet extends BaseServlet {
            
            String userpassword = user.getUserpassword();
 		   String repassword = request.getParameter("repassword");
+
+
+			
+				  if(repassword.equals(userpassword)){
+						 //servletï¿½Ð²ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½sessionï¿½ï¿½Òªï¿½ï¿½requestï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½È¡session 
+						  request.getSession().setAttribute("user", user);
+				request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
+				  }
+
 		   
+
            if(number==number2){
         	   
        		request.getRequestDispatcher("Jump-update").forward(request, response);	
@@ -47,6 +57,8 @@ public class UserServlet extends BaseServlet {
 		        }
 		 
            }
+ 
+           
 		
 	}
 	//Login
@@ -54,7 +66,11 @@ public class UserServlet extends BaseServlet {
 		 
 		String loginname = request.getParameter("loginname");
 		
-		String login = loginname.substring(loginname.length() - 7);
+		String login = "";
+		
+		if(login.length()>7) {
+			login = loginname.substring(loginname.length() - 7);
+		}
 
 		String loginpassword = request.getParameter("loginpassword");
 		 
@@ -72,7 +88,7 @@ public class UserServlet extends BaseServlet {
 						
 						userService.UpdateStatus(ver_email);
 						
-						 //servletÖÐ²»ÄÜÖ±½ÓÓÃsession£»ÒªÓÃrequestµÄ·½·¨»ñÈ¡session 
+						 //servletï¿½Ð²ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½sessionï¿½ï¿½Òªï¿½ï¿½requestï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½È¡session 
 							request.getSession().setAttribute("user", user);
 							
 						request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
@@ -83,7 +99,7 @@ public class UserServlet extends BaseServlet {
 					if (loginname.equals(ver_username) && loginpassword.equals(ver_password)) {
 						 
 						userService.UpdateStatus2(ver_username);
-						 //servletÖÐ²»ÄÜÖ±½ÓÓÃsession£»ÒªÓÃrequestµÄ·½·¨»ñÈ¡session 
+						 //servletï¿½Ð²ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½sessionï¿½ï¿½Òªï¿½ï¿½requestï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½È¡session 
 							request.getSession().setAttribute("user", user);
 							
 						request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
@@ -107,7 +123,7 @@ public class UserServlet extends BaseServlet {
 	
 	//Update
 	public void Update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		// ´«ÊäÖÐÎÄ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		
@@ -130,7 +146,7 @@ public class UserServlet extends BaseServlet {
 	//SignOut
 	public void SignOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
-		// ´«ÊäÖÐÎÄ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		
