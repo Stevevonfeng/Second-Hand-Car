@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import com.dao.IUserDao;
 import com.dao.UserDaoImpl;
 import com.model.Users;
@@ -14,6 +16,10 @@ public class UserServiceImpl implements IUserService {
     
     public Users searchUser(String loginname){
     	return userDao.searchUser(loginname);
+    }
+    
+    public List  findUserName(){
+    	return userDao.findUserName();
     }
     
     public void UpdateStatus(String ver_email){
@@ -38,4 +44,9 @@ public class UserServiceImpl implements IUserService {
     	
     	userDao.PasswordRecover(useremail, npassword);
     }
+
+	public void upUserIMg(String userName, String path) {
+		userDao.upUserIMg(userName, path);
+		
+	}
 }

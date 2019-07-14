@@ -79,4 +79,30 @@ public class UserDaoImpl implements  IUserDao{
 		 String sql = "update tb_user set userpassword='"+npassword+"' where email='"+useremail+"'";
 		 jdbc.updatePreparedStatement(sql, null);
 	 }
+
+
+	public Users findUser(String userName) {
+		 String sql = "select image from tb_user where username='"+userName+"'";
+			
+			List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
+
+			 Users user = list.get(0);
+			 
+			 return user;
+	}
+
+	
+	public List  findUserName(){
+		 String sql = "select username from tb_user";
+		 List listname = jdbc.queryPreparedStatement(sql, null, List.class); 
+		 return listname;
+		 
+	}
+	
+	public void upUserIMg(String userName, String path) {
+		String sql = "update tb_user set image='"+path+"' where userName='"+userName+"'";
+		jdbc.updatePreparedStatement(sql, null);
+	}
+	
+	
 }

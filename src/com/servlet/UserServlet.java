@@ -31,15 +31,28 @@ public class UserServlet extends BaseServlet {
  
 		 userService.addUser(user);
 		 
+		   String signname = user.getUsername();	 
 		   String userpassword = user.getUserpassword();
 		   String repassword = request.getParameter("repassword");
-
-			
-				  if(repassword.equals(userpassword)){
-						 //servlet中不能直接用session；要用request的方法获取session 
-						  request.getSession().setAttribute("user", user);
-				request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
-				  }
+		   
+            List listname = userService.findUserName();
+        
+            for(int i=0;i<listname.size();i++){
+            	String existname = (String) listname.get(i);
+            	if(signname.equals(existname)){
+            		
+            		 request.getSession().removeAttribute("user");	
+            	}else{
+            		
+            		 if(repassword.equals(userpassword)){
+         				 //servlet中不能直接用session；要用request的方法获取session 
+         				  request.getSession().setAttribute("user", user);
+         		      }
+            	}
+     
+            }
+            request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
+          	 
 			
 		
 	}

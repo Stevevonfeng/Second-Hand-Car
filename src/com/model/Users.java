@@ -10,6 +10,17 @@ private String birth;
 private String adress;
 private String country;
 private String province;
+public String getImage() {
+	return image;
+}
+
+
+public void setImage(String image) {
+	this.image = image;
+}
+
+
+private String image;
 public String getPhone() {
 	return phone;
 }

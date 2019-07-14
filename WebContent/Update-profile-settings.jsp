@@ -140,16 +140,24 @@
 	<section class="user_profile inner_pages">
 		<div class="container">
 			<div class="user_profile_info gray-bg padding_4x4_40">
+			<div id="headd">
+				
+			</div>
 				<div class="upload_user_logo">
-					<img src="assets/images/dealer-logo.jpg" alt="image">
-					<div class="upload_newlogo">
-						<input name="upload" type="file">
+					 <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs">
+					 
+					<div class="upload_newlogo" >
+						<input name="Image" type="file" id="UserImage">
 					</div>
+					<input id="username1" type="hidden" value="${param.username}">
 				</div>
 				<div class="dealer_info">
-					<h5>Autospot Used Cars Center</h5>
+					<h5>${user.getUsername()}</h5>
 					<p>
-						P.1225 N Broadway Ave <br> Oklahoma City, OK 1234-5678-090
+					<c:if test="${user.getAdress()==null}">未设置居住地址 </c:if> ${user.getAdress()}
+				    <br>
+					<c:if test="${user.getProvince()==null}">未设置省份 </c:if> ${user.getProvince()}
+					<c:if test="${user.getPhone()==null}">,未设置联系方式 </c:if>${user.getPhone()}
 					</p>
 				</div>
 			</div>
@@ -278,5 +286,49 @@
 	<%@ include file="loginAndRegister.jsp"%>
 	
 </body>
+	<script type="text/javascript">
+	$(function(){
+		
+		  $.ajax({
+	            url: 'GetImgServlet',
+	            type: 'get',
+	            data: {username:$("#username1").val()},
+	            dateType:"text",
+	            success: function (rs) {
+	            	var rs = "/imgs/"+rs;
+	            	$("#UserImage").parent().css({"opacity":"0"}); 
+	            	 $("#imgs").attr("src", rs);
+	            }
+	        });
+	})
+	
+	$("#UserImage").change(function (e) {
+		
+        var file = e.target.files || e.dataTransfer.files;  //获取目标文件
+        $("#UserImage").parent().css({"opacity":"0"});   
+        console.log(file[0])
+        if (file) {   
+            var reader = new FileReader();   
+            reader.onload = function () {
+                $("#imgs").attr("src", this.result);
+            };
+            reader.readAsDataURL(file[0]);  
+        }     
+        
+        var formdata = new FormData();
+        formdata.append('username',$("#username1").val());
+		formdata.append('head', $('#UserImage')[0].files[0]);
+        $.ajax({
+            url: 'User-Image',
+            type: 'post',
+             contentType: false,
+            processData: false,
+            data: formdata,
+            success: function (data) {
+               
+            }
+        });
+  });
 
+	</script>
 </html>
