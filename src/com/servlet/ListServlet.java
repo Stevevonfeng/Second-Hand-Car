@@ -10,11 +10,12 @@ import com.SHC.servlet.BaseServlet;
 import com.model.Car2;
 import com.service.IListService;
 import com.service.ListServiceImpl;
+import com.service.Utils;
 
 /**
  * Servlet implementation class CarServlet
  */
-@WebServlet("/list")
+@WebServlet("/listt")
 public class ListServlet extends BaseServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -52,11 +53,12 @@ public class ListServlet extends BaseServlet {
 		
 		IListService ils = new ListServiceImpl();
 		Car2 car = ils.CarShow(vid);
-
-		List<Car2> cars = ils.SimilarCar(brand,vid);
 		
+		List<Car2> cars = ils.SimilarCar(brand,vid);
+		List<String>  fileNames = Utils.findCarImgs("C:/dbimgs/"+vid);
 		request.setAttribute("car", car);
 		request.setAttribute("cars", cars);
+		request.setAttribute("fileNames", fileNames);
 		request.getRequestDispatcher("listing-detail-2.jsp").forward(request, response);
 	}
 	
