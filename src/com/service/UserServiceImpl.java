@@ -9,9 +9,9 @@ import com.model.Users;
 public class UserServiceImpl implements IUserService {
     private  IUserDao  userDao = new UserDaoImpl();
     @Override
-    public boolean addUser(Users user) {
+    public void addUser(Users user) {
     	
-    	return userDao.addUser(user);
+    	  userDao.addUser(user);
     	
     }
     

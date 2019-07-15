@@ -25,48 +25,35 @@ public class UserServlet extends BaseServlet {
 	//Sign Up
 	public void adduser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     
-         Users user = new  Users();
-		 
-		 Conversion.req_obj(user, request);
- 
-		 boolean aa = userService.addUser(user);
-		 System.out.println(aa);
-		 request.setAttribute("AA", aa);
-		 
-		   String signname = user.getUsername();	 
-		   String userpassword = user.getUserpassword();
+		   List<Users> list = userService.findUserName();
+		   int number = list.size();
+		   
+           Users user = new  Users();
+		   Conversion.req_obj(user, request);
+           userService.addUser(user);
+           List<Users> list2 = userService.findUserName(); 
+           int number2 = list2.size();
+           
+           String userpassword = user.getUserpassword();
 		   String repassword = request.getParameter("repassword");
 
-
-			
 				  if(repassword.equals(userpassword)){
-						 //servlet�в���ֱ����session��Ҫ��request�ķ�����ȡsession 
-						  request.getSession().setAttribute("user", user);
-						  request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
+						 
+	             request.getSession().setAttribute("user", user);
+				request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
 				  }
+  
+           if(number==number2){
+        	   
+       		request.getRequestDispatcher("Jump-update").forward(request, response);	
+           }else{
+        		if(repassword.equals(userpassword)){
+				request.getSession().setAttribute("user", user);
+			request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
+		        }
+		 
+           }
 
-		   
-            List listname = userService.findUserName();
-        
-            for(int i=0;i<listname.size();i++){
-            	String existname = (String) listname.get(i);
-            	if(signname.equals(existname)){
-            		
-            		 request.getSession().removeAttribute("user");	
-            	}else{
-            		
-            		 if(repassword.equals(userpassword)){
-         				 //servlet�в���ֱ����session��Ҫ��request�ķ�����ȡsession 
-         				  request.getSession().setAttribute("user", user);
-         		      }
-            	}
-     
-            }
-            request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
-          	 
-
-			
-		
 	}
 	//Login
 	public void searchuser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
