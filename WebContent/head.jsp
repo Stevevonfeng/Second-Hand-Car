@@ -122,10 +122,11 @@
           <li><a href="home.jsp">主页</a></li>
           <li><a href="about-us.jsp">关于我们</a></li>
           <li >
-          <a href="list?act=ListShow">库存</a>
+          <a href="list?act=ListShow&username=${param.username }">库存</a>
           </li>
+          
           <li>
-          	<a href="dealers?act=displaydealers">经销商</a>
+          	<a href="dealers?act=displaydealers&username=${param.username }">经销商</a>
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">网页</a>
             <ul class="dropdown-menu">
