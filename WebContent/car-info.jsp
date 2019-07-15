@@ -39,10 +39,10 @@ Page Header
 			<div class="col-md-6 col-sm-8">
 				<div class="profile_wrap">
 					<h5 class="uppercase underline">订单信息</h5>
-					<form action="index.jsp" method="get">
+					<form action="paylist?vid=${param.vid}" method="get">
 						<div class="form-group">
 							<label class="control-label">车辆ID</label> 
-							<input class="form-control white_bg" id="vid" type="text" value="${param.vid}">
+							<input class="form-control white_bg" id="vid" name="vid" type="text" value="${param.vid}">
 						</div>
 						<div class="form-group">
 							<label class="control-label">品牌</label> 

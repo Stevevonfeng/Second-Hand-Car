@@ -37,9 +37,9 @@ public class FindAllCarServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		List<Car2> comparCars = new ArrayList<Car2>();
-		String userid = "0001";
+		
 		ICarService ics = new CarServiceImpl();
-		ArrayList<Car2> list = ics.findObject(Car2.class, userid);
+		ArrayList<Car2> list = ics.findObject(Car2.class, null);
 		System.out.println(list.size());
 		for(Car2 car2:list) {
 			String compare = car2.getCompare();

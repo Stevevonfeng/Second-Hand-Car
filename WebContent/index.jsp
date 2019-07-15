@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -214,17 +215,17 @@ h2 {
 					<hr class="one_line">
 					<dt>订单名称 ：</dt>
 					<dd>
-						<input id="WIDsubject" name="WIDsubject" />
+						<input id="WIDsubject" name="WIDsubject" value="${param.vid }"/>
 					</dd>
 					<hr class="one_line">
 					<dt>付款金额 ：</dt>
 					<dd>
-						<input id="WIDtotal_amount" name="WIDtotal_amount" />
+						<input id="WIDtotal_amount" name="WIDtotal_amount" value="${carbill.price }"/>
 					</dd>
 					<hr class="one_line">
 					<dt>商品描述：</dt>
 					<dd>
-						<input id="WIDbody" name="WIDbody" />
+						<input id="WIDbody" name="WIDbody" value="${carbill.brand } ${carbill.model}  ${carbill.year}  ${carbill.newcar}${car.usedcar}"/>
 					</dd>
 					<hr class="one_line">
 					<dt></dt>
@@ -397,19 +398,7 @@ h2 {
 		//document.getElementById("WIDsubject").value = "测试";
 		//document.getElementById("WIDtotal_amount").value = "0.01";
 	}
-	
 
-	$(function(){
-		$.ajax({
-			type:"get",
-			url:"dealers",
-			dataType:"text",
-			success:function(rs){
-				$("#WIDsubject").val(rs);
-			}
-		})
-	})
-	
 	GetDateNow();
 </script>
 </html>

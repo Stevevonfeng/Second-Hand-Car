@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.model.Car;
+import com.model.Car2;
 import com.model.CarModel;
 
 public class CarDaoImpl implements ICarDao{
@@ -87,6 +88,9 @@ public class CarDaoImpl implements ICarDao{
 	public <E> ArrayList<E> searchObject(Class cls, String userid) {
 		String sqlTable = cls.getSimpleName();
 		String sql = "select * from "+sqlTable+" where userid="+userid;
+		if(userid==null) {
+			sql = "select * from "+sqlTable;
+		}
 		Field[] fields = cls.getDeclaredFields();
 		PreparedStatement p = null;
 		ResultSet rs = null;
@@ -282,7 +286,26 @@ public class CarDaoImpl implements ICarDao{
 		return list;
 	}
 
+	@Override
+	public List<Car2> searchCar2(String brand, String model, String version, String year, String statu) {
+		String sql = "select * from car2 ";
+		if(brand==null||brand.equals("")) {
+			sql = sql+"where brand='奥迪' ";
+		}
+		if(model==null||model.equals("")) {
+			sql = sql+"and model='Q7' ";
+		}
+		if(version==null||version.equals("")) {
+			sql = sql+"and version='Q7' ";
+		}
+		if(year==null||year.equals("")) {
+			sql = sql+"and year>to_date('2018','YYYY') and year<to_date('2020','YYYY') ";
+		}
+		if(statu==null||statu.equals("")) {
+			sql = sql+"and newcar is null  ";
+		}
 
-	
-	
+		
+		return null;
+	}
 }

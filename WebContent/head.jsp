@@ -58,7 +58,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3 col-md-2">
-          <div class="logo"> <a href="Index.jsp"><img src="assets/images/logo.png" alt="image"/></a> </div>
+          <div class="logo"> <a href="home.jsp"><img src="assets/images/logo.png" alt="image"/></a> </div>
         </div>
         <div class="col-sm-9 col-md-10">
           <div class="header_info">
@@ -98,7 +98,7 @@
           
             <li class="dropdown" > <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <c:if test="${user==null }">未登录</c:if>${user.getUsername()}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="PIM-information.jsp">个人信息</a></li>
+                <li><a href="profile-settings.jsp">个人信息</a></li>
                 <li><a href="my-vehicles.jsp">我的车辆</a></li>
                 <li><a href="post-vehicle.jsp">我要卖车</a></li>
                 <li><a href="#loginform" data-toggle="modal" data-dismiss="modal">切换账号</a></li>
@@ -116,7 +116,7 @@
       </div>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
-          <li><a href="profile-settings.jsp">主页</a></li>
+          <li><a href="home.jsp">主页</a></li>
           <li><a href="about-us.jsp">关于我们</a></li>
           <li >
           <a href="list?act=ListShow">库存</a>
