@@ -156,7 +156,7 @@
 <!-- Filter-Form -->
 <section id="filter_form" class="inner-filter gray-bg">
   <div class="container">
-    <h3>找到你的梦想之车（从这里轻松搜索）</span></h3>
+    <h3><span>找到你的梦想之车（从这里轻松搜索）</span></h3>
     <div class="row">
       <form action="#" method="get">
         <div class="form-group col-md-3 col-sm-6 black_input">
@@ -656,7 +656,7 @@
       <c:forEach items="${cars }" var="car">
         <div class="col-md-3 grid_listing">
           <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}"><img src="/imgs/${car.upload }" class="img-responsive" alt="image" /> </a>
+            <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}"><img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="image" /> </a>
               <div class="label_icon">${car.usedcar }${car.newcar }</div>
               <div class="compare_item">
                 <div class="checkbox">
