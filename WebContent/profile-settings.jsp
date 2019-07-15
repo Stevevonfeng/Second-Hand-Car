@@ -239,8 +239,7 @@
 	            data: {username:$("#username1").val()},
 	            dateType:"text",
 	            success: function (rs) {
-	            	if(rs!=null){     
-	            		
+	            	if(rs!=""){    
 	            		$("#UserImage").parent().css({"opacity":"0"});  	
 	            	}
 	            	var rs = "/imgs/"+rs;

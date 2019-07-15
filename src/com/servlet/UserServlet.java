@@ -37,16 +37,12 @@ public class UserServlet extends BaseServlet {
            String userpassword = user.getUserpassword();
 		   String repassword = request.getParameter("repassword");
 
-
-			
 				  if(repassword.equals(userpassword)){
-						 //servlet�в���ֱ����session��Ҫ��request�ķ�����ȡsession 
-						  request.getSession().setAttribute("user", user);
+						 
+	             request.getSession().setAttribute("user", user);
 				request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
 				  }
-
-		   
-
+  
            if(number==number2){
         	   
        		request.getRequestDispatcher("Jump-update").forward(request, response);	
@@ -57,9 +53,7 @@ public class UserServlet extends BaseServlet {
 		        }
 		 
            }
- 
-           
-		
+
 	}
 	//Login
 	public void searchuser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
