@@ -3,6 +3,7 @@ package com.service;
 import java.util.List;
 
 import com.model.Car2;
+import com.model.Users;
 
 public interface IListService {
 
@@ -22,5 +23,9 @@ public interface IListService {
 	public List<Car2> NewListShow(int currentPage);
 	//搜索二手车
 	public List<Car2> UsedListShow(int currentPage);
+
+	
+
+	public Users UserShow(String userid);
 
 }

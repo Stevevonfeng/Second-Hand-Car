@@ -156,7 +156,7 @@
 <!-- Filter-Form -->
 <section id="filter_form" class="inner-filter gray-bg">
   <div class="container">
-    <h3>找到你的梦想之车（从这里轻松搜索）</span></h3>
+    <h3><span>找到你的梦想之车（从这里轻松搜索）</span></h3>
     <div class="row">
       <form action="#" method="get">
         <div class="form-group col-md-3 col-sm-6 black_input">
@@ -617,9 +617,9 @@
             <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> 卖家信息 </h5>
           </div>
           <div class="dealer_detail"> <img src="assets/images/dealer_img.jpg" alt="image">
-            <p><span>姓名:</span> 卖家姓名</p>
-            <p><span>邮箱:</span> contact@example.com</p>
-            <p><span>电话:</span> +61-1234-5678-09</p>
+            <p><span>姓名:</span>${user.username }</p>
+            <p><span>邮箱:</span> ${user.email }</p>
+            <p><span>电话:</span> ${user.phone }</p>
             <a href="#" class="btn btn-xs">查看详细资料</a> </div>
         </div>
         <div class="sidebar_widget">
@@ -656,7 +656,7 @@
       <c:forEach items="${cars }" var="car">
         <div class="col-md-3 grid_listing">
           <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}"><img src="/imgs/${car.upload }" class="img-responsive" alt="image" /> </a>
+            <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}"><img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="image" /> </a>
               <div class="label_icon">${car.usedcar }${car.newcar }</div>
               <div class="compare_item">
                 <div class="checkbox">
@@ -806,142 +806,12 @@
 <!--/Request-More-Info --> 
 
 <!--Login-Form -->
-<div class="modal fade" id="loginform">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Login</h3>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="login_wrap">
-            <div class="col-md-6 col-sm-6">
-              <form action="#" method="get">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username or Email address*">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password*">
-                </div>
-                <div class="form-group checkbox">
-                  <input type="checkbox" id="remember">
-                  <label for="remember">Remember Me</label>
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Login" class="btn btn-block">
-                </div>
-              </form>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <h6 class="gray_text">Login the Quick Way</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a> </div>
-            <div class="mid_divider"></div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer text-center">
-        <p>Don't have an account? <a href="#signupform" data-toggle="modal" data-dismiss="modal">Signup Here</a></p>
-        <p><a href="#forgotpassword" data-toggle="modal" data-dismiss="modal">Forgot Password ?</a></p>
-      </div>
-    </div>
-  </div>
-</div>
+<%@ include file = "loginAndRegister.jsp" %>
 <!--/Login-Form --> 
 
-<!--Register-Form -->
-<div class="modal fade" id="signupform">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Sign Up</h3>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="signup_wrap">
-            <div class="col-md-6 col-sm-6">
-              <form action="#" method="get">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Full Name">
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email Address">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password">
-                </div>
-                <div class="form-group checkbox">
-                  <input type="checkbox" id="terms_agree">
-                  <label for="terms_agree">I Agree with <a href="#">Terms and Conditions</a></label>
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Sign Up" class="btn btn-block">
-                </div>
-              </form>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <h6 class="gray_text">Login the Quick Way</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a> </div>
-            <div class="mid_divider"></div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer text-center">
-        <p>Already got an account? <a href="#loginform" data-toggle="modal" data-dismiss="modal">Login Here</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-<!--/Register-Form --> 
+ 
 
-<!--Forgot-password-Form -->
-<div class="modal fade" id="forgotpassword">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Password Recovery</h3>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="forgotpassword_wrap">
-            <div class="col-md-12">
-              <form action="#" method="get">
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Your Email address*">
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Reset My Password" class="btn btn-block">
-                </div>
-              </form>
-              <div class="text-center">
-                <p class="gray_text">For security reasons we don't store your password. Your password will be reset and a new one will be send.</p>
-                <p><a href="#loginform" data-toggle="modal" data-dismiss="modal"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Login</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--/Forgot-password-Form --> 
 
-<!-- Scripts --> 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script> 
-<script src="assets/js/interface.js"></script> 
-<!--Switcher-->
-<script src="assets/switcher/js/switcher.js"></script>
-<!--bootstrap-slider-JS--> 
-<script src="assets/js/bootstrap-slider.min.js"></script> 
-<!--Slider-JS--> 
-<script src="assets/js/slick.min.js"></script> 
-<script src="assets/js/owl.carousel.min.js"></script>
 
 </body>
 </html>

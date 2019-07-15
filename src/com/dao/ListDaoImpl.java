@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.model.Car2;
+import com.model.Users;
 
 public class ListDaoImpl implements IListDao{
 	static String url = "jdbc:oracle:thin:@localhost:1521:orcl";
@@ -34,7 +35,7 @@ public class ListDaoImpl implements IListDao{
 			try {
 				
 				String sql = "select * from (select t1.*,rownum num from "
-						+ "(select * from car2 order by price desc) t1 where rownum<="+pz*cp+") t2 "
+						+ "(select * from car2 where active='active' order by price desc) t1 where rownum<="+pz*cp+") t2 "
 						+ "where t2.num>"+(cp-1)*pz+"";
 				
 				PreparedStatement psmt = conn.prepareStatement(sql);
@@ -490,6 +491,46 @@ public class ListDaoImpl implements IListDao{
 			e.printStackTrace();
 		}
 		return count;
+	}
+
+	@Override
+	public Users userShow(String userid) {
+		Users user = new Users();;
+		try {
+			String sql = "select * from tb_user where userid=" + userid + "";
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			ResultSet rs = psmt.executeQuery();
+			if (rs.next()) {
+				userid = rs.getString(1);
+				String username = rs.getString(2);
+				String email = rs.getString(3);
+				String userpassword = rs.getString(4);
+				String phone = rs.getString(5);
+				String birth = rs.getString(6);
+				String adress = rs.getString(7);
+				String country = rs.getString(8);
+				String province = rs.getString(9);
+				String image = rs.getString(10);
+				String status = rs.getString(11);
+				
+				user.setUserid(userid);
+				user.setUsername(username);
+				user.setEmail(email);
+				user.setUserpassword(userpassword);
+				user.setPhone(phone);
+				user.setBirth(birth);
+				user.setAdress(adress);
+				user.setCountry(country);
+				user.setProvince(province);
+				user.setImage(image);
+				user.setStatus(status);
+				
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return user;
 	}
 
 	
