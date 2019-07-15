@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.SHC.servlet.BaseServlet;
 import com.model.Car2;
+import com.model.Users;
 import com.service.IListService;
 import com.service.ListServiceImpl;
 import com.service.Utils;
@@ -15,7 +16,7 @@ import com.service.Utils;
 /**
  * Servlet implementation class CarServlet
  */
-@WebServlet("/listt")
+@WebServlet("/list")
 public class ListServlet extends BaseServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -50,15 +51,20 @@ public class ListServlet extends BaseServlet {
 	public void CarShow(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		long vid = Long.parseLong(request.getParameter("vid"));
 		String brand = request.getParameter("brand");
+		String userid = request.getParameter("userid");
 		
 		IListService ils = new ListServiceImpl();
-		Car2 car = ils.CarShow(vid);
 		
+		Car2 car = ils.CarShow(vid);
 		List<Car2> cars = ils.SimilarCar(brand,vid);
+		Users user = ils.UserShow(userid);
 		List<String>  fileNames = Utils.findCarImgs("C:/dbimgs/"+vid);
+		
 		request.setAttribute("car", car);
 		request.setAttribute("cars", cars);
+		request.setAttribute("user", user);
 		request.setAttribute("fileNames", fileNames);
+		
 		request.getRequestDispatcher("listing-detail-2.jsp").forward(request, response);
 	}
 	

@@ -3,6 +3,7 @@ package com.dao;
 import java.util.List;
 
 import com.model.Car2;
+import com.model.Users;
 
 public interface IListDao {
 	//展示所有车辆
@@ -20,5 +21,7 @@ public interface IListDao {
 	public List<Car2> NewListShow(int currentPage);
 	//搜索二手车
 	public List<Car2> UsedListShow(int currentPage);
+
+	public Users userShow(String userid);
 
 }
