@@ -106,9 +106,10 @@
 <section class="user_profile inner_pages">
   <div class="container">
     <div class="user_profile_info gray-bg padding_4x4_40">
-      <div class="upload_user_logo"> <img src="assets/images/dealer-logo.jpg" alt="image">
+      <div class="upload_user_logo"> <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs">
         <div class="upload_newlogo">
-          <input name="upload" type="file">
+         	<input name="Image" type="file" id="UserImage">
+          <input id="username1" type="hidden" value="${user.getUsername()}">
         </div>
       </div>
       <div class="dealer_info">          
@@ -128,7 +129,6 @@
       <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
           <ul>
-       <!--  <%Users user = (Users)request.getSession().getAttribute("user");%> -->  
           <li class="active"><a href="User?act=ToUpdate&username=${user.getUsername()}">资料设置</a></li>
             <li><a href="my-vehicles.jsp">My Vehicles</a></li>
             <li><a href="post-vehicle.jsp">Post a Vehicles</a></li>
@@ -229,4 +229,55 @@
 <%@ include file="loginAndRegister.jsp" %>
 
 </body>
+
+<script type="text/javascript">
+	$(function(){
+		
+		  $.ajax({
+	            url: 'GetImgServlet',
+	            type: 'get',
+	            data: {username:$("#username1").val()},
+	            dateType:"text",
+	            success: function (rs) {
+	            	if(rs!=""){    
+	            		$("#UserImage").parent().css({"opacity":"0"});  	
+	            	}
+	            	var rs = "/imgs/"+rs;
+	            	 $("#imgs").attr("src", rs);
+	            }
+	        });
+	})
+	
+	$("#UserImage").change(function (e) {
+		
+        var file = e.target.files || e.dataTransfer.files;  //获取目标文件
+        
+        console.log(file[0])
+        if (file) {   
+        	 $("#UserImage").parent().css({"opacity":"0"});  
+            var reader = new FileReader();   
+            reader.onload = function () {
+            	 
+                $("#imgs").attr("src", this.result);
+            };
+            reader.readAsDataURL(file[0]);  
+        }   
+        
+        var formdata = new FormData();
+        formdata.append('username',$("#username1").val());
+		formdata.append('head', $('#UserImage')[0].files[0]);
+        $.ajax({
+            url: 'User-Image',
+            type: 'post',
+            contentType: false,
+            processData: false,
+            data: formdata,
+            success: function (data) {
+               
+            }
+        });
+  });
+
+</script>
+
 </html>

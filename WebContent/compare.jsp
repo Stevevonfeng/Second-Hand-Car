@@ -389,7 +389,7 @@
 			dataType:"json",
 			success:function(rs){
 				$.each(rs,function(index,item){
-					$("#imgs").append("<li><a href='#'><img src='/imgs/"+item.vid+"/"+item.upload+"' alt='image'></a></li>");
+					$("#imgs").append("<li><a href='list?act=CarShow&vid="+item.vid+"&brand="+item.brand+"'><img src='/imgs/"+item.vid+"/"+item.upload+"' alt='image' style='width:255px;height:159px'></a></li>");
 					$("#info").append("<li><a href='#'>"+item.brand+" "+item.model+" "+item.version+"</a><p class='price'>$"+item.price+"</p></li>");
 					$("#basic").append("<li><div>"+item.year+"</div><div>"+item.owners+"</div><div>"+item.kms+"</div><div>"+item.fuel+"</div></li>");
 					$("#tech").append("<li><div>"+item.engien+"</div><div>"+item.engiendescription+"</div><div>"+item.cylinders+"</div><div>"+item.mileage+"</div><div>"+item.mileage_h+"</div><div>"+item.capacity+"</div><div>"+item.s_capacity+"</div><div>"+item.transmission+"</div></li>");

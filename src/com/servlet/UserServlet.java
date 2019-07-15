@@ -25,43 +25,46 @@ public class UserServlet extends BaseServlet {
 	//Sign Up
 	public void adduser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     
-         Users user = new  Users();
-		 
-		 Conversion.req_obj(user, request);
- 
-		 userService.addUser(user);
-		 
-		   String signname = user.getUsername();	 
-		   String userpassword = user.getUserpassword();
-		   String repassword = request.getParameter("repassword");
+		   List<Users> list = userService.findUserName();
+		   int number = list.size();
 		   
-            List listname = userService.findUserName();
-        
-            for(int i=0;i<listname.size();i++){
-            	String existname = (String) listname.get(i);
-            	if(signname.equals(existname)){
-            		
-            		 request.getSession().removeAttribute("user");	
-            	}else{
-            		
-            		 if(repassword.equals(userpassword)){
-         				 //servlet中不能直接用session；要用request的方法获取session 
-         				  request.getSession().setAttribute("user", user);
-         		      }
-            	}
-     
-            }
-            request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
-          	 
-			
-		
+           Users user = new  Users();
+		   Conversion.req_obj(user, request);
+           userService.addUser(user);
+           List<Users> list2 = userService.findUserName(); 
+           int number2 = list2.size();
+           
+           String userpassword = user.getUserpassword();
+		   String repassword = request.getParameter("repassword");
+
+				  if(repassword.equals(userpassword)){
+						 
+	             request.getSession().setAttribute("user", user);
+				request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
+				  }
+  
+           if(number==number2){
+        	   
+       		request.getRequestDispatcher("Jump-update").forward(request, response);	
+           }else{
+        		if(repassword.equals(userpassword)){
+				request.getSession().setAttribute("user", user);
+			request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
+		        }
+		 
+           }
+
 	}
 	//Login
 	public void searchuser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		 
 		String loginname = request.getParameter("loginname");
 		
-		String login = loginname.substring(loginname.length() - 7);
+		String login = "";
+		
+		if(login.length()>7) {
+			login = loginname.substring(loginname.length() - 7);
+		}
 
 		String loginpassword = request.getParameter("loginpassword");
 		 
@@ -79,7 +82,7 @@ public class UserServlet extends BaseServlet {
 						
 						userService.UpdateStatus(ver_email);
 						
-						 //servlet中不能直接用session；要用request的方法获取session 
+						 //servlet锟叫诧拷锟斤拷直锟斤拷锟斤拷session锟斤拷要锟斤拷request锟侥凤拷锟斤拷锟斤拷取session 
 							request.getSession().setAttribute("user", user);
 							
 						request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
@@ -90,7 +93,7 @@ public class UserServlet extends BaseServlet {
 					if (loginname.equals(ver_username) && loginpassword.equals(ver_password)) {
 						 
 						userService.UpdateStatus2(ver_username);
-						 //servlet中不能直接用session；要用request的方法获取session 
+						 //servlet锟叫诧拷锟斤拷直锟斤拷锟斤拷session锟斤拷要锟斤拷request锟侥凤拷锟斤拷锟斤拷取session 
 							request.getSession().setAttribute("user", user);
 							
 						request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
@@ -114,7 +117,7 @@ public class UserServlet extends BaseServlet {
 	
 	//Update
 	public void Update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		// 传输中文
+		// 锟斤拷锟斤拷锟斤拷锟斤拷
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		
@@ -137,7 +140,7 @@ public class UserServlet extends BaseServlet {
 	//SignOut
 	public void SignOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
-		// 传输中文
+		// 锟斤拷锟斤拷锟斤拷锟斤拷
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		

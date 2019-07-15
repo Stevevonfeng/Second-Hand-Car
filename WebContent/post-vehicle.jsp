@@ -351,7 +351,7 @@
 			dataType:"json",
 			success:function(rs){
 				$("#brand").html("");
-				$("#brand").append("<option></option>");
+				$("#brand").append("<option>选择品牌</option>");
 				$.each(rs,function(index,item){
 					$("#brand").append("<option value='"+item+"'>"+item+"</option>");
 				});
@@ -367,7 +367,7 @@
 				dataType:"json",
 				success:function(rs){
 					$("#model").html("");
-					$("#model").append("<option></option>");
+					$("#model").append("<option>选择车型</option>");
 					$.each(rs,function(index,item){
 						$("#model").append("<option value='"+item+"'>"+item+"</option>");
 					});
@@ -384,6 +384,7 @@
 				dataType:"json",
 				success:function(rs){
 					$("#version").html("");
+					$("#version").append("<option>选择版本</option>");
 					$.each(rs,function(index,item){
 						$("#version").append("<option value='"+item+"'>"+item+"</option>");
 					});

@@ -22,13 +22,13 @@ public class UserDaoImpl implements  IUserDao{
 		params.add(user.getEmail());
 		params.add(user.getUserpassword());
 		
-		jdbc .updatePreparedStatement(sql, params);	
+		 jdbc .updatePreparedStatement(sql, params);
 		
 	}
 	
 	 public Users searchUser(String loginname){
 	    	
-		 String sql = "select username,email,userpassword,phone,birth,adress,country,"
+		 String sql = "select userid,username,email,userpassword,phone,birth,adress,country,"
 					+ "province from tb_user where username='" + loginname + "'or email='"+ loginname+"'";
 							
 							List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
@@ -81,11 +81,19 @@ public class UserDaoImpl implements  IUserDao{
 	 }
 
 
+	@Override
+	public String searchUserIdByName(String name) {
+		return null;
+	}
+
+
 	public Users findUser(String userName) {
 		 String sql = "select image from tb_user where username='"+userName+"'";
 			
 			List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
-
+			if(list==null){
+				return null;
+			}
 			 Users user = list.get(0);
 			 
 			 return user;
@@ -93,9 +101,10 @@ public class UserDaoImpl implements  IUserDao{
 
 	
 	public List  findUserName(){
-		 String sql = "select username from tb_user";
-		 List listname = jdbc.queryPreparedStatement(sql, null, List.class); 
-		 return listname;
+		
+		 String sql = "select * from tb_user";
+		 List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
+		 return list;
 		 
 	}
 	
@@ -104,5 +113,8 @@ public class UserDaoImpl implements  IUserDao{
 		jdbc.updatePreparedStatement(sql, null);
 	}
 	
+
+
 	
+
 }

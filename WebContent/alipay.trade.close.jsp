@@ -6,7 +6,7 @@
 </head>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="com.alipay.config.*"%>
-<%@ page import="com.alipay.api.*"%>
+<%@ page import="com.alipay.api.*" %>
 <%@ page import="com.alipay.api.request.*"%>
 <%
 	//获得初始化的AlipayClient
@@ -23,6 +23,7 @@
 	alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\"," +"\"trade_no\":\""+ trade_no +"\"}");
 	
 	//请求
+	
 	String result = alipayClient.execute(alipayRequest).getBody();
 	
 	//输出

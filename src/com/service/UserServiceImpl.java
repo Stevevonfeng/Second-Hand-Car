@@ -10,7 +10,8 @@ public class UserServiceImpl implements IUserService {
     private  IUserDao  userDao = new UserDaoImpl();
     @Override
     public void addUser(Users user) {
-    	userDao.addUser(user);
+    	
+    	  userDao.addUser(user);
     	
     }
     

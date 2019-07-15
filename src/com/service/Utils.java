@@ -279,4 +279,13 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 	       return flag;
 	     }
 	
+	 public static List<String> findCarImgs(String path){
+		 List<String> list = new ArrayList<String>();
+		 File file = new File(path);
+		 String[] files =  file.list();
+		 for(String fil:files) {
+			 list.add(fil);
+		 }
+		 return list;
+	 }
 }

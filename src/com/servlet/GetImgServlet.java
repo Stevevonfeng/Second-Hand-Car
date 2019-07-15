@@ -31,10 +31,13 @@ public class GetImgServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userName = request.getParameter("username");
+		 
 		IUserDao iud = new UserDaoImpl();
-		Users user = iud.findUser(userName);
-		String img = user.getImage();
-		response.getWriter().print(img);
+		if(!userName.equals("")){
+			Users user = iud.findUser(userName);
+			String img = user.getImage();
+			response.getWriter().print(img);
+		}
 	}
 
 	/**
