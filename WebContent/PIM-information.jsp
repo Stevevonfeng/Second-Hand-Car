@@ -66,18 +66,6 @@
         <script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-  
-<!-- birth-set -->
-<link rel="stylesheet" type="text/css" href="datetime/jquery.datetimepicker.css"/>
-		<script src="datetime/jquery.js"></script>
-		<script src="datetime/build/jquery.datetimepicker.full.js"></script>
-	<script type="text/javascript">
-		$.datetimepicker.setLocale('ch');
-		$("#ubirth").datetimepicker({
-			timepicker:false,//关闭时间选项
-			format:'Y-m-d',//格式化日期
-		});
-	</script>
 </head>
 <body>
 	<!-- Start Switcher -->
@@ -144,8 +132,7 @@
 				
 			</div>
 				<div class="upload_user_logo">
-					 <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs">
-					 
+					 <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs" style="width:225px;height:175px">
 					<div class="upload_newlogo" >
 						<input name="Image" type="file" id="UserImage">
 					</div>
@@ -179,66 +166,67 @@
 						<form action="Jump-update" method="get">
 							<div class="form-group">
 								<label class="control-label">用户名</label> 
-								 <input type="hidden" name="act" value="Update" />
+								 
 								<input class="form-control white_bg" name="username" type="text" readonly="readonly" value="${user.getUsername()}"  >
 							</div>
 							<div class="form-group">
 								<label class="control-label">邮箱地址</label>
-								 <input type="hidden" name="act" value="Update" />
+								 
 								 <input
-									class="form-control white_bg" name="email" type="email" value="${user.getEmail()}" >
+									class="form-control white_bg" name="email" type="email" value="${user.getEmail()}"  readonly="readonly">
 							</div>
 							<div class="form-group">
 								<label class="control-label">手机号码</label> 
-								 <input type="hidden" name="act" value="Update" />
+								 
 								<input
-									class="form-control white_bg" name="phone" type="text"  value="${user.getPhone()}" >
+									class="form-control white_bg" name="phone" type="text"  value="${user.getPhone()}" readonly="readonly">
 							</div>
 							<div class="form-group">
 								<label class="control-label">出生日期</label> 
-								 <input type="hidden" name="act" value="Update" />
+								 
 								<input
-									class="form-control white_bg" name="birth" id="ubirth" type="text" value="${user.getBirth()}" >
+									class="form-control white_bg" name="birth" id="ubirth" type="text" value="${user.getBirth()}" readonly="readonly">
 							</div>
 							<div class="form-group">
 								<label class="control-label">居住地址</label>
-								 <input type="hidden" name="act" value="Update" />
-								<textarea class="form-control white_bg" rows="4" name="adress" value="${user.getAdress()}"></textarea>
+								 
+								<textarea class="form-control white_bg" rows="4" name="adress" value="${user.getAdress()}" readonly="readonly"></textarea>
 							</div>
 							<div class="form-group">
 								<label class="control-label">国家</label> 
-								 <input type="hidden" name="act" value="Update" />
+								 
 								<input
-									class="form-control white_bg" name="country" type="text" value="${user.getCountry()}">
+									class="form-control white_bg" name="country" type="text" value="${user.getCountry()}" readonly="readonly">
 							</div>
 							<div class="form-group">
 								<label class="control-label">省份</label> 
-								 <input type="hidden" name="act" value="Update" />
+								 
 								<input
-									class="form-control white_bg" name="province" type="text" value="${user.getProvince()}">
+									class="form-control white_bg" name="province" type="text" value="${user.getProvince()}" readonly="readonly">
 							</div>
+							 
 							<div class="gray-bg field-title">
 								<h6>Social Links</h6>
 							</div>
 							<div class="form-group">
 								<label class="control-label">Facebook ID</label> <input
-									class="form-control white_bg" id="facebook" type="text">
+									class="form-control white_bg" id="facebook" type="text" readonly="readonly">
 							</div>
 							<div class="form-group">
 								<label class="control-label">Twitter ID</label> <input
-									class="form-control white_bg" id="twitter" type="text">
+									class="form-control white_bg" id="twitter" type="text" readonly="readonly">
 							</div>
 							<div class="form-group">
 								<label class="control-label">Linkedin ID</label> <input
-									class="form-control white_bg" id="linkedin" type="text">
+									class="form-control white_bg" id="linkedin" type="text" readonly="readonly">
 							</div>
 							<div class="form-group">
 								<label class="control-label">Google+ ID</label> <input
-									class="form-control white_bg" id="google" type="text">
+									class="form-control white_bg" id="google" type="text" readonly="readonly">
 							</div>
 							<div class="form-group">
 								<button type="submit" class="btn">
-									去修改 <span class="angle_arrow"><i
+									更新信息 <span class="angle_arrow"><i
 										class="fa fa-angle-right" aria-hidden="true"></i></span>
 								</button>
 							</div>
@@ -276,7 +264,7 @@
 	            data: {username:$("#username1").val()},
 	            dateType:"text",
 	            success: function (rs) {
-	            	if(rs!=""){
+	            	if(rs!=""&&rs!='null'){
 	            		$("#UserImage").parent().css({"opacity":"0"});
 	            		var rs = "/imgs/"+rs;
 		            	$("#imgs").attr("src", rs);

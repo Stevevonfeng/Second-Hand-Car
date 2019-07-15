@@ -144,7 +144,7 @@
 				
 			</div>
 				<div class="upload_user_logo">
-					 <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs"> 
+					 <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs" style="width:225px;height:175px"> 
 					<div class="upload_newlogo" >
 						<input name="Image" type="file" id="UserImage">
 					</div>
@@ -294,7 +294,7 @@
 	            data: {username:$("#username1").val()},
 	            dateType:"text",
 	            success: function (rs) {
-	            	if(rs!=""){
+	            	if(rs!=""&&rs!='null'){
 	            		$("#UserImage").parent().css({"opacity":"0"});
 	            		var rs = "/imgs/"+rs;
 		            	$("#imgs").attr("src", rs);
