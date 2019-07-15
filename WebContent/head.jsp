@@ -79,7 +79,7 @@
                 <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
               </ul>
             </div>
-            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">登录 /注册</a> </div>
+            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal"><span id="IsLogin">登录 /注册</span></a> </div>
           </div>
         </div>
       </div>
@@ -96,7 +96,7 @@
         <div class="user_login">
           <ul>
           
-            <li class="dropdown" > <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i><span id="IsLogin">未登录</span><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <li class="dropdown" > <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <c:if test="${user==null }">未登录</c:if>${user.getUsername()}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
               <ul class="dropdown-menu">
                 <li><a href="PIM-information.jsp">个人信息</a></li>
                 <li><a href="my-vehicles.jsp">我的车辆</a></li>
@@ -151,13 +151,13 @@
 </body>
 <script type="text/javascript">
 	$(function(){
+		
 		$.ajax({
 			type:"get",
 			url:"LoginStatus",
 			dataType:"text",
 			success:function(rs){ 
 				if(rs=="true"){
-					
 					$("#IsLogin").html("已登录");
 				}
 			}

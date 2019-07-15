@@ -8,6 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title></title>
+<script type="text/javascript" src="js/jquery-2.2.3.min.js" ></script>
 <meta name="keywords" content="" />
 <meta name="description" content="" /> 
 <meta name="author" content="js代码(www.jsdaima.com)" />
@@ -121,11 +122,11 @@
                 </div>
                 <div class="form-group">
                    <input type="hidden" name="act" value="adduser" />
-                  <input type="password" class="form-control" placeholder="Password" name="userpassword">
+                  <input type="password" class="form-control" placeholder="Password" name="userpassword" id="userpassword">
                 </div>
                 <div class="form-group">
                    <input type="hidden" name="act" value="adduser" />
-                  <input type="password" class="form-control" placeholder="Confirm Password" name="repassword">
+                  <input type="password" class="form-control" placeholder="Confirm Password" name="repassword" id="repassword">
                   
                 </div>
                 <div class="form-group checkbox">
@@ -133,13 +134,15 @@
                   <label for="terms_agree">I Agree with <a href="#">Terms and Conditions</a></label>
                 </div>
                 <div class="form-group">
-                  <input type="submit" value="Sign Up" class="btn btn-block" >
+                  <input type="submit" value="Sign Up" class="btn btn-block" id="sub">
                 </div>
               </form>
             </div>
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-6 col-sm-6" >
+             
               <h6 class="gray_text">Login the Quick Way</h6>
               <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Login with Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Login with Google+</a> </div>
+             
             <div class="mid_divider"></div>
           </div>
         </div>
@@ -203,5 +206,39 @@
 <script src="assets/js/owl.carousel.min.js"></script>
 
 </body>
- 
+ 	<script type="text/javascript">
+			/* $(function(){
+				$("[name=username]").blur(function(){					
+					var username = $(this).val();
+					
+					$.ajax({
+						url:"User?act=adduser",
+						type:"get",
+						data:{'username':username},
+						dataType:"text",
+						success:function(responseTxt){
+							alert(responseTxt);
+						},
+						error:function(){
+							alert("请求失败！！！");
+						}
+					})
+					
+					
+				});
+				
+				
+			}) */
+			$("[name=repassword]").blur(function(){					
+				var repassword = $(this).val();
+				
+				var userpassword = $("#userpassword").val();
+				
+				if(repassword!=userpassword){
+					alert("密码不一致！");
+				}
+		
+			});
+			
+		</script>
 </html>

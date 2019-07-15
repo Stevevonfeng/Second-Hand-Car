@@ -20,152 +20,155 @@ import com.service.UserServiceImpl;
  */
 @WebServlet("/User")
 public class UserServlet extends BaseServlet {
+
+	IUserService userService = new UserServiceImpl();
+
+	// Sign Up
+	public void adduser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		String userpassword = request.getParameter("userpassword");
+		String repassword = request.getParameter("repassword");
+		
+		List<Users> list = userService.findUserName();
+		int number = list.size();
+		
+		Users user = new Users();
+		Conversion.req_obj(user, request);
+		
+		if (repassword.equals(userpassword)) {
+		 
+			userService.addUser(user);
+		}
 	
-	 IUserService userService = new UserServiceImpl(); 
-	//Sign Up
-	public void adduser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    
-		   List<Users> list = userService.findUserName();
-		   int number = list.size();
-		   
-           Users user = new  Users();
-		   Conversion.req_obj(user, request);
-           userService.addUser(user);
-           List<Users> list2 = userService.findUserName(); 
-           int number2 = list2.size();
-           
-           String userpassword = user.getUserpassword();
-		   String repassword = request.getParameter("repassword");
-
-				  if(repassword.equals(userpassword)){
-						 
-	             request.getSession().setAttribute("user", user);
-				request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
-				  }
-  
-           if(number==number2){
-        	   
-       		request.getRequestDispatcher("Jump-update").forward(request, response);	
-           }else{
-        		if(repassword.equals(userpassword)){
+		
+		List<Users> list2 = userService.findUserName();
+		int number2 = list2.size();
+		     
+		    if(!repassword.equals(userpassword)){
+				request.setAttribute("statu", "eq");
+				request.getRequestDispatcher("home.jsp").forward(request, response);
+			}
+		    else if (number == number2) {
+				request.setAttribute("status", "have");
+				request.getRequestDispatcher("home.jsp").forward(request, response);
+			} else {
+				
 				request.getSession().setAttribute("user", user);
-			request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
-		        }
-		 
-           }
-
+							
+			}
+		
 	}
-	//Login
-	public void searchuser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		 
+
+	// Login
+	public void searchuser(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String loginname = request.getParameter("loginname");
-		
+
 		String login = "";
-		
-		if(login.length()>7) {
+
+		if (login.length() > 7) {
 			login = loginname.substring(loginname.length() - 7);
 		}
 
 		String loginpassword = request.getParameter("loginpassword");
-		 
-	 
-		 Users user = userService.searchUser(loginname);
-		 
-			 String ver_username = user.getUsername();
-			 String ver_email = user.getEmail();
-			 String ver_password = user.getUserpassword();
-			 
-			 if (login.equals("@qq.com")) {
 
-					if (loginname.equals(ver_email) && loginpassword.equals(ver_password)) {
-						
-						
-						userService.UpdateStatus(ver_email);
-						
-						 //servlet�в���ֱ����session��Ҫ��request�ķ�����ȡsession 
-							request.getSession().setAttribute("user", user);
-							
-						request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
-					}
-					
-				}else{
+		Users user = userService.searchUser(loginname);
 
-					if (loginname.equals(ver_username) && loginpassword.equals(ver_password)) {
-						 
-						userService.UpdateStatus2(ver_username);
-						 //servlet�в���ֱ����session��Ҫ��request�ķ�����ȡsession 
-							request.getSession().setAttribute("user", user);
-							
-						request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
-					}
-				}			
-			 
+		String ver_username = user.getUsername();
+		String ver_email = user.getEmail();
+		String ver_password = user.getUserpassword();
+
+		if (login.equals("@qq.com")) {
+
+			if (loginname.equals(ver_email) && loginpassword.equals(ver_password)) {
+
+				userService.UpdateStatus(ver_email);
+
+				request.getSession().setAttribute("user", user);
+
+				request.getRequestDispatcher("home.jsp").forward(request, response);
+			}
+
+		} else {
+
+			if (loginname.equals(ver_username) && loginpassword.equals(ver_password)) {
+
+				userService.UpdateStatus2(ver_username);
+
+				request.getSession().setAttribute("user", user);
+
+				request.getRequestDispatcher("home.jsp").forward(request, response);
+			}
+		}
+
 	}
-	
+
 	// ToUpdate-searchUser
-	public void  ToUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
-		String username = request.getParameter("username");
-		
-		 Users user = userService.searchUser(username);
-		 
-		 request.setAttribute("user", user);	
-	
-		request.getRequestDispatcher("Update-profile-settings.jsp").forward(request, response);	
-		
-	}
-	
-	//Update
-	public void Update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		// ��������
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
-		
-		 Users user = new  Users();
-		 Conversion.req_obj(user, request);	
-		 
-		 userService.Update(user);
-		 
-		 String userpassword = request.getParameter("userpassword");
-	     String cpassword = request.getParameter("c-password");
-	     
-	     if(cpassword.equals(userpassword)){
-	    	 request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
-			   
-	     }
-	}
-		
+	public void ToUpdate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-	
-	//SignOut
-	public void SignOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
-		// ��������
+		String username = request.getParameter("username");
+
+		Users user = userService.searchUser(username);
+
+		request.setAttribute("user", user);
+
+		request.getRequestDispatcher("Update-profile-settings.jsp").forward(request, response);
+
+	}
+
+	// Update
+	public void Update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		
-		String username = request.getParameter("username");
-		
-		 userService.SignOut(username);
-		 
-		 request.getSession().removeAttribute("user");
-		 
-			Object obj = request.getSession().getAttribute("user");
-			
-		 if(obj==null){
-			 request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
-		 }
+
+		Users user = new Users();
+		Conversion.req_obj(user, request);
+
+		userService.Update(user);
+
+		String userpassword = request.getParameter("userpassword");
+		String cpassword = request.getParameter("c-password");
+
+		if (cpassword.equals(userpassword)) {
+			request.getRequestDispatcher("home.jsp").forward(request, response);
+
+		}
 	}
-	
-	//PasswordRecover
-	public void PasswordRecover(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        String useremail = request.getParameter("useremail");
-		
+
+	// SignOut
+	public void SignOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+
+		String username = request.getParameter("username");
+
+		userService.SignOut(username);
+
+		request.getSession().removeAttribute("user");
+
+		Object obj = request.getSession().getAttribute("user");
+
+		if (obj == null) {
+			request.getRequestDispatcher("home.jsp").forward(request, response);
+		}
+	}
+
+	// PasswordRecover
+	public void PasswordRecover(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String useremail = request.getParameter("useremail");
+
 		String npassword = request.getParameter("npassword");
-		
+
 		userService.PasswordRecover(useremail, npassword);
-		
-		 request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
+
+		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
 
 }

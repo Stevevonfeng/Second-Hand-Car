@@ -37,6 +37,9 @@ public class GetImgServlet extends HttpServlet {
 			Users user = iud.findUser(userName);
 			String img = user.getImage();
 			response.getWriter().print(img);
+		}else{
+			String AA = "";
+			response.getWriter().print(AA);
 		}
 	}
 

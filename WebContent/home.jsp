@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -743,4 +744,16 @@
 <%@ include file="loginAndRegister.jsp" %>
 
 </body>
+<script type="text/javascript">
+$(function(){
+	var a = "${status}";
+	var b= "${statu}";
+	if(a=='have'){
+		alert("用户已存在");
+	}
+	if(b=='eq'){
+		alert("密码不一致");
+	}
+})
+</script>
 </html>

@@ -276,9 +276,11 @@
 	            data: {username:$("#username1").val()},
 	            dateType:"text",
 	            success: function (rs) {
-	            	var rs = "/imgs/"+rs;
-	            	$("#UserImage").parent().css({"opacity":"0"}); 
-	            	 $("#imgs").attr("src", rs);
+	            	if(rs!=""){
+	            		$("#UserImage").parent().css({"opacity":"0"});
+	            		var rs = "/imgs/"+rs;
+		            	$("#imgs").attr("src", rs);
+	            	}
 	            }
 	        });
 	})
