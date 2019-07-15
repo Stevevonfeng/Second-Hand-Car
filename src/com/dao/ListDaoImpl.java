@@ -497,6 +497,7 @@ public class ListDaoImpl implements IListDao{
 				user.setPhone(phone);
 				user.setBirth(birth);
 				user.setAdress(adress);
+				user.setCountry(country);
 				user.setProvince(province);
 				user.setImage(image);
 				user.setStatus(status);
