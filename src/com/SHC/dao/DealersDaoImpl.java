@@ -126,7 +126,7 @@ public class DealersDaoImpl implements IDealersDao{
 	}
 
 
-	@Override
+	@Override//已成为PayListServlet
 	public CarBill carOffer(long vid) {
 		CarBill carbill = new CarBill();
 		try {

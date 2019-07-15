@@ -30,6 +30,18 @@ public class ListServiceImpl implements IListService{
 		IListDao ild = new ListDaoImpl();
 		return ild.SimilarCar(brand,vid);
 	}
+
+	@Override
+	public List<Car2> NewListShow(int currentPage) {
+		IListDao ild = new ListDaoImpl();
+		return ild.NewListShow(currentPage);
+	}
+
+	@Override
+	public List<Car2> UsedListShow(int currentPage) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 

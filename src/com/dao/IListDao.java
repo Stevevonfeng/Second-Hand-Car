@@ -14,5 +14,11 @@ public interface IListDao {
 	public Car2 CarShow(long vid);
 	//展示类似车辆
 	public List<Car2> SimilarCar(String brand,long vid);
+	//传送sql语句
+	public List<Car2> SqlInput(String sql);
+	//搜索新车
+	public List<Car2> NewListShow(int currentPage);
+	//搜索二手车
+	public List<Car2> UsedListShow(int currentPage);
 
 }
