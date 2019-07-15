@@ -10,6 +10,8 @@ public interface IListDao {
 	
 	//计算总记录数
 	public int carsNum();
+	//计算新旧车辆的总记录数
+	public int carsNum2(String type);
 	//展示车辆详细信息
 	public Car2 CarShow(long vid);
 	//展示类似车辆

@@ -366,8 +366,13 @@ public class ListDaoImpl implements IListDao{
 
 	@Override
 	public List<Car2> UsedListShow(int currentPage) {
-		// TODO Auto-generated method stub
-		return null;
+		int pz = 3;
+		int cp = currentPage;
+		String sql = "select * from (select t1.*,rownum num from "
+				+ "(select * from car2 where usedcar= '"+"usedcar"+"' order by price desc) t1 where rownum<="+pz*cp+") t2 "
+				+ "where t2.num>"+(cp-1)*pz+"";
+		List<Car2> cars = SqlInput(sql);
+		return cars;
 	}
 
 	@Override
@@ -467,6 +472,24 @@ public class ListDaoImpl implements IListDao{
 			e.printStackTrace();
 		}
 		return cars;
+	}
+
+	@Override
+	public int carsNum2(String type) {
+		int count=0;
+		try {
+			String sql="select count(*) from car2 where "+type+"='"+type+"'";
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			ResultSet rs = psmt.executeQuery();
+
+			if(rs.next()){
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
 	}
 
 	

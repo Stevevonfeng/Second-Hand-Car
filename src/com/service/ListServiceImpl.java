@@ -39,8 +39,14 @@ public class ListServiceImpl implements IListService{
 
 	@Override
 	public List<Car2> UsedListShow(int currentPage) {
-		// TODO Auto-generated method stub
-		return null;
+		IListDao ild = new ListDaoImpl();
+		return ild.UsedListShow(currentPage);
+	}
+
+	@Override
+	public int carsNum2(String type) {
+		IListDao ild = new ListDaoImpl();
+		return ild.carsNum2(type);
 	}
 	
 	

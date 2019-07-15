@@ -125,7 +125,7 @@
 	  
 	  <div class="product-listing-m gray-bg">
 
-	    <div class="product-listing-img"> <a href="listt?act=CarShow&vid=${car.vid }&brand=${car.brand}"><img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" /> </a>
+	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}"><img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" /> </a>
 
 	      <div class="label_icon">${car.usedcar }${car.newcar }</div>
 	      <div class="compare_item">

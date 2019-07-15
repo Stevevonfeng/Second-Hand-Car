@@ -15,7 +15,7 @@ import com.service.Utils;
 /**
  * Servlet implementation class CarServlet
  */
-@WebServlet("/listt")
+@WebServlet("/list")
 public class ListServlet extends BaseServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -73,7 +73,31 @@ public class ListServlet extends BaseServlet {
 			IListService ils = new ListServiceImpl();
 			List<Car2> cars = ils.NewListShow(cp);
 			
-			int count = ils.carsNum();
+			int count = ils.carsNum2("newcar");
+			int totalPage = count % pz == 0 ? count / pz : count / pz + 1;
+
+			request.setAttribute("totalPage", totalPage);
+			request.setAttribute("cp", cp);
+			request.setAttribute("cars", cars);
+			request.getRequestDispatcher("listing-classic.jsp").forward(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void UsedListShow(HttpServletRequest request, HttpServletResponse response){
+		try {
+			int pz = 3;
+			int cp = 1;
+			String currentPage = request.getParameter("cp");
+			if (currentPage != null) {
+				cp = Integer.parseInt(currentPage);
+			}
+			IListService ils = new ListServiceImpl();
+			List<Car2> cars = ils.UsedListShow(cp);
+			
+			int count = ils.carsNum2("usedcar");
 			int totalPage = count % pz == 0 ? count / pz : count / pz + 1;
 
 			request.setAttribute("totalPage", totalPage);
