@@ -87,6 +87,9 @@ public class CarDaoImpl implements ICarDao{
 	public <E> ArrayList<E> searchObject(Class cls, String userid) {
 		String sqlTable = cls.getSimpleName();
 		String sql = "select * from "+sqlTable+" where userid="+userid;
+		if(userid==null) {
+			sql = "select * from "+sqlTable;
+		}
 		Field[] fields = cls.getDeclaredFields();
 		PreparedStatement p = null;
 		ResultSet rs = null;

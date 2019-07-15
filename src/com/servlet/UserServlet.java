@@ -42,7 +42,7 @@ public class UserServlet extends BaseServlet {
 				  if(repassword.equals(userpassword)){
 						 //servlet�в���ֱ����session��Ҫ��request�ķ�����ȡsession 
 						  request.getSession().setAttribute("user", user);
-				request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
+						  request.getRequestDispatcher("profile-settings.jsp").forward(request, response);
 				  }
 
 		   

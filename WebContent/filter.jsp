@@ -26,22 +26,22 @@
 				</div>
 				<div class="form-group col-md-3 col-sm-6 black_input">
 					<div class="select">
-						<select class="form-control">
+						<select class="form-control" id="brand">
 							<option>选择品牌</option>
-							<option>Audi</option>
+							<!-- <option>Audi</option>
 							<option>BMW</option>
 							<option>Nissan</option>
-							<option>Toyota</option>
+							<option>Toyota</option> -->
 						</select>
 					</div>
 				</div>
 				<div class="form-group col-md-3 col-sm-6 black_input">
 					<div class="select">
-						<select class="form-control">
+						<select class="form-control" id="model">
 							<option>选择车型</option>
-							<option>Series 1</option>
+							<<!-- option>Series 1</option>
 							<option>Series 2</option>
-							<option>Series 3</option>
+							<option>Series 3</option> -->
 						</select>
 					</div>
 				</div>
@@ -81,4 +81,38 @@
 	</section>
 
 </body>
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		type:"get",
+		url:"SelectCarServlet",
+		data:{restype:'brand'},
+		dataType:"json",
+		success:function(rs){
+			$("#brand").html("");
+			$("#brand").append("<option>选择品牌</option>");
+			$.each(rs,function(index,item){
+				$("#brand").append("<option value='"+item+"'>"+item+"</option>");
+			});
+		}
+	});
+	
+	$("#brand").change(function(){
+		var brand = $("#brand").val();
+		$.ajax({
+			type:"get",
+			url:"SelectCarServlet",
+			data:{restype:'model',brand:brand},
+			dataType:"json",
+			success:function(rs){
+				$("#model").html("");
+				$("#model").append("<option>选择车型</option>");
+				$.each(rs,function(index,item){
+					$("#model").append("<option value='"+item+"'>"+item+"</option>");
+				});
+			}
+		});
+	});
+})
+</script>
 </html>

@@ -81,12 +81,12 @@ public class UserDaoImpl implements  IUserDao{
 		 jdbc.updatePreparedStatement(sql, null);
 	 }
 
-<<<<<<< HEAD
+
 	@Override
 	public String searchUserIdByName(String name) {
 		return null;
 	}
-=======
+
 
 	public Users findUser(String userName) {
 		 String sql = "select image from tb_user where username='"+userName+"'";
@@ -111,6 +111,5 @@ public class UserDaoImpl implements  IUserDao{
 		jdbc.updatePreparedStatement(sql, null);
 	}
 	
-	
->>>>>>> branch 'master' of https://github.com/Stevevonfeng/SecondHandCar.git
+
 }

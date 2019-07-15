@@ -97,8 +97,27 @@
         <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> 12250 F Garvey Ave South West Covina, CA 91791</span></div>
         <div class="add_compare">
           <div class="checkbox">
-            <input value="" id="compare14" type="checkbox">
-            <label for="compare14">Add to Compare</label>
+            <input value="" id="${car.vid }" type="checkbox" <c:if test="${car.compare eq '1'}"> checked='checked' </c:if>>
+            <label for="${car.vid }">Add to Compare</label>
+            <script>
+	          	$("#${car.vid }").change(function(){
+	          		var id = "${car.vid }";
+	          		var val = $("#"+id+"").is(":checked");
+	          		if(val==true){
+	          			$.ajax({
+	          				type:"get",
+	          				url:"ComparedServlet",
+	          				data:{vid:id,compare:'1'}
+	          			});
+	          		}else{
+	          			$.ajax({
+	          				type:"get",
+	          				url:"ComparedServlet",
+	          				data:{vid:id,compare:'0'}
+	          			});
+	          		}
+	          	});
+	          </script>
           </div>
           <div class="share_vehicle">
             <p>Share: <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a> </p>
@@ -212,7 +231,7 @@
       <div class="col-md-9">
         <div class="listing_images">
           <div class="listing_images_slider">
-            <div><img src="assets/images/listing_img3.jpg" alt="image"></div>
+           <!--  <div><img src="assets/images/listing_img3.jpg" alt="image"></div>
             <div><img src="assets/images/listing_img4.jpg" alt="image"></div>
             <div><img src="assets/images/listing_img5.jpg" alt="image"></div>
             <div><img src="assets/images/listing_img2.jpg" alt="image"></div>
@@ -220,10 +239,13 @@
             <div><img src="assets/images/listing_img3.jpg" alt="image"></div>
             <div><img src="assets/images/listing_img5.jpg" alt="image"></div>
             <div><img src="assets/images/listing_img2.jpg" alt="image"></div>
-            <div><img src="assets/images/listing_img1.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img1.jpg" alt="image"></div> -->
+            <c:forEach items="${fileNames }" var="fileName">
+            	<div><img src="/imgs/${car.vid }/${fileName }" alt="image" style="width:848px;height:527.6px"></div>
+            </c:forEach>
           </div>
           <div class="listing_images_slider_nav">
-            <div><img src="assets/images/listing_img3.jpg" alt="image"></div>
+            <!-- <div><img src="assets/images/listing_img3.jpg" alt="image"></div>
             <div><img src="assets/images/listing_img4.jpg" alt="image"></div>
             <div><img src="assets/images/listing_img5.jpg" alt="image"></div>
             <div><img src="assets/images/listing_img2.jpg" alt="image"></div>
@@ -231,7 +253,10 @@
             <div><img src="assets/images/listing_img3.jpg" alt="image"></div>
             <div><img src="assets/images/listing_img5.jpg" alt="image"></div>
             <div><img src="assets/images/listing_img2.jpg" alt="image"></div>
-            <div><img src="assets/images/listing_img1.jpg" alt="image"></div>
+            <div><img src="assets/images/listing_img1.jpg" alt="image"></div> -->
+              <c:forEach items="${fileNames }" var="fileName">
+            	<div><img src="/imgs/${car.vid }/${fileName }" alt="image" style="width:146px;height:90.8px"></div>
+            </c:forEach>
           </div>
         </div>
 
