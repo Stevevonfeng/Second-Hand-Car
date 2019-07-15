@@ -15,6 +15,7 @@ import com.SHC.model.CarBill;
 import com.SHC.model.Dealers;
 import com.SHC.service.DealersServiceImpl;
 import com.SHC.service.IDealersService;
+import com.SHC.service.JsonUtils;
 import com.model.Car2;
 
 /**
@@ -129,7 +130,7 @@ public class DealersServlet extends BaseServlet {
 		
 	}
 	
-	//结算
+	//结算 已成为PayListServlet
 	public void carOffer(HttpServletRequest request, HttpServletResponse response){
 		try {
 			

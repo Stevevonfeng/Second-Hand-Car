@@ -128,7 +128,7 @@
           <div class="looking-car-content">
             <h3>寻找 <span>新车?</span></h3>
             <p>品牌4S店驻店，销售打折特卖车型，客户直接跟4S店进行价格交互。各地的服务中心，在线下为客户提供异地运输、分期付款、汽车保险、上牌等一站式服务。</p>
-            <a href="" class="btn">查看列表<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+            <a href="list?act=NewListShow" class="btn">查看列表<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
         </div>
       </div>
     </div>

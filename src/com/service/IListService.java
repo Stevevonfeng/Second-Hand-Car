@@ -16,6 +16,9 @@ public interface IListService {
 	//展示类似车辆
 	public List<Car2> SimilarCar(String brand,long vid);
 
-	
+	//搜索新车
+	public List<Car2> NewListShow(int currentPage);
+	//搜索二手车
+	public List<Car2> UsedListShow(int currentPage);
 
 }

@@ -58,7 +58,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3 col-md-2">
-          <div class="logo"> <a href="Index.jsp"><img src="assets/images/logo.png" alt="image"/></a> </div>
+          <div class="logo"> <a href="home.jsp"><img src="assets/images/logo.png" alt="image"/></a> </div>
         </div>
         <div class="col-sm-9 col-md-10">
           <div class="header_info">
@@ -116,7 +116,7 @@
       </div>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
-          <li><a href="Index.jsp">主页</a></li>
+          <li><a href="home.jsp">主页</a></li>
           <li><a href="about-us.jsp">关于我们</a></li>
           <li >
           <a href="list?act=ListShow">库存</a>
