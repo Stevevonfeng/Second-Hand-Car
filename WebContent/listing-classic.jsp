@@ -158,7 +158,7 @@
 	      </div>
 	    </div>
 	    <div class="product-listing-content">
-	      <h5><a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid}">Mazda CX-5 SX, V6, ABS, Sunroof</a></h5>
+	      <h5><a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid}">${car.brand } ${car.model } SX, V6, ABS, Sunroof</a></h5>
 	      <p class="list-price">$${car.price }</p>
 	      <ul>
 	        <li><i class="fa fa-road" aria-hidden="true"></i>${car.kms }km</li>
