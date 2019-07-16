@@ -122,11 +122,8 @@
           <li><a href="home.jsp">主页</a></li>
           <li><a href="about-us.jsp">关于我们</a></li>
           <li >
-<<<<<<< HEAD
-          <a href="list?act=ListShow">库存</a>
-=======
+
           <a href="list?act=ListShow&username=${param.username }">库存</a>
->>>>>>> branch 'master' of https://github.com/Stevevonfeng/SecondHandCar.git
           </li>
           
           <li>
