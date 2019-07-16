@@ -104,7 +104,7 @@
 <!--Post-vehicle-->
 <section class="user_profile inner_pages">
   <div class="container">
-    <div class="user_profile_info gray-bg padding_4x4_40">
+    <%-- <div class="user_profile_info gray-bg padding_4x4_40">
      <div class="upload_user_logo" > <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs" style="width:225px;height:175px">
         <div class="upload_newlogo">
         
@@ -123,7 +123,8 @@
 		<c:if test="${user.getPhone()==null}">,联系方式 </c:if>${user.getPhone()}
 		</p>
       </div>
-    </div>
+    </div> --%>
+    <%@ include file="headimg.jsp" %>
     <div class="row">
       <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
@@ -351,7 +352,7 @@
 <script type="text/javascript">
 	var i = 0;
 	$(function(){
-		$.ajax({
+		/* $.ajax({
 	          url: 'GetImgServlet',
 	          type: 'get',
 	          data: {username:$("#username1").val()},
@@ -363,7 +364,7 @@
 		            	$("#imgs").attr("src", rs);
 	          	}
 	          }
-	      });
+	      }); */
 		
 		$.ajax({
 			type:"get",

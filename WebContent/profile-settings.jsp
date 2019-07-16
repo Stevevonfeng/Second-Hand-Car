@@ -105,7 +105,7 @@
 <!--Profile-setting-->
 <section class="user_profile inner_pages">
   <div class="container">
-    <div class="user_profile_info gray-bg padding_4x4_40">
+    <%-- <div class="user_profile_info gray-bg padding_4x4_40">
       <div class="upload_user_logo" > <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs" style="width:225px;height:175px">
         <div class="upload_newlogo">
         
@@ -125,7 +125,8 @@
 		</p>
 		
       </div>
-    </div>
+    </div> --%>
+    <%@ include file="headimg.jsp" %>
     <div class="row">
       <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
@@ -232,9 +233,9 @@
 </body>
 
 <script type="text/javascript">
-$(function(){
+/* $(function(){
 	
-	  $.ajax({
+	  /* $.ajax({
           url: 'GetImgServlet',
           type: 'get',
           data: {username:$("#username1").val()},
@@ -246,8 +247,8 @@ $(function(){
 	            	$("#imgs").attr("src", rs);
           	}
           }
-      });
-})
+      }); */
+}) */
 	
 	$("#UserImage").change(function (e) {
 		
