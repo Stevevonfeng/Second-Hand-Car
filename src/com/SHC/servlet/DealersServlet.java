@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.SHC.model.CarBill;
 import com.SHC.model.Dealers;
+import com.SHC.model.GoodOrder;
 import com.SHC.service.DealersServiceImpl;
 import com.SHC.service.IDealersService;
 import com.SHC.service.JsonUtils;
@@ -149,6 +150,23 @@ public class DealersServlet extends BaseServlet {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//搜索订单
+	public void searchOrderByOrdernum(HttpServletRequest request, HttpServletResponse response){
+		try {
+			String ordernum = request.getParameter("ordernum");
+			
+			IDealersService ids = new DealersServiceImpl();
+			
+			GoodOrder go = ids.searchOrderByOrdernum(ordernum);
+			
+			request.setAttribute("go", go);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
