@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -119,7 +120,7 @@
           <div class="looking-car-content">
             <h3>寻找 <span>二手车?</span></h3>
             <p>从海量好车中精选最优质车源，在线上线下集中展示售卖，打造线上线下一体的二手车交易闭环,为用户打造“闭着眼买好车”的二手车新零售体验。</p>
-            <a href="" class="btn">查看列表<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+            <a href="list?act=UsedListShow" class="btn">查看列表<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
         </div>
       </div>
       <div class="col-lg-6 col-sm-6">
@@ -743,4 +744,16 @@
 <%@ include file="loginAndRegister.jsp" %>
 
 </body>
+<script type="text/javascript">
+$(function(){
+	var a = "${status}";
+	var b= "${statu}";
+	if(a=='have'){
+		alert("用户已存在");
+	}
+	if(b=='eq'){
+		alert("密码不一致");
+	}
+})
+</script>
 </html>

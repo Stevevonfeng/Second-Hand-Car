@@ -106,9 +106,10 @@
 <section class="user_profile inner_pages">
   <div class="container">
     <div class="user_profile_info gray-bg padding_4x4_40">
-      <div class="upload_user_logo"> <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs">
+      <div class="upload_user_logo" > <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs" style="width:225px;height:175px">
         <div class="upload_newlogo">
-         	<input name="Image" type="file" id="UserImage">
+        
+         	<input name="Image"  <c:if test="${user==null }">type="text"</c:if>type="file" id="UserImage">
           <input id="username1" type="hidden" value="${user.getUsername()}">
         </div>
       </div>
@@ -231,22 +232,22 @@
 </body>
 
 <script type="text/javascript">
-	$(function(){
-		
-		  $.ajax({
-	            url: 'GetImgServlet',
-	            type: 'get',
-	            data: {username:$("#username1").val()},
-	            dateType:"text",
-	            success: function (rs) {
-	            	if(rs!=""){    
-	            		$("#UserImage").parent().css({"opacity":"0"});  	
-	            	}
-	            	var rs = "/imgs/"+rs;
-	            	 $("#imgs").attr("src", rs);
-	            }
-	        });
-	})
+$(function(){
+	
+	  $.ajax({
+          url: 'GetImgServlet',
+          type: 'get',
+          data: {username:$("#username1").val()},
+          dateType:"text",
+          success: function (rs) {
+          	if(rs!=""&&rs!='null'){
+          		$("#UserImage").parent().css({"opacity":"0"});
+          		var rs = "/imgs/"+rs;
+	            	$("#imgs").attr("src", rs);
+          	}
+          }
+      });
+})
 	
 	$("#UserImage").change(function (e) {
 		

@@ -144,8 +144,7 @@
 				
 			</div>
 				<div class="upload_user_logo">
-					 <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs">
-					 
+					 <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs" style="width:225px;height:175px"> 
 					<div class="upload_newlogo" >
 						<input name="Image" type="file" id="UserImage">
 					</div>
@@ -174,7 +173,7 @@
 				</div>
 				<div class="col-md-6 col-sm-8">
 					<div class="profile_wrap">
-						<%	Users user = (Users)request.getAttribute("user");%>
+					 
 						<h5 class="uppercase underline">基础资料</h5>
 						<form action="User" method="get">
 							<div class="form-group">
@@ -295,9 +294,11 @@
 	            data: {username:$("#username1").val()},
 	            dateType:"text",
 	            success: function (rs) {
-	            	var rs = "/imgs/"+rs;
-	            	$("#UserImage").parent().css({"opacity":"0"}); 
-	            	 $("#imgs").attr("src", rs);
+	            	if(rs!=""&&rs!='null'){
+	            		$("#UserImage").parent().css({"opacity":"0"});
+	            		var rs = "/imgs/"+rs;
+		            	$("#imgs").attr("src", rs);
+	            	}
 	            }
 	        });
 	})

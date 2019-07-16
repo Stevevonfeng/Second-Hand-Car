@@ -79,7 +79,7 @@
                 <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
               </ul>
             </div>
-            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">登录 /注册</a> </div>
+            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal"><span id="IsLogin">登录 /注册</span></a> </div>
           </div>
         </div>
       </div>
@@ -96,13 +96,16 @@
         <div class="user_login">
           <ul>
           
-            <li class="dropdown" > <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i><span id="IsLogin">未登录</span><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <li   class="dropdown" > <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <c:if test="${user==null }">未登录</c:if>${user.getUsername()}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+             <c:if test="${user!=null }">
               <ul class="dropdown-menu">
-                <li><a href="profile-settings.jsp">个人信息</a></li>
+                <li><a href="PIM-information.jsp">个人信息</a></li>
                 <li><a href="my-vehicles.jsp">我的车辆</a></li>
                 <li><a href="post-vehicle.jsp">我要卖车</a></li>
                 <li><a href="#loginform" data-toggle="modal" data-dismiss="modal">切换账号</a></li>
+                <li><a href="User?act=SignOut&username=${user.getUsername()}">退出登录</a></li>
               </ul>
+             </c:if>
             </li>
           </ul>
         </div>
@@ -119,10 +122,15 @@
           <li><a href="home.jsp">主页</a></li>
           <li><a href="about-us.jsp">关于我们</a></li>
           <li >
+<<<<<<< HEAD
           <a href="list?act=ListShow">库存</a>
+=======
+          <a href="list?act=ListShow&username=${param.username }">库存</a>
+>>>>>>> branch 'master' of https://github.com/Stevevonfeng/SecondHandCar.git
           </li>
+          
           <li>
-          	<a href="dealers?act=displaydealers">经销商</a>
+          	<a href="dealers?act=displaydealers&username=${param.username }">经销商</a>
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">网页</a>
             <ul class="dropdown-menu">
@@ -151,13 +159,13 @@
 </body>
 <script type="text/javascript">
 	$(function(){
+		
 		$.ajax({
 			type:"get",
 			url:"LoginStatus",
 			dataType:"text",
 			success:function(rs){ 
 				if(rs=="true"){
-					
 					$("#IsLogin").html("已登录");
 				}
 			}
