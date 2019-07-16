@@ -648,6 +648,8 @@
     <div class="space-20"></div>
     <div class="divider"></div>
     
+    <%@ include file="comment.jsp" %>
+    
     <!--Similar-Cars-->
     <div class="similar_cars">
       <h3>类似汽车</h3>

@@ -120,7 +120,7 @@
           <div class="looking-car-content">
             <h3>寻找 <span>二手车?</span></h3>
             <p>从海量好车中精选最优质车源，在线上线下集中展示售卖，打造线上线下一体的二手车交易闭环,为用户打造“闭着眼买好车”的二手车新零售体验。</p>
-            <a href="list?act=UsedListShow" class="btn">查看列表<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+            <a href="SearchByIndexServlet?statu=usedcar" class="btn">查看列表<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
         </div>
       </div>
       <div class="col-lg-6 col-sm-6">
@@ -129,7 +129,7 @@
           <div class="looking-car-content">
             <h3>寻找 <span>新车?</span></h3>
             <p>品牌4S店驻店，销售打折特卖车型，客户直接跟4S店进行价格交互。各地的服务中心，在线下为客户提供异地运输、分期付款、汽车保险、上牌等一站式服务。</p>
-            <a href="list?act=NewListShow" class="btn">查看列表<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+            <a href="SearchByIndexServlet?statu=newcar" class="btn">查看列表<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
         </div>
       </div>
     </div>

@@ -127,7 +127,7 @@
 	<!--Profile-setting-->
 	<section class="user_profile inner_pages">
 		<div class="container">
-			<div class="user_profile_info gray-bg padding_4x4_40">
+			<%-- <div class="user_profile_info gray-bg padding_4x4_40">
 			<div id="headd">
 				
 			</div>
@@ -147,7 +147,8 @@
 					<c:if test="${user.getPhone()==null}">,未设置联系方式 </c:if>${user.getPhone()}
 					</p>
 				</div>
-			</div>
+			</div> --%>
+			<%@ include file="headimg.jsp" %>
 			<div class="row">
 				<div class="col-md-3 col-sm-3">
 					<div class="profile_nav">
@@ -256,7 +257,7 @@
 	
 </body>
 	<script type="text/javascript">
-	$(function(){
+	/* $(function(){
 		
 		  $.ajax({
 	            url: 'GetImgServlet',
@@ -271,7 +272,7 @@
 	            	}
 	            }
 	        });
-	})
+	}) */
 	
 	$("#UserImage").change(function (e) {
 		

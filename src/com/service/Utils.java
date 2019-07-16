@@ -320,7 +320,7 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 					sql = sql+"and "+statu +" is not null  ";
 				}	
 			}
-			if(price!=null) {
+			if(price!=null&&!price.equals("")) {
 				String[] strs = price.split(",");
 				boolean other = true;
 				if((brand==null||brand.equals("选择品牌")||brand.equals(""))&&(year==null||year.equals("Year of Model")||year.equals(""))&&(statu==null||statu.equals("汽车类型")||statu.equals(""))) {
