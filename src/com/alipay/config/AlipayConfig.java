@@ -27,10 +27,10 @@ public class AlipayConfig {
     public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAivyVDvMqJ7CQZ+AF5SlRNm+kjHT7xmIorJBwdW13HjqAVz7XLpplW7gVa9wfbdPTkht/cG05F8sodU3KsSDwXX/8bsylTyqy6+RRwZloNYaF5D35FWqnI8N99IkGMHk8ON2cjpfI9pdvCcFnqdBjtJcRR+kG6VUUIXW8hNPZ83UJHwGwKPqAy9n+PF/MWno5ct7PDfmGDwYIGRm8s33I1XCSYojMDNDxiz+nmNvsSDhesOOeRhEaOgj1CarX/Ku/UVZGaqxPtm9t5uFMA1XRkDi7/lF0HhKFpuOQ6lDm1IueUNn2WHZBfJw660PcfpqnyfM+lhOPkwToyHuSJSbXdwIDAQAB";
 
 	// 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String notify_url = "http://工程公网访问地址/alipay.trade.page.pay-JAVA-UTF-8/notify_url.jsp";
+	public static String notify_url = "http://localhost:8080/SecondHandCar/car-bill.jsp";
 
 	// 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String return_url = "http://工程公网访问地址/alipay.trade.page.pay-JAVA-UTF-8/return_url.jsp";
+	public static String return_url = "http://localhost:8080/SecondHandCar/404.jsp";
 
 	// 签名方式
 	public static String sign_type = "RSA2";

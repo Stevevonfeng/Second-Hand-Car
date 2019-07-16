@@ -261,7 +261,7 @@
               <div class="car-info-box"> <a href="#"><img src="assets/images/recent-car-6.jpg" class="img-responsive" alt=""></a>
                 <div class="compare_item">
                   <div class="checkbox">
-                    <input type="checkbox" id="compare9">
+                    <input type="checkbox" id="compare9" >
                     <label for="compare9">Compare</label>
                   </div>
                 </div>

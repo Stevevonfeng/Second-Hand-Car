@@ -192,7 +192,7 @@ h2 {
 }
 </style>
 </head>
-<body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4>
+<body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4 onload="javascript:document.forms[0].submit()">
 	<header class="am-header">
 	<h1>支付宝电脑网站支付体验入口页</h1>
 	</header>
@@ -205,27 +205,27 @@ h2 {
 			<h2 id="tab5" name="tab">交 易 关 闭</h2>
 		</div>
 		<form name=alipayment action=alipay.trade.page.pay.jsp method=post
-			target="_blank">
+			target="_self">
 			<div id="body1" class="show" name="divcontent">
 				<dl class="content">
 					<dt>商户订单号 ：</dt>
 					<dd>
-						<input id="WIDout_trade_no" name="WIDout_trade_no" />
+						<input id="WIDout_trade_no" name="WIDout_trade_no" value="${go.ordernum }"/>
 					</dd>
 					<hr class="one_line">
 					<dt>订单名称 ：</dt>
 					<dd>
-						<input id="WIDsubject" name="WIDsubject" value="${param.vid }"/>
+						<input id="WIDsubject" name="WIDsubject" value="${go.vid }"/>
 					</dd>
 					<hr class="one_line">
 					<dt>付款金额 ：</dt>
 					<dd>
-						<input id="WIDtotal_amount" name="WIDtotal_amount" value="${carbill.price }"/>
+						<input id="WIDtotal_amount" name="WIDtotal_amount" value="${go.price }"/>
 					</dd>
 					<hr class="one_line">
 					<dt>商品描述：</dt>
 					<dd>
-						<input id="WIDbody" name="WIDbody" value="${carbill.brand } ${carbill.model}  ${carbill.year}  ${carbill.newcar}${car.usedcar}"/>
+						<input id="WIDbody" name="WIDbody" value="${go.des }"/>
 					</dd>
 					<hr class="one_line">
 					<dt></dt>
@@ -399,6 +399,6 @@ h2 {
 		//document.getElementById("WIDtotal_amount").value = "0.01";
 	}
 
-	GetDateNow();
+
 </script>
 </html>
