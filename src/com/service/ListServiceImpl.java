@@ -42,6 +42,12 @@ public class ListServiceImpl implements IListService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public int carsNum(String sql) {
+		IListDao ild = new ListDaoImpl();
+		return ild.carsNum(sql);
+	}
 	
 	
 

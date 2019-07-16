@@ -14,6 +14,7 @@ import java.util.List;
 import com.model.Car;
 import com.model.Car2;
 import com.model.CarModel;
+import com.service.Utils;
 
 public class CarDaoImpl implements ICarDao{
 	static String url = "jdbc:oracle:thin:@localhost:1521:orcl";
@@ -287,25 +288,46 @@ public class CarDaoImpl implements ICarDao{
 	}
 
 	@Override
-	public List<Car2> searchCar2(String brand, String model, String version, String year, String statu) {
-		String sql = "select * from car2 ";
-		if(brand==null||brand.equals("")) {
-			sql = sql+"where brand='奥迪' ";
+	public List<Car2> searchCar2(String brand, String model, String version, String year, String statu,int cp,String price) {
+		int pz =3;
+		List<Car2> list = new ArrayList<Car2>();
+		Class cls = Car2.class;
+		Field[] fields = cls.getDeclaredFields();
+		try {
+			String sql = Utils.getSql(brand, model, version, year, statu, price);
+			 
+			System.out.println(sql);
+			sql = "select * from (select t1.*,rownum num from "
+					+ "("+sql+") t1 where rownum<="+pz*cp+") t2 "
+					+ "where t2.num>"+(cp-1)*pz+"";
+			System.out.println(sql);
+			PreparedStatement p = c.prepareStatement(sql);
+			ResultSet rs = p.executeQuery();
+			while(rs.next()) {
+				Car2 obj = new Car2();
+				for(int i=1;i<=fields.length;i++) {
+					fields[i-1].setAccessible(true);
+					try {
+						if(fields[i-1].getType().equals(int.class)) {
+							fields[i-1].set(obj, rs.getInt(i));
+						}else if(fields[i-1].getType().equals(long.class)){
+							fields[i-1].set(obj,rs.getLong(i));
+						}else {
+							fields[i-1].set(obj, rs.getObject(i));
+						}
+						
+					} catch (IllegalArgumentException | IllegalAccessException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				list.add(obj);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
-		if(model==null||model.equals("")) {
-			sql = sql+"and model='Q7' ";
-		}
-		if(version==null||version.equals("")) {
-			sql = sql+"and version='Q7' ";
-		}
-		if(year==null||year.equals("")) {
-			sql = sql+"and year>to_date('2018','YYYY') and year<to_date('2020','YYYY') ";
-		}
-		if(statu==null||statu.equals("")) {
-			sql = sql+"and newcar is null  ";
-		}
-
 		
-		return null;
+		return list;
 	}
 }

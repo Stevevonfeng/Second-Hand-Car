@@ -125,7 +125,7 @@
 	  
 	  <div class="product-listing-m gray-bg">
 
-	    <div class="product-listing-img"> <a href="listt?act=CarShow&vid=${car.vid }&brand=${car.brand}"><img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" /> </a>
+	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}"><img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" /> </a>
 
 	      <div class="label_icon">${car.usedcar }${car.newcar }</div>
 	      <div class="compare_item">
@@ -177,16 +177,16 @@
 		<c:if test="${cp!=null }">			
 	    <ul>
 	      <li <c:if test="${cp==1}"> class="disabled" </c:if> >
-	      <a href="list?act=ListShow&cp=${cp-1<=0? 1:cp-1}">&laquo;</a>
+	      <a href="SearchByIndexServlet?cp=${cp-1<=0? 1:cp-1}&brand=${brand}&model=${model}&version=${version}&year=${year}&statu=${statu}&price=${price}">&laquo;</a>
 	      </li>
 	      
 	      <c:forEach begin="1" end="${totalPage}" var="item">
 			<li <c:if test="${item==cp }"> class="active" </c:if> >
-				<a href="list?act=ListShow&cp=${item}">${item}</a>
+				<a href="SearchByIndexServlet?cp=${item}&brand=${brand}&model=${model}&version=${version}&year=${year}&statu=${statu}&price=${price}">${item}</a>
 			</li>
 			</c:forEach>
 	     <li <c:if test="${cp==totalPage}"> class="disabled" </c:if>>
-			<a href="list?act=ListShow&cp=${cp+1>totalPage? totalPage:cp+1}">&raquo;</a>
+			<a href="SearchByIndexServlet?cp=${cp+1>totalPage? totalPage:cp+1}&brand=${brand}&model=${model}&version=${version}&year=${year}&statu=${statu}&price=${price}">&raquo;</a>
 		</li>
 	    </ul>
 	    </c:if>

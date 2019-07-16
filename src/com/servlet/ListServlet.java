@@ -1,5 +1,6 @@
 package com.servlet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.SHC.servlet.BaseServlet;
 import com.model.Car2;
+import com.service.CarServiceImpl;
+import com.service.ICarService;
 import com.service.IListService;
 import com.service.ListServiceImpl;
 import com.service.Utils;
@@ -15,13 +18,14 @@ import com.service.Utils;
 /**
  * Servlet implementation class CarServlet
  */
-@WebServlet("/listt")
+@WebServlet("/list")
 public class ListServlet extends BaseServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	public void ListShow(HttpServletRequest request, HttpServletResponse response) {
 		try {
+			
 			int pz = 3;// 姣忛〉鏄剧ず鏁�
 			int cp = 1;// 褰撳墠椤甸潰
 			String currentPage = request.getParameter("cp");
@@ -51,8 +55,17 @@ public class ListServlet extends BaseServlet {
 		long vid = Long.parseLong(request.getParameter("vid"));
 		String brand = request.getParameter("brand");
 		
+		
+		ICarService ics = new CarServiceImpl();
+		ArrayList<Car2> carss = ics.findObject(Car2.class, vid);
+		Car2 car = carss.get(0);
+		int count = car.getClickcount();
+		count++;
+		car.setClickcount(count);
+		ics.upCar(car, vid);
+		
 		IListService ils = new ListServiceImpl();
-		Car2 car = ils.CarShow(vid);
+		car = ils.CarShow(vid);
 		
 		List<Car2> cars = ils.SimilarCar(brand,vid);
 		List<String>  fileNames = Utils.findCarImgs("C:/dbimgs/"+vid);

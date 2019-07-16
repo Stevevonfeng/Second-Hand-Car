@@ -469,6 +469,24 @@ public class ListDaoImpl implements IListDao{
 		return cars;
 	}
 
+	@Override
+	public int carsNum(String sq) {
+		int count=0;
+		try {
+			String sql="select count(*) from ("+sq+")";
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			ResultSet rs = psmt.executeQuery();
+
+			if(rs.next()){
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
+
 	
 	
 
