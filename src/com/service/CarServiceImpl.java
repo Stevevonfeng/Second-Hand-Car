@@ -57,5 +57,12 @@ public class CarServiceImpl implements ICarService{
 	public List<Car> findAllCar() {
 		ICarDao icd = new CarDaoImpl();
 		return icd.searchAllCar();
+	}
+
+	@Override
+	public List<Car2> findCar2(String brand, String model, String version, String year, String statu,int cp,String price) {
+		ICarDao icd = new CarDaoImpl();
+		List<Car2> list = icd.searchCar2(brand, model, version, year, statu,cp,price);
+		return list;
 	}	
 }

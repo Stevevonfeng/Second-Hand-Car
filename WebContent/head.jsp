@@ -122,6 +122,7 @@
           <li><a href="home.jsp">主页</a></li>
           <li><a href="about-us.jsp">关于我们</a></li>
           <li >
+
           <a href="list?act=ListShow&username=${param.username }">库存</a>
           </li>
           

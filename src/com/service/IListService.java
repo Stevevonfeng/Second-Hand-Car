@@ -12,6 +12,10 @@ public interface IListService {
 	
 	//计算总记录数
 	public int carsNum();
+
+	
+	public int carsNum(String sql);
+
 	//计算新旧车辆的总记录数
 	public int carsNum2(String type);
 	//展示车辆详细信息
