@@ -180,15 +180,15 @@ $(function(){
 			$.each(rs, function(index,item) {
 					var active = item.active;
 					if(active=='active'){
-						$("#cars").append("<li><div class='vehicle_img'> <a href='#'><img src='/imgs/"+item.vid+"/"+item.upload+"' alt='image'></a> </div>"+
-				                  "<div class='vehicle_title'><h6><a href='#'>"+item.brand+" "+item.model+" "+item.version+", "+item.vod+", "+item.price+", "+item.vehiclestitle+" </a></h6></div>"+
+						$("#cars").append("<li><div class='vehicle_img'> <a href='list?act=CarShow&vid="+item.vid+"&brand="+item.brand+"&userid="+item.userid+"'><img src='/imgs/"+item.vid+"/"+item.upload+"' alt='image'></a> </div>"+
+				                  "<div class='vehicle_title'><h6><a href='list?act=CarShow&vid="+item.vid+"&brand="+item.brand+"&userid="+item.userid+"'>"+item.brand+" "+item.model+" "+item.version+", "+item.vod+", "+item.price+", "+item.vehiclestitle+" </a></h6></div>"+
 				                "<div class='vehicle_status'> <a href='ChangeActiveServlet?active="+active+"&vid="+item.vid+"' class='btn outline btn-xs active-btn'>Active</a><div class='clearfix'></div>"+
 				                "<a href='update-car.jsp?vid="+item.vid+"&filename="+item.upload+"'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>"+
 				                "<a href='DeleteServlet?vid="+item.vid+"&filename="+item.upload+"'><i class='fa fa-trash' aria-hidden='true'></i></a>"+
 				                 "</div></li>");
 					}else{
-						$("#cars").append("<li class='deactive_vehicle'><div class='vehicle_img'> <a href='#'><img src='/imgs/"+item.vid+"/"+item.upload+"' alt='image'></a> </div>"+
-				                  "<div class='vehicle_title'><h6><a href='#'>"+item.brand+" "+item.model+" "+item.version+", "+item.vod+", "+item.price+", "+item.vehiclestitle+" </a></h6></div>"+
+						$("#cars").append("<li class='deactive_vehicle'><div class='vehicle_img'> <a href='list?act=CarShow&vid="+item.vid+"&brand="+item.brand+"&userid="+item.userid+"'><img src='/imgs/"+item.vid+"/"+item.upload+"' alt='image'></a> </div>"+
+				                  "<div class='vehicle_title'><h6><a href='list?act=CarShow&vid="+item.vid+"&brand="+item.brand+"&userid="+item.userid+"'>"+item.brand+" "+item.model+" "+item.version+", "+item.vod+", "+item.price+", "+item.vehiclestitle+" </a></h6></div>"+
 				                "<div class='vehicle_status'> <a href='ChangeActiveServlet?active="+active+"&vid="+item.vid+"' class='btn outline btn-xs'>Dective</a><div class='clearfix'></div>"+
 				                "<a href='update-car.jsp?vid="+item.vid+"&filename="+item.upload+"'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>"+
 				                "<a href='DeleteServlet?vid="+item.vid+"&filename="+item.upload+"'><i class='fa fa-trash' aria-hidden='true'></i></a>"+

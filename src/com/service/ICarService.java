@@ -11,6 +11,7 @@ public interface ICarService {
 	void addCar(Car2 car);
 	void upCar(Car2 car,long vid);
 	void removeCar(long vid);
+	void insertObject(Object obj);
 	List<CarModel> findCarById(String userid);
 	List<Car> findAllCar();
 	<E> ArrayList<E> findObject(Class cls,long vid);
