@@ -12,7 +12,7 @@ public interface IDealersService {
 	
 	public int dealersNum();
 	
-	public Dealers dealersprofile(int id);
+	public Dealers dealersprofile(String userid);
 	
 	public Car2 searchCarInfo(long vid);
 	
@@ -22,4 +22,7 @@ public interface IDealersService {
 	
 	//搜索订单
 	public GoodOrder searchOrderByOrdernum(String ordernum);
+	
+	//显示用户拥有车辆
+	public int carsNumById(String userid);
 }

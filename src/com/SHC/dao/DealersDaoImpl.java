@@ -38,7 +38,7 @@ public class DealersDaoImpl implements IDealersDao{
 		List<Dealers> dealers = null;
 		try {
 			String sql = "select * from (select t1.*,rownum num from "
-					+ "(select * from dealers order by id desc) t1 where rownum<="+pz*cp+") t2 "
+					+ "(select * from tb_user order by userid desc) t1 where rownum<="+pz*cp+") t2 "
 					+ "where t2.num>"+(cp-1)*pz+"";
 			
 			PreparedStatement psmt = conn.prepareStatement(sql);
@@ -47,22 +47,28 @@ public class DealersDaoImpl implements IDealersDao{
 			dealers = new ArrayList<Dealers>();
 			
 			while(rs.next()){
-				int id = rs.getInt(1);
-				String name = rs.getString(2);
-				String address = rs.getString(3);
-				String city = rs.getString(4);
-				String telephone = rs.getString(5);
-				int carsnum = rs.getInt(6);
-				String url = "id="+id+"&name="+name+"&address="+address+"&city="+city+"&telephone="+telephone+"&carsnum="+carsnum;
+				String userid = rs.getString(1);
+				String username = rs.getString(2);
+				String email = rs.getString(3);
+				String userpassword = rs.getString(4);
+				String phone = rs.getString(5);
+				String birth = rs.getString(6);
+				String adress = rs.getString(7);
+				String country = rs.getString(8);
+				String province = rs.getString(9);
+				String img = rs.getString(10);
 				
 				Dealers dealer = new Dealers();
-				dealer.setId(id);
-				dealer.setName(name);
-				dealer.setAddress(address);
-				dealer.setCity(city);
-				dealer.setTelephone(telephone);
-				dealer.setCarsnum(carsnum);
-				dealer.setUrl(url);
+				dealer.setUserid(userid);
+				dealer.setUsername(username);
+				dealer.setEmail(email);
+				dealer.setUserpassword(userpassword);
+				dealer.setPhone(phone);
+				dealer.setBirth(birth);
+				dealer.setAdress(adress);
+				dealer.setCountry(country);
+				dealer.setProvince(province);
+				dealer.setImg(img);
 				
 				dealers.add(dealer);
 			}
@@ -80,7 +86,7 @@ public class DealersDaoImpl implements IDealersDao{
 	public int dealersNum() {
 		int count=0;
 		try {
-			String sql="select count(*) from dealers";
+			String sql="select count(*) from tb_user";
 			PreparedStatement psmt = conn.prepareStatement(sql);
 			ResultSet rs = psmt.executeQuery();
 
@@ -96,28 +102,36 @@ public class DealersDaoImpl implements IDealersDao{
 
 
 	@Override
-	public Dealers dealersprofile(int id) {
+	public Dealers dealersprofile(String userid) {
 		Dealers dealer = new Dealers();
 		try {
-			String sql = "select * from dealers where id =" +id+"";
+			String sql = "select * from tb_user where userid =" +userid+"";
 			PreparedStatement psmt = conn.prepareStatement(sql);
 			ResultSet rs = psmt.executeQuery();
 			
 			if(rs.next()){
-				id = rs.getInt(1);
-				String name = rs.getString(2);
-				String address = rs.getString(3);
-				String city = rs.getString(4);
-				String telephone = rs.getString(5);
-				int carsnum = rs.getInt(6);
+				userid = rs.getString(1);
+				String username = rs.getString(2);
+				String email = rs.getString(3);
+				String userpassword = rs.getString(4);
+				String phone = rs.getString(5);
+				String birth = rs.getString(6);
+				String adress = rs.getString(7);
+				String country = rs.getString(8);
+				String province = rs.getString(9);
+				String img = rs.getString(10);
+
+				dealer.setUserid(userid);
+				dealer.setUsername(username);
+				dealer.setEmail(email);
+				dealer.setUserpassword(userpassword);
+				dealer.setPhone(phone);
+				dealer.setBirth(birth);
+				dealer.setAdress(adress);
+				dealer.setCountry(country);
+				dealer.setProvince(province);
+				dealer.setImg(img);
 				
-				
-				dealer.setId(id);
-				dealer.setName(name);
-				dealer.setAddress(address);
-				dealer.setCity(city);
-				dealer.setTelephone(telephone);
-				dealer.setCarsnum(carsnum);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -280,6 +294,28 @@ public class DealersDaoImpl implements IDealersDao{
 		
 		
 		return go;
+	}
+
+
+	@Override
+	public int carsNumById(String userid) {
+		int num = 0;
+		String sql="select c.userid,count(*) from car2 c,tb_user u where c.userid = u.userid group by c.userid and userid = "+userid;
+		
+		try {
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			ResultSet rs = psmt.executeQuery();
+			
+			if(rs.next()){
+				userid = rs.getString(1);
+				num = rs.getInt(2);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return num;
 	}
 
 
