@@ -616,7 +616,7 @@
           <div class="widget_heading">
             <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> 卖家信息 </h5>
           </div>
-          <div class="dealer_detail"> <img src="/imgs/dealer_img.jpg" alt="image">
+          <div class="dealer_detail"> <img src="/imgs/${seller.image }" alt="image">
             <p><span>姓名:</span>${seller.username }</p>
             <p><span>邮箱:</span> ${seller.email }</p>
             <p><span>电话:</span> ${seller.phone }</p>

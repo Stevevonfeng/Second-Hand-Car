@@ -12,7 +12,9 @@ import javax.swing.JOptionPane;
 
 import com.model.EMail;
 import com.model.Users;
+import com.service.CarServiceImpl;
 import com.service.Conversion;
+import com.service.ICarService;
 import com.service.IUserService;
 import com.service.JdbcUtil;
 import com.service.UserServiceImpl;
@@ -53,6 +55,7 @@ public class UserServlet extends BaseServlet {
 			request.setAttribute("status", "have");
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		} else {
+			ICarService ics = new CarServiceImpl();
 			request.getSession().setAttribute("user", user);
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}
@@ -123,7 +126,7 @@ public class UserServlet extends BaseServlet {
 			 
 			 
 		} else {
-			JOptionPane.showMessageDialog(null, "ÇëÏÈ½øÐÐ×¢²á!");
+			JOptionPane.showMessageDialog(null, "ï¿½ï¿½ï¿½È½ï¿½ï¿½ï¿½×¢ï¿½ï¿½!");
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 
 		}
@@ -141,7 +144,7 @@ public class UserServlet extends BaseServlet {
 			userService.UpdateStatus(ver_email);
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		} else {
-			JOptionPane.showMessageDialog(null, "ÑéÖ¤Âë´íÎó!");  
+			JOptionPane.showMessageDialog(null, "ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½!");  
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}
 
