@@ -148,9 +148,11 @@
           <div class="dealer_listings">
             <h6>${dealer.username } 的车辆展示</h6>
             <div class="row">
-              <div class="col-md-4 grid_listing">
+            
+            <c:forEach items="${cars }" var="car">
+            <div class="col-md-4 grid_listing">
                 <div class="product-listing-m gray-bg">
-                  <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-1.jpg" class="img-responsive" alt="image" /> </a>
+                  <div class="product-listing-img"> <a href="#"><img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="image" style="width:262.48px; height:164px;"/> </a>
                     <div class="label_icon">New</div>
                     <div class="compare_item">
                       <div class="checkbox">
@@ -160,140 +162,24 @@
                     </div>
                   </div>
                   <div class="product-listing-content">
-                    <h5><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h5>
-                    <p class="list-price">$89,000</p>
-                    <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
+                    <h5><a href="#">${car.brand } ${car.model } ${car.version }, V6, ABS, Sunroof </a></h5>
+                    <p class="list-price">$${car.price }</p>
+                    <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> ${user.province }, ${user.country }</span></div>
                     <ul class="features_list">
-                      <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                      <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                      <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
+                      <li><i class="fa fa-road" aria-hidden="true"></i>${car.mileage } km</li>
+                      <li><i class="fa fa-tachometer" aria-hidden="true"></i>${car.mileage_h } miles</li>
+                      <li><i class="fa fa-calendar" aria-hidden="true"></i>${car.year } model</li>
                       <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
                     </ul>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 grid_listing">
-                <div class="product-listing-m gray-bg">
-                  <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-2.jpg" class="img-responsive" alt="image" /> </a>
-                    <div class="label_icon">Used</div>
-                    <div class="compare_item">
-                      <div class="checkbox">
-                        <input type="checkbox" value="" id="compare11">
-                        <label for="compare11">Compare</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="product-listing-content">
-                    <h5><a href="#">Maserati QUATTROPORTE 1,6</a></h5>
-                    <p class="list-price">$89,000</p>
-                    <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-                    <ul class="features_list">
-                      <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                      <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                      <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-                      <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 grid_listing">
-                <div class="product-listing-m gray-bg">
-                  <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-3.jpg" class="img-responsive" alt="image" /> </a>
-                    <div class="label_icon">New</div>
-                    <div class="compare_item">
-                      <div class="checkbox">
-                        <input type="checkbox" value="" id="compare12">
-                        <label for="compare12">Compare</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="product-listing-content">
-                    <h5><a href="#">Maserati QUATTROPORTE 1,6</a></h5>
-                    <p class="list-price">$89,000</p>
-                    <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-                    <ul class="features_list">
-                      <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                      <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                      <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-                      <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 grid_listing">
-                <div class="product-listing-m gray-bg">
-                  <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-3.jpg" class="img-responsive" alt="image" /> </a>
-                    <div class="label_icon">New</div>
-                    <div class="compare_item">
-                      <div class="checkbox">
-                        <input type="checkbox" value="" id="compare13">
-                        <label for="compare13">Compare</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="product-listing-content">
-                    <h5><a href="#">Maserati QUATTROPORTE 1,6</a></h5>
-                    <p class="list-price">$89,000</p>
-                    <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-                    <ul class="features_list">
-                      <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                      <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                      <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-                      <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 grid_listing">
-                <div class="product-listing-m gray-bg">
-                  <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-1.jpg" class="img-responsive" alt="image" /> </a>
-                    <div class="label_icon">New</div>
-                    <div class="compare_item">
-                      <div class="checkbox">
-                        <input type="checkbox" value="" id="compare14">
-                        <label for="compare14">Compare</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="product-listing-content">
-                    <h5><a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a></h5>
-                    <p class="list-price">$89,000</p>
-                    <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-                    <ul class="features_list">
-                      <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                      <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                      <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-                      <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 grid_listing">
-                <div class="product-listing-m gray-bg">
-                  <div class="product-listing-img"> <a href="#"><img src="assets/images/featured-img-2.jpg" class="img-responsive" alt="image" /> </a>
-                    <div class="label_icon">Used</div>
-                    <div class="compare_item">
-                      <div class="checkbox">
-                        <input type="checkbox" value="" id="compare15">
-                        <label for="compare15">Compare</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="product-listing-content">
-                    <h5><a href="#">Maserati QUATTROPORTE 1,6</a></h5>
-                    <p class="list-price">$89,000</p>
-                    <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-                    <ul class="features_list">
-                      <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                      <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                      <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-                      <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            </c:forEach>
+              
+              
+              
+              
+              
           <div class="comment_form">
             <h6>Leave a Comment</h6>
             <form action="#">
@@ -313,27 +199,7 @@
           </div>
         </div>
       </div>
-      <aside class="col-md-3">
-        <div class="sidebar_widget">
-          <div class="widget_heading">
-            <h5><i class="fa fa-envelope" aria-hidden="true"></i> Message to Dealer</h5>
-          </div>
-          <form action="#">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Name">
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <textarea rows="4" class="form-control" placeholder="Message"></textarea>
-            </div>
-            <div class="form-group">
-              <input type="submit" value="Send Message" class="btn btn-block">
-            </div>
-          </form>
-        </div>
-      </aside>
+      
     </div>
   </div>
 </section>

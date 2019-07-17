@@ -28,5 +28,7 @@ public interface IDealersDao {
 	
 	//显示用户拥有车辆
 	public int carsNumById(String userid);
+	//展示商家车辆
+	public List<Car2> displayDealersCars(String userid);
 
 }
