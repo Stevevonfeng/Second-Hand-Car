@@ -13,11 +13,8 @@ import java.util.List;
 
 import org.apache.commons.fileupload.FileItem;
 
+import com.model.Car;
 import com.model.Car2;
-import com.model.CarAccessories;
-import com.model.CarEngin;
-import com.model.CarInfo;
-import com.model.CarModel;
 
 public class Utils {
 	static long vid;
@@ -287,5 +284,91 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 			 list.add(fil);
 		 }
 		 return list;
+	 }
+	 
+	 public static String getSql(String brand,String model,String version,String year,String statu,String price) {
+		 	String sql = "select * from car2 ";
+			if(brand!=null&&!brand.equals("选择品牌")&&!brand.equals("")) {
+				sql = sql+"where brand='"+brand+"' ";
+			}
+			if(model!=null&&!model.equals("选择车型")&&!model.equals("")) {
+				sql = sql+"and model='"+model+"' ";
+			}
+			if(version!=null&&!version.equals("")) {
+				sql = sql+"and version='"+version+"' ";
+			}
+			if(year!=null&&!year.equals("Year of Model")&&!year.equals("")) {
+				int yearI = Integer.parseInt(year);
+				if(brand==null||brand.equals("选择品牌")||brand.equals("")) {
+					sql = sql+"where to_char(year,'YYYY')>'"+(yearI-1)+"' and to_char(year,'YYYY')<'"+(yearI+1)+"'";
+				}else {
+					sql = sql + "and to_char(year,'YYYY')>'"+(yearI-1)+"' and to_char(year,'YYYY')<'"+(yearI+1)+"'";
+					
+				}
+				//sql = sql+"and year>to_date('"+(yearI-1)+"','YYYY') and year<to_date('"+(yearI+1)+"','YYYY') ";
+			}
+			if(statu!=null&&!statu.equals("汽车类型")&&!statu.equals("")){
+				boolean other = true;
+				if((brand==null||brand.equals("选择品牌")||brand.equals(""))&&(year==null||year.equals("Year of Model")||year.equals(""))) {
+					sql = sql+"where "+statu +" is not null  ";
+					other = false;
+				}
+				if(other) {
+					sql = sql+"and "+statu +" is not null  ";
+				}	
+			}
+			if(price!=null&&!price.equals("")) {
+				String[] strs = price.split(",");
+				boolean other = true;
+				if((brand==null||brand.equals("选择品牌")||brand.equals(""))&&(year==null||year.equals("Year of Model")||year.equals(""))&&(statu==null||statu.equals("汽车类型")||statu.equals(""))) {
+							sql = sql+"where price>"+strs[0]+" and  price<"+strs[1]+"";
+							other = false;
+				}
+				if(other) {
+					sql = sql+"and price>"+strs[0]+" and  price<"+strs[1]+"";
+				}
+				
+			}
+		 return sql;
+	 }
+	 
+	 public static void addBrand(List<FileItem> list) {
+		 boolean isAdd = false;
+		 Car car = null;
+		 for(FileItem item:list) {
+				if(item.isFormField()) {
+					if(item.getFieldName().equals("add")) {
+						isAdd = true;
+						car = new Car();
+						long cidl = new Date().getTime();
+						int a = (int) (cidl<<10);
+						car.setCid(a);
+					}
+				}
+		 }
+		 if(isAdd) {
+			 for(FileItem item:list) {
+					if(item.isFormField()) {
+						String value = null;
+						try {
+							value = new String (item.getString().getBytes("iso8859-1"),"utf-8");
+						} catch (UnsupportedEncodingException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						if(item.getFieldName().equals("brand")) {
+							car.setBrand(value);
+						}
+						if(item.getFieldName().equals("model")) {
+							car.setModel(value);
+						}
+						if(item.getFieldName().equals("version")) {
+							car.setVersion(value);
+						}
+					}
+			 }
+		 }
+		 ICarService ics = new CarServiceImpl();
+		 ics.insertObject(car);
 	 }
 }

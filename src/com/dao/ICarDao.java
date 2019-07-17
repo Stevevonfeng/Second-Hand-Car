@@ -13,7 +13,7 @@ public interface ICarDao {
 	void dalete(long vid);
 	List<CarModel> searchById(String userid);
 	List<Car> searchAllCar();
-	List<Car2> searchCar2(String brand,String model,String version,String year,String statu);
+	List<Car2> searchCar2(String brand,String model,String version,String year,String statu,int cp,String price);
 	<E> ArrayList<E> searchObject(Class cls,long vid);
 	<E> ArrayList<E> searchObject(Class cls,String userid);
 }

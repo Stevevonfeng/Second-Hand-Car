@@ -51,6 +51,12 @@ public class ListServiceImpl implements IListService{
 	}
 
 	@Override
+
+	public int carsNum(String sql) {
+		IListDao ild = new ListDaoImpl();
+		return ild.carsNum(sql);
+	}
+
 	public int carsNum2(String type) {
 		IListDao ild = new ListDaoImpl();
 		return ild.carsNum2(type);

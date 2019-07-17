@@ -108,12 +108,24 @@
 	  <div class="result-sorting-wrapper">
 	    <div class="result-sorting-by">
 	      <p>排序方式：</p>
-	      <form action="#" method="post">
+	      <form action="sortServlet" method="post" id="sortForm">
 	        <div class="form-group select sorting-select">
-	          <select class="form-control ">
-	            <option>价格（从低到高）</option>
-	            <option>价格（从高到低）</option>
+	          <select class="form-control" name="sort" id="sort">
+	            <option value="desc">价格（从高到低）</option>
+	            <option value="asc">价格（从低到高）</option>
 	          </select>
+	          <script>
+		          $(function(){
+		              $("select").val("#sort");    //给select 赋值（设置默认选中）
+		            
+		              $("#sort").change(function(){    //如果select 值改变了
+		                  $("#sortForm").submit();    //就提交form表单
+		              })
+		          })
+	   
+	          </script>
+	          
+	          <!-- <input value="排序" type="submit"/> -->
 	        </div>
 	      </form>
 	    </div>
@@ -125,8 +137,10 @@
 	  
 	  <div class="product-listing-m gray-bg">
 
+
 	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid}">
 	    <img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" /> </a>
+
 
 	      <div class="label_icon">${car.usedcar }${car.newcar }</div>
 	      <div class="compare_item">
@@ -156,13 +170,13 @@
 	      </div>
 	    </div>
 	    <div class="product-listing-content">
-	      <h5><a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid}">Mazda CX-5 SX, V6, ABS, Sunroof</a></h5>
+	      <h5><a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid}">${car.brand } ${car.model } SX, V6, ABS, Sunroof</a></h5>
 	      <p class="list-price">$${car.price }</p>
 	      <ul>
 	        <li><i class="fa fa-road" aria-hidden="true"></i>${car.kms }km</li>
 	        <li><i class="fa fa-tachometer" aria-hidden="true"></i>${car.mileage }miles</li>
 	        <li><i class="fa fa-user" aria-hidden="true"></i>${car.seats }seats</li>
-	        <li><i class="fa fa-calendar" aria-hidden="true"></i>${car.model }model</li>
+	        <li><i class="fa fa-calendar" aria-hidden="true"></i>${car.model }</li>
 	        <li><i class="fa fa-car" aria-hidden="true"></i>${car.fuel }</li>
 	        <li><i class="fa fa-superpowers" aria-hidden="true"></i>${car.brand }kW</li>
 	      </ul>
@@ -178,16 +192,16 @@
 		<c:if test="${cp!=null }">			
 	    <ul>
 	      <li <c:if test="${cp==1}"> class="disabled" </c:if> >
-	      <a href="list?act=ListShow&cp=${cp-1<=0? 1:cp-1}">&laquo;</a>
+	      <a href="SearchByIndexServlet?cp=${cp-1<=0? 1:cp-1}&brand=${brand}&model=${model}&version=${version}&year=${year}&statu=${statu}&price=${price}">&laquo;</a>
 	      </li>
 	      
 	      <c:forEach begin="1" end="${totalPage}" var="item">
 			<li <c:if test="${item==cp }"> class="active" </c:if> >
-				<a href="list?act=ListShow&cp=${item}">${item}</a>
+				<a href="SearchByIndexServlet?cp=${item}&brand=${brand}&model=${model}&version=${version}&year=${year}&statu=${statu}&price=${price}">${item}</a>
 			</li>
 			</c:forEach>
 	     <li <c:if test="${cp==totalPage}"> class="disabled" </c:if>>
-			<a href="list?act=ListShow&cp=${cp+1>totalPage? totalPage:cp+1}">&raquo;</a>
+			<a href="SearchByIndexServlet?cp=${cp+1>totalPage? totalPage:cp+1}&brand=${brand}&model=${model}&version=${version}&year=${year}&statu=${statu}&price=${price}">&raquo;</a>
 		</li>
 	    </ul>
 	    </c:if>
@@ -201,9 +215,9 @@
         
         <div class="sidebar_widget sell_car_quote">
           <div class="white-text div_zindex text-center">
-            <h3>Sell Your Car</h3>
+            <h3 >Sell Your Car</h3>
             <p>Request a quote and sell your car now!</p>
-            <a href="#" class="btn">Request a Quote <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
+            <a href="post-vehicle.jsp"" class="btn">Request a Quote <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
           <div class="dark-overlay"></div>
         </div>
         <div class="sidebar_widget">
@@ -265,5 +279,7 @@
 	function click(a){
 		alert(a);
 	}
+	
+
 </script>
 </html>

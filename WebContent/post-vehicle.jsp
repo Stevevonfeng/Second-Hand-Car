@@ -104,7 +104,7 @@
 <!--Post-vehicle-->
 <section class="user_profile inner_pages">
   <div class="container">
-    <div class="user_profile_info gray-bg padding_4x4_40">
+    <%-- <div class="user_profile_info gray-bg padding_4x4_40">
      <div class="upload_user_logo" > <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs" style="width:225px;height:175px">
         <div class="upload_newlogo">
         
@@ -123,7 +123,8 @@
 		<c:if test="${user.getPhone()==null}">,联系方式 </c:if>${user.getPhone()}
 		</p>
       </div>
-    </div>
+    </div> --%>
+    <%@ include file="headimg.jsp" %>
     <div class="row">
       <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
@@ -144,30 +145,57 @@
               <label class="control-label">Vehicles Title</label>
               <input class="form-control white_bg" name="vehiclestitle" id="VehiclesTitle" type="text">
             </div>
-            <div class="form-group">
+            
+            
+            
+            
+            <div class="form-group" id="brandc" style="display: none;">
+              <label class="control-label">品牌</label>
+              <input class="form-control white_bg" name="brand" id="brandid" type="text">
+            </div>
+            
+            <div class="form-group" id="brandd">
               <label class="control-label">Select Make</label>
               <div class="select">
-                <select class="form-control white_bg" name="brand" id="brand">
-                 
+                <select class="form-control white_bg" name="brand" id="brand">	
                 </select>
               </div>
             </div>
-            <div class="form-group">
+            
+            
+            
+           <div class="form-group" id="modelc" style="display: none;">
+              <label class="control-label">模型</label>
+              <input class="form-control white_bg" name="model" id="modeldid" type="text">
+            </div>
+            
+            <div class="form-group" id="modeld">
               <label class="control-label">Model</label>
               <div class="select">
-                <select class="form-control white_bg" name="model" id="model">
-                  
+                <select class="form-control white_bg" name="model" id="model"> 
                 </select>
               </div>
             </div>
-            <div class="form-group">
+            
+            
+            
+            <div class="form-group" id="versionc" style="display: none;">
+              <label class="control-label">版本</label>
+              <input class="form-control white_bg" name="version" id="versionid" type="text">
+            </div>
+            
+            <div class="form-group" id="versiond">
               <label class="control-label">Vehicles Version</label>
               <div class="select">
                 <select class="form-control white_bg" name="version" id="version">
-                  
                 </select>
               </div>
             </div>
+            
+            
+            
+            
+            
             <div class="form-group">
               <label class="control-label">Vehicle Overview  Description</label>
               <textarea class="form-control white_bg" rows="4" name="vod" id="vod"></textarea>
@@ -323,8 +351,9 @@
               </div>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn">Submit Vehicle <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+              <button type="submit" class="btn" id="sub">Submit Vehicle <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
             </div>
+            <input type="hidden" name="add" id="add" value="">
           </form>
         </div>
       </div>
@@ -351,7 +380,7 @@
 <script type="text/javascript">
 	var i = 0;
 	$(function(){
-		$.ajax({
+		/* $.ajax({
 	          url: 'GetImgServlet',
 	          type: 'get',
 	          data: {username:$("#username1").val()},
@@ -363,7 +392,7 @@
 		            	$("#imgs").attr("src", rs);
 	          	}
 	          }
-	      });
+	      }); */
 		
 		$.ajax({
 			type:"get",
@@ -375,43 +404,86 @@
 				$("#brand").append("<option>选择品牌</option>");
 				$.each(rs,function(index,item){
 					$("#brand").append("<option value='"+item+"'>"+item+"</option>");
+					
 				});
+				$("#brand").append("<option>其他</option>");
 			}
 		});
 		
 		$("#brand").change(function(){
 			var brand = $("#brand").val();
-			$.ajax({
-				type:"get",
-				url:"SelectCarServlet",
-				data:{restype:'model',brand:brand},
-				dataType:"json",
-				success:function(rs){
-					$("#model").html("");
-					$("#model").append("<option>选择车型</option>");
-					$.each(rs,function(index,item){
-						$("#model").append("<option value='"+item+"'>"+item+"</option>");
-					});
-				}
-			});
+			if(brand=='其他'){
+				$("#brandd").css("display","none");
+				$("#modeld").css("display","none");
+				$("#versiond").css("display","none");
+				$("#brandc").css("display","");
+				$("#modelc").css("display","");
+				$("#versionc").css("display","");
+				$("#add").val("1");
+			}else{
+				$.ajax({
+					type:"get",
+					url:"SelectCarServlet",
+					data:{restype:'model',brand:brand},
+					dataType:"json",
+					success:function(rs){
+						$("#model").html("");
+						$("#model").append("<option>选择车型</option>");
+						$.each(rs,function(index,item){
+							$("#model").append("<option value='"+item+"'>"+item+"</option>");
+						});
+						$("#model").append("<option>其他</option>");
+					}
+				});
+			}
 		});
+		
 		
 		$("#model").change(function(){
 			var model = $("#model").val();
-			$.ajax({
-				type:"get",
-				url:"SelectCarServlet",
-				data:{restype:'version',model:model},
-				dataType:"json",
-				success:function(rs){
-					$("#version").html("");
-					$("#version").append("<option>选择版本</option>");
-					$.each(rs,function(index,item){
-						$("#version").append("<option value='"+item+"'>"+item+"</option>");
-					});
-				}
-			});
+			if(model=='其他'){
+				$("#modeld").css("display","none");
+				$("#versiond").css("display","none");
+				$("#modelc").css("display","");
+				$("#versionc").css("display","");
+				$("#add").val("1");
+			}else{
+				$.ajax({
+					type:"get",
+					url:"SelectCarServlet",
+					data:{restype:'version',model:model},
+					dataType:"json",
+					success:function(rs){
+						$("#version").html("");
+						$("#version").append("<option>选择版本</option>");
+						$.each(rs,function(index,item){
+							$("#version").append("<option value='"+item+"'>"+item+"</option>");
+						});
+						$("#version").append("<option>其他</option>");
+					}
+				});
+			}
 		});
+		
+		$("#version").change(function(){
+			var version = $("#version").val();
+			if(version=='其他'){
+				$("#versiond").css("display","none");
+				$("#versionc").css("display","");
+				$("#add").val("1");
+			}
+		});
+		
+		$("#sub").click(function(){
+			var add = $("#add").val();
+			var brand = $("#brand").val();
+			var brandid = $("#brandid").val();
+			if(add==1){
+				$("#brand").val(brandid);
+			}
+			
+		});
+		
 	})
 	
 	 $("#zx_img0").change(function (e) {

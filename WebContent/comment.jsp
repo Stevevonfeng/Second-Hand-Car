@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
@@ -19,6 +20,7 @@
 	<!--FontAwesome Font Style -->
 	<link href="assets/css/font-awesome.min.css" rel="stylesheet">
 	
+	
 	<!-- SWITCHER -->
 			<link rel="stylesheet" id="switcher-css" type="text/css" href="assets/switcher/css/switcher.css" media="all" />
 			<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all" data-default-color="true" />
@@ -36,7 +38,7 @@
 	<link rel="shortcut icon" href="assets/images/favicon-icon/favicon.png">
 	<!-- Google-Font-->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-	<script type="text/javascript" src="js/js/jquery-1.8.3.js" ></script>
+	<script type="text/javascript" src="js/jquery-2.2.3.min.js" ></script>
     <body>
     	<!--Vehicle-Video 修改-->
 		<div class="video_wrap">
@@ -66,6 +68,7 @@
 				<div class="form-group">
 					<input type="button" class="btn click" value="提交">
 				</div>
+				<input type="hidden" value="${car.vid }" id="carvid" name="vid">
 			</form>
 		</div>
  	</body>
@@ -73,6 +76,7 @@
 <script type="text/javascript">
 	var index = 1;
 	$(".click").click(function(){
+		var vid = $("#carvid").val();
 		var mtext = $(".text").val();
 		var lines = mtext.split(/\r*\n/);
 		$(".content").append("<textarea rows=\""+lines.length+"\" class=\"form-control\" class=\"sendInput\" maxlength=\"1000\" placeholder=\"评论展示\">"+mtext+"</textarea>");

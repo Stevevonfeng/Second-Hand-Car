@@ -85,7 +85,7 @@ public class PayListServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.setAttribute("carbill", carbill);
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.getRequestDispatcher("car-bill.jsp").forward(request, response);
 	}
 
 	/**

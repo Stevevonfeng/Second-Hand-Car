@@ -64,6 +64,8 @@ public class PostCarServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		Utils.addBrand(list);
+		
 		car = (Car2)Utils.reqToObject(car, Car2.class, list);
 		car.setUserid(userid);
 		car.setActive("active");

@@ -1,5 +1,6 @@
 package com.servlet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
@@ -8,7 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.SHC.servlet.BaseServlet;
 import com.model.Car2;
+
+import com.service.CarServiceImpl;
+import com.service.ICarService;
+
 import com.model.Users;
+
 import com.service.IListService;
 import com.service.ListServiceImpl;
 import com.service.Utils;
@@ -23,6 +29,7 @@ public class ListServlet extends BaseServlet {
 
 	public void ListShow(HttpServletRequest request, HttpServletResponse response) {
 		try {
+			
 			int pz = 3;// 姣忛〉鏄剧ず鏁�
 			int cp = 1;// 褰撳墠椤甸潰
 			String currentPage = request.getParameter("cp");
@@ -53,8 +60,16 @@ public class ListServlet extends BaseServlet {
 		String brand = request.getParameter("brand");
 		String userid = request.getParameter("userid");
 		
-		IListService ils = new ListServiceImpl();
 		
+		ICarService ics = new CarServiceImpl();
+		ArrayList<Car2> carss = ics.findObject(Car2.class, vid);
+		Car2 car1 = carss.get(0);
+		int count = car1.getClickcount();
+		count++;
+		car1.setClickcount(count);
+		ics.upCar(car1, vid);
+		
+		IListService ils = new ListServiceImpl();	
 		Car2 car = ils.CarShow(vid);
 		List<Car2> cars = ils.SimilarCar(brand,vid);
 		Users user = ils.UserShow(userid);

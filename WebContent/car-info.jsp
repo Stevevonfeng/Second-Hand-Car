@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>购买账单</title>
+<title>确认订单</title>
 <link >
 </head>
 <body>
@@ -69,7 +69,7 @@ Page Header
 							<input class="form-control white_bg" id="price" type="text" value="${car.price}">
 						</div>
 						<div class="form-group">
-							<button type="submit" class="btn">确认支付 
+							<button type="submit" class="btn">确认订单 
 								<span class="angle_arrow">
 									<i class="fa fa-angle-right" aria-hidden="true"></i>
 								</span>
