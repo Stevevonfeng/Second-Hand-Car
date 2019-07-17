@@ -118,7 +118,7 @@ public class UserDaoImpl implements  IUserDao{
 
 	public Users searchUser2(String loginemail){
 		
-		String sql = "select userid,username,email,userpassword,phone,birth,"
+		String sql = "select userid,username,email,validatecode,userpassword,phone,birth,"
 				+ "adress,country,province from tb_user where email='"+loginemail+"'";
 		 
 		List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
