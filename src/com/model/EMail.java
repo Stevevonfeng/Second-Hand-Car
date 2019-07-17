@@ -134,8 +134,9 @@ public class EMail {
 			
 			mail.setContent(str);
 			// 收件人 可以发给其他邮箱(163等) 下同
-
-			mail.setTo(new String[] { loginemail });
+			String[] receiveemails = new String[] {loginemail};
+			System.out.println(loginemail);
+			mail.setTo(receiveemails);
 
 			// 发送邮件
 			try {
