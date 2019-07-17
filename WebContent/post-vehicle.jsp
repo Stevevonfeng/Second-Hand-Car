@@ -151,7 +151,11 @@
     </div> --%>
 			<%@ include file="headimg.jsp"%>
 			<div class="row">
-				<%@include file="infolist.jsp"%>
+				<div class="col-md-3 col-sm-3">
+					<div class="profile_nav">
+						<%@include file="infolist.jsp"%>
+					</div>
+				</div>
 				<div class="col-md-6 col-sm-8">
 					<div class="profile_wrap">
 						<h5 class="uppercase underline">Post a New Vehicle</h5>
