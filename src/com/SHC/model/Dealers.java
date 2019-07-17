@@ -1,75 +1,77 @@
 package com.SHC.model;
 
 public class Dealers {
-	private int id;
-	private String name;
-	private String address;
-	private String city;
-	private String telephone;
-	private int carsnum;
-	private String url;
+	private String userid;
+	private String username;
+	private String email;
+	private String userpassword;
+	private String phone;
+	private String birth;
+	private String adress;
+	private String country;
+	private String province;
+	private String img;
 	
-	public Dealers() {
-		super();
+	public String getUserid() {
+		return userid;
 	}
-
-	public int getId() {
-		return id;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
-
-	public void setId(int id) {
-		this.id = id;
+	public String getUsername() {
+		return username;
 	}
-
-	public String getName() {
-		return name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	public String getEmail() {
+		return email;
 	}
-
-	public String getAddress() {
-		return address;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
-	public void setAddress(String address) {
-		this.address = address;
+	public String getUserpassword() {
+		return userpassword;
 	}
-
-	public String getCity() {
-		return city;
+	public void setUserpassword(String userpassword) {
+		this.userpassword = userpassword;
 	}
-
-	public void setCity(String city) {
-		this.city = city;
+	public String getPhone() {
+		return phone;
 	}
-
-	public String getTelephone() {
-		return telephone;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public String getBirth() {
+		return birth;
 	}
-
-	public int getCarsnum() {
-		return carsnum;
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
-
-	public void setCarsnum(int carsnum) {
-		this.carsnum = carsnum;
+	public String getAdress() {
+		return adress;
 	}
-
-	public String getUrl() {
-		return url;
+	public void setAdress(String adress) {
+		this.adress = adress;
 	}
-
-	public void setUrl(String url) {
-		this.url = url;
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getProvince() {
+		return province;
+	}
+	public void setProvince(String province) {
+		this.province = province;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
 	}
 	
-	
-	
-	
+
 }

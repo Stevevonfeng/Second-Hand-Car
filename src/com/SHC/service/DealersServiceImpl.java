@@ -24,9 +24,9 @@ public class DealersServiceImpl implements IDealersService {
 	}
 
 	@Override
-	public Dealers dealersprofile(int id) {
+	public Dealers dealersprofile(String userid) {
 		IDealersDao idd = new DealersDaoImpl();
-		return idd.dealersprofile(id);
+		return idd.dealersprofile(userid);
 	}
 
 	@Override
@@ -51,6 +51,12 @@ public class DealersServiceImpl implements IDealersService {
 	public GoodOrder searchOrderByOrdernum(String ordernum) {
 		IDealersDao idd = new DealersDaoImpl();
 		return idd.searchOrderByOrdernum(ordernum);
+	}
+
+	@Override
+	public int carsNumById(String userid) {
+		IDealersDao idd = new DealersDaoImpl();
+		return idd.carsNumById(userid);
 	}
 
 

@@ -2,7 +2,6 @@ package com.SHC.servlet;
 
 
 
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -58,11 +57,11 @@ public class DealersServlet extends BaseServlet {
 	public void dealersprofile(HttpServletRequest request, HttpServletResponse response){
 		try {
 			
-			int id = Integer.parseInt(request.getParameter("id"));
+			String userid = request.getParameter("userid");
 			
 			IDealersService ids = new DealersServiceImpl();
 			
-			Dealers dealer = ids.dealersprofile(id);
+			Dealers dealer = ids.dealersprofile(userid);
 			
 			request.setAttribute("dealer", dealer);
 			request.getRequestDispatcher("dealers-profile.jsp").forward(request, response);
@@ -166,11 +165,19 @@ public class DealersServlet extends BaseServlet {
 			GoodOrder go = ids.searchOrderByOrdernum(ordernum);
 			
 			request.setAttribute("go", go);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("alipay.trade.page.pay.jsp").forward(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	//搜索每个商家的车辆数目
+	public int carsNumById(HttpServletRequest request, HttpServletResponse response){
+		String userid = null;
+		IDealersService ids = new DealersServiceImpl();
+		int num = ids.carsNumById(userid);
+		return num;
 	}
 
 }

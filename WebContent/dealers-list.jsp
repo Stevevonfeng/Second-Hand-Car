@@ -159,25 +159,25 @@
 						<div class="row">
 							<div class="col-sm-3 col-xs-4">
 								<div class="dealer_logo">
-									<a href="#"><img src="assets/images/dealer-logo.jpg"
-										alt="image"></a>
+									<a href="#"><img src="<c:if test="${dealer.img ne null }">/imgs/${dealer.img }</c:if><c:if test="${dealer.img eq null }">assets/images/dealer-logo.jpg</c:if>"
+										alt="image" style="width:222px; height:172px"></a>
 								</div>
 							</div>
 							<div class="col-sm-6 col-xs-8">
 								<div class="dealer_info">
 									<h5>
-										<a href="#">${dealer.name } </a>
+										<a href="#">${dealer.username } </a>
 									</h5>
 									<p>
-										${dealer.address }<br> ${dealer.city }, 电话:
-										${dealer.telephone }
+										${dealer.adress }<br> ${dealer.country }, 电话:
+										${dealer.phone }
 									</p>
 								</div>
 							</div>
 							<div class="col-sm-3 col-xs-12">
 								<div class="view_profile">
-									<a href="dealers?act=dealersprofile&id=${dealer.id }" class="btn btn-xs outline">查看资料</a>
-									<p>(${dealer.carsnum })</p>
+									<a href="dealers?act=dealersprofile&userid=${dealer.userid }" class="btn btn-xs outline">查看资料</a>
+									<!-- <p>()</p> -->
 								</div>
 							</div>
 						</div>

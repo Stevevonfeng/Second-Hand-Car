@@ -8,6 +8,9 @@
 <%@ page import="com.alipay.config.*"%>
 <%@ page import="com.alipay.api.*"%>
 <%@ page import="com.alipay.api.request.*"%>
+<%@ page import="com.SHC.model.GoodOrder"%>
+<%@ page import= "java.util.*" %>
+<%@ page import= "java.lang.*" %>
 <%
 	//获得初始化的AlipayClient
 	AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
@@ -17,14 +20,20 @@
 	alipayRequest.setReturnUrl(AlipayConfig.return_url);
 	alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
 	
+	//获取order
+	
+	GoodOrder go = (GoodOrder)request.getAttribute("go");
+	
+	String price = ""+go.getPrice();
+	
 	//商户订单号，商户网站订单系统中唯一订单号，必填
-	String out_trade_no = new String(request.getParameter("WIDout_trade_no").getBytes("ISO-8859-1"),"UTF-8");
+	String out_trade_no = new String(go.getOrdernum().getBytes("ISO-8859-1"),"UTF-8");
 	//付款金额，必填
-	String total_amount = new String(request.getParameter("WIDtotal_amount").getBytes("ISO-8859-1"),"UTF-8");
+	String total_amount = new String(price.getBytes("ISO-8859-1"),"UTF-8");
 	//订单名称，必填
-	String subject = new String(request.getParameter("WIDsubject").getBytes("ISO-8859-1"),"UTF-8");
+	String subject = new String((""+go.getVid()).getBytes("ISO-8859-1"),"UTF-8");
 	//商品描述，可空
-	String body = new String(request.getParameter("WIDbody").getBytes("ISO-8859-1"),"UTF-8");
+	String body = new String(go.getDes().getBytes("ISO-8859-1"),"UTF-8");
 	
 	alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\"," 
 			+ "\"total_amount\":\""+ total_amount +"\"," 

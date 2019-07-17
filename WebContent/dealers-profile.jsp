@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${dealer.name }</title>
+<title>${dealer.username }</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" /> 
 <meta name="author" content="js代码(www.jsdaima.com)" />
@@ -90,7 +90,7 @@
   <div class="container">
     <div class="page-header_wrap">
       <div class="page-heading">
-        <h1>${dealer.name }</h1>
+        <h1>${dealer.username }</h1>
       </div>
       <ul class="coustom-breadcrumb">
         <li><a href="#">主页</a></li>
@@ -108,13 +108,14 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 col-sm-3 col-xs-4">
-        <div class="dealer_logo"> <img src="assets/images/dealer-logo.jpg" alt="image"> </div>
+        <div class="dealer_logo"> <img src="<c:if test="${dealer.img ne null }">/imgs/${dealer.img }</c:if><c:if test="${dealer.img eq null }">assets/images/dealer-logo.jpg</c:if>"
+										alt="image" style="width:214.5px; height:172px"> </div>
       </div>
       <div class="col-md-6 col-sm-5 col-xs-8">
         <div class="dealer_info">
-          <h4>${dealer.name }</h4>
-          <p>${dealer.address }<br>
-           ${dealer.city }, 电话:  ${dealer.telephone }</p>
+          <h4>${dealer.username }</h4>
+          <p>${dealer.country }<br>
+           ${dealer.province }, 电话:  ${dealer.phone }</p>
           <ul class="dealer_social_links">
             <li class="facebook-icon"><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
             <li class="twitter-icon"><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
@@ -126,26 +127,26 @@
       <div class="col-md-3 col-sm-4 col-xs-12">
         <div class="dealer_contact_info gray-bg">
           <h6><i class="fa fa-globe" aria-hidden="true"></i> Website</h6>
-          <a href="#">www.${dealer.name }.com</a> </div>
+          <a href="#">www.${dealer.username }.com</a> </div>
         <div class="dealer_contact_info gray-bg">
           <h6><i class="fa fa-envelope" aria-hidden="true"></i> Email Address</h6>
-          <a href="mailto:contact@example.com">contact@${dealer.name }.com</a> </div>
+          <a href="mailto:contact@example.com">contact@${dealer.username }.com</a> </div>
         <div class="dealer_contact_info gray-bg">
           <h6><i class="fa fa-phone" aria-hidden="true"></i> Phone Number</h6>
-          <a href="">+61-${dealer.telephone }</a> </div>
+          <a href="">+61-${dealer.phone }</a> </div>
       </div>
     </div>
     <div class="space-60"></div>
     <div class="row">
       <div class="col-md-9">
         <div class="dealer_more_info">
-          <h5 class="gray-bg info_title"> About ${dealer.name }</h5>
+          <h5 class="gray-bg info_title"> About ${dealer.username }</h5>
           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. </p>
           <div class="dealer_map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26361315.424069386!2d-113.75658747371207!3d36.241096924675375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1483614660041" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
           <div class="dealer_listings">
-            <h6>${dealer.name } 的车辆展示</h6>
+            <h6>${dealer.username } 的车辆展示</h6>
             <div class="row">
               <div class="col-md-4 grid_listing">
                 <div class="product-listing-m gray-bg">
