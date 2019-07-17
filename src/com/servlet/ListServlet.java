@@ -77,7 +77,7 @@ public class ListServlet extends BaseServlet {
 		
 		request.setAttribute("car", car);
 		request.setAttribute("cars", cars);
-		request.setAttribute("user", user);
+		request.setAttribute("seller", user);
 		request.setAttribute("fileNames", fileNames);
 		
 		request.getRequestDispatcher("listing-detail-2.jsp").forward(request, response);

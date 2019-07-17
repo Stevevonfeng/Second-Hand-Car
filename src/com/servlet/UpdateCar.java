@@ -8,12 +8,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.model.Car2;
+import com.model.Users;
 import com.service.CarServiceImpl;
 import com.service.ICarService;
 import com.service.Utils;
@@ -45,7 +47,9 @@ public class UpdateCar extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Car2 car = null;
-		String userid = "0001";
+		HttpSession session = request.getSession();
+		Users user = (Users)session.getAttribute("user");
+		String userid = user.getUserid();
 		ICarService ics = new CarServiceImpl();
 		DiskFileItemFactory fa = new DiskFileItemFactory();
 		ServletFileUpload up = new ServletFileUpload(fa);

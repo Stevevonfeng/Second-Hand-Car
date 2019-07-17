@@ -138,11 +138,11 @@
       </div>
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
-          <h5 class="uppercase underline">Post a New Vehicle</h5>
+          <h5 class="uppercase underline">放置新的车辆</h5>
       
           <form action="PostCarServlet" method="post" enctype="multipart/form-data">
             <div class="form-group">
-              <label class="control-label">Vehicles Title</label>
+              <label class="control-label">车辆名称</label>
               <input class="form-control white_bg" name="vehiclestitle" id="VehiclesTitle" type="text">
             </div>
             
@@ -155,7 +155,7 @@
             </div>
             
             <div class="form-group" id="brandd">
-              <label class="control-label">Select Make</label>
+              <label class="control-label">品牌</label>
               <div class="select">
                 <select class="form-control white_bg" name="brand" id="brand">	
                 </select>
@@ -170,7 +170,7 @@
             </div>
             
             <div class="form-group" id="modeld">
-              <label class="control-label">Model</label>
+              <label class="control-label">模型</label>
               <div class="select">
                 <select class="form-control white_bg" name="model" id="model"> 
                 </select>
@@ -185,7 +185,7 @@
             </div>
             
             <div class="form-group" id="versiond">
-              <label class="control-label">Vehicles Version</label>
+              <label class="control-label">版本</label>
               <div class="select">
                 <select class="form-control white_bg" name="version" id="version">
                 </select>
@@ -197,15 +197,15 @@
             
             
             <div class="form-group">
-              <label class="control-label">Vehicle Overview  Description</label>
+              <label class="control-label">车辆概述说明</label>
               <textarea class="form-control white_bg" rows="4" name="vod" id="vod"></textarea>
             </div>
             <div class="form-group">
-              <label class="control-label">Price ($)</label>
+              <label class="control-label">价格 ($)</label>
               <input class="form-control white_bg" name="price" id="Price" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">Upload Images  ( size = 900 x 560 )</label>
+              <label class="control-label">上传图片  ( size = 900 x 560 )</label>
               <div class="vehicle_images" id="im">
                 
                 <div class="upload_more_img" >
@@ -226,128 +226,128 @@
               </div>
             </div>
             <div class="gray-bg field-title">
-              <h6>Basic Info</h6>
+              <h6>基本信息</h6>
             </div>
             <div class="form-group">
-              <label class="control-label">Model Year</label>
+              <label class="control-label">日期</label>
               <input class="form-control white_bg" name="year" id="year" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">No. of Owners</label>
+              <label class="control-label">车主数</label>
               <input class="form-control white_bg" id="owners" name="owners" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">KMs Driven</label>
+              <label class="control-label">行驶公里</label>
               <input class="form-control white_bg" id="kws" name="kms" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">Fuel Type</label>
+              <label class="control-label">燃料类型</label>
               <input class="form-control white_bg" id="fuel" name="fuel" type="text">
             </div>
             <div class="gray-bg field-title">
-              <h6>Technical Specification</h6>
+              <h6>技术规范</h6>
             </div>
             <div class="form-group">
-              <label class="control-label">Engine Type</label>
+              <label class="control-label">引擎类型</label>
               <input class="form-control white_bg" id="engien" name="engien" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">Engine Description</label>
+              <label class="control-label">引擎说明</label>
               <input class="form-control white_bg" id="engien-description" name="engiendescription" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">No. of Cylinders</label>
+              <label class="control-label">气缸数</label>
               <input class="form-control white_bg" id="cylinders" name="cylinders" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">Mileage-City</label>
+              <label class="control-label">城市里程</label>
               <input class="form-control white_bg" id="mileage" name="mileage" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">Mileage-Highway</label>
+              <label class="control-label">公路里程</label>
               <input class="form-control white_bg" id="mileage-h" name="mileage_h" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">Fuel Tank Capacity</label>
+              <label class="control-label">油箱容量</label>
               <input class="form-control white_bg" id="capacity" name="capacity" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">Seating Capacity</label>
+              <label class="control-label">座位数</label>
               <input class="form-control white_bg" id="s-capacity" name="seats" type="text">
             </div>
             <div class="form-group">
-              <label class="control-label">Transmission Type</label>
+              <label class="control-label">传输类型</label>
               <input class="form-control white_bg" id="Transmission" name="transmission" type="text">
             </div>
             <div class="gray-bg field-title">
-              <h6>Accessories</h6>
+              <h6>配件</h6>
             </div>
             <div class="vehicle_accessories">
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="air_conditioner" name="accessories" value="air_conditioner" type="checkbox">
-                <label for="air_conditioner">Air Conditioner</label>
+                <label for="air_conditioner">冷气机</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="door" name="accessories" value="door" type="checkbox">
-                <label for="door">Power Door Locks</label>
+                <label for="door">电动门锁</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="antiLock" name="accessories" value="antilock" type="checkbox">
-                <label for="antiLock">AntiLock Braking System</label>
+                <label for="antiLock">防锁刹车系统</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="brake" name="accessories" value="brake" type="checkbox">
-                <label for="brake">Brake Assist</label>
+                <label for="brake">制动辅助</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="steering" name="accessories" value="steering" type="checkbox">
-                <label for="steering">Power Steering</label>
+                <label for="steering">动力转向</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="airbag" name="accessories" value="airbag" type="checkbox">
-                <label for="airbag">Driver Airbag</label>
+                <label for="airbag">驾驶员安全气囊</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="windows" name="accessories" value="windows" type="checkbox">
-                <label for="windows">Power Windows</label>
+                <label for="windows">电动窗</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="passenger_airbag" name="accessories" value="passenger_airbag" type="checkbox">
-                <label for="passenger_airbag">Passenger Airbag</label>
+                <label for="passenger_airbag">乘客安全气囊</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="player" name="accessories" value="player" type="checkbox">
-                <label for="player">CD Player</label>
+                <label for="player">激光唱机</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="sensor" name="accessories" value="sensor" type="checkbox">
-                <label for="sensor">Crash Sensor</label>
+                <label for="sensor">碰撞传感器</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="seats" name="accessories" value="seats" type="checkbox">
-                <label for="seats">Leather Seats</label>
+                <label for="seats">皮革座椅</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="engine_warning" name="accessories" value="engine_warning" type="checkbox">
-                <label for="engine_warning">Engine Check Warning</label>
+                <label for="engine_warning">发动机检查警告</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="locking" name="accessories" value="locking" type="checkbox">
-                <label for="locking">Central Locking</label>
+                <label for="locking">中央锁定</label>
               </div>
               <div class="form-group checkbox col-md-6 accessories_list">
                 <input id="headlamps" name="accessories" value="headlamps" type="checkbox">
-                <label for="headlamps">Automatic Headlamps</label>
+                <label for="headlamps">自动大灯</label>
               </div>
             </div>
             <div class="vehicle_type">
               <div class="form-group radio col-md-6 accessories_list">
                 <input type="radio" name="vehicle_type" value="newcar" id="newcar">
-                <label for="newcar">New Car</label>
+                <label for="newcar">新车</label>
               </div>
               <div class="form-group radio col-md-6 accessories_list">
                 <input type="radio" name="vehicle_type" value="usedcar" id="usedcar">
-                <label for="usedcar">Used Car</label>
+                <label for="usedcar">二手车</label>
               </div>
             </div>
             <div class="form-group">
