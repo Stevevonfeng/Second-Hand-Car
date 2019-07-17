@@ -114,15 +114,15 @@
         <div class="row">
           <div class="login_wrap">
             <div class="col-md-6 col-sm-6">
-              <!-- <form action="User" method="get"> -->
+            
                 <div class="form-group">
-                   <input type="hidden" name="act" value="SendEmail" />
+                   
                    <input type="email" class="form-control" placeholder="Email address" name="loginemail" id="loginemail"> 
                 </div> 
                 <div class="form-group">
                  <input type="button" id="send" class="btn btn-block"  value="发送验证码" >
                 </div>
-              <!-- </form> -->
+             
                <form action="User" method="get">
                 <div class="form-group">
                  <input type="hidden" name="act" value="ValidateCode" />
@@ -274,9 +274,7 @@
 						
 					});
 			  });
-		  
-		
-			 
+	 
 			
 			$("[name=repassword]").blur(function(){					
 				var repassword = $(this).val();

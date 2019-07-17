@@ -32,6 +32,7 @@ public class UserServlet extends BaseServlet {
 		response.setCharacterEncoding("utf-8");
 		String userpassword = request.getParameter("userpassword");
 		String repassword = request.getParameter("repassword");
+		
 
 		List list = userService.findUserEmail();
 		int number = list.size();
@@ -44,6 +45,7 @@ public class UserServlet extends BaseServlet {
 		}
 
 		List<Users> list2 = userService.findUserEmail();
+		
 		int number2 = list2.size();
 
 		if (!repassword.equals(userpassword)) {
@@ -52,8 +54,10 @@ public class UserServlet extends BaseServlet {
 		} else if (number == number2) {
 			request.setAttribute("status", "have");
 			request.getRequestDispatcher("home.jsp").forward(request, response);
-		} else {
-			request.getSession().setAttribute("user", user);
+		} else { 
+			String email1 = request.getParameter("email");		
+			user = userService.searchUser2(email1);
+			request.getSession().setAttribute("user", user); 
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}
 
@@ -173,11 +177,13 @@ public class UserServlet extends BaseServlet {
 		Conversion.req_obj(user, request);
 
 		userService.Update(user);
-
+		request.getSession().removeAttribute("user");  
 		String userpassword = request.getParameter("userpassword");
 		String cpassword = request.getParameter("c-password");
 
 		if (cpassword.equals(userpassword)) {
+			
+			request.getSession().setAttribute("user", user);
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 
 		}
