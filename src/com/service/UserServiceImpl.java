@@ -12,15 +12,20 @@ public class UserServiceImpl implements IUserService {
     public void addUser(Users user) {
     	
     	  userDao.addUser(user);
-    	
+  
     }
     
     public Users searchUser(String loginname){
     	return userDao.searchUser(loginname);
     }
     
-    public List  findUserName(){
-    	return userDao.findUserName();
+    public Users searchUser2(String loginemail){
+    	return  userDao.searchUser2(loginemail);
+    }
+    
+    
+    public List  findUserEmail(){
+    	return userDao.findUserEmail();
     }
     
     public void UpdateStatus(String ver_email){
@@ -36,6 +41,7 @@ public class UserServiceImpl implements IUserService {
     	userDao.Update(user);
     }
     
+    
     public void SignOut(String username){
     	userDao.SignOut(username);
     	
@@ -50,4 +56,18 @@ public class UserServiceImpl implements IUserService {
 		userDao.upUserIMg(userName, path);
 		
 	}
+
+	@Override
+	public Users searchUser3(String validatecode) {
+		
+		return userDao.searchUser3(validatecode);
+	}
+
+	@Override
+	public void UpValidate(String loginemail, String ver_validatecode) {
+	 
+		userDao.UpValidate(loginemail, ver_validatecode);
+	}
+	
+	
 }

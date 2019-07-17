@@ -14,7 +14,7 @@ public interface IDealersDao {
 	//计算总记录数
 	public int dealersNum();
 	//展示商家详细信息
-	public Dealers dealersprofile(int id);
+	public Dealers dealersprofile(String userid);
 	//按类别搜索汽车
 	public Car2 searchCarType(String carType,int currentPage); 
 	//搜索car订单信息
@@ -25,5 +25,8 @@ public interface IDealersDao {
 	public CarBill carOffer(long vid);
 	//搜索订单
 	public GoodOrder searchOrderByOrdernum(String ordernum);
+	
+	//显示用户拥有车辆
+	public int carsNumById(String userid);
 
 }

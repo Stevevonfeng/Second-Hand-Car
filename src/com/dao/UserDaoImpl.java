@@ -68,6 +68,8 @@ public class UserDaoImpl implements  IUserDao{
      jdbc.updatePreparedStatement(sql, params);
 	 }
 	 
+ 
+	 
 	 public void SignOut(String username){
 		 
 			String sql="update tb_user set status='offline' where username='"+username+"'";
@@ -100,10 +102,10 @@ public class UserDaoImpl implements  IUserDao{
 	}
 
 	
-	public List  findUserName(){
+	public List  findUserEmail(){
 		
 		 String sql = "select * from tb_user";
-		 List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
+		 List list = jdbc.queryPreparedStatement(sql, null, Users.class); 
 		 return list;
 		 
 	}
@@ -114,7 +116,39 @@ public class UserDaoImpl implements  IUserDao{
 	}
 	
 
+	public Users searchUser2(String loginemail){
+		
+		String sql = "select userid,username,email,userpassword,phone,birth,"
+				+ "adress,country,province from tb_user where email='"+loginemail+"'";
+		 
+		List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
+		 
+		 Users user = list.get(0);
+		 
+		 return user;
+	}
+	
+	
+	
+	public void UpValidate(String loginemail,String ver_validatecode){
+		 String sql="update tb_user set validatecode='"+ver_validatecode+"' where email='"+loginemail+"'";
+		 jdbc.updatePreparedStatement(sql, null);
+		
+	}
+	
+	
 
+	public Users searchUser3(String validatecode){
+		String sql = "select userid,username,email,validatecode,userpassword,phone,birth,"
+				+ "adress,country,province from tb_user where validatecode='"+validatecode+"'";
+		List<Users> list = jdbc.queryPreparedStatement(sql, null, Users.class); 
+		 
+		 Users user = list.get(0);
+		 
+		 return user;
+		
+		
+	}
 	
 
 }
