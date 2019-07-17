@@ -41,7 +41,6 @@ public class FindServlet extends HttpServlet {
 		//Utils.objectToAjaxText(car);
 		
 		String json = JsonUtils.objectToJson(car);
-		System.out.println("FindServlet:"+json);
 		response.getWriter().print(json);
 	}
 

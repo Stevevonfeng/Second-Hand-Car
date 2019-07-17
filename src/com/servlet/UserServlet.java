@@ -116,7 +116,6 @@ public class UserServlet extends BaseServlet {
 	public void SendEmail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String loginemail = request.getParameter("loginemail");
-		System.out.println(loginemail);
 	 
 		Users user = userService.searchUser2(loginemail);
        

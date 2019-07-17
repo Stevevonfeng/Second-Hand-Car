@@ -50,7 +50,6 @@ public class PostCarServlet extends HttpServlet {
 		Car2 car = null;
 
 		String userid = user.getUserid();
-		System.out.println(userid);
 		ICarService ics = new CarServiceImpl();
 		
 		

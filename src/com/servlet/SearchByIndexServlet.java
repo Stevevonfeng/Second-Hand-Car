@@ -42,8 +42,6 @@ public class SearchByIndexServlet extends HttpServlet {
 		String statu = request.getParameter("statu");
 		String price = request.getParameter("price");
 		
-		System.out.println("statu:"+statu);
-		
 		String sql = Utils.getSql(brand, model, version, year, statu, price);
 		
 		ICarService ics = new CarServiceImpl();
