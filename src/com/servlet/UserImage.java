@@ -54,41 +54,39 @@ public class UserImage extends HttpServlet {
 		String userName = null;
 		
 		try {
-			//1.创建解析工厂
+			//1.锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
 			 DiskFileItemFactory factory = new DiskFileItemFactory();
-			//2.创建解析器
+			//2.锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
 			 ServletFileUpload upload = new ServletFileUpload(factory);
-			//3.解析request请求 
+			//3.锟斤拷锟斤拷request锟斤拷锟斤拷 
 			 List<FileItem> list = upload.parseRequest(request);
 			 
 			 for(FileItem item:list){
-			//判断是否为一个普通的表单域(用户名)
+			//锟叫讹拷锟角凤拷为一锟斤拷锟斤拷通锟侥憋拷锟斤拷(锟矫伙拷锟斤拷)
 				 if(item.isFormField()){
-					String filedname = item.getFieldName();//input的标签名--username
-					userName = 	item.getString();									//input填入的文本内容
-					System.out.println(userName);
+					String filedname = item.getFieldName();//input锟侥憋拷签锟斤拷--username
+					userName = 	item.getString();
 				 }else{
 					 InputStream is = item.getInputStream();
-					//在磁盘上创建文件
-					String filename = item.getName();//提交文件名的名字(原文件名)
-					//文件后缀
-					String subfix = filename.substring(filename.indexOf("."));//截取文件后缀
+					//锟节达拷锟斤拷锟较达拷锟斤拷锟侥硷拷
+					String filename = item.getName();//锟结交锟侥硷拷锟斤拷锟斤拷锟斤拷锟斤拷(原锟侥硷拷锟斤拷)
+					//锟侥硷拷锟斤拷缀
+					String subfix = filename.substring(filename.indexOf("."));//锟斤拷取锟侥硷拷锟斤拷缀
 					String bfilename = new Date().getTime()+subfix;
-					System.out.println(bfilename);
 					File file = new File("C:\\dbimgs\\"+bfilename);
 					if(!file.exists()){
 						file.createNewFile();
 					}
 					
 					FileOutputStream fos = new FileOutputStream(file);
-					//文件的转存到本地磁盘
+					//锟侥硷拷锟斤拷转锟芥到锟斤拷锟截达拷锟斤拷
 					byte[] b = new byte[512];
 					int len = -1;
 					while((len = is.read(b))!=-1){
 						fos.write(b);
 					}
 					ius.upUserIMg(userName,bfilename);
-					//关闭流
+					//锟截憋拷锟斤拷
 					is.close();
 					fos.close();
 				 }

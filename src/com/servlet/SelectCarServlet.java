@@ -65,7 +65,6 @@ public class SelectCarServlet extends HttpServlet {
 		}
 		
 		String json = JsonUtils.objectToJson(tar);
-		System.out.println(json);
 		response.getWriter().print(json);
 	}
 

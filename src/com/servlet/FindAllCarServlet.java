@@ -40,7 +40,6 @@ public class FindAllCarServlet extends HttpServlet {
 		
 		ICarService ics = new CarServiceImpl();
 		ArrayList<Car2> list = ics.findObject(Car2.class, null);
-		System.out.println(list.size());
 		for(Car2 car2:list) {
 			String compare = car2.getCompare();
 			if(compare==null) {
@@ -51,7 +50,6 @@ public class FindAllCarServlet extends HttpServlet {
 			}	
 		}
 		String json = JsonUtils.objectToJson(comparCars);
-		System.out.println(json);
 		response.getWriter().print(json);
 	}
 

@@ -50,7 +50,7 @@ public class DealersDaoImpl implements IDealersDao{
 				String userid = rs.getString("userid");
 				String username = rs.getString("username");
 				String email = rs.getString("email");
-				String validatecode=rs.getString("validatecode");
+
 				String userpassword = rs.getString("userpassword");
 				String phone = rs.getString("phone");
 				String birth = rs.getString("birth");
@@ -58,13 +58,12 @@ public class DealersDaoImpl implements IDealersDao{
 				String country = rs.getString("country");
 				String province = rs.getString("province");
 				String img = rs.getString("image");
-				String status = rs.getString("status");
+				
 
 				Dealers dealer = new Dealers();
 				dealer.setUserid(userid);
 				dealer.setUsername(username);
 				dealer.setEmail(email);
-				dealer.setValidatecode(validatecode);
 				dealer.setUserpassword(userpassword);
 				dealer.setPhone(phone);
 				dealer.setBirth(birth);
@@ -72,7 +71,6 @@ public class DealersDaoImpl implements IDealersDao{
 				dealer.setCountry(country);
 				dealer.setProvince(province);
 				dealer.setImg(img);
-				dealer.setStatus(status);
 				
 				
 				

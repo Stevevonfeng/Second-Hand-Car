@@ -1,7 +1,7 @@
 package com.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,21 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Car2;
-import com.service.JsonUtils;
-import com.service.Utils;
+import com.model.Comment;
+import com.service.CommentService;
+import com.service.ICommentService;
 
 /**
- * Servlet implementation class FindServlet
+ * Servlet implementation class Comment1
  */
-@WebServlet("/FindServlet")
-public class FindServlet extends HttpServlet {
+@WebServlet("/Comment1")
+public class Comment1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindServlet() {
+    public Comment1() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,21 +32,13 @@ public class FindServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		long vid = Long.parseLong(request.getParameter("vid"));
-		ArrayList<Car2> arrCar2 = Utils.setCar(Car2.class, vid);
-		
-		Car2 car = arrCar2.get(0);
-		//Utils.objectToAjaxText(car);
-		
-		String json = JsonUtils.objectToJson(car);
-		response.getWriter().print(json);
+		ICommentService ics = new CommentService();
+		List<Comment> list = ics.queryPreparedStatement();
+		request.setAttribute("ename",list);
+		request.getRequestDispatcher("comment.jsp").forward(request, response);;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

@@ -137,8 +137,10 @@
 	  
 	  <div class="product-listing-m gray-bg">
 
+
 	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid}">
 	    <img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" style="width:381px;height:237px"/> </a>
+
 
 	      <div class="label_icon">${car.usedcar }${car.newcar }</div>
 	      <div class="compare_item">
@@ -195,11 +197,11 @@
 	      
 	      <c:forEach begin="1" end="${totalPage}" var="item">
 			<li <c:if test="${item==cp }"> class="active" </c:if> >
-				<a href="list?act=ListShow&cp=${item}">${item}</a>
+				<a href="SearchByIndexServlet?act=ListShow&cp=${item}&statu=${param.statu}">${item}</a>
 			</li>
 			</c:forEach>
 	     <li <c:if test="${cp==totalPage}"> class="disabled" </c:if>>
-			<a href="list?act=ListShow&cp=${cp+1>totalPage? totalPage:cp+1}">&raquo;</a>
+			<a href="SearchByIndexServlet?act=ListShow&cp=${cp+1>totalPage? totalPage:cp+1}">&raquo;</a>
 		</li>
 	    </ul>
 	    </c:if>

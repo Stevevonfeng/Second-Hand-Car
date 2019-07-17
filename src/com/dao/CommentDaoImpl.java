@@ -7,9 +7,10 @@ import com.service.JdbcUtil;
 
 public class CommentDaoImpl implements ICommentDao{
 
+	JdbcUtil jdbc=new JdbcUtil();
 	@Override
 	public void addComment(Comment comment) {
-	JdbcUtil jdbc=new JdbcUtil();
+	
 	String sql="insert into tb_comment values(?,?,?,?)";
 	List<Object> params=new ArrayList<Object>();
 	params.add(comment.getName());
@@ -18,6 +19,14 @@ public class CommentDaoImpl implements ICommentDao{
 	params.add(comment.getVid());
 	jdbc.updatePreparedStatement(sql, params);
 	jdbc.close();
+	}
+
+	@Override
+	public List queryPreparedStatement() {
+		
+		String comment = "select email,text from tb_comment";
+		List<Comment> list = jdbc.queryPreparedStatement(comment, null, Comment.class);
+		return list;
 	}
 
 }

@@ -96,7 +96,7 @@
         <div class="user_login">
           <ul>
           
-            <li   class="dropdown" > <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <c:if test="${user==null }">未登录</c:if>${user.getUsername()}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <li   class="dropdown" > <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <c:if test="${user==null }">未登录</c:if>${user.username}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
              <c:if test="${user!=null }">
               <ul class="dropdown-menu">
                 <li><a href="PIM-information.jsp">个人信息</a></li>

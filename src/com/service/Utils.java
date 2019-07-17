@@ -149,7 +149,6 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 					}
 					String subfix = fileName.substring(fileName.indexOf("."));
 					upload =  new Date().getTime()/fileName.hashCode()+subfix;
-					System.out.println(upload);
 					Field uploadF = cls.getDeclaredField("upload");
 					uploadF.setAccessible(true);
 					
@@ -181,7 +180,6 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 					}
 					
 					if(!isInseart) {
-						System.out.println("not inseart!!!");
 						File oldFile = new File("C:\\dbimgs\\"+vid+File.separator+filename);
 						oldFile.delete();
 					}
@@ -227,7 +225,6 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 					"				$('#"+field.getName()+"').attr(\"checked\",\"checked\");\r\n" + 
 					"			}";
 		}
-		System.out.println(ajaxText);
 	}
 	
 	public static void deleteImg(long vid) {

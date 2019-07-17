@@ -41,8 +41,7 @@ public class SearchByIndexServlet extends HttpServlet {
 		String year = request.getParameter("year");
 		String statu = request.getParameter("statu");
 		String price = request.getParameter("price");
-		
-		System.out.println("statu:"+statu);
+		String currentPage = request.getParameter("cp");
 		
 		String sql = Utils.getSql(brand, model, version, year, statu, price);
 		
@@ -50,7 +49,7 @@ public class SearchByIndexServlet extends HttpServlet {
 		IListService ils = new ListServiceImpl();
 		int pz = 3;// 姣忛〉鏄剧ず鏁�
 		int cp = 1;// 褰撳墠椤甸潰
-		String currentPage = request.getParameter("cp");
+		
 		if (currentPage != null) {
 			cp = Integer.parseInt(currentPage);
 		}

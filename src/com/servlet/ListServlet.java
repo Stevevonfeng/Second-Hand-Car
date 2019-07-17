@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.SHC.servlet.BaseServlet;
 import com.model.Car2;
-
-import com.service.CarServiceImpl;
-import com.service.ICarService;
-
+import com.model.Comment;
 import com.model.Users;
-
+import com.service.CarServiceImpl;
+import com.service.CommentService;
+import com.service.ICarService;
+import com.service.ICommentService;
 import com.service.IListService;
 import com.service.ListServiceImpl;
 import com.service.Utils;
@@ -75,9 +75,13 @@ public class ListServlet extends BaseServlet {
 		Users user = ils.UserShow(userid);
 		List<String>  fileNames = Utils.findCarImgs("C:/dbimgs/"+vid);
 		
+		ICommentService ics1 = new CommentService();
+		List<Comment> list = ics1.queryPreparedStatement();
+		request.setAttribute("ename",list);
+		
 		request.setAttribute("car", car);
 		request.setAttribute("cars", cars);
-		request.setAttribute("user", user);
+		request.setAttribute("seller", user);
 		request.setAttribute("fileNames", fileNames);
 		
 		request.getRequestDispatcher("listing-detail-2.jsp").forward(request, response);
