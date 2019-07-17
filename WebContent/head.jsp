@@ -79,7 +79,7 @@
                 <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
               </ul>
             </div>
-            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal"><span id="IsLogin">登录 /注册</span></a> </div>
+            <div class="login_btn"> <a <c:if test="${user==null }">href="#loginform" </c:if>class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal"><span id="IsLogin">登录 /注册</span></a> </div>
           </div>
         </div>
       </div>

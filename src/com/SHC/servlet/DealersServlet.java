@@ -37,6 +37,7 @@ public class DealersServlet extends BaseServlet {
 				
 				List<Dealers> dealers = ids.displayDealers(cp);
 				
+				
 				//计算总记录数
 				int count = ids.dealersNum();
 				
@@ -64,6 +65,7 @@ public class DealersServlet extends BaseServlet {
 			Dealers dealer = ids.dealersprofile(userid);
 			
 			request.setAttribute("dealer", dealer);
+			System.out.println(dealer);
 			request.getRequestDispatcher("dealers-profile.jsp").forward(request, response);
 			
 			

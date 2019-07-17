@@ -38,7 +38,7 @@ public class DealersDaoImpl implements IDealersDao{
 		List<Dealers> dealers = null;
 		try {
 			String sql = "select * from (select t1.*,rownum num from "
-					+ "(select * from tb_user order by userid desc) t1 where rownum<="+pz*cp+") t2 "
+					+ "(select userid, username, email, validatecode, userpassword, phone, birth, adress, country, province, image, status from tb_user order by userid desc) t1 where rownum<="+pz*cp+") t2 "
 					+ "where t2.num>"+(cp-1)*pz+"";
 			
 			PreparedStatement psmt = conn.prepareStatement(sql);
@@ -50,6 +50,7 @@ public class DealersDaoImpl implements IDealersDao{
 				String userid = rs.getString("userid");
 				String username = rs.getString("username");
 				String email = rs.getString("email");
+
 				String userpassword = rs.getString("userpassword");
 				String phone = rs.getString("phone");
 				String birth = rs.getString("birth");
@@ -58,6 +59,7 @@ public class DealersDaoImpl implements IDealersDao{
 				String province = rs.getString("province");
 				String img = rs.getString("image");
 				
+
 				Dealers dealer = new Dealers();
 				dealer.setUserid(userid);
 				dealer.setUsername(username);
@@ -69,6 +71,9 @@ public class DealersDaoImpl implements IDealersDao{
 				dealer.setCountry(country);
 				dealer.setProvince(province);
 				dealer.setImg(img);
+				
+				
+				
 				
 				dealers.add(dealer);
 			}
@@ -110,20 +115,23 @@ public class DealersDaoImpl implements IDealersDao{
 			ResultSet rs = psmt.executeQuery();
 			
 			if(rs.next()){
-				userid = rs.getString(1);
-				String username = rs.getString(2);
-				String email = rs.getString(3);
-				String userpassword = rs.getString(4);
-				String phone = rs.getString(5);
-				String birth = rs.getString(6);
-				String adress = rs.getString(7);
-				String country = rs.getString(8);
-				String province = rs.getString(9);
-				String img = rs.getString(10);
+				userid = rs.getString("userid");
+				String username = rs.getString("username");
+				String email = rs.getString("email");
+				String validatecode=rs.getString("validatecode");
+				String userpassword = rs.getString("userpassword");
+				String phone = rs.getString("phone");
+				String birth = rs.getString("birth");
+				String adress = rs.getString("adress");
+				String country = rs.getString("country");
+				String province = rs.getString("province");
+				String img = rs.getString("image");
+				String status = rs.getString("status");
 
 				dealer.setUserid(userid);
 				dealer.setUsername(username);
 				dealer.setEmail(email);
+				dealer.setValidatecode(validatecode);
 				dealer.setUserpassword(userpassword);
 				dealer.setPhone(phone);
 				dealer.setBirth(birth);
@@ -131,6 +139,7 @@ public class DealersDaoImpl implements IDealersDao{
 				dealer.setCountry(country);
 				dealer.setProvince(province);
 				dealer.setImg(img);
+				dealer.setStatus(status);
 				
 			}
 		} catch (Exception e) {
