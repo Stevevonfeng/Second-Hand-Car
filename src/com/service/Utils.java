@@ -13,11 +13,8 @@ import java.util.List;
 
 import org.apache.commons.fileupload.FileItem;
 
+import com.model.Car;
 import com.model.Car2;
-import com.model.CarAccessories;
-import com.model.CarEngin;
-import com.model.CarInfo;
-import com.model.CarModel;
 
 public class Utils {
 	static long vid;
@@ -333,5 +330,45 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 				
 			}
 		 return sql;
+	 }
+	 
+	 public static void addBrand(List<FileItem> list) {
+		 boolean isAdd = false;
+		 Car car = null;
+		 for(FileItem item:list) {
+				if(item.isFormField()) {
+					if(item.getFieldName().equals("add")) {
+						isAdd = true;
+						car = new Car();
+						long cidl = new Date().getTime();
+						int a = (int) (cidl<<10);
+						car.setCid(a);
+					}
+				}
+		 }
+		 if(isAdd) {
+			 for(FileItem item:list) {
+					if(item.isFormField()) {
+						String value = null;
+						try {
+							value = new String (item.getString().getBytes("iso8859-1"),"utf-8");
+						} catch (UnsupportedEncodingException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						if(item.getFieldName().equals("brand")) {
+							car.setBrand(value);
+						}
+						if(item.getFieldName().equals("model")) {
+							car.setModel(value);
+						}
+						if(item.getFieldName().equals("version")) {
+							car.setVersion(value);
+						}
+					}
+			 }
+		 }
+		 ICarService ics = new CarServiceImpl();
+		 ics.insertObject(car);
 	 }
 }

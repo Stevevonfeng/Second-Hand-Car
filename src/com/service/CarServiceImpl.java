@@ -64,5 +64,11 @@ public class CarServiceImpl implements ICarService{
 		ICarDao icd = new CarDaoImpl();
 		List<Car2> list = icd.searchCar2(brand, model, version, year, statu,cp,price);
 		return list;
+	}
+
+	@Override
+	public void insertObject(Object obj) {
+		ICarDao icd = new CarDaoImpl();
+		icd.inseartObject(obj);
 	}	
 }

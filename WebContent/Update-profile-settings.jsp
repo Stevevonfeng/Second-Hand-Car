@@ -322,7 +322,7 @@
         $.ajax({
             url: 'User-Image',
             type: 'post',
-             contentType: false,
+            contentType: false,
             processData: false,
             data: formdata,
             success: function (data) {

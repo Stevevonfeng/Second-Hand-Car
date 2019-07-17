@@ -1,15 +1,20 @@
 package com.model;
 
 public class Users {
+	
 private String userid;
 private String username;
 private String email;
+private String validatecode;
 private String userpassword;
 private String phone;
 private String birth;
 private String adress;
 private String country;
 private String province;
+private String image;
+private String status;
+
 public String getImage() {
 	return image;
 }
@@ -20,7 +25,7 @@ public void setImage(String image) {
 }
 
 
-private String image;
+
 public String getPhone() {
 	return phone;
 }
@@ -81,7 +86,7 @@ public void setStatus(String status) {
 }
 
 
-private String status;
+
 
 public String getUsername() {
 	return username;
@@ -128,6 +133,17 @@ public void setUserid(String userid) {
 	this.userid = userid;
 }
 
+
+public String getValidatecode() {
+	return validatecode;
+}
+
+
+public void setValidatecode(String validatecode) {
+	this.validatecode = validatecode;
+}
+
+ 
 
 
 }
