@@ -93,8 +93,8 @@
   <div class="container">
     <div class="listing_detail_head white-text div_zindex row">
       <div class="col-md-9">
-        <h2>BMW 535i, Navi, Leather, ABS</h2>
-        <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> 12250 F Garvey Ave South West Covina, CA 91791</span></div>
+        <h2>${car.brand } ${car.model } ${car.version }</h2>
+        <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i>${user.country }${user.province }${user.adress } </span></div>
         <div class="add_compare">
           <div class="checkbox">
             <input value="" id="${car.vid }" type="checkbox" <c:if test="${car.compare eq '1'}"> checked='checked' </c:if>>
@@ -616,7 +616,7 @@
           <div class="widget_heading">
             <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> 卖家信息 </h5>
           </div>
-          <div class="dealer_detail"> <img src="assets/images/dealer_img.jpg" alt="image">
+          <div class="dealer_detail"> <img src="/imgs/${user.image }" alt="image">
             <p><span>姓名:</span>${user.username }</p>
             <p><span>邮箱:</span> ${user.email }</p>
             <p><span>电话:</span> ${user.phone }</p>
@@ -668,13 +668,13 @@
               </div>
             </div>
             <div class="product-listing-content">
-              <h5><a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}">Maserati QUATTROPORTE 1,6</a></h5>
+              <h5><a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}">${car.brand } ${car.model } ${car.version }</a></h5>
               <p class="list-price">$${car.price }</p>
-              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> 本地/外地</span></div>
+             
               <ul class="features_list">
                 <li><i class="fa fa-road" aria-hidden="true"></i>${car.kms }km</li>
                 <li><i class="fa fa-tachometer" aria-hidden="true"></i>${car.mileage }miles</li>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i>${car.seats }seats</li>
+                <li><i class="fa fa-calendar" aria-hidden="true"></i>${car.year }</li>
                 <li><i class="fa fa-car" aria-hidden="true"></i>${car.fuel }</li>
               </ul>
             </div>
