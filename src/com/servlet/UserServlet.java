@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
+import com.model.EMail;
 import com.model.Users;
 import com.service.Conversion;
 import com.service.IUserService;
@@ -30,35 +32,31 @@ public class UserServlet extends BaseServlet {
 		response.setCharacterEncoding("utf-8");
 		String userpassword = request.getParameter("userpassword");
 		String repassword = request.getParameter("repassword");
-		
-		List<Users> list = userService.findUserName();
+
+		List list = userService.findUserEmail();
 		int number = list.size();
-		
+
 		Users user = new Users();
 		Conversion.req_obj(user, request);
-		
+
 		if (repassword.equals(userpassword)) {
-		 
 			userService.addUser(user);
 		}
-	
-		
-		List<Users> list2 = userService.findUserName();
+
+		List<Users> list2 = userService.findUserEmail();
 		int number2 = list2.size();
-		     
-		    if(!repassword.equals(userpassword)){
-				request.setAttribute("statu", "eq");
-				request.getRequestDispatcher("home.jsp").forward(request, response);
-			}
-		    else if (number == number2) {
-				request.setAttribute("status", "have");
-				request.getRequestDispatcher("home.jsp").forward(request, response);
-			} else {
-				
-				request.getSession().setAttribute("user", user);
-							
-			}
-		
+
+		if (!repassword.equals(userpassword)) {
+			request.setAttribute("statu", "eq");
+			request.getRequestDispatcher("home.jsp").forward(request, response);
+		} else if (number == number2) {
+			request.setAttribute("status", "have");
+			request.getRequestDispatcher("home.jsp").forward(request, response);
+		} else {
+			request.getSession().setAttribute("user", user);
+			request.getRequestDispatcher("home.jsp").forward(request, response);
+		}
+
 	}
 
 	// Login
@@ -105,6 +103,51 @@ public class UserServlet extends BaseServlet {
 		}
 
 	}
+
+	// SendEmail
+	public void SendEmail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String loginemail = request.getParameter("loginemail");
+		System.out.println(loginemail);
+	 
+		Users user = userService.searchUser2(loginemail);
+       
+		int number = (int) ((Math.random() * 9 + 1) * 100000);
+		
+		if (user != null) {
+			
+			EMail.ValidationInformation(user, loginemail,number);
+			
+			 String ver_validatecode = String.valueOf(number);
+			 userService.UpValidate(loginemail, ver_validatecode);
+			 
+			 
+		} else {
+			JOptionPane.showMessageDialog(null, "请先进行注册!");
+			request.getRequestDispatcher("home.jsp").forward(request, response);
+
+		}
+	}
+	
+	public void ValidateCode (HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		String validatecode = request.getParameter("validatecode");
+		//取ver_validatecode
+		Users user = userService.searchUser3(validatecode);
+		String ver_email = user.getEmail();
+		if(user!=null){ 
+			request.getSession().setAttribute("user", user);
+			userService.UpdateStatus(ver_email);
+			request.getRequestDispatcher("home.jsp").forward(request, response);
+		} else {
+			JOptionPane.showMessageDialog(null, "验证码错误!");  
+			request.getRequestDispatcher("home.jsp").forward(request, response);
+		}
+
+		
+	}
+	
 
 	// ToUpdate-searchUser
 	public void ToUpdate(HttpServletRequest request, HttpServletResponse response)

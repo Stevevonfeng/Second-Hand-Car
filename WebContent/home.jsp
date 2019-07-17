@@ -749,7 +749,7 @@ $(function(){
 	var a = "${status}";
 	var b= "${statu}";
 	if(a=='have'){
-		alert("用户已存在");
+		alert("邮箱已被注册!");
 	}
 	if(b=='eq'){
 		alert("密码不一致");
