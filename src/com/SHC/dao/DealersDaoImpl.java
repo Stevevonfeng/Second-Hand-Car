@@ -47,16 +47,16 @@ public class DealersDaoImpl implements IDealersDao{
 			dealers = new ArrayList<Dealers>();
 			
 			while(rs.next()){
-				String userid = rs.getString(1);
-				String username = rs.getString(2);
-				String email = rs.getString(3);
-				String userpassword = rs.getString(4);
-				String phone = rs.getString(5);
-				String birth = rs.getString(6);
-				String adress = rs.getString(7);
-				String country = rs.getString(8);
-				String province = rs.getString(9);
-				String img = rs.getString(10);
+				String userid = rs.getString("userid");
+				String username = rs.getString("username");
+				String email = rs.getString("email");
+				String userpassword = rs.getString("userpassword");
+				String phone = rs.getString("phone");
+				String birth = rs.getString("birth");
+				String adress = rs.getString("adress");
+				String country = rs.getString("country");
+				String province = rs.getString("province");
+				String img = rs.getString("image");
 				
 				Dealers dealer = new Dealers();
 				dealer.setUserid(userid);

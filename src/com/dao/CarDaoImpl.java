@@ -295,12 +295,9 @@ public class CarDaoImpl implements ICarDao{
 		Field[] fields = cls.getDeclaredFields();
 		try {
 			String sql = Utils.getSql(brand, model, version, year, statu, price);
-			 
-			System.out.println(sql);
 			sql = "select * from (select t1.*,rownum num from "
 					+ "("+sql+") t1 where rownum<="+pz*cp+") t2 "
 					+ "where t2.num>"+(cp-1)*pz+"";
-			System.out.println(sql);
 			PreparedStatement p = c.prepareStatement(sql);
 			ResultSet rs = p.executeQuery();
 			while(rs.next()) {

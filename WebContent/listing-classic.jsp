@@ -138,7 +138,7 @@
 	  <div class="product-listing-m gray-bg">
 
 
-	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid}">
+	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid} ">
 	    <img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" /> </a>
 
 

@@ -143,6 +143,14 @@ public void setValidatecode(String validatecode) {
 	this.validatecode = validatecode;
 }
 
+
+@Override
+public String toString() {
+	return "Users [userid=" + userid + ", username=" + username + ", email=" + email + ", validatecode=" + validatecode
+			+ ", userpassword=" + userpassword + ", phone=" + phone + ", birth=" + birth + ", adress=" + adress
+			+ ", country=" + country + ", province=" + province + ", image=" + image + ", status=" + status + "]";
+}
+
  
 
 
