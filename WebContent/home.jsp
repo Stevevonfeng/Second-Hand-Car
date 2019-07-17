@@ -748,8 +748,12 @@
 $(function(){
 	var a = "${status}";
 	var b= "${statu}";
+	var c = "${status2}";
 	if(a=='have'){
 		alert("邮箱已被注册!");
+	}
+	if(c=='have2'){
+		alert("用户名已存在!");
 	}
 	if(b=='eq'){
 		alert("密码不一致");
