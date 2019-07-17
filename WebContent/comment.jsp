@@ -44,15 +44,25 @@
 		<div class="video_wrap">
 			<h6>评论</h6>
 			
-			<div class="form-group content">
-					<textarea rows="1" class="form-control" class="sendInput" maxlength="1000" placeholder="评论展示">asdasd</textarea>
+			<div class="form-group content"><!-- 
+					<input rows="1" class="form-control" class="sendInput" maxlength="1000" placeholder="" > -->
+					
+					  
+					
+					 <c:forEach items="${ename}" var="eee" >
+					 <input rows="1" class="form-control" class="sendInput" maxlength="1000" placeholder="${ eee.email}:${eee.text }">
+					  
+					  <br/>
+					  
+					</c:forEach> 
+					
 					
 			</div>
 		</div>
 		<div class="comment_form">
 			<h6>发表评论</h6>
 			
-			<form action="addcomment" method="post">
+			<form action="addcomment">
 			
 				<div class="form-group">
 					<input type="text" class="form-control" name="name" placeholder="用户名">
@@ -62,11 +72,11 @@
 				</div>
 				
 				<div class="form-group">
-					<textarea rows="5" class="form-control text" name = "text" placeholder="内容"></textarea>
+					<input type="text" class="form-control" name="textc" placeholder="评论">
 				</div>
 				
 				<div class="form-group">
-					<input type="button" class="btn click" value="提交">
+					<input type="submit" class="btn click" value="提交">
 				</div>
 				<input type="hidden" value="${car.vid }" id="carvid" name="vid">
 			</form>

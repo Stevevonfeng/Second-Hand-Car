@@ -27,13 +27,19 @@ public class CommentServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	doPost(req, resp);
+    }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
-		String text=request.getParameter("text");
+		String text=request.getParameter("textc");
+		System.out.println("addCommet:text:"+text);
 		long vid = Long.parseLong(request.getParameter("vid"));
 		Comment comment=new Comment();
 	    comment.setName(name);
@@ -42,7 +48,6 @@ public class CommentServlet extends HttpServlet {
 	    comment.setVid(vid);
 	    ICommentService commentservice=new CommentService();
 	    commentservice.addComment(comment);
-	    response.sendRedirect("comment.jsp");
 	}
 
 }
