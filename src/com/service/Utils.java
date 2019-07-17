@@ -288,4 +288,50 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 		 }
 		 return list;
 	 }
+	 
+	 public static String getSql(String brand,String model,String version,String year,String statu,String price) {
+		 	String sql = "select * from car2 ";
+			if(brand!=null&&!brand.equals("选择品牌")&&!brand.equals("")) {
+				sql = sql+"where brand='"+brand+"' ";
+			}
+			if(model!=null&&!model.equals("选择车型")&&!model.equals("")) {
+				sql = sql+"and model='"+model+"' ";
+			}
+			if(version!=null&&!version.equals("")) {
+				sql = sql+"and version='"+version+"' ";
+			}
+			if(year!=null&&!year.equals("Year of Model")&&!year.equals("")) {
+				int yearI = Integer.parseInt(year);
+				if(brand==null||brand.equals("选择品牌")||brand.equals("")) {
+					sql = sql+"where to_char(year,'YYYY')>'"+(yearI-1)+"' and to_char(year,'YYYY')<'"+(yearI+1)+"'";
+				}else {
+					sql = sql + "and to_char(year,'YYYY')>'"+(yearI-1)+"' and to_char(year,'YYYY')<'"+(yearI+1)+"'";
+					
+				}
+				//sql = sql+"and year>to_date('"+(yearI-1)+"','YYYY') and year<to_date('"+(yearI+1)+"','YYYY') ";
+			}
+			if(statu!=null&&!statu.equals("汽车类型")&&!statu.equals("")){
+				boolean other = true;
+				if((brand==null||brand.equals("选择品牌")||brand.equals(""))&&(year==null||year.equals("Year of Model")||year.equals(""))) {
+					sql = sql+"where "+statu +" is not null  ";
+					other = false;
+				}
+				if(other) {
+					sql = sql+"and "+statu +" is not null  ";
+				}	
+			}
+			if(price!=null&&!price.equals("")) {
+				String[] strs = price.split(",");
+				boolean other = true;
+				if((brand==null||brand.equals("选择品牌")||brand.equals(""))&&(year==null||year.equals("Year of Model")||year.equals(""))&&(statu==null||statu.equals("汽车类型")||statu.equals(""))) {
+							sql = sql+"where price>"+strs[0]+" and  price<"+strs[1]+"";
+							other = false;
+				}
+				if(other) {
+					sql = sql+"and price>"+strs[0]+" and  price<"+strs[1]+"";
+				}
+				
+			}
+		 return sql;
+	 }
 }

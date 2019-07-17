@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -103,35 +104,42 @@
 <!--Post-vehicle-->
 <section class="user_profile inner_pages">
   <div class="container">
-    <div class="user_profile_info gray-bg padding_4x4_40">
-      <div class="upload_user_logo"> <img src="assets/images/dealer-logo.jpg" alt="image">
+    <%-- <div class="user_profile_info gray-bg padding_4x4_40">
+     <div class="upload_user_logo" > <img src="assets/images/dealer-logo.jpg" alt="image" id="imgs" style="width:225px;height:175px">
         <div class="upload_newlogo">
-          <input name="upload" type="file">
+        
+         	<input name="Image"  <c:if test="${user==null }">type="text"</c:if>type="file" id="UserImage">
+          <input id="username1" type="hidden" value="${user.getUsername()}">
         </div>
       </div>
       <div class="dealer_info">
-        <h5>Autospot Used Cars Center </h5>
-        <p>P.1225 N Broadway Ave <br>
-          Oklahoma City, OK  1234-5678-090</p>
+        <h5>
+        <c:if test="${user==null }">用户名</c:if>${user.getUsername()}
+        </h5>
+		<p>
+		<c:if test="${user.getAdress()==null}">居住地址 </c:if> ${user.getAdress()}
+	    <br>
+		<c:if test="${user.getProvince()==null}">省份 </c:if> ${user.getProvince()}
+		<c:if test="${user.getPhone()==null}">,联系方式 </c:if>${user.getPhone()}
+		</p>
       </div>
-    </div>
+    </div> --%>
+    <%@ include file="headimg.jsp" %>
     <div class="row">
       <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
           <ul>
-            <li><a href="profile-settings.jsp">Profile Settings</a></li>
-            <li><a href="my-vehicles.jsp">My Vehicles</a></li>
-            <li class="active"><a href="post-vehicle.jsp">Post a Vehicles</a></li>
-            <li><a href="#">Sign Out</a></li>
+            <li><a href="User?act=ToUpdate&username=${user.getUsername()}">资料设置</a></li>
+			<li><a href="my-vehicles.jsp">My Vehicles</a></li>
+			<li class="active"><a href="post-vehicle.jsp">Post a Vehicles</a></li>
+			<li><a href="User?act=SignOut&username=${user.getUsername()}"">退出登录</a></li>
           </ul>
         </div>
       </div>
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
           <h5 class="uppercase underline">Post a New Vehicle</h5>
-          
-          
-          
+      
           <form action="PostCarServlet" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label class="control-label">Vehicles Title</label>
@@ -344,6 +352,20 @@
 <script type="text/javascript">
 	var i = 0;
 	$(function(){
+		/* $.ajax({
+	          url: 'GetImgServlet',
+	          type: 'get',
+	          data: {username:$("#username1").val()},
+	          dateType:"text",
+	          success: function (rs) {
+	          	if(rs!=""&&rs!='null'){
+	          		$("#UserImage").parent().css({"opacity":"0"});
+	          		var rs = "/imgs/"+rs;
+		            	$("#imgs").attr("src", rs);
+	          	}
+	          }
+	      }); */
+		
 		$.ajax({
 			type:"get",
 			url:"SelectCarServlet",
@@ -468,5 +490,36 @@
             reader.readAsDataURL(file[0]);  
         }
   });
+	
+	$("#UserImage").change(function (e) {
+		
+        var file = e.target.files || e.dataTransfer.files;  //获取目标文件
+        
+        console.log(file[0])
+        if (file) {   
+        	 $("#UserImage").parent().css({"opacity":"0"});  
+            var reader = new FileReader();   
+            reader.onload = function () {
+            	 
+                $("#imgs").attr("src", this.result);
+            };
+            reader.readAsDataURL(file[0]);  
+        }   
+        
+        var formdata = new FormData();
+        formdata.append('username',$("#username1").val());
+		formdata.append('head', $('#UserImage')[0].files[0]);
+        $.ajax({
+            url: 'User-Image',
+            type: 'post',
+            contentType: false,
+            processData: false,
+            data: formdata,
+            success: function (data) {
+               
+            }
+        });
+  });
+	
 </script>
 </html>

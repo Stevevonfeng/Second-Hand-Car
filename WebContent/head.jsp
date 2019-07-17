@@ -96,13 +96,16 @@
         <div class="user_login">
           <ul>
           
-            <li class="dropdown" > <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <c:if test="${user==null }">未登录</c:if>${user.getUsername()}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <li   class="dropdown" > <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <c:if test="${user==null }">未登录</c:if>${user.getUsername()}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+             <c:if test="${user!=null }">
               <ul class="dropdown-menu">
-                <li><a href="profile-settings.jsp">个人信息</a></li>
+                <li><a href="PIM-information.jsp">个人信息</a></li>
                 <li><a href="my-vehicles.jsp">我的车辆</a></li>
                 <li><a href="post-vehicle.jsp">我要卖车</a></li>
                 <li><a href="#loginform" data-toggle="modal" data-dismiss="modal">切换账号</a></li>
+                <li><a href="User?act=SignOut&username=${user.getUsername()}">退出登录</a></li>
               </ul>
+             </c:if>
             </li>
           </ul>
         </div>
@@ -119,6 +122,7 @@
           <li><a href="home.jsp">主页</a></li>
           <li><a href="about-us.jsp">关于我们</a></li>
           <li >
+
           <a href="list?act=ListShow&username=${param.username }">库存</a>
           </li>
           

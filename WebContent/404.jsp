@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title></title>
+<title>恭喜您，支付成功！</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" /> 
 <meta name="author" content="js代码(www.jsdaima.com)" />
@@ -87,11 +87,11 @@
   <div class="container">
     <div class="page-header_wrap">
       <div class="page-heading">
-        <h1>Error 404</h1>
+        <h1>Success</h1>
       </div>
       <ul class="coustom-breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li>Error 404</li>
+        <li><a href="#">主页</a></li>
+        <li>支付成功</li>
       </ul>
     </div>
   </div>
@@ -106,7 +106,7 @@
     <div class="row">
       <div class="col-md-6 col-sm-5">
         <div class="error_text_m">
-          <h2>4<span>0</span>4</h2>
+          <h2><span>订单</span></h2>
           <div class="background_icon"><i class="fa fa-road" aria-hidden="true"></i></div>
         </div>
       </div>
@@ -114,9 +114,9 @@
         <div class="not_found_msg">
           <div class="error_icon"> <i class="fa fa-smile-o" aria-hidden="true"></i> </div>
           <div class="error_msg_div">
-            <h3>Oops, <span>Page Can't be Found</span></h3>
+            <h3>恭喜您, <span>得到了您的梦想之车</span></h3>
             <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth,</p>
-            <a href="#" class="btn">Back to Home <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
+            <a href="home.jsp" class="btn">返回主页 <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
         </div>
       </div>
     </div>

@@ -12,6 +12,7 @@ import java.util.List;
 
 import com.SHC.model.CarBill;
 import com.SHC.model.Dealers;
+import com.SHC.model.GoodOrder;
 import com.model.Car2;
 
 public class DealersDaoImpl implements IDealersDao{
@@ -249,6 +250,36 @@ public class DealersDaoImpl implements IDealersDao{
 			e.printStackTrace();
 		}
 		return car;
+	}
+
+
+	@Override
+	public GoodOrder searchOrderByOrdernum(String ordernum) {
+		GoodOrder go = new GoodOrder();
+		
+		try {
+			String sql="select ordernum, vid, price, des from goodorder where ordernum = '"+ordernum+"'";
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			ResultSet rs = psmt.executeQuery();
+			if(rs.next()){
+				ordernum = rs.getString(1);
+				long vid = rs.getLong(2);
+				int price = rs.getInt(3);
+				String des = rs.getString(4);
+				
+				go.setOrdernum(ordernum);
+				go.setVid(vid);
+				go.setPrice(price);
+				go.setDes(des);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return go;
 	}
 
 

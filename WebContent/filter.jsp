@@ -14,7 +14,7 @@
 			寻找你的梦之车 <span>(从这里轻松搜索)</span>
 		</h3>
 		<div class="row">
-			<form action="#" method="get">
+			<form action="SearchByIndexServlet" method="get">
 				<div class="form-group col-md-3 col-sm-6 black_input">
 					<div class="select">
 						<select class="form-control">
@@ -26,7 +26,7 @@
 				</div>
 				<div class="form-group col-md-3 col-sm-6 black_input">
 					<div class="select">
-						<select class="form-control" id="brand">
+						<select class="form-control" id="brand" name="brand">
 							<option>选择品牌</option>
 							<!-- <option>Audi</option>
 							<option>BMW</option>
@@ -37,7 +37,7 @@
 				</div>
 				<div class="form-group col-md-3 col-sm-6 black_input">
 					<div class="select">
-						<select class="form-control" id="model">
+						<select class="form-control" id="model" name="model">
 							<option>选择车型</option>
 							<<!-- option>Series 1</option>
 							<option>Series 2</option>
@@ -47,26 +47,27 @@
 				</div>
 				<div class="form-group col-md-3 col-sm-6 black_input">
 					<div class="select">
-						<select class="form-control">
-							<option>Year of Model</option>
-							<option>2016</option>
-							<option>2015</option>
-							<option>2014</option>
+						<select class="form-control" name="year" id="year">
+							<option value="Year of Model">Year of Model</option>
+							<option value="2019">2019</option>
+							<option value="2018">2018</option>
+							<option value="2017">2017</option>
+							<option value="2016">2016</option>
 						</select>
 					</div>
 				</div>
 				<div class="form-group col-md-6 col-sm-6 black_input">
 					<label class="form-label">价格区间 ($)</label> <input id="price_range"
-						type="text" class="span2" value="" data-slider-min="50"
-						data-slider-max="6000" data-slider-step="5"
-						data-slider-value="[1000,5000]" />
+						type="text" class="span2" value="" data-slider-min="10000"
+						data-slider-max="5000000" data-slider-step="500"
+						data-slider-value="[10000,5000000]" name="price"/>
 				</div>
 				<div class="form-group col-md-3 col-sm-6 black_input">
 					<div class="select">
-						<select class="form-control">
+						<select class="form-control" name="statu">
 							<option>汽车类型</option>
-							<option>新车</option>
-							<option>二手车</option>
+							<option value='newcar'>新车</option>
+							<option value='usedcar'>二手车</option>
 						</select>
 					</div>
 				</div>

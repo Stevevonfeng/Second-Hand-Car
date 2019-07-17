@@ -143,7 +143,7 @@
     <div id="other_info"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
     <div id="info_toggle">
       <button type="button" data-toggle="modal" data-target="#schedule"> <i class="fa fa-car" aria-hidden="true"></i> 安排试驾</button>
-      <a href="dealers?act=searchCarInfo&vid=${param.vid }"> <i class="fa fa-money" aria-hidden="true"></i> 我要购买 </a>
+      <a href="dealers?act=searchCarInfo&vid=${param.vid }" class="btn"> <i class="fa fa-money" aria-hidden="true"></i> 我要购买 </a>
       <button type="button" data-toggle="modal" data-target="#email_friend"> <i class="fa fa-envelope" aria-hidden="true"></i> 发邮件给卖家</button>
       <button type="button" data-toggle="modal" data-target="#more_info"> <i class="fa fa-file-text-o" aria-hidden="true"></i> 查询更多信息 </button>
     </div>
@@ -647,6 +647,8 @@
     </div>
     <div class="space-20"></div>
     <div class="divider"></div>
+    
+    <%@ include file="comment.jsp" %>
     
     <!--Similar-Cars-->
     <div class="similar_cars">

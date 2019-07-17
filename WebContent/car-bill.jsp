@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>购买账单</title>
-<link >
+<link>
 </head>
 <body>
 	<%@ include file="head.jsp"%>
@@ -39,43 +39,31 @@ Page Header
 			<div class="col-md-6 col-sm-8">
 				<div class="profile_wrap">
 					<h5 class="uppercase underline">账单</h5>
-					<form action="#" method="get">
+					<form action="goodorder?vid=${param.vid}" method="get">
 						<div class="form-group">
-							<label class="control-label">账单号</label> 
-							<input class="form-control white_bg" id="billnum" type="text" value="${carbill.billnum}">
+							<label class="control-label">账单号</label> <input
+								class="form-control white_bg" id="billnum" type="text" name="billnum"
+								>
 						</div>
 						<div class="form-group">
-							<label class="control-label">车辆ID</label> 
-							<input class="form-control white_bg" id="vid" type="text" value="${carbill.vid}">
+							<label class="control-label">车辆ID</label> <input
+								class="form-control white_bg" id="vid" type="text" name="vid"
+								value="${param.vid}">
 						</div>
 						<div class="form-group">
-							<label class="control-label">品牌</label> 
-							<input class="form-control white_bg" id="brand" type="text" value="${carbill.brand}">
+							<label class="control-label">价格</label> <input
+								class="form-control white_bg" id="price" type="text" name="price"
+								value="${carbill.price }">
 						</div>
 						<div class="form-group">
-							<label class="control-label">车型</label> 
-							<input class="form-control white_bg" id="model" type="text" value="${carbill.model}">
+							<label class="control-label">商品描述</label> <input
+								class="form-control white_bg" id="des" type="text" name="des"
+								value="${carbill.brand } ${carbill.model}  ${carbill.year}  ${carbill.newcar}${carbill.usedcar}">
 						</div>
 						<div class="form-group">
-							<label class="control-label">生产年日</label> 
-							<input class="form-control white_bg" id="year" type="text">
-						</div>
-						<div class="form-group">
-							<label class="control-label">用油类型</label> 
-							<input class="form-control white_bg" id="fuel" type="text">
-						</div>
-						<div class="form-group">
-							<label class="control-label">新/旧车</label>
-							<input class="form-control white_bg" id="carNO" type="text">
-						</div>
-						<div class="form-group">
-							<label class="control-label">价格</label> 
-							<input class="form-control white_bg" id="price" type="text">
-						</div>
-						<div class="form-group">
-							<button type="submit" class="btn">确认支付 
-								<span class="angle_arrow">
-									<i class="fa fa-angle-right" aria-hidden="true"></i>
+							<button type="submit" class="btn">
+								确认支付 <span class="angle_arrow"> <i
+									class="fa fa-angle-right" aria-hidden="true"></i>
 								</span>
 							</button>
 						</div>
@@ -105,4 +93,22 @@ Page Header
 	<%@ include file="loginAndRegister.jsp"%>
 
 </body>
+<script type="text/javascript">
+	function GetDateNow() {
+		var vNow = new Date();
+		var sNow = "";
+		sNow += String(vNow.getFullYear());
+		sNow += String(vNow.getMonth() + 1);
+		sNow += String(vNow.getDate());
+		sNow += String(vNow.getHours());
+		sNow += String(vNow.getMinutes());
+		sNow += String(vNow.getSeconds());
+		sNow += String(vNow.getMilliseconds());
+		document.getElementById("billnum").value = sNow;
+		//document.getElementById("WIDsubject").value = "测试";
+		//document.getElementById("WIDtotal_amount").value = "0.01";
+	}
+
+	GetDateNow();
+</script>
 </html>
