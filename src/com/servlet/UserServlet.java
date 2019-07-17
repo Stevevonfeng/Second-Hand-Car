@@ -129,14 +129,14 @@ public class UserServlet extends BaseServlet {
 	public void SendEmail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String loginemail = request.getParameter("loginemail");
-	 
+
 		Users user = userService.searchUser2(loginemail);
        
 		int number = (int) ((Math.random() * 9 + 1) * 100000);
 		
 		if (user != null) {
 			
-			EMail.ValidationInformation(user, loginemail,number);
+			EMail.ValidationInformation(user,loginemail,number);
 			
 			 String ver_validatecode = String.valueOf(number);
 			 userService.UpValidate(loginemail, ver_validatecode);

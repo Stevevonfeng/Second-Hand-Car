@@ -59,6 +59,12 @@ public class DealersServiceImpl implements IDealersService {
 		return idd.carsNumById(userid);
 	}
 
+	@Override
+	public List<Car2> displayDealersCars(String userid) {
+		IDealersDao idd = new DealersDaoImpl();
+		return idd.displayDealersCars(userid);
+	}
+
 
 
 

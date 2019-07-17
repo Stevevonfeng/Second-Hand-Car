@@ -137,8 +137,10 @@
 	  
 	  <div class="product-listing-m gray-bg">
 
-	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid} ">
-	    <img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" /> </a>
+
+	    <div class="product-listing-img"> <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid}">
+	    <img src="/imgs/${car.vid }/${car.upload }" class="img-responsive" alt="Image" style="width:381px;height:237px"/> </a>
+
 
 	      <div class="label_icon">${car.usedcar }${car.newcar }</div>
 	      <div class="compare_item">
@@ -168,18 +170,18 @@
 	      </div>
 	    </div>
 	    <div class="product-listing-content">
-	      <h5><a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid}">Mazda CX-5 SX, V6, ABS, Sunroof</a></h5>
+	      <h5><a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid}">${car.brand } ${car.model } ${car.version }</a></h5>
 	      <p class="list-price">$${car.price }</p>
 	      <ul>
 	        <li><i class="fa fa-road" aria-hidden="true"></i>${car.kms }km</li>
 	        <li><i class="fa fa-tachometer" aria-hidden="true"></i>${car.mileage }miles</li>
-	        <li><i class="fa fa-user" aria-hidden="true"></i>${car.seats }seats</li>
-	        <li><i class="fa fa-calendar" aria-hidden="true"></i>${car.model }</li>
+	        <li><i class="fa fa-user" aria-hidden="true"></i>${car.seats }</li>
+	        <li><i class="fa fa-calendar" aria-hidden="true"></i>${car.year }</li>
 	        <li><i class="fa fa-car" aria-hidden="true"></i>${car.fuel }</li>
-	        <li><i class="fa fa-superpowers" aria-hidden="true"></i>${car.brand }kW</li>
+	        <li><i class="fa fa-superpowers" aria-hidden="true"></i>${car.transmission }</li>
 	      </ul>
 	      <a href="list?act=CarShow&vid=${car.vid }&brand=${car.brand}&userid=${car.userid}" class="btn">查看详情 <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-	      <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i>${car.upload }</span></div>
+
 	    </div>
 	   
 	  </div>
@@ -195,11 +197,11 @@
 	      
 	      <c:forEach begin="1" end="${totalPage}" var="item">
 			<li <c:if test="${item==cp }"> class="active" </c:if> >
-				<a href="list?act=ListShow&cp=${item}">${item}</a>
+				<a href="SearchByIndexServlet?act=ListShow&cp=${item}&statu=${param.statu}">${item}</a>
 			</li>
 			</c:forEach>
 	     <li <c:if test="${cp==totalPage}"> class="disabled" </c:if>>
-			<a href="list?act=ListShow&cp=${cp+1>totalPage? totalPage:cp+1}">&raquo;</a>
+			<a href="SearchByIndexServlet?act=ListShow&cp=${cp+1>totalPage? totalPage:cp+1}">&raquo;</a>
 		</li>
 	    </ul>
 	    </c:if>
@@ -218,39 +220,7 @@
             <a href="post-vehicle.jsp"" class="btn">Request a Quote <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
           <div class="dark-overlay"></div>
         </div>
-        <div class="sidebar_widget">
-          <div class="widget_heading">
-            <h5><i class="fa fa-car" aria-hidden="true"></i> Recently Listed Cars</h5>
-          </div>
-          <div class="recent_addedcars">
-            <ul>
-              <li class="gray-bg">
-                <div class="recent_post_img"> <a href="#"><img src="assets/images/post_200x200_1.jpg" alt="image"></a> </div>
-                <div class="recent_post_title"> <a href="#">Ford Shelby GT350</a>
-                  <p class="widget_price">$92,000</p>
-                </div>
-              </li>
-              <li class="gray-bg">
-                <div class="recent_post_img"> <a href="#"><img src="assets/images/post_200x200_2.jpg" alt="image"></a> </div>
-                <div class="recent_post_title"> <a href="#">BMW 535i</a>
-                  <p class="widget_price">$92,000</p>
-                </div>
-              </li>
-              <li class="gray-bg">
-                <div class="recent_post_img"> <a href="#"><img src="assets/images/post_200x200_3.jpg" alt="image"></a> </div>
-                <div class="recent_post_title"> <a href="#">Mazda CX-5 SX, V6, ABS, Sunroof </a>
-                  <p class="widget_price">$92,000</p>
-                </div>
-              </li>
-              <li class="gray-bg">
-                <div class="recent_post_img"> <a href="#"><img src="assets/images/post_200x200_4.jpg" alt="image"></a> </div>
-                <div class="recent_post_title"> <a href="#">Ford Shelby GT350 </a>
-                  <p class="widget_price">$92,000</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+       
       </aside>
       <!--/Side-Bar--> 
     </div>

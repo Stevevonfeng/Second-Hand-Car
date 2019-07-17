@@ -64,6 +64,9 @@ public class DealersServlet extends BaseServlet {
 			
 			Dealers dealer = ids.dealersprofile(userid);
 			
+			List<Car2> cars = ids.displayDealersCars(userid);
+			
+			request.setAttribute("cars", cars);
 			request.setAttribute("dealer", dealer);
 			System.out.println(dealer);
 			request.getRequestDispatcher("dealers-profile.jsp").forward(request, response);
