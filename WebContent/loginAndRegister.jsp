@@ -52,9 +52,9 @@
 <![endif]-->  
 </head>
 <body>
-
+<!-- class="modal fade in" style="display: block; padding-right: 16px;" -->
 <!--Login-Form -->
-<div class="modal fade" id="loginform">
+<div class="modal fade " id="loginform" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

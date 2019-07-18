@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Comment;
+import com.model.Comments;
 import com.service.CommentService;
 import com.service.ICommentService;
 
@@ -33,7 +33,7 @@ public class Comment1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ICommentService ics = new CommentService();
-		List<Comment> list = ics.queryPreparedStatement();
+		List<Comments> list = ics.queryPreparedStatement();
 		request.setAttribute("ename",list);
 		request.getRequestDispatcher("comment.jsp").forward(request, response);;
 	}

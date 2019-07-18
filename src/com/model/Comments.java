@@ -1,14 +1,15 @@
 package com.model;
 
-public class Comment {
+public class Comments {
 	private String name;
 	private String email;
 	private String text;
 	private long vid;
-	public Comment() {
+	private String img;
+	public Comments() {
 		
 	}
-	public Comment(String name, String email, String text) {
+	public Comments(String name, String email, String text) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -38,5 +39,18 @@ public class Comment {
 	public void setVid(long vid) {
 		this.vid = vid;
 	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+	@Override
+	public String toString() {
+		return "Comments [name=" + name + ", email=" + email + ", text=" + text + ", vid=" + vid + ", img=" + img + "]";
+	}
+	
+	
+	
 	
 }

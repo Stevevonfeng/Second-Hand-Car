@@ -44,20 +44,66 @@
 		<div class="video_wrap">
 			<h6>评论</h6>
 			
-			<div class="form-group content"><!-- 
+			<div class="form-group content" id="comments"><!-- 
 					<input rows="1" class="form-control" class="sendInput" maxlength="1000" placeholder="" > -->
 					
-					  
+					 
 					
-					 <c:forEach items="${ename}" var="eee" >
+					 <%-- <c:forEach items="${ename}" var="eee" >
 					 <input rows="1" class="form-control" class="sendInput" maxlength="1000" placeholder="${ eee.email}:${eee.text }">
 					  
 					  <br/>
 					  
-					</c:forEach> 
+					</c:forEach>  --%>
 					
 					
 			</div>
+			
+			<section class="section-padding  parallex-bg">
+  <div class="container div_zindex">
+    <div class="row">
+      <div id="testimonial-slider">
+         
+     <!-- <div class="testimonial-m" style="visibility: hidden;">
+          <div class="testimonial-img"> <img src="assets/images/testimonial-img-1.jpg" alt="" /> </div>
+          <div class="testimonial-content">
+            <div class="testimonial-heading">
+              <h5>Donald Brooks</h5>
+              <span class="client-designation">CEO of xzy company</span> </div>
+            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt .</p>
+          </div>
+        </div> -->
+        
+        
+        <c:forEach items="${comments }" var="com" >
+        	
+      		<div class="testimonial-m" style="height:260.8px">
+	          <div class="testimonial-img"> <img src="/imgs/${com.img }" alt="" style="width: 205px;height: 205px"/> </div>
+	          <div class="testimonial-content">
+	            <div class="testimonial-heading">
+	              <h5>${com.name }</h5>
+	              <span class="client-designation">${com.email }</span> </div>
+	            <p>${com.text }</p>
+	          </div>
+        	</div>
+        	
+        	<!-- <div class="testimonial-m">
+          <div class="testimonial-img"> <img src="assets/images/testimonial-img-2.jpg" alt="" /> </div>
+          <div class="testimonial-content">
+            <div class="testimonial-heading">
+              <h5>Enzo Giovanotelli</h5>
+              <span class="client-designation">CEO of xzy company</span> </div>
+            <p></p>
+          </div>
+        </div> -->
+      </c:forEach>
+             
+      </div>
+    </div>
+  </div>
+  <!-- Dark Overlay-->
+  <div class="dark-overlay"></div>
+</section>
 		</div>
 		<div class="comment_form">
 			<h6>发表评论</h6>
@@ -65,18 +111,18 @@
 			<form action="addcomment">
 			
 				<div class="form-group">
-					<input type="text" class="form-control" name="name" placeholder="用户名">
+					<input type="text" class="form-control" name="namec" placeholder="用户名" id="namec">
 				</div>
 				<div class="form-group">
-					<input type="email" class="form-control" name = "email" placeholder="邮箱">
-				</div>
-				
-				<div class="form-group">
-					<input type="text" class="form-control" name="textc" placeholder="评论">
+					<input type="email" class="form-control" name = "emailc" placeholder="邮箱" id="emailc">
 				</div>
 				
 				<div class="form-group">
-					<input type="submit" class="btn click" value="提交">
+					<input type="text" class="form-control" name="textc" placeholder="评论" id="textc">
+				</div>
+				
+				<div class="form-group">
+					<input type="button" class="btn click" value="提交">
 				</div>
 				<input type="hidden" value="${car.vid }" id="carvid" name="vid">
 			</form>
@@ -84,13 +130,27 @@
  	</body>
 
 <script type="text/javascript">
-	var index = 1;
+	$(function(){
+		var usernamec = "${user.username }";
+		var emailc = "${user.email }";
+		$("#namec").val(usernamec);
+		$("#emailc").val(emailc);
+	});
+	
 	$(".click").click(function(){
+		var usernamec = "${user.username }";
+		var emailc = "${user.email }";
+		var textc = $("#textc").val();
 		var vid = $("#carvid").val();
-		var mtext = $(".text").val();
-		var lines = mtext.split(/\r*\n/);
-		$(".content").append("<textarea rows=\""+lines.length+"\" class=\"form-control\" class=\"sendInput\" maxlength=\"1000\" placeholder=\"评论展示\">"+mtext+"</textarea>");
-		$(".text").val("");
+		$.ajax({
+			type:"get",
+			url:"addcomment",
+			data:{username:usernamec,email:emailc,textc:textc,vid:vid},
+			dataType:"json",
+			success:function(rs){
+				alert("添加评论成功");
+			}
+		});
 	})
 </script>
 </html>
