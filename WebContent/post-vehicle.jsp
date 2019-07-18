@@ -294,7 +294,7 @@
             </div>
             <div class="form-group">
               <label class="control-label">座位数</label>
-              <input class="form-control white_bg" id="s-capacity" name="seats" type="text">
+              <input class="form-control white_bg" id="s-capacity" name="s_capacity" type="text">
             </div>
             <div class="form-group">
               <label class="control-label">传输类型</label>

@@ -285,7 +285,7 @@
               <p>发动机功率/kw</p>
             </li>
             <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
-              <h5>${car.seats }</h5>
+              <h5>${car.s_capacity }</h5>
               <p>座位</p>
             </li>
           </ul>
