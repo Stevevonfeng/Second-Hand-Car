@@ -297,9 +297,9 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 			if(year!=null&&!year.equals("Year of Model")&&!year.equals("")) {
 				int yearI = Integer.parseInt(year);
 				if(brand==null||brand.equals("选择品牌")||brand.equals("")) {
-					sql = sql+"where to_char(year,'YYYY')>'"+(yearI-1)+"' and to_char(year,'YYYY')<'"+(yearI+1)+"'";
+					sql = sql+"where to_char(year,'YYYY')>'"+(yearI-1)+"' and to_char(year,'YYYY')<'"+(yearI+1)+"' ";
 				}else {
-					sql = sql + "and to_char(year,'YYYY')>'"+(yearI-1)+"' and to_char(year,'YYYY')<'"+(yearI+1)+"'";
+					sql = sql + "and to_char(year,'YYYY')>'"+(yearI-1)+"' and to_char(year,'YYYY')<'"+(yearI+1)+"' ";
 					
 				}
 				//sql = sql+"and year>to_date('"+(yearI-1)+"','YYYY') and year<to_date('"+(yearI+1)+"','YYYY') ";
@@ -318,14 +318,27 @@ public static Object reqToObject(Object obj,Class cls,List<FileItem> list) {
 				String[] strs = price.split(",");
 				boolean other = true;
 				if((brand==null||brand.equals("选择品牌")||brand.equals(""))&&(year==null||year.equals("Year of Model")||year.equals(""))&&(statu==null||statu.equals("汽车类型")||statu.equals(""))) {
-							sql = sql+"where price>"+strs[0]+" and  price<"+strs[1]+"";
+							sql = sql+"where price>"+strs[0]+" and  price<"+strs[1]+" ";
 							other = false;
 				}
 				if(other) {
-					sql = sql+"and price>"+strs[0]+" and  price<"+strs[1]+"";
+					sql = sql+"and price>"+strs[0]+" and  price<"+strs[1]+" ";
 				}
 				
 			}
+			
+			String[] sqlli = sql.split(" ");
+			boolean once = true;
+			for(String sqll:sqlli) {
+				if(sqll.equals("where")) {
+					sql = sql+"and active='active' ";
+					once = false;
+				}
+			}
+			if(once) {
+				sql = sql+"where active='active' ";
+			}
+			
 		 return sql;
 	 }
 	 
