@@ -163,12 +163,7 @@
 			<div class="row">
 				<div class="col-md-3 col-sm-3">
 					<div class="profile_nav">
-						<ul>
-							<li class="active"><a href="#">资料设置</a></li>
-							<li><a href="my-vehicles.jsp">My Vehicles</a></li>
-							<li><a href="post-vehicle.jsp">Post a Vehicles</a></li>
-							<li><a  href="User?act=SignOut&username=${user.getUsername()}"">退出登录</a></li>
-						</ul>
+						<%@include file="infolist.jsp"%>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-8">
