@@ -17,6 +17,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.service.CommentService;
+import com.service.ICommentService;
 import com.service.IUserService;
 import com.service.UserServiceImpl;
 
@@ -51,6 +53,7 @@ public class UserImage extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		IUserService ius = new UserServiceImpl();
+		ICommentService ics = new CommentService();
 		String userName = null;
 		
 		try {
@@ -86,6 +89,7 @@ public class UserImage extends HttpServlet {
 						fos.write(b);
 					}
 					ius.upUserIMg(userName,bfilename);
+					ics.setCommentImgByUserName(userName, bfilename);
 					//�ر���
 					is.close();
 					fos.close();

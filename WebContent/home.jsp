@@ -609,6 +609,25 @@
     </div>
     <div class="row">
       <div id="testimonial-slider">
+      
+         <div class="testimonial-m">
+          <div class="testimonial-img"> <img src="assets/images/testimonial-img-1.jpg" alt="" /> </div>
+          <div class="testimonial-content">
+            <div class="testimonial-heading">
+              <h5>Donald Brooks</h5>
+              <span class="client-designation">CEO of xzy company</span> </div>
+            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt .</p>
+          </div>
+        </div> 
+        <div class="testimonial-m">
+          <div class="testimonial-img"> <img src="assets/images/testimonial-img-2.jpg" alt="" /> </div>
+          <div class="testimonial-content">
+            <div class="testimonial-heading">
+              <h5>Enzo Giovanotelli</h5>
+              <span class="client-designation">CEO of xzy company</span> </div>
+            <p></p>
+          </div>
+        </div>
         <div class="testimonial-m">
           <div class="testimonial-img"> <img src="assets/images/testimonial-img-1.jpg" alt="" /> </div>
           <div class="testimonial-content">
@@ -627,7 +646,7 @@
             <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt .</p>
           </div>
         </div>
-        <div class="testimonial-m">
+         <div class="testimonial-m">
           <div class="testimonial-img"> <img src="assets/images/testimonial-img-1.jpg" alt="" /> </div>
           <div class="testimonial-content">
             <div class="testimonial-heading">
@@ -644,25 +663,7 @@
               <span class="client-designation">CEO of xzy company</span> </div>
             <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt .</p>
           </div>
-        </div>
-        <div class="testimonial-m">
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-1.jpg" alt="" /> </div>
-          <div class="testimonial-content">
-            <div class="testimonial-heading">
-              <h5>Donald Brooks</h5>
-              <span class="client-designation">CEO of xzy company</span> </div>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt .</p>
-          </div>
-        </div>
-        <div class="testimonial-m">
-          <div class="testimonial-img"> <img src="assets/images/testimonial-img-2.jpg" alt="" /> </div>
-          <div class="testimonial-content">
-            <div class="testimonial-heading">
-              <h5>Enzo Giovanotelli</h5>
-              <span class="client-designation">CEO of xzy company</span> </div>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt .</p>
-          </div>
-        </div>
+        </div> 
       </div>
     </div>
   </div>

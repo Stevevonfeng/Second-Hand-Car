@@ -2,9 +2,10 @@ package com.service;
 
 import java.util.List;
 
-import com.model.Comment;
+import com.model.Comments;
 
 public interface ICommentService {
-	public void addComment(Comment comment);
-	public List<Comment> queryPreparedStatement();
+	public void addComment(Comments comment);
+	public List<Comments> queryPreparedStatement();
+	void setCommentImgByUserName(String userName, String img);
 }

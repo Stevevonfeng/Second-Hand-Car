@@ -186,6 +186,7 @@ public class CarDaoImpl implements ICarDao{
 		tableFields = tableFields.substring(0, tableFields.length()-1);
 		size = size.substring(0, size.length()-1);
 		String sql = "insert into "+tableName+"("+tableFields+") values("+size+")";
+		System.out.println("CarDaoImpl--inseartObject--"+sql);
 		PreparedStatement p = null;
 		try {
 			p = c.prepareStatement(sql);
