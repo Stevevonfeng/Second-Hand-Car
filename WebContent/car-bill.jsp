@@ -40,10 +40,11 @@ Page Header
 				<div class="profile_wrap">
 					<h5 class="uppercase underline">账单</h5>
 					<form action="goodorder?vid=${param.vid}" method="get">
+						<!-- 获取登录用户的id -->
+						<input type="hidden" name="nowuserid" value="${user.userid}">
 						<div class="form-group">
 							<label class="control-label">账单号</label> <input
-								class="form-control white_bg" id="billnum" type="text" name="billnum"
-								>
+								class="form-control white_bg" id="billnum" type="text" name="billnum">
 						</div>
 						<div class="form-group">
 							<label class="control-label">车辆ID</label> <input

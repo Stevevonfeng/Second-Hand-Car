@@ -30,5 +30,14 @@ public interface IDealersDao {
 	public int carsNumById(String userid);
 	//展示商家车辆
 	public List<Car2> displayDealersCars(String userid);
+	
+	//显示用户订单
+	public List<GoodOrder> searchOrderByUserid(String userid);
+	
+	//支付成功跳转
+	public void paySuccess(String ordernum);
+	
+	//显示商家货单
+	public List<GoodOrder> getOrderByUserid(String userid);
 
 }

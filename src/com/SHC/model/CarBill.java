@@ -11,6 +11,7 @@ public class CarBill {
 	private String fuel;
 	private String carNO;//车的新旧
 	private String price;
+	private String userid;
 	public long getBillnum() {
 		return billnum;
 	}
@@ -65,6 +66,12 @@ public class CarBill {
 	}
 	public void setVid(long vid) {
 		this.vid = vid;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 	
 	
