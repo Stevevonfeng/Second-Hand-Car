@@ -2,6 +2,7 @@ package com.SHC.servlet;
 
 
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -183,6 +184,56 @@ public class DealersServlet extends BaseServlet {
 		IDealersService ids = new DealersServiceImpl();
 		int num = ids.carsNumById(userid);
 		return num;
+	}
+	
+	//搜索个人订单
+	public void searchOrderByUserid(HttpServletRequest request, HttpServletResponse response){
+		
+		try {
+			String userid = request.getParameter("userid");
+
+			IDealersService ids = new DealersServiceImpl();
+			
+			List<GoodOrder> golist = ids.searchOrderByUserid(userid);
+			
+			request.setAttribute("golist", golist);
+			request.getRequestDispatcher("order1.jsp").forward(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	//支付成功
+	public void paySuccess(HttpServletRequest request, HttpServletResponse response){
+		try {
+			String ordernum = request.getParameter("out_trade_no");
+			
+			IDealersService ids = new DealersServiceImpl();
+			
+			ids.paySuccess(ordernum);
+			
+			request.getRequestDispatcher("home.jsp").forward(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	//显示商家货单
+	public void getOrderByUserid(HttpServletRequest request, HttpServletResponse response){
+		try {
+			String userid = request.getParameter("userid");
+			IDealersService ids = new DealersServiceImpl();
+			List<GoodOrder> golist = ids.getOrderByUserid(userid);
+			
+			request.setAttribute("golist", golist);
+			request.getRequestDispatcher("order2.jsp").forward(request, response);
+		} catch (ServletException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

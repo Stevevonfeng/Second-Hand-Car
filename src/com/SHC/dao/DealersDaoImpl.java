@@ -281,7 +281,7 @@ public class DealersDaoImpl implements IDealersDao{
 		GoodOrder go = new GoodOrder();
 		
 		try {
-			String sql="select ordernum, vid, price, des from goodorder where ordernum = '"+ordernum+"'";
+			String sql="select ordernum, vid, price, des, status from goodorder where ordernum = '"+ordernum+"'";
 			PreparedStatement psmt = conn.prepareStatement(sql);
 			ResultSet rs = psmt.executeQuery();
 			if(rs.next()){
@@ -289,11 +289,13 @@ public class DealersDaoImpl implements IDealersDao{
 				long vid = rs.getLong(2);
 				int price = rs.getInt(3);
 				String des = rs.getString(4);
+				String status = rs.getString(5);
 				
 				go.setOrdernum(ordernum);
 				go.setVid(vid);
 				go.setPrice(price);
 				go.setDes(des);
+				go.setBillstatus(status);
 			}
 			
 		} catch (Exception e) {
@@ -429,6 +431,92 @@ public class DealersDaoImpl implements IDealersDao{
 		}
 		
 		return cars;
+	}
+
+
+	@Override
+	public List<GoodOrder> searchOrderByUserid(String userid) {
+		List<GoodOrder> golist = new ArrayList<GoodOrder>();
+		String sql="select ordernum, vid, price, des ,status from goodorder where userid = "+userid+"";
+		
+		try {
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			ResultSet rs = psmt.executeQuery();
+			
+			while(rs.next()){
+				String ordernum = rs.getString("ordernum");
+				long vid = rs.getLong("vid");
+				int price = rs.getInt("price");
+				String des = rs.getString("des");
+				String status = rs.getString("status");
+				
+				GoodOrder go = new GoodOrder();
+				go.setOrdernum(ordernum);
+				go.setVid(vid);
+				go.setPrice(price);
+				go.setDes(des);
+				go.setBillstatus(status);
+				golist.add(go);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return golist;
+	}
+
+
+	@Override
+	public void paySuccess(String ordernum) {
+		
+		try {
+			String sql = "update goodorder set status ='已支付' where ordernum = " + ordernum;
+
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			
+			psmt.execute();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+
+	@Override
+	public List<GoodOrder> getOrderByUserid(String userid) {
+		List<GoodOrder> golist = new ArrayList<GoodOrder>();
+		String sql="select g.ordernum, g.vid, g.price, g.des, g.status,c.userid from goodorder g,car2 c,tb_user u where c.vid = g.vid and u.userid="+userid+"";
+		
+
+			try {
+				PreparedStatement psmt = conn.prepareStatement(sql);
+				ResultSet rs = psmt.executeQuery();
+				
+				while(rs.next()){
+					String ordernum = rs.getString("ordernum");
+					long vid = rs.getLong("vid");
+					int price = rs.getInt("price");
+					String des = rs.getString("des");
+					String status = rs.getString("status");
+					
+					GoodOrder go = new GoodOrder();
+					go.setOrdernum(ordernum);
+					go.setVid(vid);
+					go.setPrice(price);
+					go.setDes(des);
+					go.setBillstatus(status);
+					golist.add(go);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		return golist;
+		
 	}
 
 

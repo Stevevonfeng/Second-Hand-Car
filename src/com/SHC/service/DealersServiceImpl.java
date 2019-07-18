@@ -65,6 +65,24 @@ public class DealersServiceImpl implements IDealersService {
 		return idd.displayDealersCars(userid);
 	}
 
+	@Override
+	public List<GoodOrder> searchOrderByUserid(String userid) {
+		IDealersDao idd = new DealersDaoImpl();
+		return idd.searchOrderByUserid(userid);
+	}
+
+	@Override
+	public void paySuccess(String ordernum) {
+		IDealersDao idd = new DealersDaoImpl();
+		idd.paySuccess(ordernum);
+	}
+
+	@Override
+	public List<GoodOrder> getOrderByUserid(String userid) {
+		IDealersDao idd = new DealersDaoImpl();
+		return idd.getOrderByUserid(userid);
+	}
+
 
 
 

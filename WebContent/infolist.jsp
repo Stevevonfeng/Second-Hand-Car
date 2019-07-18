@@ -13,6 +13,8 @@
 			<li><a href="User?act=ToUpdate&username=${user.getUsername()}">资料设置</a></li>
 			<li><a href="my-vehicles.jsp">我的车库</a></li>
 			<li><a href="post-vehicle.jsp">我要卖车</a></li>
+			<li><a href="dealers?act=searchOrderByUserid&userid=${user.userid }">我的订单</a></li>
+			<li><a href="dealers?act=getOrderByUserid&userid=${user.userid }">我的货单</a></li>
 			<li><a href="User?act=SignOut&username=${user.getUsername()}">退出登录</a></li>
 		</ul>
 

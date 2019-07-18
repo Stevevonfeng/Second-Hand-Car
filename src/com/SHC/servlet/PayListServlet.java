@@ -53,9 +53,10 @@ public class PayListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		Car2 carbill = new Car2();
 		long vid = Long.parseLong(request.getParameter("vid"));
+		String nowuserid = request.getParameter("nowuserid"); 
 
 		try {
-			String sql = "select vid,brand,model,version,year,fuel,newcar,usedcar,price from car2 where vid="+ vid + "";
+			String sql = "select vid,brand,model,version,year,fuel,newcar,usedcar,price,userid from car2 where vid="+ vid + "";
 			PreparedStatement psmt = conn.prepareStatement(sql);
 			ResultSet rs = psmt.executeQuery();
 
@@ -69,6 +70,7 @@ public class PayListServlet extends HttpServlet {
 				String newcar = rs.getString(7);
 				String usedcar = rs.getString(8);
 				String price = rs.getString(9);
+				String userid = rs.getString(10);
 
 				carbill.getVid();
 				carbill.setBrand(brand);
@@ -79,11 +81,13 @@ public class PayListServlet extends HttpServlet {
 				carbill.setNewcar(newcar);
 				carbill.setUsedcar(usedcar);
 				carbill.setPrice(price);
+				carbill.setUserid(userid);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		request.setAttribute("nowuserid", nowuserid);
 		request.setAttribute("carbill", carbill);
 		request.getRequestDispatcher("car-bill.jsp").forward(request, response);
 	}

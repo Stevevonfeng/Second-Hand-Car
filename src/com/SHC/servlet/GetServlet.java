@@ -12,13 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.SHC.model.GoodOrder;
-
 /**
- * Servlet implementation class GoodOrderServlet
+ * Servlet implementation class GetServlet
  */
-@WebServlet("/goodorder")
-public class GoodOrderServlet extends HttpServlet {
+@WebServlet("/getorder")
+public class GetServlet extends HttpServlet {
 	static String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 	static String user = "scott";
 	static String password = "admin";
@@ -37,7 +35,7 @@ public class GoodOrderServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GoodOrderServlet() {
+    public GetServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,37 +44,19 @@ public class GoodOrderServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		GoodOrder go =new GoodOrder();
-		
-		
 		try {
+			String ordernum = request.getParameter("ordernum");
 			
-			String ordernum = request.getParameter("billnum");
-			String vid = request.getParameter("vid");
-			String price = request.getParameter("price");
-			String des = request.getParameter("des");
-			String userid = request.getParameter("nowuserid");
-			
-			go.setOrdernum(ordernum);
-			go.setVid(Long.parseLong(vid));
-			go.setPrice(Integer.parseInt(price));
-			go.setDes(des);
-			go.setBillstatus("待支付");
-			go.setUserid(userid);
-			
-			String sql="insert into goodorder(ordernum, vid, price, des, status, userid) "
-					+ "values(?, ?, ?, ?, ?, ?)";
+			System.out.println(ordernum);
+			String sql = "update goodorder set status =? where ordernum = ?";
+
 			PreparedStatement psmt = conn.prepareStatement(sql);
-			psmt.setString(1, go.getOrdernum());
-			psmt.setObject(2, go.getVid());
-			psmt.setObject(3, go.getPrice());
-			psmt.setObject(4, go.getDes());
-			psmt.setObject(5, go.getBillstatus());
-			psmt.setObject(6, go.getUserid());
+			psmt.setObject(1, "已收货");
+			psmt.setObject(2, ordernum);
 			psmt.execute();
-			response.sendRedirect("dealers?act=searchOrderByOrdernum&ordernum="+ordernum+"&userid="+userid+"");
-			//request.getRequestDispatcher("dealers?act=searchOrderByOrdernum").forward(request, response);
-		} catch (Exception e) {
+			
+			response.sendRedirect("dealers?act=searchOrderByUserid");
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

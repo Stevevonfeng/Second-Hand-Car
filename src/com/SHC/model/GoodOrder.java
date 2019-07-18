@@ -6,6 +6,9 @@ public class GoodOrder {
 	private long vid;
 	private int price;
 	private String des;
+	private String billstatus;
+	private String userid;
+	
 	public String getOrdernum() {
 		return ordernum;
 	}
@@ -30,6 +33,19 @@ public class GoodOrder {
 	public void setDes(String des) {
 		this.des = des;
 	}
+	public String getBillstatus() {
+		return billstatus;
+	}
+	public void setBillstatus(String billstatus) {
+		this.billstatus = billstatus;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
 
 	
 }
